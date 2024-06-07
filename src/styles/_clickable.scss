@@ -1,0 +1,44 @@
+
+.button {
+  border: 0;
+  border-radius: $button-radius;
+  font-size: $button-font-size;
+  margin: $button-margin;
+  padding: $button-padding;
+
+  &-default {
+    background-color: $color-background;
+    color: $color-foreground;
+
+    &:hover {
+      background-color: darken($color-background, $button-hover-darken);
+    }
+  }
+
+  &-primary {
+    background-color: $color-primary;
+    color: $color-primary-fg;
+
+    &:hover {
+      background-color: darken($color-primary, $button-hover-darken);
+    }
+  }
+
+  &-secondary {
+    background-color: $color-secondary;
+    color: $color-secondary-fg;
+
+    &:hover {
+      background-color: darken($color-secondary, $button-hover-darken);
+    }
+  }
+
+  &-tertiary {
+    background-color: $color-tertiary;
+    color: $color-tertiary-fg;
+
+    &:hover {
+      background-color: darken($color-tertiary, $button-hover-darken);
+    }
+  }
+}

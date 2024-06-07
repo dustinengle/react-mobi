@@ -1,0 +1,125 @@
+
+.badge {
+  .count {
+    border-radius: $badge-radius;
+    padding: $badge-padding;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+    z-index: 1;
+  }
+
+  &-danger {
+    .count {
+      background-color: $color-danger;
+      color: $color-white;
+    }
+  }
+
+  &-default {
+    .count {
+      background-color: $color-black;
+      color: $color-white;
+    }
+  }
+
+  &-info {
+    .count {
+      background-color: $color-info;
+      color: $color-white;
+    }
+  }
+
+  &-success {
+    .count {
+      background-color: $color-success;
+      color: $color-white;
+    }
+  }
+
+  &-warning {
+    .count {
+      background-color: $color-warning;
+      color: $color-black;
+    }
+  }
+}
+
+
+
+.tooltip {
+  border-bottom: 1px dotted $color-foreground;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+
+  .message {
+    background-color: $color-foreground;
+    border-radius: $tooltip-radius;
+    color: $color-background;
+    padding: $tooltip-padding;
+    position: absolute;
+    text-align: center;
+    visibility: hidden;
+    width: 10vw;
+    z-index: 1;
+  }
+
+  /* Visible */
+
+  &:hover .message {
+    visibility: visible;
+  }
+
+  /* Location */
+
+  &.bottom .message {
+    left: 50%;
+    top: 105%;
+    transform: translateX(-50%);
+  }
+
+  &.cover .message {
+    left: 50%;
+    transform: translate(-50%, -25%);
+  }
+
+  &.left .message {
+    right: 105%;
+    transform: translateY(-25%);
+  }
+
+  &.right .message {
+    left: 105%;
+    transform: translateY(-25%);
+  }
+
+  &.top .message {
+    bottom: 105%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Color */
+
+  &-danger .message {
+    background-color: $color-danger;
+    color: $color-danger-fg;
+  }
+
+  &-info .message {
+    background-color: $color-info;
+    color: $color-info-fg;
+  }
+
+  &-success .message {
+    background-color: $color-success;
+    color: $color-success-fg;
+  }
+
+  &-warning .message {
+    background-color: $color-warning;
+    color: $color-warning-fg;
+  }
+}

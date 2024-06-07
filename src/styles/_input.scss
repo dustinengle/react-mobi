@@ -1,0 +1,52 @@
+
+input, option, select, textarea {
+  accent-color: $color-background;
+  background-color: $color-background;
+  border: 1px solid darken($color-background, 20%);
+  border-radius: 0.25em;
+  box-shadow: none;
+  color: lighten($color-foreground, 20%);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  max-width: 20em;
+  outline: none;
+  padding: 0.75em;
+
+  &:hover {
+    border-color: $color-primary;
+  }
+
+  .error {
+    border-color: $color-danger;
+  }
+}
+
+input {
+  &[type='checkbox'], &[type='radio'] {
+    cursor: pointer;
+    height: 1.25em;
+    width: 1.25em;
+
+    .error {
+      accent-color: $color-danger;
+    }
+  }
+}
+
+label {
+  font-size: 1.25em;
+
+  .error {
+    color: $color-danger;
+  }
+}
+
+select {
+  appearance: none;
+  background: url('/assets/carrot.png') no-repeat right 0.75em center;
+  min-width: 8em;
+
+  .error {
+    border-color: $color-danger;
+  }
+}

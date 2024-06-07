@@ -1,0 +1,418 @@
+
+// We import this type in order to cast a string to it, this is only for demonstration
+// purposes and won't be needed in the future.
+import { Icons } from '@/commons/types'
+
+import Badge from '@/elements/Badge'
+import Button from '@/elements/Button'
+import { Checkbox, Input, Option, Radio, Select, Textarea } from '@/elements/Input'
+import Divider from '@/elements/Divider'
+import { H1, H2, H3, H4, H5, H6 } from '@/elements/Heading'
+import Highlight from '@/elements/Highlight'
+import Icon from '@/elements/Icon'
+import Image from '@/elements/Image'
+import Link from '@/elements/Link'
+import { List, ListItem } from '@/elements/List'
+import Text from '@/elements/Text'
+import Tooltip from '@/elements/Tooltip'
+
+import Flex from '@/layouts/Flex'
+
+function App() {
+  // We use this simple callback to avoid prop validation errors.
+  function callbackTest() {
+    alert('You clicked me!')
+  }
+
+  // We use this function to handle changes to inputs.
+  function handleChange(name: string, value: string) {
+    console.log(`${name} = ${value}`)
+  }
+
+  // We will use this list to show all of the currently supported icons, this is only for
+  // demonstration purposes.
+  const icons = [
+    'alert',
+    'attach',
+    'award',
+    'calendar',
+    'caret-down',
+    'caret-up',
+    'cash',
+    'cc-amex',
+    'cc-discover',
+    'cc-mastercard',
+    'cc-visa',
+    'check',
+    'comment',
+    'danger',
+    'delete',
+    'edit',
+    'email',
+    'folder',
+    'hide',
+    'info',
+    'lock',
+    'map',
+    'message',
+    'minus',
+    'next',
+    'open',
+    'plus',
+    'prev',
+    'profile',
+    'restricted',
+    'save',
+    'settings',
+    'star',
+    'success',
+    'tag',
+    'unlock',
+    'user',
+    'view',
+    'warning',
+  ]
+
+  return (
+    <div className='content'>
+      <Flex align='center' direction='column' full justify='evenly' style={{padding: '1rem'}}>
+        <H1>Elements</H1>
+
+        <Flex align='center' direction='column'>
+          <H2>Badges</H2>
+          <Flex direction='row' gap='3rem' justify='between'>
+            <Badge count={123}>
+              <Button callback={callbackTest} label='Click me!' role='secondary' />
+            </Badge>
+            <Badge context='danger' count={123}>
+              <Icon name='alert' size='lg' />
+            </Badge>
+            <Badge context='info' count={123}>
+              <Button callback={callbackTest} label='Click me!' />
+            </Badge>
+            <Badge context='success' count={123}>
+              <Button callback={callbackTest} label='Click me!' role='tertiary' />
+            </Badge>
+            <Badge context='warning' count={123}>
+              <Icon name='calendar' size='xl' />
+            </Badge>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Buttons</H2>
+          <Flex direction='row' justify='evenly'>
+              <Button callback={callbackTest} label='Click me!' />
+              <Button callback={callbackTest} label='Click me!' role='primary' />
+              <Button callback={callbackTest} label='Click me!' role='secondary' />
+              <Button callback={callbackTest} label='Click me!' role='tertiary' />
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Dividers</H2>
+          <Flex direction='row' justify='evenly'>
+              <div style={{ width: '10rem' }}>
+                <Divider direction='horizontal' />
+              </div>
+              <div style={{ height: '5rem' }}>
+                <Divider direction='vertical' />
+              </div>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Fonts</H2>
+          <Flex direction='row' justify='evenly'>
+            <Flex align='center' direction='column'>
+              <H4>Body</H4>
+              <p className='font-body'>
+                Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
+              </p>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Legal</H4>
+              <p className='font-legal'>
+                Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
+              </p>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Number</H4>
+              <p className='font-number'>
+                Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
+              </p>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Title</H4>
+              <p className='font-title'>
+                Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
+              </p>
+            </Flex>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Headings</H2>
+          <Flex direction='row' justify='evenly'>
+              <H1>Heading 1</H1>
+              <H2>Heading 2</H2>
+              <H3>Heading 3</H3>
+              <H4>Heading 4</H4>
+              <H5>Heading 5</H5>
+              <H6>Heading 6</H6>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Highlights</H2>
+          <Flex direction='row' justify='evenly'>
+              <p>
+                Etiam finibus, velit eu convallis aliquet, mauris justo
+                tincidunt <Highlight>lectus 10-20%</Highlight>, nec tempor elit massa eget metus.
+              </p>
+              <p>
+                Etiam finibus, velit eu convallis aliquet, mauris justo
+                tincidunt <Highlight bg='black' fg='white'>lectus 10-20%</Highlight>, nec tempor elit massa eget metus.
+              </p>
+              <p>
+                Etiam finibus, velit eu convallis aliquet, mauris justo
+                tincidunt <Highlight bg='cyan' fg='purple'>lectus 10-20%</Highlight>, nec tempor elit massa eget metus.
+              </p>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Icons</H2>
+          <Flex align='center' direction='row' justify='center' wrap>
+            {icons.map((icon, index) => {
+              // We do this small hack in order to showcase the different sizes, this is
+              // for demonstration purposes only.
+              var size
+              if (index % 4 === 0) size = 'xl' as const
+              else if (index % 3 === 0) size = 'lg' as const
+              else if (index % 2 === 0) size = 'md' as const
+              else size = 'sm' as const
+
+              return (
+                <Flex align='center' direction='column' justify='center' key={index} style={{flexBasis: '4rem'}}>
+                  <Icon name={icon as Icons} size={size} />
+                  <div>{icon}</div>
+                </Flex>
+              )
+          })}
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Images</H2>
+          <Flex direction='row' justify='evenly'>
+            <Flex align='center' direction='column'>
+              <H4>Contain</H4>
+              <Image role='contain' src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Cover</H4>
+              <Image role='cover' src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Fill</H4>
+              <Image role='fill' src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Responsive</H4>
+              <Image src='/images/test.jpg' style={{width: '20rem'}} />
+            </Flex>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Inputs</H2>
+          <Flex direction='row' justify='evenly' wrap>
+            <Flex align='center' direction='column'>
+              <H4>Checkbox</H4>
+              <Checkbox handler={handleChange} name='checkbox'>I agree to terms</Checkbox>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Email</H4>
+              <Input handler={handleChange} name='email' type='email' />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>File</H4>
+              <Input handler={handleChange} name='file' type='file' />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Number</H4>
+              <Input handler={handleChange} name='number' type='number' />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Password</H4>
+              <Input handler={handleChange} name='password' type='password' />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Radio</H4>
+              <Radio handler={handleChange} name='radio' value='yes'>Agree</Radio>
+              <Radio handler={handleChange} name='radio' value='no'>Disagree</Radio>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Select</H4>
+              <Select handler={handleChange} name='select'>
+                <Option value='one'>Option 1</Option>
+                <Option value='two'>Option 2</Option>
+                <Option value='three'>Option 3</Option>
+                <Option value='four'>Option 4</Option>
+                <Option value='five'>Option 5</Option>
+              </Select>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Telephone</H4>
+              <Input handler={handleChange} name='telephone' type='tel' />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Text</H4>
+              <Input handler={handleChange} name='text' />
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Textarea</H4>
+              <Textarea handler={handleChange} name='textarea' />
+            </Flex>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Links</H2>
+          <Flex direction='row' justify='evenly'>
+            <Link href='/'>Default Link</Link>
+            <Link href='/' open>New Window Link</Link>
+            <Link href='/' style={{color: 'black', backgroundColor: 'red'}}>Custom Style</Link>
+            <Link href='/' open style={{color: 'green', backgroundColor: 'yellow'}}>Custom Style New Window</Link>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Lists</H2>
+          <Flex direction='row' justify='evenly'>
+            <Flex align='center' direction='column'>
+              <H4>Ordered</H4>
+              <List role='ordered'>
+                <ListItem>Item 1</ListItem>
+                <ListItem>Item 2</ListItem>
+                <ListItem>Item 3</ListItem>
+                <ListItem>Item 4</ListItem>
+                <ListItem>Item 5</ListItem>
+              </List>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Unordered</H4>
+              <List role='unordered'>
+                <ListItem>Item 1</ListItem>
+                <ListItem>Item 2</ListItem>
+                <ListItem>Item 3</ListItem>
+                <ListItem>Item 4</ListItem>
+                <ListItem>Item 5</ListItem>
+              </List>
+            </Flex>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Texts</H2>
+          <Flex direction='row' justify='evenly' wrap>
+            <Flex align='center' direction='column'>
+              <H4>Default</H4>
+              <Text>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Bold</H4>
+              <Text bold>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Capitalize</H4>
+              <Text capitalize>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Italic</H4>
+              <Text italic>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Legal</H4>
+              <Text legal>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Lowercase</H4>
+              <Text lowercase>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Strikethrough</H4>
+              <Text strikethrough>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Subscript</H4>
+              <Text>Aliquam vitae neque<Text subscript>log n</Text> at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Superscript</H4>
+              <Text>Aliquam vitae neque<Text superscript>(xy)</Text> at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Underline</H4>
+              <Text underline>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Uppercase</H4>
+              <Text uppercase>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Custom Style</H4>
+              <Text style={{color: 'orange'}}>Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Context</H4>
+              <Text context='danger'>Danger - Aliquam vitae neque at urna convallis molestie.</Text>
+              <Text context='info'>Info - Aliquam vitae neque at urna convallis molestie.</Text>
+              <Text context='success'>Success - Aliquam vitae neque at urna convallis molestie.</Text>
+              <Text context='warning'>Warning - Aliquam vitae neque at urna convallis molestie.</Text>
+            </Flex>
+          </Flex>
+        </Flex>
+
+        <Flex align='center' direction='column'>
+          <H2>Tooltips</H2>
+          <Flex direction='row' gap='4rem' justify='evenly'>
+            <Flex align='center' direction='column'>
+              <H4>Default</H4>
+              <Tooltip message='Nothing special here'>
+                No position
+              </Tooltip>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Danger</H4>
+              <Tooltip context='danger' message='Oh no, we are in trouble' position='top'>
+                Position top
+              </Tooltip>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Info</H4>
+              <Tooltip context='info' message='For your information' position='right'>
+                Position right
+              </Tooltip>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Success</H4>
+              <Tooltip context='success' message='Congratulations, we did it' position='bottom'>
+                Position bottom
+              </Tooltip>
+            </Flex>
+            <Flex align='center' direction='column'>
+              <H4>Warning</H4>
+              <Tooltip context='warning' message='You should keep an eye out' position='left'>
+                Position left
+              </Tooltip>
+            </Flex>
+          </Flex>
+        </Flex>
+      </Flex>
+    </div>
+  )
+}
+
+export default App

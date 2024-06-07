@@ -1,0 +1,138 @@
+
+html, body {
+  color: $color-foreground;
+  font-family: $font-family-body;
+  font-optical-sizing: auto;
+  font-size: $font-size;
+}
+
+a, .link {
+  color: $link-color;
+  text-decoration: $link-text-decoration;
+
+  &:active, &:hover {
+    color: $link-color-hover;
+  }
+
+  .icon {
+    display: inline-block;
+    height: 0.85em;
+    width: 0.85em;
+  }
+}
+
+h {
+  &1, &2, &3, &4, &5, &6 {
+    font-family: $font-family-title;
+  }
+
+  &1 {
+    font-size: 2rem;
+    margin: 0.65rem 0;
+  }
+
+  &2 {
+    font-size: 1.5rem;
+    margin: 0.75rem 0;
+  }
+
+  &3 {
+    font-size: 1.15rem;
+    margin: 0.85rem 0;
+  }
+
+  &4 {
+    font-size: 1rem;
+    margin: 1rem 0;
+  }
+
+  &5 {
+    font-size: 0.85rem;
+    margin: 1.5rem 0;
+  }
+
+  &6 {
+    font-size: 0.75rem;
+    margin: 1.75rem 0;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.danger {
+  color: $color-danger;
+}
+
+.font {
+  &-body {
+    font-family: $font-family-body;
+  }
+
+  &-legal {
+    font-family: $font-family-legal;
+  }
+
+  &-number {
+    font-family: $font-family-number;
+  }
+
+  &-title {
+    font-family: $font-family-title;
+  }
+}
+
+.highlight {
+  padding: 0.25rem;
+}
+
+.info {
+  color: $color-info;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.legal {
+  font-family: $font-family-legal;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.subscript {
+  font-size: 0.65em;
+  vertical-align: sub;
+}
+
+.success {
+  color: $color-success;
+}
+
+.superscript {
+  font-size: 0.65em;
+  vertical-align: super;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.warning {
+  color: $color-warning;
+}

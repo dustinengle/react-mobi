@@ -1,0 +1,41 @@
+
+.icon {
+  &-sm {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  &-md {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  &-lg {
+    height: 3rem;
+    width: 3rem;
+  }
+
+  &-xl {
+    height: 4rem;
+    width: 4rem;
+  }
+}
+
+.image {
+  &-contain {
+    object-fit: contain;
+  }
+
+  &-cover {
+    object-fit: cover;
+  }
+
+  &-fill {
+    object-fit: fill;
+  }
+
+  &-responsive {
+    height: auto;
+    width: auto;
+  }
+}

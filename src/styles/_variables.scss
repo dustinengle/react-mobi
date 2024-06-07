@@ -1,0 +1,69 @@
+
+/* Colors */
+$color-black: black;
+$color-white: white;
+
+$color-background: $color-white !default;
+$color-foreground: $color-black !default;
+
+$color-danger: #dc3545 !default;
+$color-danger-fg: $color-white !default;
+$color-info: #0dcaf0 !default;
+$color-info-fg: $color-white !default;
+$color-success: #198754 !default;
+$color-success-fg: $color-white !default;
+$color-warning: #ffc107 !default;
+$color-warning-fg: $color-black !default;
+
+$color-primary: rgb(64, 0, 104) !default;
+$color-primary-fg: $color-white !default;
+$color-secondary: rgb(21, 137, 64) !default;
+$color-secondary-fg: $color-white !default;
+$color-tertiary: rgb(246, 232, 255) !default;
+$color-tertiary-fg: $color-black !default;
+
+/* Badge */
+$badge-padding: 0.25rem 0.5rem !default;
+$badge-radius: 0.25rem !default;
+
+/* Button */
+$button-font-size: 1rem !default;
+$button-hover-darken: 10% !default;
+$button-margin: 0 !default;
+$button-padding: 0.5rem 2rem !default;
+$button-radius: 0.25rem !default;
+
+/* Divider */
+$divider-color: $color-primary !default;
+$divider-width: 2px !default;
+
+/* Flex */
+$flex-gap: 1rem !default;
+
+/* Font */
+$font-family-body: "Nunito", sans-serif !default;
+$font-family-legal: "Trebuchet MS", "Roboto", sans-serif !default;
+$font-family-number: "Chivo Mono", monospace !default;
+$font-family-title: "Mukta", sans-serif !default;
+
+$font-size: 1rem !default;
+
+/* Grid */
+$grid-gap: 1rem !default;
+
+/* Link */
+$link-color: $color-primary !default;
+$link-color-hover: $color-secondary !default;
+$link-text-decoration: underline !default;
+
+/* Size */
+$xs: 396px !default;
+$sm: 576px !default;
+$md: 768px !default;
+$lg: 992px !default;
+$xl: 1200px !default;
+$xxl: 1400px !default;
+
+/* Tooltip */
+$tooltip-padding: 0.25em 0.5em !default;
+$tooltip-radius: 0.5em !default;

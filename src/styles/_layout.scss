@@ -1,0 +1,152 @@
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body, #root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-x: hidden;
+}
+
+.align {
+  &-center {
+    align-items: center;
+  }
+
+  &-end {
+    align-items: flex-end;
+  }
+
+  &-start {
+    align-items: flex-start;
+  }
+
+  &-stretch {
+    align-items: stretch;
+  }
+}
+
+.content {
+  height: 100%;
+  margin: 0 auto;
+  width: $xxl;
+
+  @media (min-width: $xs) {
+    width: 99vw;
+  }
+
+  @media (min-width: $sm) {
+    width: 98vw;
+  }
+
+  @media (min-width: $md) {
+    width: 98vw;
+  }
+
+  @media (min-width: $lg) {
+    width: $md;
+  }
+
+  @media (min-width: $xl) {
+    width: $lg;
+  }
+
+  @media (min-width: $xxl) {
+    width: $xl;
+  }
+}
+
+.divider {
+  .dot {
+    background-color: $divider-color;
+    border-radius: 50%;
+    min-height: 0.75rem;
+    min-width: 0.75rem;
+    height: 0.75rem;
+    width: 0.75rem;
+  }
+
+  .line {
+    background-color: $divider-color;
+  }
+
+  &-horizontal {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+    .line {
+      height: $divider-width;
+      width: 100%;
+    }
+  }
+
+  &-vertical {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .line {
+      height: 100%;
+      width: $divider-width;
+    }
+  }
+}
+
+.flex {
+  gap: $flex-gap;
+
+  &-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-full {
+    flex-grow: 1;
+  }
+
+  &-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.grid {
+  gap: $grid-gap;
+
+}
+
+.justify {
+  &-around {
+    justify-content: space-around;
+  }
+
+  &-between {
+    justify-content: space-between;
+  }
+
+  &-center {
+    justify-content: center;
+  }
+
+  &-end {
+    justify-content: flex-end;
+  }
+
+  &-evenly {
+    justify-content: space-evenly;
+  }
+
+  &-start {
+    justify-content: flex-start;
+  }
+}
