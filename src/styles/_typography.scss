@@ -6,21 +6,6 @@ html, body {
   font-size: $font-size;
 }
 
-a, .link {
-  color: $link-color;
-  text-decoration: $link-text-decoration;
-
-  &:active, &:hover {
-    color: $link-color-hover;
-  }
-
-  .icon {
-    display: inline-block;
-    height: 0.85em;
-    width: 0.85em;
-  }
-}
-
 h {
   &1, &2, &3, &4, &5, &6 {
     font-family: $font-family-title;

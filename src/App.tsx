@@ -1,7 +1,7 @@
 
 // We import this type in order to cast a string to it, this is only for demonstration
 // purposes and won't be needed in the future.
-import { Icons } from '@/commons/types'
+import { Field, FormData, Icons } from '@/commons/types'
 
 import Badge from '@/elements/Badge'
 import Button from '@/elements/Button'
@@ -16,6 +16,10 @@ import { List, ListItem } from '@/elements/List'
 import Text from '@/elements/Text'
 import Tooltip from '@/elements/Tooltip'
 
+import Form from '@/components/Form'
+import { Navigation, NavigationLink } from '@/components/Navigation'
+import Notification from '@/components/Notification'
+
 import Flex from '@/layouts/Flex'
 
 function App() {
@@ -28,6 +32,32 @@ function App() {
   function handleChange(name: string, value: string) {
     console.log(`${name} = ${value}`)
   }
+
+  // We use this submit handler for simulating the submission of valid form.
+  function handleSubmit(data: FormData) {
+    console.log(data)
+  }
+
+  // We use this fields map for demonstrating the form component with validation.
+  const fields: Array<Field> = [
+    {
+      error: 'A valid email address is required.',
+      label: 'Email Address',
+      input: 'email',
+      max: 100,
+      min: 10,
+      name: 'email',
+      regex: new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'i'),
+    },
+    {
+      error: 'A valid password must be provided.',
+      label: 'Password',
+      input: 'password',
+      max: 40,
+      min: 10,
+      name: 'password',
+    },
+  ]
 
   // We will use this list to show all of the currently supported icons, this is only for
   // demonstration purposes.
@@ -75,12 +105,12 @@ function App() {
 
   return (
     <div className='content'>
-      <Flex align='center' direction='column' full justify='evenly' style={{padding: '1rem'}}>
+      <Flex align='center' full justify='evenly' style={{padding: '1rem'}}>
         <H1>Elements</H1>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Badges</H2>
-          <Flex direction='row' gap='3rem' justify='between'>
+          <Flex row gap='3rem' justify='between'>
             <Badge count={123}>
               <Button callback={callbackTest} label='Click me!' role='secondary' />
             </Badge>
@@ -99,9 +129,9 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Buttons</H2>
-          <Flex direction='row' justify='evenly'>
+          <Flex row justify='evenly'>
               <Button callback={callbackTest} label='Click me!' />
               <Button callback={callbackTest} label='Click me!' role='primary' />
               <Button callback={callbackTest} label='Click me!' role='secondary' />
@@ -109,9 +139,9 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Dividers</H2>
-          <Flex direction='row' justify='evenly'>
+          <Flex row justify='evenly'>
               <div style={{ width: '10rem' }}>
                 <Divider direction='horizontal' />
               </div>
@@ -121,28 +151,28 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Fonts</H2>
-          <Flex direction='row' justify='evenly'>
-            <Flex align='center' direction='column'>
+          <Flex row justify='evenly'>
+            <Flex align='center'>
               <H4>Body</H4>
               <p className='font-body'>
                 Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
               </p>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Legal</H4>
               <p className='font-legal'>
                 Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
               </p>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Number</H4>
               <p className='font-number'>
                 Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
               </p>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Title</H4>
               <p className='font-title'>
                 Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
@@ -151,9 +181,9 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Headings</H2>
-          <Flex direction='row' justify='evenly'>
+          <Flex row justify='evenly'>
               <H1>Heading 1</H1>
               <H2>Heading 2</H2>
               <H3>Heading 3</H3>
@@ -163,9 +193,9 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Highlights</H2>
-          <Flex direction='row' justify='evenly'>
+          <Flex row justify='evenly'>
               <p>
                 Etiam finibus, velit eu convallis aliquet, mauris justo
                 tincidunt <Highlight>lectus 10-20%</Highlight>, nec tempor elit massa eget metus.
@@ -181,9 +211,9 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Icons</H2>
-          <Flex align='center' direction='row' justify='center' wrap>
+          <Flex align='center' row justify='center' wrap>
             {icons.map((icon, index) => {
               // We do this small hack in order to showcase the different sizes, this is
               // for demonstration purposes only.
@@ -194,7 +224,7 @@ function App() {
               else size = 'sm' as const
 
               return (
-                <Flex align='center' direction='column' justify='center' key={index} style={{flexBasis: '4rem'}}>
+                <Flex align='center' justify='center' key={index} style={{flexBasis: '4rem'}}>
                   <Icon name={icon as Icons} size={size} />
                   <div>{icon}</div>
                 </Flex>
@@ -203,84 +233,86 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Images</H2>
-          <Flex direction='row' justify='evenly'>
-            <Flex align='center' direction='column'>
+          <Flex row justify='evenly'>
+            <Flex align='center'>
               <H4>Contain</H4>
               <Image role='contain' src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Cover</H4>
               <Image role='cover' src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Fill</H4>
               <Image role='fill' src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Responsive</H4>
               <Image src='/images/test.jpg' style={{width: '20rem'}} />
             </Flex>
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Inputs</H2>
-          <Flex direction='row' justify='evenly' wrap>
-            <Flex align='center' direction='column'>
+          <Flex row justify='evenly' wrap>
+            <Flex align='center'>
               <H4>Checkbox</H4>
               <Checkbox handler={handleChange} name='checkbox'>I agree to terms</Checkbox>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Email</H4>
               <Input handler={handleChange} name='email' type='email' />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>File</H4>
               <Input handler={handleChange} name='file' type='file' />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Number</H4>
               <Input handler={handleChange} name='number' type='number' />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Password</H4>
               <Input handler={handleChange} name='password' type='password' />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Radio</H4>
-              <Radio handler={handleChange} name='radio' value='yes'>Agree</Radio>
-              <Radio handler={handleChange} name='radio' value='no'>Disagree</Radio>
+              <Flex>
+                <Radio handler={handleChange} name='radio' value='yes'>Agree</Radio>
+                <Radio handler={handleChange} name='radio' value='no'>Disagree</Radio>
+              </Flex>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Select</H4>
               <Select handler={handleChange} name='select'>
                 <Option value='one'>Option 1</Option>
                 <Option value='two'>Option 2</Option>
-                <Option value='three'>Option 3</Option>
+                <Option selected value='three'>Option 3</Option>
                 <Option value='four'>Option 4</Option>
                 <Option value='five'>Option 5</Option>
               </Select>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Telephone</H4>
               <Input handler={handleChange} name='telephone' type='tel' />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Text</H4>
               <Input handler={handleChange} name='text' />
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Textarea</H4>
               <Textarea handler={handleChange} name='textarea' />
             </Flex>
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Links</H2>
-          <Flex direction='row' justify='evenly'>
+          <Flex row justify='evenly'>
             <Link href='/'>Default Link</Link>
             <Link href='/' open>New Window Link</Link>
             <Link href='/' style={{color: 'black', backgroundColor: 'red'}}>Custom Style</Link>
@@ -288,10 +320,10 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Lists</H2>
-          <Flex direction='row' justify='evenly'>
-            <Flex align='center' direction='column'>
+          <Flex row justify='evenly'>
+            <Flex align='center'>
               <H4>Ordered</H4>
               <List role='ordered'>
                 <ListItem>Item 1</ListItem>
@@ -301,7 +333,7 @@ function App() {
                 <ListItem>Item 5</ListItem>
               </List>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Unordered</H4>
               <List role='unordered'>
                 <ListItem>Item 1</ListItem>
@@ -314,58 +346,58 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Texts</H2>
-          <Flex direction='row' justify='evenly' wrap>
-            <Flex align='center' direction='column'>
+          <Flex row justify='evenly' wrap>
+            <Flex align='center'>
               <H4>Default</H4>
               <Text>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Bold</H4>
               <Text bold>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Capitalize</H4>
               <Text capitalize>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Italic</H4>
               <Text italic>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Legal</H4>
               <Text legal>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Lowercase</H4>
               <Text lowercase>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Strikethrough</H4>
               <Text strikethrough>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Subscript</H4>
               <Text>Aliquam vitae neque<Text subscript>log n</Text> at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Superscript</H4>
               <Text>Aliquam vitae neque<Text superscript>(xy)</Text> at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Underline</H4>
               <Text underline>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Uppercase</H4>
               <Text uppercase>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Custom Style</H4>
               <Text style={{color: 'orange'}}>Aliquam vitae neque at urna convallis molestie.</Text>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Context</H4>
               <Text context='danger'>Danger - Aliquam vitae neque at urna convallis molestie.</Text>
               <Text context='info'>Info - Aliquam vitae neque at urna convallis molestie.</Text>
@@ -375,40 +407,116 @@ function App() {
           </Flex>
         </Flex>
 
-        <Flex align='center' direction='column'>
+        <Flex align='center'>
           <H2>Tooltips</H2>
-          <Flex direction='row' gap='4rem' justify='evenly'>
-            <Flex align='center' direction='column'>
+          <Flex row gap='4rem' justify='evenly'>
+            <Flex align='center'>
               <H4>Default</H4>
               <Tooltip message='Nothing special here'>
                 No position
               </Tooltip>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Danger</H4>
               <Tooltip context='danger' message='Oh no, we are in trouble' position='top'>
                 Position top
               </Tooltip>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Info</H4>
               <Tooltip context='info' message='For your information' position='right'>
                 Position right
               </Tooltip>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Success</H4>
               <Tooltip context='success' message='Congratulations, we did it' position='bottom'>
                 Position bottom
               </Tooltip>
             </Flex>
-            <Flex align='center' direction='column'>
+            <Flex align='center'>
               <H4>Warning</H4>
               <Tooltip context='warning' message='You should keep an eye out' position='left'>
                 Position left
               </Tooltip>
             </Flex>
           </Flex>
+        </Flex>
+
+        <H1>Components</H1>
+        <Flex align='center'>
+          <H2>Forms</H2>
+          <Form fields={fields} handler={handleSubmit} />
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Heros</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Modals</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Navigation</H2>
+          <Navigation logo='/images/logo.png'>
+            <NavigationLink href='/'>Link 1</NavigationLink>
+            <NavigationLink href='/'>Link 2</NavigationLink>
+            <NavigationLink href='/'>Link 3</NavigationLink>
+            <NavigationLink href='/'>Link 4</NavigationLink>
+          </Navigation>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Notifications</H2>
+          <Flex align='center' justify='evenly' row wrap>
+            <Notification context='danger'>There was something wrong.</Notification>
+            <Notification context='info'>This is for your information.</Notification>
+            <Notification context='success'>Whatever you did worked!</Notification>
+            <Notification context='warning'>Next time this might not work.</Notification>
+          </Flex>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Pagination</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Tables</H2>
+        </Flex>
+
+        <H1>Containers</H1>
+        <Flex align='center'>
+          <H2>Accordion</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Cards</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Carousel</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Menu</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Schumer</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Stepper</H2>
+        </Flex>
+
+        <H1>Layouts</H1>
+        <Flex align='center'>
+          <H2>Flex</H2>
+        </Flex>
+
+        <Flex align='center'>
+          <H2>Grid</H2>
         </Flex>
       </Flex>
     </div>

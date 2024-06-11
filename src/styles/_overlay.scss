@@ -46,7 +46,29 @@
   }
 }
 
+.notification {
+  padding: 1rem;
 
+  &-danger {
+    background-color: $color-danger;
+    color: $color-danger-fg;
+  }
+
+  &-info {
+    background-color: $color-info;
+    color: $color-info-fg;
+  }
+
+  &-success {
+    background-color: $color-success;
+    color: $color-success-fg;
+  }
+
+  &-warning {
+    background-color: $color-warning;
+    color: $color-warning-fg;
+  }
+}
 
 .tooltip {
   border-bottom: 1px dotted $color-foreground;

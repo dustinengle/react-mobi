@@ -1,6 +1,4 @@
 
-import classNames from '@/utils/classNames'
-
 import { Justify } from '@/commons/types'
 import { ReactNode } from 'react'
 
@@ -11,11 +9,14 @@ export interface GridProps {
   rows: number
 }
 
-function Grid({children, cols, rows, ...props}: GridProps) {
-  const classes = classNames(props)
+function Grid({children, cols, rows, justify, ...props}: GridProps) {
+  const classNames = []
+  if (justify) classNames.push(`grid-${justify}`)
+
+  const classes = classNames.join(' ')
 
   return (
-    <div className={classes}>
+    <div {...props} className={classes}>
       {children}
     </div>
   )

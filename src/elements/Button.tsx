@@ -1,6 +1,4 @@
 
-import classNames from '@/utils/classNames'
-
 import { Role } from '@/commons/types'
 
 export interface ButtonProps {
@@ -10,12 +8,10 @@ export interface ButtonProps {
 }
 
 export default function Button({ callback, label, role = 'default' }: ButtonProps) {
-  const classes = classNames({
-    button: role,
-  })
+  const classes = `button button-${role}`
 
   return (
-    <button className={`button ${classes}`} onClick={callback}>
+    <button className={classes} onClick={callback}>
       {label}
     </button>
   )

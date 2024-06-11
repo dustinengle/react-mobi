@@ -1,10 +1,31 @@
 
+a, .link {
+  color: $link-color;
+  cursor: pointer;
+  text-decoration: $link-text-decoration;
+
+  &:active, &:hover {
+    color: $link-color-hover;
+  }
+
+  .icon {
+    display: inline-block;
+    height: 0.85em;
+    width: 0.85em;
+  }
+}
+
 .button {
   border: 0;
   border-radius: $button-radius;
+  cursor: pointer;
   font-size: $button-font-size;
   margin: $button-margin;
   padding: $button-padding;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 
   &-default {
     background-color: $color-background;

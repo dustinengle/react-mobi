@@ -1,0 +1,49 @@
+
+.navigation {
+  background-color: $color-background;
+  color: $color-foreground;
+  filter: drop-shadow($color-shadow 0 7px 4px);
+  padding: 0 1rem;
+
+  &-link, &-link:active, &-link:visited {
+    color: lighten($color-foreground, 40%);
+    text-decoration: none;
+
+    &:hover {
+      color: $color-foreground;
+    }
+  }
+
+  img {
+    height: 4em;
+    width: auto;
+  }
+
+  @media (min-width: $xs) {
+    width: 99vw;
+  }
+
+  @media (min-width: $sm) {
+    width: 98vw;
+  }
+
+  @media (min-width: $md) {
+    width: 98vw;
+  }
+
+  @media (min-width: $lg) {
+    width: $md;
+  }
+
+  @media (min-width: $xl) {
+    width: $lg;
+  }
+
+  @media (min-width: $xxl) {
+    width: $xl;
+  }
+}
+
+.pagination {
+
+}

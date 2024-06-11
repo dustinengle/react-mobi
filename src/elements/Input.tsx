@@ -20,7 +20,7 @@ export function Checkbox({children, handler, checked = false, error, name, ...pr
   }
 
   return (
-    <Flex align='center' direction='row'>
+    <Flex align='center' row>
       <input {...props}
         className={error ? 'error' : undefined}
         checked={on}
@@ -36,7 +36,7 @@ export interface InputProps {
   error?: boolean
   handler: (name: string, value: string) => void
   name: string
-  type?: 'date' | 'email' | 'file' | 'number' | 'password' | 'tel' | 'text'
+  type?: string
   value?: string
 }
 
@@ -57,12 +57,13 @@ export function Input({error, handler, name, type = 'text', value, ...props}: In
 
 export interface OptionProps {
   children: ReactNode
+  selected?: boolean
   value: string
 }
 
-export function Option({children, value, ...props}: OptionProps) {
+export function Option({children, selected = false, value, ...props}: OptionProps) {
   return (
-    <option value={value}>
+    <option {...props} selected={selected} value={value}>
       {children}
     </option>
   )
@@ -82,7 +83,7 @@ export function Radio({children, error, handler, name, value, ...props}: RadioPr
   }
 
   return (
-    <Flex align='center' direction='row'>
+    <Flex align='center' row>
       <input {...props}
         className={error ? 'error' : undefined}
         name={name}

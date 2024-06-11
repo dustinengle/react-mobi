@@ -3,6 +3,30 @@ export type Align = 'center' | 'end' | 'start' | 'stretch'
 
 export type Context = 'danger' | 'info' | 'success' | 'warning'
 
+export interface Field {
+  error?: string
+  label: string
+  input: 'checkbox'
+    | 'date'
+    | 'email'
+    | 'file'
+    | 'number'
+    | 'password'
+    | 'radio'
+    | 'select'
+    | 'tel'
+    | 'text'
+    | 'textarea'
+  max?: number
+  min?: number
+  name: string
+  options?: Array<Record<string, string>>
+  regex?: RegExp
+  value?: boolean | number | string
+}
+
+export type FormData = Record<string, boolean | number | string>
+
 export type Icons = 'alert'
   | 'attach'
   | 'award'
