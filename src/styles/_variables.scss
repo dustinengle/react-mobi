@@ -34,6 +34,11 @@ $button-margin: 0 !default;
 $button-padding: 0.5rem 2rem !default;
 $button-radius: 0.25rem !default;
 
+/* Card */
+$card-border: transparent !default;
+$card-radius: 25px !default;
+$card-shadow: 0 0.25rem 0.75rem 0.5rem darken($color-background, 10%);
+
 /* Divider */
 $divider-color: $color-primary !default;
 $divider-width: 2px !default;
@@ -64,6 +69,10 @@ $md: 768px !default;
 $lg: 992px !default;
 $xl: 1200px !default;
 $xxl: 1400px !default;
+
+/* Table */
+$table-background: darken($color-background, 10%) !default;
+$table-border: 1px solid darken($table-background, 10%) !default;
 
 /* Tooltip */
 $tooltip-padding: 0.25em 0.5em !default;

@@ -1,0 +1,35 @@
+
+ol, ul {
+  & ::marker {
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+
+  li {
+    font-size: 1.25em;
+  }
+}
+
+table, .table {
+  border-collapse: collapse;
+
+  td, th {
+    border: $table-border;
+  }
+
+  td {
+    padding: 0.25rem;
+    text-align: center;
+  }
+
+  th {
+    background-color: $table-background;
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  tr:hover {
+    background-color: darken($color-background, 5%);
+  }
+}

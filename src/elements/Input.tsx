@@ -57,13 +57,12 @@ export function Input({error, handler, name, type = 'text', value, ...props}: In
 
 export interface OptionProps {
   children: ReactNode
-  selected?: boolean
   value: string
 }
 
-export function Option({children, selected = false, value, ...props}: OptionProps) {
+export function Option({children, value, ...props}: OptionProps) {
   return (
-    <option {...props} selected={selected} value={value}>
+    <option {...props} value={value}>
       {children}
     </option>
   )

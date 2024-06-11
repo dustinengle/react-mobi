@@ -3,6 +3,7 @@
 // purposes and won't be needed in the future.
 import { Field, FormData, Icons } from '@/commons/types'
 
+import Background from '@/elements/Background'
 import Badge from '@/elements/Badge'
 import Button from '@/elements/Button'
 import { Checkbox, Input, Option, Radio, Select, Textarea } from '@/elements/Input'
@@ -19,6 +20,9 @@ import Tooltip from '@/elements/Tooltip'
 import Form from '@/components/Form'
 import { Navigation, NavigationLink } from '@/components/Navigation'
 import Notification from '@/components/Notification'
+import Table, { Column } from '@/components/Table'
+
+import Card from '@/containers/Card'
 
 import Flex from '@/layouts/Flex'
 
@@ -36,6 +40,31 @@ function App() {
   // We use this submit handler for simulating the submission of valid form.
   function handleSubmit(data: FormData) {
     console.log(data)
+  }
+
+  // We use the columns and rows for the table.
+  const cols: Array<Column> = [
+    {label: 'Column A', name: 'a'},
+    {label: 'Column B', name: 'b'},
+    {label: 'Column C', name: 'c'},
+    {label: 'Column D', name: 'd'},
+  ]
+  const rows: Array<Record<string, any>> = [
+    {a: 'A1', b: 'B1', c: 'C1', d: 'D1'},
+    {a: 'A2', b: 'B2', c: 'C2', d: 'D2'},
+    {a: 'A3', b: 'B3', c: 'C3', d: 'D3'},
+    {a: 'A4', b: 'B4', c: 'C4', d: 'D4'},
+    {a: 'A5', b: 'B5', c: 'C5', d: 'D5'},
+  ]
+
+  // We use the following style to demonstrate the flex layout options.
+  const flexDemoStyle = {
+    border: '1px solid gray',
+    height: '15rem',
+    width: '20rem',
+  }
+  const flexDemoCellStyle = {
+    border: '1px solid blue',
   }
 
   // We use this fields map for demonstrating the form component with validation.
@@ -287,10 +316,10 @@ function App() {
             </Flex>
             <Flex align='center'>
               <H4>Select</H4>
-              <Select handler={handleChange} name='select'>
+              <Select handler={handleChange} name='select' value='three'>
                 <Option value='one'>Option 1</Option>
                 <Option value='two'>Option 2</Option>
-                <Option selected value='three'>Option 3</Option>
+                <Option value='three'>Option 3</Option>
                 <Option value='four'>Option 4</Option>
                 <Option value='five'>Option 5</Option>
               </Select>
@@ -469,7 +498,7 @@ function App() {
 
         <Flex align='center'>
           <H2>Notifications</H2>
-          <Flex align='center' justify='evenly' row wrap>
+          <Flex align='center' justify='center' wrap>
             <Notification context='danger'>There was something wrong.</Notification>
             <Notification context='info'>This is for your information.</Notification>
             <Notification context='success'>Whatever you did worked!</Notification>
@@ -482,7 +511,8 @@ function App() {
         </Flex>
 
         <Flex align='center'>
-          <H2>Tables</H2>
+          <H2>Table</H2>
+          <Table cols={cols} rows={rows} />
         </Flex>
 
         <H1>Containers</H1>
@@ -492,6 +522,25 @@ function App() {
 
         <Flex align='center'>
           <H2>Cards</H2>
+          <Flex align='center' justify='evenly' row>
+            <Card style={{padding: '1rem'}}>
+              Sed eu tempor massa. Pellentesque vel mauris efficitur, feugiat massa sit amet, commodo erat. Integer tristique, mauris non luctus elementum, lectus urna faucibus urna, vel convallis sapien dui vitae nibh.
+            </Card>
+            <Card>
+              <Flex full row>
+                <Background>
+                  <Flex gap={0} justify='center'>
+                    <H2>Step 1</H2>
+                    <Text>Do something</Text>
+                    <center><Icon name='lock' size='xl' /></center>
+                  </Flex>
+                </Background>
+                <Flex align='center' full justify='center'>
+                  Integer tristique, mauris non luctus elementum, lectus urna faucibus urna, vel convallis sapien dui vitae nibh.
+                </Flex>
+              </Flex>
+            </Card>
+          </Flex>
         </Flex>
 
         <Flex align='center'>
@@ -513,6 +562,96 @@ function App() {
         <H1>Layouts</H1>
         <Flex align='center'>
           <H2>Flex</H2>
+          <Flex align='center' justify='center'>
+            <H3>Column</H3>
+            <H4>Align</H4>
+            <Flex align='center' justify='center' row wrap>
+              <Flex align='start' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Start</Text>
+              </Flex>
+              <Flex align='center' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Center</Text>
+              </Flex>
+              <Flex align='end' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>End</Text>
+              </Flex>
+              <Flex align='stretch' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Stretch</Text>
+              </Flex>
+            </Flex>
+            <H4>Justify</H4>
+            <Flex align='center' justify='center' row wrap>
+              <Flex align='center' justify='start' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Start</Text>
+              </Flex>
+              <Flex align='center' justify='center' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Center</Text>
+              </Flex>
+              <Flex align='center' justify='end' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>End</Text>
+              </Flex>
+              <Flex align='center' justify='around' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Around</Text>
+                <Text style={flexDemoCellStyle}>Around</Text>
+                <Text style={flexDemoCellStyle}>Around</Text>
+              </Flex>
+              <Flex align='center' justify='between' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Between</Text>
+                <Text style={flexDemoCellStyle}>Between</Text>
+                <Text style={flexDemoCellStyle}>Between</Text>
+              </Flex>
+              <Flex align='center' justify='evenly' style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Evenly</Text>
+                <Text style={flexDemoCellStyle}>Evenly</Text>
+                <Text style={flexDemoCellStyle}>Evenly</Text>
+              </Flex>
+            </Flex>
+          </Flex>
+          <Flex align='center' justify='center'>
+            <H3>Row</H3>
+            <H4>Align</H4>
+            <Flex align='center' justify='center' row wrap>
+              <Flex align='start' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Start</Text>
+              </Flex>
+              <Flex align='center' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Center</Text>
+              </Flex>
+              <Flex align='end' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>End</Text>
+              </Flex>
+              <Flex align='stretch' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Stretch</Text>
+              </Flex>
+            </Flex>
+            <H4>Justify</H4>
+            <Flex align='center' justify='center' row wrap>
+              <Flex align='center' justify='start' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Start</Text>
+              </Flex>
+              <Flex align='center' justify='center' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Center</Text>
+              </Flex>
+              <Flex align='center' justify='end' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>End</Text>
+              </Flex>
+              <Flex align='center' justify='around' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Around</Text>
+                <Text style={flexDemoCellStyle}>Around</Text>
+                <Text style={flexDemoCellStyle}>Around</Text>
+              </Flex>
+              <Flex align='center' justify='between' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Between</Text>
+                <Text style={flexDemoCellStyle}>Between</Text>
+                <Text style={flexDemoCellStyle}>Between</Text>
+              </Flex>
+              <Flex align='center' justify='evenly' row style={flexDemoStyle}>
+                <Text style={flexDemoCellStyle}>Evenly</Text>
+                <Text style={flexDemoCellStyle}>Evenly</Text>
+                <Text style={flexDemoCellStyle}>Evenly</Text>
+              </Flex>
+            </Flex>
+          </Flex>
         </Flex>
 
         <Flex align='center'>

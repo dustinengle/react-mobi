@@ -1,0 +1,39 @@
+
+.background {
+  height: 100%;
+  padding: 1rem;
+  width: 100%;
+
+  &-danger {
+    background-color: $color-danger;
+    color: $color-danger-fg;
+  }
+
+  &-info {
+    background-color: $color-info;
+    color: $color-info-fg;
+  }
+
+  &-success {
+    background-color: $color-success;
+    color: $color-success-fg;
+  }
+
+  &-warning {
+    background-color: $color-warning;
+    color: $color-warning-fg;
+  }
+}
+
+.card {
+  background-color: $color-background;
+  border: $card-border;
+  border-radius: $card-radius;
+  box-shadow: $card-shadow;
+  color: $color-foreground;
+  overflow: hidden;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+}
