@@ -8,6 +8,8 @@
   &-link, &-link:active, &-link:visited {
     color: lighten($color-foreground, 40%);
     text-decoration: none;
+    // ABS added per spacing on existing site
+    padding: 0 2rem;
 
     &:hover {
       color: $color-foreground;
