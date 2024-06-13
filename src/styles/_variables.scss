@@ -25,14 +25,16 @@ $color-tertiary-fg: $color-black !default;
 
 /* Badge */
 $badge-padding: 0.25rem 0.5rem !default;
-$badge-radius: 0.25rem !default;
+/* ABS - modded from 0.25rem to 0.375rem to match production site */
+$badge-radius: 0.375rem !default;
 
 /* Button */
 $button-font-size: 1rem !default;
 $button-hover-darken: 10% !default;
 $button-margin: 0 !default;
 $button-padding: 0.5rem 2rem !default;
-$button-radius: 0.25rem !default;
+/* ABS - modded from 0.25rem to 0.375rem to match production site */
+$button-radius: 0.375rem !default;
 
 /* Card */
 $card-border: transparent !default;
