@@ -11,7 +11,9 @@ ol, ul {
 }
 
 table, .table {
-  border-collapse: collapse;
+  /* ABS - odd artifacts rendering on rounded table corners that go away when border-collapse is active; border spacing: 0 works as substitute  */
+  /* border-collapse: collapse; */
+  border-spacing: 0;
 
   td, th {
     border: $table-border;
@@ -29,7 +31,8 @@ table, .table {
     text-align: center;
   }
 
-  tr:hover {
+  /* ABS - modified selector to add tbody so no hover effect on footer or header */
+  tbody tr:hover {
     background-color: darken($color-background, 5%);
   }
 }

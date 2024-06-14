@@ -41,7 +41,6 @@
 .table {
   
   border: $card-border;
-  border-radius: $card-radius;
 
   th {
     border-left: none;
@@ -64,7 +63,7 @@
     border-spacing: 0;
   }
 
-  tfoot td {
+  tfoot tr td {
       border-radius: 0 0 $table-border-radius $table-border-radius;
   }
 }
