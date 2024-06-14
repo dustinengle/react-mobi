@@ -28,6 +28,11 @@ export default function Table({cols, rows, ...props}: TableProps) {
           </tr>
         ))}
       </tbody>
+      <tfoot>
+        <td colSpan={cols.length}>
+        some text
+        </td>
+      </tfoot>
     </table>
   )
 }

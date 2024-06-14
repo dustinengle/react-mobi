@@ -73,8 +73,11 @@ $xl: 1200px !default;
 $xxl: 1400px !default;
 
 /* Table */
+$table-header-background: rgb(64, 0, 104) !default;
+$table-header-color: white !default;
 $table-background: darken($color-background, 10%) !default;
 $table-border: 1px solid darken($table-background, 10%) !default;
+$table-border-radius: 1rem;
 
 /* Tooltip */
 $tooltip-padding: 0.25em 0.5em !default;

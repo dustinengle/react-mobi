@@ -37,3 +37,35 @@
     margin: 0;
   }
 }
+
+.table {
+  
+  border: $card-border;
+  border-radius: $card-radius;
+
+  th {
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    background-color: $table-header-background;
+    color: $table-header-color;
+  }
+  th:first-child {
+    border-radius: $table-border-radius 0 0 0;
+  }
+  th:last-child {
+    border-radius: 0 $table-border-radius  0 0;
+  }
+
+  tfoot {
+    background-color: $table-header-background;
+    color: $table-header-color;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  tfoot td {
+      border-radius: 0 0 $table-border-radius $table-border-radius;
+  }
+}
+
