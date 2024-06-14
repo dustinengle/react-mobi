@@ -36,3 +36,36 @@ table, .table {
     background-color: darken($color-background, 5%);
   }
 }
+
+
+/* ABS - moved from _underlay where I had originally placed.  Need to be integrated with instructions above or made into own class for card-styled-table */
+
+.table-card-styled {
+  
+  border: $card-border;
+
+  th {
+    border-left: none;
+    border-right: none;
+    text-align: center;
+    background-color: $table-header-background;
+    color: $table-header-color;
+  }
+  th:first-child {
+    border-radius: $table-border-radius 0 0 0;
+  }
+  th:last-child {
+    border-radius: 0 $table-border-radius  0 0;
+  }
+
+  tfoot {
+    background-color: $table-header-background;
+    color: $table-header-color;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  tfoot tr td {
+      border-radius: 0 0 $table-border-radius $table-border-radius;
+  }
+}

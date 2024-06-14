@@ -515,6 +515,11 @@ function App() {
           <Table cols={cols} rows={rows} />
         </Flex>
 
+        <Flex align='center'>
+          <H2>Card Styled Table</H2>
+          <Table context='card' footer='Here is the footer.  Should this be in {children} instead since we will want it in HTML with <sup> or do we set dangerously?' cols={cols} rows={rows} />
+        </Flex>
+
         <H1>Containers</H1>
         <Flex align='center'>
           <H2>Accordion</H2>

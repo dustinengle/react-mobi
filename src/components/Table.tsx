@@ -7,11 +7,13 @@ export interface Column {
 export interface TableProps {
   cols: Array<Column>
   rows: Array<Record<string, any>>
+  footer?: string //added along with associated code by ABS for optional footer
+  context?: string //added along with associated CSS for card styling
 }
 
-export default function Table({cols, rows, ...props}: TableProps) {
+export default function Table({cols, rows, footer, context, ...props}: TableProps) {
   return (
-    <table {...props} className='table'>
+    <table {...props} className={context && context=='card' ? 'table-card-styled' :'table'}>
       <thead>
         <tr>
           {cols.map(col => (
@@ -28,13 +30,15 @@ export default function Table({cols, rows, ...props}: TableProps) {
           </tr>
         ))}
       </tbody>
-      <tfoot>
-        <tr>
-          <td colSpan={cols.length}>
-          some text
-          </td>
-        </tr>
-      </tfoot>
+      {footer && (
+        <tfoot>
+          <tr>
+            <td colSpan={cols.length}>
+              {footer}
+            </td>
+          </tr>
+        </tfoot>
+      )}
     </table>
   )
 }
