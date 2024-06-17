@@ -43,7 +43,9 @@ table, .table {
 .table-card-styled {
   
   border: $card-border;
-
+  border-radius: $table-border-radius;
+  box-shadow: $card-shadow;
+  
   th {
     border-left: none;
     border-right: none;
