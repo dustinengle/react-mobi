@@ -3,14 +3,14 @@ input, option, select, textarea {
   accent-color: $color-background;
   background-color: $color-background;
   border: 1px solid darken($color-background, 20%);
-  border-radius: 0.25em;
+  border-radius: 0.25rem;
   box-shadow: none;
   color: lighten($color-foreground, 20%);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1em;
-  max-width: 20em;
+  font-size: 1rem;
+  max-width: 20rem;
   outline: none;
-  padding: 0.75em;
+  padding: 0.75rem;
 
   &:hover {
     border-color: $color-primary;
@@ -24,8 +24,8 @@ input, option, select, textarea {
 input {
   &[type='checkbox'], &[type='radio'] {
     cursor: pointer;
-    height: 1.25em;
-    width: 1.25em;
+    height: 1.25rem;
+    width: 1.25rem;
 
     .error {
       accent-color: $color-danger;
@@ -34,7 +34,7 @@ input {
 }
 
 label {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 
   .error {
     color: $color-danger;
@@ -44,7 +44,7 @@ label {
 select {
   appearance: none;
   background: url('/assets/carrot.png') no-repeat right 0.75em center;
-  min-width: 8em;
+  min-width: 8rem;
 
   .error {
     border-color: $color-danger;

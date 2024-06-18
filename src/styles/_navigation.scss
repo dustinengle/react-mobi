@@ -47,5 +47,11 @@
 }
 
 .pagination {
+  .next, .prev {
+    cursor: pointer;
+  }
 
+  select {
+    min-width: 4rem;
+  }
 }

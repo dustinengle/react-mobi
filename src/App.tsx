@@ -24,6 +24,7 @@ import Hero from '@/components/Hero'
 import Modal from '@/components/Modal'
 import { Navigation, NavigationLink } from '@/components/Navigation'
 import Notification from '@/components/Notification'
+import Pagination from '@/components/Pagination'
 import Table, { Column } from '@/components/Table'
 
 import Card from '@/containers/Card'
@@ -53,6 +54,19 @@ function App() {
   // We use this submit handler for simulating the submission of valid form.
   function handleSubmit(data: FormData) {
     console.log(data)
+  }
+
+  // We setup the pagination demo state and handler here.
+  const [page, setPage] = useState<number>(0)
+  const [pageSize, setPageSize] = useState<number>(10)
+  function handlePage(page: number) {
+    console.log(page)
+    setPage(page)
+  }
+  function handlePageSize(size: number) {
+    console.log(size)
+    setPage(0)
+    setPageSize(size)
   }
 
   // We use the columns and rows for the table.
@@ -573,6 +587,12 @@ function App() {
 
         <Flex align='center'>
           <H2>Pagination</H2>
+          <Pagination
+            page={page}
+            pageHandler={handlePage}
+            size={pageSize}
+            sizeHandler={handlePageSize}
+            total={201} />
         </Flex>
 
         <Flex align='center'>
