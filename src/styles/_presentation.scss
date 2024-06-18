@@ -68,3 +68,72 @@
     }
   }
 }
+
+.modal {
+  background-color: $modal-overlay-color;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 3;
+
+  &-actions {
+    margin-top: 1rem;
+  }
+
+  &-close {
+    visibility: hidden;
+  }
+
+  &-body {
+    background-color: $modal-body-color;
+    border-radius: $card-radius;
+    filter: drop-shadow($color-shadow 0 7px 4px);
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    max-height: 50vh;
+    max-width: 50vw;
+    padding: 1rem;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+
+    &-close {
+      visibility: hidden;
+    }
+
+    &-open {
+      visibility: visible;
+    }
+  }
+
+  &-open {
+    visibility: visible;
+  }
+}
+
+.notification {
+  padding: 1rem;
+
+  &-danger {
+    background-color: $color-danger;
+    color: $color-danger-fg;
+  }
+
+  &-info {
+    background-color: $color-info;
+    color: $color-info-fg;
+  }
+
+  &-success {
+    background-color: $color-success;
+    color: $color-success-fg;
+  }
+
+  &-warning {
+    background-color: $color-warning;
+    color: $color-warning-fg;
+  }
+}

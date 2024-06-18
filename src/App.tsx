@@ -1,4 +1,6 @@
 
+import { useState } from 'react'
+
 // We import this type in order to cast a string to it, this is only for demonstration
 // purposes and won't be needed in the future.
 import { Field, FormData, Icons } from '@/commons/types'
@@ -19,6 +21,7 @@ import Tooltip from '@/elements/Tooltip'
 
 import Form from '@/components/Form'
 import Hero from '@/components/Hero'
+import Modal from '@/components/Modal'
 import { Navigation, NavigationLink } from '@/components/Navigation'
 import Notification from '@/components/Notification'
 import Table, { Column } from '@/components/Table'
@@ -28,6 +31,15 @@ import Card from '@/containers/Card'
 import Flex from '@/layouts/Flex'
 
 function App() {
+  // This state and handler will be used by the modal demo.
+  const [openConfirm, setOpenConfirm] = useState<boolean>(false)
+  const [openYesNo, setOpenYesNo] = useState<boolean>(false)
+  function handleResponse(yes: boolean) {
+    alert(`The response was: ${yes}`)
+    setOpenConfirm(false)
+    setOpenYesNo(false)
+  }
+
   // We use this simple callback to avoid prop validation errors.
   function callbackTest() {
     alert('You clicked me!')
@@ -527,6 +539,16 @@ function App() {
 
         <Flex align='center'>
           <H2>Modals</H2>
+          <Flex align='center' row>
+            <Modal callback={handleResponse} open={openConfirm} yes='Confirm'>
+              Nullam sapien nisi, dictum at nibh quis, ornare laoreet ex. Aliquam commodo tincidunt venenatis. Integer ac sem nisl.
+            </Modal>
+            <Button callback={() => setOpenConfirm(true)} label='Open confirmation modal' role='secondary' />
+            <Modal callback={handleResponse} no='Deny' open={openYesNo} yes='Accept'>
+              Nullam sapien nisi, dictum at nibh quis, ornare laoreet ex. Aliquam commodo tincidunt venenatis. Integer ac sem nisl.
+            </Modal>
+            <Button callback={() => setOpenYesNo(true)} label='Open yes/no modal' role='tertiary' />
+          </Flex>
         </Flex>
 
         <Flex align='center'>

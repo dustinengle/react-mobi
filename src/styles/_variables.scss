@@ -37,7 +37,7 @@ $button-radius: 0.375rem !default;
 /* Card */
 $card-border: transparent !default;
 $card-radius: 25px !default;
-$card-shadow: 0 0.25rem 0.75rem 0.5rem darken($color-background, 10%);
+$card-shadow: 0 0.25rem 0.75rem 0.5rem darken($color-background, 10%) !default;
 
 /* Divider */
 $divider-color: $color-primary !default;
@@ -62,6 +62,10 @@ $link-color: $color-primary !default;
 $link-color-hover: $color-secondary !default;
 $link-text-decoration: underline !default;
 
+/* Modal */
+$modal-body-color: $color-background !default;
+$modal-overlay-color: darken($color-background, 50%) !default;
+
 /* Size */
 $xs: 396px !default;
 $sm: 576px !default;
@@ -75,7 +79,7 @@ $table-header-background: $color-primary !default;
 $table-header-color: $color-white !default;
 $table-background: darken($color-background, 10%) !default;
 $table-border: 1px solid darken($table-background, 10%) !default;
-$table-border-radius: 1rem;
+$table-border-radius: 1rem !default;
 
 /* Tooltip */
 $tooltip-padding: 0.25em 0.5em !default;
