@@ -11,9 +11,12 @@ ol, ul {
 }
 
 table, .table {
-  /* ABS - odd artifacts rendering on rounded table corners that go away when border-collapse is active; border spacing: 0 works as substitute  */
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
   border-spacing: 0;
+
+  tbody tr:hover {
+    background-color: darken($color-background, 5%);
+  }
 
   td, th {
     border: $table-border;
@@ -24,6 +27,12 @@ table, .table {
     text-align: center;
   }
 
+  tfoot {
+    tr td {
+      border-radius: 0 0 $table-border-radius $table-border-radius;
+    }
+  }
+
   th {
     background-color: $table-background;
     font-weight: bold;
@@ -31,43 +40,30 @@ table, .table {
     text-align: center;
   }
 
-  /* ABS - modified selector to add tbody so no hover effect on footer or header */
-  tbody tr:hover {
-    background-color: darken($color-background, 5%);
-  }
-}
+  &-card {
+    border-collapse: initial;
+    border-radius: $table-border-radius;
+    box-shadow: $card-shadow;
 
+    tfoot {
+      background-color: $table-header-background;
+      color: $table-header-color;
+    }
 
-/* ABS - moved from _underlay where I had originally placed.  Need to be integrated with instructions above or made into own class for card-styled-table */
+    th {
+      border-left: none;
+      border-right: none;
+      text-align: center;
+      background-color: $table-header-background;
+      color: $table-header-color;
 
-.table-card-styled {
-  
-  border: $card-border;
-  border-radius: $table-border-radius;
-  box-shadow: $card-shadow;
-  
-  th {
-    border-left: none;
-    border-right: none;
-    text-align: center;
-    background-color: $table-header-background;
-    color: $table-header-color;
-  }
-  th:first-child {
-    border-radius: $table-border-radius 0 0 0;
-  }
-  th:last-child {
-    border-radius: 0 $table-border-radius  0 0;
-  }
+      &:first-child {
+        border-radius: $table-border-radius 0 0 0;
+      }
 
-  tfoot {
-    background-color: $table-header-background;
-    color: $table-header-color;
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-  tfoot tr td {
-      border-radius: 0 0 $table-border-radius $table-border-radius;
+      &:last-child {
+        border-radius: 0 $table-border-radius  0 0;
+      }
+    }
   }
 }

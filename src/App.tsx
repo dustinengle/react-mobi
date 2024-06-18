@@ -517,7 +517,11 @@ function App() {
 
         <Flex align='center'>
           <H2>Card Styled Table</H2>
-          <Table context='card' footer='Here is the footer.  Should this be in {children} instead since we will want it in HTML with <sup> or do we set dangerously?' cols={cols} rows={rows} />
+          <Table
+            card
+            footer={<p>Here is the footer.  Changed to accept a ReactNode component, so similar as `children` but no unsafe.</p>}
+            cols={cols}
+            rows={rows} />
         </Flex>
 
         <H1>Containers</H1>

@@ -1,19 +1,26 @@
 
+import { ReactNode } from 'react'
+
 export interface Column {
   label: string
   name: string
 }
 
 export interface TableProps {
+  card?: boolean
   cols: Array<Column>
   rows: Array<Record<string, any>>
-  footer?: string //added along with associated code by ABS for optional footer
-  context?: string //added along with associated CSS for card styling
+  footer?: ReactNode
 }
 
-export default function Table({cols, rows, footer, context, ...props}: TableProps) {
+export default function Table({card, cols, rows, footer, ...props}: TableProps) {
+  const classNames = ['table']
+  if (card) classNames.push('table-card')
+
+  const classes = classNames.join(' ')
+
   return (
-    <table {...props} className={context && context === 'card' ? 'table-card-styled' :'table'}>
+    <table {...props} className={classes}>
       <thead>
         <tr>
           {cols.map(col => (
