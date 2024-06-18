@@ -2,8 +2,6 @@
 import { Align, Justify, Style } from '@/commons/types'
 import { ReactNode } from 'react'
 
-type Direction = 'column' | 'row'
-
 export interface FlexProps {
   align?: Align
   children: ReactNode

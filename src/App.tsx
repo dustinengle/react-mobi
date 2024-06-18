@@ -76,7 +76,7 @@ function App() {
       max: 100,
       min: 10,
       name: 'email',
-      regex: new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'i'),
+      regex: new RegExp(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/, 'i'),
     },
     {
       error: 'A valid password must be provided.',

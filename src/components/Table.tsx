@@ -13,7 +13,7 @@ export interface TableProps {
 
 export default function Table({cols, rows, footer, context, ...props}: TableProps) {
   return (
-    <table {...props} className={context && context=='card' ? 'table-card-styled' :'table'}>
+    <table {...props} className={context && context === 'card' ? 'table-card-styled' :'table'}>
       <thead>
         <tr>
           {cols.map(col => (

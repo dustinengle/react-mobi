@@ -41,7 +41,7 @@ export default function Form({ fields, handler }: FormProps) {
     } else if (field.regex && !validateRegEx(field.regex, value)) {
       error = true
     }
-    setErrors({...errors, [name]: true})
+    setErrors({...errors, [name]: error})
 
     data[name] = value
     setData(data)
