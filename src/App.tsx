@@ -498,7 +498,7 @@ function App() {
 
         <Flex align='center'>
           <H2>Notifications</H2>
-          <Flex align='center' justify='center' wrap>
+          <Flex align='center' justify='center'>
             <Notification context='danger'>There was something wrong.</Notification>
             <Notification context='info'>This is for your information.</Notification>
             <Notification context='success'>Whatever you did worked!</Notification>
@@ -512,16 +512,20 @@ function App() {
 
         <Flex align='center'>
           <H2>Table</H2>
-          <Table cols={cols} rows={rows} />
-        </Flex>
-
-        <Flex align='center'>
-          <H2>Card Styled Table</H2>
-          <Table
-            card
-            footer={<p>Here is the footer.  Changed to accept a ReactNode component, so similar as `children` but no unsafe.</p>}
-            cols={cols}
-            rows={rows} />
+          <Flex align='center' justify='center' row>
+            <Flex align='center'>
+              <H3>Default</H3>
+              <Table cols={cols} rows={rows} />
+            </Flex>
+            <Flex align='center'>
+              <H3>Card</H3>
+              <Table
+                card
+                cols={cols}
+                footer={<p>Here is the footer.  Changed to accept a ReactNode component, so similar as `children` but no unsafe.</p>}
+                rows={rows} />
+            </Flex>
+          </Flex>
         </Flex>
 
         <H1>Containers</H1>
