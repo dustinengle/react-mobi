@@ -31,10 +31,8 @@
   border-radius: $card-radius;
   box-shadow: $card-shadow;
   color: $color-foreground;
-  overflow: hidden;
-
-  /* ABS - added display:flex because a div given a class of card will default display:block. Enables "flex-full" class in "Side Card" implementation  */
   display: flex;
+  overflow: hidden;
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;

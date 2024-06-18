@@ -18,6 +18,7 @@ import Text from '@/elements/Text'
 import Tooltip from '@/elements/Tooltip'
 
 import Form from '@/components/Form'
+import Hero from '@/components/Hero'
 import { Navigation, NavigationLink } from '@/components/Navigation'
 import Notification from '@/components/Notification'
 import Table, { Column } from '@/components/Table'
@@ -480,6 +481,48 @@ function App() {
 
         <Flex align='center'>
           <H2>Heros</H2>
+          <H3>Bottom</H3>
+          <div style={{height: '30vh', width: '80vw'}}>
+            <Hero image='/images/test.jpg' position='bottom'>
+              <Flex>
+                <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
+              </Flex>
+            </Hero>
+          </div>
+          <H3>Cover</H3>
+          <div style={{height: '30vh', width: '80vw'}}>
+            <Hero image='/images/test.jpg' position='cover'>
+              <Flex>
+                <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
+              </Flex>
+            </Hero>
+          </div>
+          <H3>Left</H3>
+          <div style={{height: '30vh', width: '80vw'}}>
+            <Hero image='/images/test.jpg'>
+              <Flex>
+                <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
+                <Button callback={callbackTest} label='Tortor ornare!' role='primary' />
+              </Flex>
+            </Hero>
+          </div>
+          <H3>Right</H3>
+          <div style={{height: '30vh', width: '80vw'}}>
+            <Hero image='/images/test.jpg' position='right'>
+              <Flex align='end'>
+                <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
+                <Button callback={callbackTest} label='Tortor ornare!' role='primary' />
+              </Flex>
+            </Hero>
+          </div>
+          <H3>Top</H3>
+          <div style={{height: '30vh', width: '80vw'}}>
+            <Hero image='/images/test.jpg' position='top'>
+              <Flex>
+                <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
+              </Flex>
+            </Hero>
+          </div>
         </Flex>
 
         <Flex align='center'>

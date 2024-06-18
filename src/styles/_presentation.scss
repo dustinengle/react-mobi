@@ -1,0 +1,70 @@
+
+.hero {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  .info {
+    background-color: $color-background;
+    border: $card-border;
+    border-radius: $card-radius;
+    color: $color-foreground;
+    opacity: 0.75;
+    overflow: hidden;
+    padding: 1rem;
+    position: absolute;
+
+    button, .button {
+      width: fit-content;
+    }
+  }
+
+  &-bottom {
+    .info {
+      border-radius: 0;
+      bottom: 0;
+      top: unset;
+      transform: none;
+      width: 100%;
+    }
+  }
+
+  &-cover {
+    .info {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &-left {
+    .info {
+      border-radius: 0 $card-radius $card-radius 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50%;
+    }
+  }
+
+  &-right {
+    .info {
+      border-radius: $card-radius 0 0 $card-radius;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50%;
+    }
+  }
+
+  &-top {
+    .info {
+      border-radius: 0;
+      top: 0;
+      transform: none;
+      width: 100%;
+    }
+  }
+}
