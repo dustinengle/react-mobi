@@ -1,8 +1,12 @@
 
 .navigation {
+  align-items: center;
   background-color: $color-background;
   color: $color-foreground;
+  display: flex;
   filter: drop-shadow($color-shadow 0 7px 4px);
+  flex-direction: row;
+  height: 4em;
   padding: 0 1rem;
 
   &-link, &-link:active, &-link:visited {
@@ -17,7 +21,7 @@
   }
 
   img {
-    height: 4em;
+    height: 2em;
     width: auto;
   }
 

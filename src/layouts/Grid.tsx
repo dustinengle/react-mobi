@@ -43,10 +43,7 @@ export function GridArea({children, colEnd, colStart, rowEnd, rowStart, ...props
   }
 
   return (
-    <div {...props} style={{
-      gridColumn: `${colStart} / ${colEnd || colStart}`,
-      gridRow: `${rowStart} / ${rowEnd || rowStart}`,
-    }}>
+    <div {...props} style={style}>
       {children}
     </div>
   )

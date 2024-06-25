@@ -582,7 +582,7 @@ function App() {
 
         <Flex align='center'>
           <H2>Navigation</H2>
-          <Navigation logo='/images/logo.png'>
+          <Navigation logo='/images/logo.svg'>
             <NavigationLink href='/'>Link 1</NavigationLink>
             <NavigationLink href='/'>Link 2</NavigationLink>
             <NavigationLink href='/'>Link 3</NavigationLink>
