@@ -5,21 +5,49 @@ import { ReactNode } from 'react'
 export interface GridProps {
   children: ReactNode
   cols: number
+  gap?: number | string
   justify?: Justify
-  rows: number
+  rows?: number
 }
 
-function Grid({children, cols, rows, justify, ...props}: GridProps) {
-  const classNames = []
-  if (justify) classNames.push(`grid-${justify}`)
+export default function Grid({children, cols, gap, justify, rows, ...props}: GridProps) {
+  const classNames = ['grid']
+  if (justify) classNames.push(`justify-${justify}`)
 
   const classes = classNames.join(' ')
+  const style = {
+    gap,
+    gridTemplateColumns: `repeat(${cols}, 1fr)`,
+    gridTemplateRows: `repeat(${rows}, 1fr)`,
+  }
 
   return (
-    <div {...props} className={classes}>
+    <div {...props} className={classes} style={style}>
       {children}
     </div>
   )
 }
 
-export default Grid
+export interface GridAreaProps {
+  children: ReactNode
+  colEnd?: number
+  colStart: number
+  rowEnd?: number
+  rowStart: number
+}
+
+export function GridArea({children, colEnd, colStart, rowEnd, rowStart, ...props}: GridAreaProps) {
+  const style = {
+    gridColumn: `${colStart} / ${colEnd || colStart}`,
+    gridRow: `${rowStart} / ${rowEnd || rowStart}`,
+  }
+
+  return (
+    <div {...props} style={{
+      gridColumn: `${colStart} / ${colEnd || colStart}`,
+      gridRow: `${rowStart} / ${rowEnd || rowStart}`,
+    }}>
+      {children}
+    </div>
+  )
+}

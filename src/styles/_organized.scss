@@ -67,3 +67,119 @@ table, .table {
     }
   }
 }
+
+.accordion {
+  &-item {
+    $self: &;
+
+    &-close {
+      #{$self}-body {
+        height: 0;
+        padding: 0;
+        visibility: hidden;
+      }
+
+      #{$self}-title {
+        color: $accordion-title-color-close;
+      }
+    }
+
+    &-open {
+      #{$self}-body {
+        height: fit-content;
+        padding: $accordion-body-padding;
+        visibility: visible;
+      }
+
+      #{$self}-title {
+        color: $accordion-title-color-open;
+      }
+    }
+
+    &-title {
+      cursor: pointer;
+      font-weight: $accordion-title-weight;
+      padding: $accordion-title-padding;
+    }
+  }
+}
+
+.carousel {
+  &-disc {
+    background-color: transparent;
+    border: $carousel-disc-border;
+    border-radius: 50%;
+    color: $carousel-disc-color;
+    cursor: pointer;
+    height: $carousel-disc-size;
+    max-height: $carousel-disc-size;
+    max-width: $carousel-disc-size;
+    width: $carousel-disc-size;
+
+    &.active {
+      background-color: $carousel-disc-color;
+      border-color: $carousel-disc-color;
+    }
+  }
+
+  &-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  &-nav {
+    color: $carousel-nav-color;
+    cursor: pointer;
+  }
+}
+
+.stepper {
+  &-body {
+    padding: 1rem;
+  }
+
+  &-footer {
+    padding: 0 2rem;
+  }
+
+  &-header {
+    border: $stepper-header-border;
+    padding: 1rem;
+  }
+
+  &-step {
+    &-count {
+      background-color: $stepper-count-bg;
+      border-radius: 50%;
+      color: $stepper-count-fg;
+      font-size: $stepper-count-size;
+      height: $stepper-count-size * 1.5;
+      margin: 0;
+      max-height: $stepper-count-size * 1.5;
+      max-width: $stepper-count-size * 1.5;
+      padding: 0;
+      width: $stepper-count-size * 1.5;
+
+      &.active {
+        background-color: $stepper-count-active-bg;
+        color: $stepper-count-active-fg;
+      }
+    }
+
+    &-separator {
+      border: $stepper-separator;
+      height: 1px;
+      margin: 0.25rem;
+      padding: 0;
+      width: 2rem;
+    }
+
+    &-title {
+      color: $stepper-title-color;
+      font-size: $stepper-title-size;
+      font-weight: $stepper-title-weight;
+      margin: 0;
+      padding: 0 0 0 0.25rem;
+    }
+  }
+}

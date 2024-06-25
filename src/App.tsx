@@ -27,9 +27,13 @@ import Notification from '@/components/Notification'
 import Pagination from '@/components/Pagination'
 import Table, { Column } from '@/components/Table'
 
+import { Accordion, AccordionItem } from '@/containers/Accordion'
 import Card from '@/containers/Card'
+import { Carousel, CarouselItem } from '@/containers/Carousel'
+import { Stepper, StepperItem } from '@/containers/Stepper'
 
 import Flex from '@/layouts/Flex'
+import Grid, { GridArea } from '@/layouts/Grid'
 
 function App() {
   // This state and handler will be used by the modal demo.
@@ -87,11 +91,22 @@ function App() {
   // We use the following style to demonstrate the flex layout options.
   const flexDemoStyle = {
     border: '1px solid gray',
-    height: '15rem',
-    width: '20rem',
+    height: '10rem',
+    width: '12rem',
   }
   const flexDemoCellStyle = {
     border: '1px solid blue',
+  }
+
+  // The following is used for the grid example.
+  const gridStyle = {
+    border: '1px solid blue',
+    height: '2rem',
+    width: '2rem',
+  }
+  const cells = []
+  for (let i = 0; i < 28; i++) {
+    cells.push(<div key={i} style={gridStyle}>{i}</div>)
   }
 
   // We use this fields map for demonstrating the form component with validation.
@@ -616,6 +631,17 @@ function App() {
         <H1>Containers</H1>
         <Flex align='center'>
           <H2>Accordion</H2>
+          <Accordion>
+            <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>
+              Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
+            </AccordionItem>
+            <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>
+              Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
+            </AccordionItem>
+            <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>
+              Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
+            </AccordionItem>
+          </Accordion>
         </Flex>
 
         <Flex align='center'>
@@ -643,10 +669,26 @@ function App() {
 
         <Flex align='center'>
           <H2>Carousel</H2>
-        </Flex>
-
-        <Flex align='center'>
-          <H2>Menu</H2>
+          <div style={{height: '600px', width: '800px'}}>
+            <Carousel>
+              <CarouselItem>
+                <Image src='https://placehold.co/640x480/green/white?text=One' />
+                <H3>Item 1</H3>
+              </CarouselItem>
+              <CarouselItem>
+                <Image src='https://placehold.co/640x480/red/black?text=Two' />
+                <H3>Item 2</H3>
+              </CarouselItem>
+              <CarouselItem>
+                <Image src='https://placehold.co/640x480/silver/blue?text=Three' />
+                <H3>Item 3</H3>
+              </CarouselItem>
+              <CarouselItem>
+                <Image src='https://placehold.co/640x480/blue/white?text=Four' />
+                <H3>Item 4</H3>
+              </CarouselItem>
+            </Carousel>
+          </div>
         </Flex>
 
         <Flex align='center'>
@@ -655,6 +697,24 @@ function App() {
 
         <Flex align='center'>
           <H2>Stepper</H2>
+          <Stepper finish={() => alert('Stepper finished!')} nextLabel='Continue' prevLabel='Go back'>
+            <StepperItem title='Do this first'>
+              <H3>Step One</H3>
+              Fusce eros metus, dapibus id nibh sit amet, condimentum mollis quam. Nam quis egestas ante. Donec pharetra semper nibh, in placerat erat hendrerit eget.
+            </StepperItem>
+            <StepperItem title='Now this second'>
+              <H3>Step Two</H3>
+              Donec cursus arcu sed nisl ullamcorper egestas. Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie. Nulla id est posuere, pretium neque id, bibendum massa. Nulla interdum urna a elit convallis, eu facilisis tellus accumsan. Aliquam sed tempor diam, ut consequat ligula. Pellentesque maximus vehicula justo, ut maximus nisi luctus eu. Fusce rhoncus sed libero ac facilisis. Fusce et dui diam. Quisque venenatis hendrerit sapien sed tincidunt. Sed vel tellus nulla.
+            </StepperItem>
+            <StepperItem callback={() => { alert('Step 3 callback'); return true }} callbackLabel='Keep going' title='One more item'>
+              <H3>Step Three</H3>
+              Vestibulum feugiat lacus non sapien gravida congue. Praesent ut lobortis ipsum. Ut congue, nulla at ornare malesuada, ex mi imperdiet diam, eu eleifend lacus libero in ante. Pellentesque mollis, neque eget vestibulum pellentesque, arcu turpis convallis urna, vel sodales libero turpis nec nibh. In id sagittis mauris. Cras blandit justo nec magna accumsan, nec viverra est auctor. Phasellus non malesuada est, nec sagittis velit. Sed rhoncus varius fringilla. Nulla aliquet egestas ornare.
+            </StepperItem>
+            <StepperItem title='It is done'>
+              <H3>Final step</H3>
+              Fusce eros metus, dapibus id nibh sit amet, condimentum mollis quam. Nam quis egestas ante. Donec pharetra semper nibh, in placerat erat hendrerit eget.
+            </StepperItem>
+          </Stepper>
         </Flex>
 
         <H1>Layouts</H1>
@@ -662,98 +722,153 @@ function App() {
           <H2>Flex</H2>
           <Flex align='center' justify='center'>
             <H3>Column</H3>
-            <H4>Align</H4>
-            <Flex align='center' justify='center' row wrap>
-              <Flex align='start' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Start</Text>
-              </Flex>
-              <Flex align='center' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Center</Text>
-              </Flex>
-              <Flex align='end' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>End</Text>
-              </Flex>
-              <Flex align='stretch' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Stretch</Text>
-              </Flex>
-            </Flex>
-            <H4>Justify</H4>
-            <Flex align='center' justify='center' row wrap>
-              <Flex align='center' justify='start' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Start</Text>
-              </Flex>
-              <Flex align='center' justify='center' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Center</Text>
-              </Flex>
-              <Flex align='center' justify='end' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>End</Text>
-              </Flex>
-              <Flex align='center' justify='around' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Around</Text>
-                <Text style={flexDemoCellStyle}>Around</Text>
-                <Text style={flexDemoCellStyle}>Around</Text>
-              </Flex>
-              <Flex align='center' justify='between' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Between</Text>
-                <Text style={flexDemoCellStyle}>Between</Text>
-                <Text style={flexDemoCellStyle}>Between</Text>
-              </Flex>
-              <Flex align='center' justify='evenly' style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Evenly</Text>
-                <Text style={flexDemoCellStyle}>Evenly</Text>
-                <Text style={flexDemoCellStyle}>Evenly</Text>
-              </Flex>
+            <Flex row>
+              <div style={{flex: '1'}}>
+                <H4>Align</H4>
+                <Flex align='center' justify='center' row wrap>
+                  <Flex align='start' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Start</Text>
+                  </Flex>
+                  <Flex align='center' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Center</Text>
+                  </Flex>
+                  <Flex align='end' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>End</Text>
+                  </Flex>
+                  <Flex align='stretch' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Stretch</Text>
+                  </Flex>
+                </Flex>
+              </div>
+              <div style={{flex: '1'}}>
+                <H4>Justify</H4>
+                <Flex align='center' justify='center' row wrap>
+                  <Flex align='center' justify='start' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Start</Text>
+                  </Flex>
+                  <Flex align='center' justify='center' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Center</Text>
+                  </Flex>
+                  <Flex align='center' justify='end' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>End</Text>
+                  </Flex>
+                  <Flex align='center' justify='around' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Around</Text>
+                    <Text style={flexDemoCellStyle}>Around</Text>
+                    <Text style={flexDemoCellStyle}>Around</Text>
+                  </Flex>
+                  <Flex align='center' justify='between' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Between</Text>
+                    <Text style={flexDemoCellStyle}>Between</Text>
+                    <Text style={flexDemoCellStyle}>Between</Text>
+                  </Flex>
+                  <Flex align='center' justify='evenly' style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Evenly</Text>
+                    <Text style={flexDemoCellStyle}>Evenly</Text>
+                    <Text style={flexDemoCellStyle}>Evenly</Text>
+                  </Flex>
+                </Flex>
+              </div>
             </Flex>
           </Flex>
           <Flex align='center' justify='center'>
             <H3>Row</H3>
-            <H4>Align</H4>
-            <Flex align='center' justify='center' row wrap>
-              <Flex align='start' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Start</Text>
-              </Flex>
-              <Flex align='center' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Center</Text>
-              </Flex>
-              <Flex align='end' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>End</Text>
-              </Flex>
-              <Flex align='stretch' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Stretch</Text>
-              </Flex>
-            </Flex>
-            <H4>Justify</H4>
-            <Flex align='center' justify='center' row wrap>
-              <Flex align='center' justify='start' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Start</Text>
-              </Flex>
-              <Flex align='center' justify='center' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Center</Text>
-              </Flex>
-              <Flex align='center' justify='end' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>End</Text>
-              </Flex>
-              <Flex align='center' justify='around' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Around</Text>
-                <Text style={flexDemoCellStyle}>Around</Text>
-                <Text style={flexDemoCellStyle}>Around</Text>
-              </Flex>
-              <Flex align='center' justify='between' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Between</Text>
-                <Text style={flexDemoCellStyle}>Between</Text>
-                <Text style={flexDemoCellStyle}>Between</Text>
-              </Flex>
-              <Flex align='center' justify='evenly' row style={flexDemoStyle}>
-                <Text style={flexDemoCellStyle}>Evenly</Text>
-                <Text style={flexDemoCellStyle}>Evenly</Text>
-                <Text style={flexDemoCellStyle}>Evenly</Text>
-              </Flex>
+            <Flex row>
+              <div style={{flex: '1'}}>
+                <H4>Align</H4>
+                <Flex align='center' justify='center' row wrap>
+                  <Flex align='start' row style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Start</Text>
+                  </Flex>
+                  <Flex align='center' row style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Center</Text>
+                  </Flex>
+                  <Flex align='end' row style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>End</Text>
+                  </Flex>
+                  <Flex align='stretch' row style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Stretch</Text>
+                  </Flex>
+                </Flex>
+              </div>
+              <div style={{flex: '2'}}>
+                <H4>Justify</H4>
+                <Flex align='center' justify='center' row wrap>
+                  <Flex align='center' justify='start' row style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Start</Text>
+                  </Flex>
+                  <Flex align='center' justify='center' row style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>Center</Text>
+                  </Flex>
+                  <Flex align='center' justify='end' row style={flexDemoStyle}>
+                    <Text style={flexDemoCellStyle}>End</Text>
+                  </Flex>
+                  <Flex align='center' justify='around' row style={{...flexDemoStyle, width: '16rem'}}>
+                    <Text style={flexDemoCellStyle}>Around</Text>
+                    <Text style={flexDemoCellStyle}>Around</Text>
+                    <Text style={flexDemoCellStyle}>Around</Text>
+                  </Flex>
+                  <Flex align='center' justify='between' row style={{...flexDemoStyle, width: '16rem'}}>
+                    <Text style={flexDemoCellStyle}>Between</Text>
+                    <Text style={flexDemoCellStyle}>Between</Text>
+                    <Text style={flexDemoCellStyle}>Between</Text>
+                  </Flex>
+                  <Flex align='center' justify='evenly' row style={{...flexDemoStyle, width: '16rem'}}>
+                    <Text style={flexDemoCellStyle}>Evenly</Text>
+                    <Text style={flexDemoCellStyle}>Evenly</Text>
+                    <Text style={flexDemoCellStyle}>Evenly</Text>
+                  </Flex>
+                </Flex>
+              </div>
             </Flex>
           </Flex>
         </Flex>
 
         <Flex align='center'>
           <H2>Grid</H2>
+          <Flex align='stretch' gap='1rem' row wrap>
+            <Flex>
+              <H3>3 columns</H3>
+              <Grid cols={3}>
+                {cells}
+              </Grid>
+            </Flex>
+            <Flex>
+              <H3>6 columns</H3>
+              <Grid cols={6}>
+                {cells}
+              </Grid>
+            </Flex>
+            <Flex>
+              <H3>12 columns</H3>
+              <Grid cols={12}>
+                {cells}
+              </Grid>
+            </Flex>
+          </Flex>
+          <Flex>
+            <H3>Grid Area</H3>
+            <H5>12x12 with areas</H5>
+            <div style={{border: '1px solid blue', width: '50vw'}}>
+              <Grid cols={12} rows={12}>
+                <GridArea colStart={2} colEnd={12} rowStart={2} rowEnd={12}>
+                  <div style={{border: '1px solid red', height: '100%', width: '100%'}}>
+                    Cols: 2-12, Rows: 2-12
+                  </div>
+                </GridArea>
+                <GridArea colStart={1} colEnd={7} rowStart={5} rowEnd={7}>
+                  <div style={{border: '1px solid green', height: '100%', width: '100%'}}>
+                    Cols: 1-7, Rows: 5-7
+                  </div>
+                </GridArea>
+                <GridArea colStart={6} colEnd={13} rowStart={6} rowEnd={13}>
+                  <div style={{border: '1px solid blue', height: '100%', width: '100%'}}>
+                    Cols: 6-13, Rows: 6-13
+                  </div>
+                </GridArea>
+              </Grid>
+            </div>
+          </Flex>
         </Flex>
       </Flex>
     </div>

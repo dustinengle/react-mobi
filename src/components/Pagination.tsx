@@ -51,7 +51,7 @@ export default function Pagination({
     <div {...props} className='pagination'>
       <Flex align='center' justify='between' row>
         <div className='prev' onClick={handlePrev}>
-          <Icon name='prev' />
+          <Icon name='prev' size='sm' />
         </div>
         <div className='label'>
           {pageLabel}:
@@ -60,7 +60,7 @@ export default function Pagination({
           {pages.map(n => (<option key={n} value={n}>{n + 1}</option>))}
         </select>
         <div className='next' onClick={handleNext}>
-          <Icon name='next' />
+          <Icon name='next' size='sm' />
         </div>
         <div className='label'>
           {sizeLabel}:

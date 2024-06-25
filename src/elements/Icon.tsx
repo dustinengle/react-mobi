@@ -6,8 +6,8 @@ import {
   FaPaperclip,
   FaAward,
   FaCalendar,
-  FaCaretDown,
-  FaCaretUp,
+  FaChevronDown,
+  FaChevronUp,
   FaMoneyBill,
   FaCcAmex,
   FaCcDiscover,
@@ -68,9 +68,9 @@ export default function Icon({ name, src, size = 'md', ...props }: IconProps) {
     case 'calendar':
       return (<FaCalendar className={classes} />)
     case 'caret-down':
-      return (<FaCaretDown className={classes} />)
+      return (<FaChevronDown className={classes} />)
     case 'caret-up':
-      return (<FaCaretUp className={classes} />)
+      return (<FaChevronUp className={classes} />)
     case 'cash':
       return (<FaMoneyBill className={classes} />)
     case 'cc-amex':
