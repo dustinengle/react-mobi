@@ -612,10 +612,18 @@ function App() {
 
         <Flex align='center'>
           <H2>Table</H2>
-          <Flex align='center' justify='center' row>
+          <Flex align='center' justify='center' row wrap>
             <Flex align='center'>
-              <H3>Default</H3>
+              <H3>Default w/ Header Row</H3>
               <Table cols={cols} rows={rows} />
+            </Flex>
+            <Flex align='center'>
+              <H3>Default w/ Header Column</H3>
+              <Table cols={cols} header='column' rows={rows} />
+            </Flex>
+            <Flex align='center'>
+              <H3>Default w/o Header</H3>
+              <Table cols={cols} header='none' rows={rows} />
             </Flex>
             <Flex align='center'>
               <H3>Card</H3>
@@ -646,20 +654,20 @@ function App() {
 
         <Flex align='center'>
           <H2>Cards</H2>
-          <Flex align='center' justify='evenly' row>
-            <Card style={{padding: '1rem'}}>
+          <Flex align='center' justify='evenly' row wrap>
+            <Card style={{padding: '1rem', width: '20rem'}}>
               Sed eu tempor massa. Pellentesque vel mauris efficitur, feugiat massa sit amet, commodo erat. Integer tristique, mauris non luctus elementum, lectus urna faucibus urna, vel convallis sapien dui vitae nibh.
             </Card>
-            <Card>
+            <Card style={{width: '30rem'}}>
               <Flex full row>
-                <Background>
+                <Background style={{width: '20em'}}>
                   <Flex gap={0} justify='center'>
                     <H2>Step 1</H2>
                     <Text>Do something</Text>
                     <center><Icon name='lock' size='xl' /></center>
                   </Flex>
                 </Background>
-                <Flex align='center' full justify='center'>
+                <Flex align='center' full justify='center' style={{padding: '1rem'}}>
                   Integer tristique, mauris non luctus elementum, lectus urna faucibus urna, vel convallis sapien dui vitae nibh.
                 </Flex>
               </Flex>
@@ -693,6 +701,7 @@ function App() {
 
         <Flex align='center'>
           <H2>Schumer</H2>
+
         </Flex>
 
         <Flex align='center'>

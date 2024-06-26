@@ -9,13 +9,15 @@ export interface Column {
 export interface TableProps {
   card?: boolean
   cols: Array<Column>
+  header?: 'column' | 'none' | 'row'
   rows: Array<Record<string, any>>
   footer?: ReactNode
 }
 
-export default function Table({card, cols, rows, footer, ...props}: TableProps) {
+export default function Table({card, cols, header = 'row', rows, footer, ...props}: TableProps) {
   const classNames = ['table']
   if (card) classNames.push('table-card')
+  if (header && header !== 'none') classNames.push(`header-${header}`)
 
   const classes = classNames.join(' ')
 

@@ -14,8 +14,26 @@ table, .table {
   border-collapse: collapse;
   border-spacing: 0;
 
+  &.header {
+    &-column {
+      thead tr th:first-child {
+        background-color: $table-background;
+      }
+
+      tbody tr td:first-child {
+        background-color: $table-background;
+      }
+    }
+
+    &-row {
+      thead tr th {
+        background-color: $table-background;
+      }
+    }
+  }
+
   tbody tr:hover {
-    background-color: darken($color-background, 5%);
+    background-color: $table-background;
   }
 
   td, th {
@@ -34,7 +52,6 @@ table, .table {
   }
 
   th {
-    background-color: $table-background;
     font-weight: bold;
     padding: 0.5rem;
     text-align: center;
@@ -51,11 +68,11 @@ table, .table {
     }
 
     th {
+      background-color: $table-header-background !important;
       border-left: none;
       border-right: none;
-      text-align: center;
-      background-color: $table-header-background;
       color: $table-header-color;
+      text-align: center;
 
       &:first-child {
         border-radius: $table-border-radius 0 0 0;
