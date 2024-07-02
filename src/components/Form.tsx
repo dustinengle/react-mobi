@@ -17,8 +17,10 @@ export default function Form({ fields, handler }: FormProps) {
   const [errors, setErrors] = useState<Record<string, boolean>>({})
 
   function canSubmit(): boolean {
-    return Object.keys(errors).length === 0
-      && Object.keys(data).length > 0
+    const hasData = Object.values(data).length > 0
+    const hasError = Object.values(errors).find(value =>  value === true) !== undefined
+    console.log(hasError, errors, hasData, data)
+    return !hasError && hasData
   }
 
   function getOptions(field: Field): Array<ReactNode> {

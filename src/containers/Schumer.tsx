@@ -1,6 +1,12 @@
 
-import { ReactNode } from 'react'
+export interface SchumerProps {
 
-export default function Schumer() {
-  return null
+}
+
+export default function Schumer({...props}: SchumerProps) {
+  return (
+    <div className='schumer'>
+
+    </div>
+  )
 }
