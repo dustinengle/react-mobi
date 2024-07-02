@@ -4,7 +4,7 @@ export function isBoolean(x: any): boolean {
 }
 
 export function isNumber(x: any): boolean {
-  return typeof x === 'number' || Number.isInteger(x) || !isNaN(x)
+  return typeof x === 'number' || Number.isInteger(x)
 }
 
 export function isString(x: any): boolean {
