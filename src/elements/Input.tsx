@@ -50,6 +50,7 @@ export function Input({error, handler, name, type = 'text', value, ...props}: In
       className={error ? 'error' : undefined}
       name={name}
       onChange={handleChange}
+      onInput={handleChange}
       type={type}
       value={value} />
   )
@@ -110,9 +111,9 @@ export function Select({children, error, handler, name, value, ...props}: Select
   return (
     <select {...props}
       className={error ? 'error' : undefined}
+      defaultValue={value}
       name={name}
-      onChange={handleChange}
-      value={value}>
+      onChange={handleChange}>
       {children}
     </select>
   )
