@@ -20,8 +20,9 @@ export interface Field {
   max?: number
   min?: number
   name: string
-  options?: Array<Record<string, string>>
+  options?: Record<string, string>
   regex?: RegExp
+  required?: boolean
   value?: boolean | number | string
 }
 

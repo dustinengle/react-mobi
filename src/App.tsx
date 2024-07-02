@@ -119,6 +119,7 @@ function App() {
       min: 10,
       name: 'email',
       regex: new RegExp(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(.\w{2,3})+$/, 'i'),
+      required: true,
     },
     {
       error: 'A valid password must be provided.',
@@ -127,6 +128,22 @@ function App() {
       max: 40,
       min: 10,
       name: 'password',
+      required: true,
+    },
+    {
+      label: '2FA Method',
+      input: 'select',
+      name: '2fa',
+      options: {
+        email: 'Email Address',
+        sms: 'SMS',
+      },
+      required: true,
+    },
+    {
+      label: 'Subscribe to newsletter',
+      input: 'checkbox',
+      name: 'newsletter',
     },
   ]
 

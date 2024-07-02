@@ -113,7 +113,8 @@ export function Select({children, error, handler, name, value, ...props}: Select
       className={error ? 'error' : undefined}
       defaultValue={value}
       name={name}
-      onChange={handleChange}>
+      onChange={handleChange}
+      onInput={handleChange}>
       {children}
     </select>
   )

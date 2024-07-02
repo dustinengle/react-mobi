@@ -5,6 +5,7 @@ import { validateMax, validateMin, validateRegEx } from '@/utils/validation'
 
 import { Checkbox, Input, Option, Radio, Select, Textarea } from '@/elements/Input'
 import Flex from '@/layouts/Flex'
+import Label from '@/elements/Label'
 import Text from '@/elements/Text'
 
 export interface FormProps {
@@ -17,35 +18,22 @@ export default function Form({ fields, handler }: FormProps) {
   const [errors, setErrors] = useState<Record<string, boolean>>({})
 
   function canSubmit(): boolean {
-    const hasData = Object.values(data).length > 0
-    const hasError = Object.values(errors).find(value =>  value === true) !== undefined
-    return !hasError && hasData
+    return Object.values(errors).length === 0 && Object.values(data).length > 0
   }
 
   function getOptions(field: Field): Array<ReactNode> {
-    const options: Array<ReactNode> = []
-    for (const [key, value] of Object.entries(field)) {
-      options.push(<Option value={value}>{key}</Option>)
+    const options: Array<ReactNode> = [<Option key='' value=''>&nbsp;</Option>]
+    for (const [value, label] of Object.entries(field.options || [])) {
+      options.push(<Option key={value} value={value}>{label}</Option>)
     }
     return options;
   }
 
   function handleChange(name: string, value: string) {
-    const field = fields.find(f => f.name === name)
-    if (!field) return
-
-    let error: boolean = false
-    if (field.max && !validateMax(field.max, value)) {
-      error = true
-    } else if (field.min && !validateMin(field.min, value)) {
-      error = true
-    } else if (field.regex && !validateRegEx(field.regex, value)) {
-      error = true
-    }
-    setErrors({...errors, [name]: error})
-
     data[name] = value
     setData(data)
+
+    validate()
   }
 
   function handleReset() {
@@ -61,6 +49,23 @@ export default function Form({ fields, handler }: FormProps) {
     }
   }
 
+  function validate() {
+    const newErrors: Record<string, boolean> = {}
+    for (const field of fields) {
+      const value = data[field.name]
+      if (field.required && !value) {
+        newErrors[field.name] = true
+      } else if (field.max && !validateMax(field.max, value)) {
+        newErrors[field.name] = true
+      } else if (field.min && !validateMin(field.min, value)) {
+        newErrors[field.name] = true
+      } else if (field.regex && !validateRegEx(field.regex, value)) {
+        newErrors[field.name] = true
+      }
+    }
+    setErrors(newErrors)
+  }
+
   return (
     <form onReset={handleReset} onSubmit={handleSubmit}>
       <Flex gap='1rem'>
@@ -72,12 +77,12 @@ export default function Form({ fields, handler }: FormProps) {
                   error={errors[field.name]}
                   handler={handleChange}
                   name={field.name}>
-                  {field.label}
+                  <Label field={field} />
                 </Checkbox>
               }
               {['date', 'email', 'file', 'number', 'password', 'tel', 'text'].includes(field.input) &&
                 <>
-                  <label htmlFor={field.name}>{field.label}:</label>
+                  <Label field={field} />
                   <Input
                     error={errors[field.name]}
                     handler={handleChange}
@@ -92,24 +97,24 @@ export default function Form({ fields, handler }: FormProps) {
                   handler={handleChange}
                   name={field.name}
                   value={field.value as string}>
-                  {field.label}
+                  <Label field={field} />
                 </Radio>
               }
               {field.input === 'select' &&
                 <>
-                <label htmlFor={field.name}>{field.label}:</label>
+                <Label field={field} />
                   <Select
                     error={errors[field.name]}
                     handler={handleChange}
                     name={field.name}
-                    value={field.value as string}>
+                    value={''}>
                     {getOptions(field)}
                   </Select>
                 </>
               }
               {field.input === 'textarea' &&
                 <>
-                <label htmlFor={field.name}>{field.label}:</label>
+                <Label field={field} />
                   <Textarea
                     error={errors[field.name]}
                     handler={handleChange}
