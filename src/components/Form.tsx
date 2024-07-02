@@ -19,7 +19,6 @@ export default function Form({ fields, handler }: FormProps) {
   function canSubmit(): boolean {
     const hasData = Object.values(data).length > 0
     const hasError = Object.values(errors).find(value =>  value === true) !== undefined
-    console.log(hasError, errors, hasData, data)
     return !hasError && hasData
   }
 
@@ -57,7 +56,7 @@ export default function Form({ fields, handler }: FormProps) {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    if (!Object.keys(errors).length) {
+    if (canSubmit()) {
       handler(data as FormData)
     }
   }
