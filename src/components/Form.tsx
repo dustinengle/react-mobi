@@ -84,6 +84,7 @@ export default function Form({ fields, handler }: FormProps) {
                 <>
                   <Label field={field} />
                   <Input
+                    autocomplete={field.autocomplete}
                     error={errors[field.name]}
                     handler={handleChange}
                     name={field.name}
@@ -131,10 +132,12 @@ export default function Form({ fields, handler }: FormProps) {
         })}
         <Flex align='center' justify='around' row>
           <input
+            aria-label='submit'
             className='button button-primary'
             disabled={!canSubmit()}
             type='submit' />
           <input
+            aria-label='reset'
             className='button button-default'
             type='reset' />
         </Flex>

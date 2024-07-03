@@ -1,16 +1,16 @@
 
 input, option, select, textarea {
-  accent-color: $color-background;
-  background-color: $color-background;
-  border: 1px solid darken($color-background, 20%);
-  border-radius: 0.25rem;
+  accent-color: $input-accent;
+  background-color: $input-bg;
+  border: $input-border;
+  border-radius: $input-border-radius;
   box-shadow: none;
-  color: lighten($color-foreground, 20%);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  color: $input-fg;
+  font-family: $input-font-family;
+  font-size: $input-font-size;
   max-width: 20rem;
   outline: none;
-  padding: 0.75rem;
+  padding: $input-padding;
 
   &:hover {
     border-color: $color-primary;

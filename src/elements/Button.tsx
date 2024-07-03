@@ -11,7 +11,10 @@ export default function Button({ callback, label, role = 'default' }: ButtonProp
   const classes = `button button-${role}`
 
   return (
-    <button className={classes} onClick={callback}>
+    <button
+      className={classes}
+      onClick={callback}
+      role='button'>
       {label}
     </button>
   )

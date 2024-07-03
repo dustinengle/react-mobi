@@ -12,11 +12,11 @@ export interface NavigationProps {
 export function Navigation({children, logo, ...props}: NavigationProps) {
   return (
     <div {...props} className='navigation'>
-      <Flex align='center' full justify='between' row>
-        <Flex align='center' full row>
+      <Flex align='center' justify='between' row>
+        <Flex align='center' row>
           <Image src={logo} />
         </Flex>
-        <Flex align='center' justify='evenly' row>
+        <Flex align='center' full justify='evenly' row>
           {children}
         </Flex>
       </Flex>

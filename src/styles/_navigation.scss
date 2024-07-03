@@ -1,52 +1,33 @@
 
 .navigation {
-  align-items: center;
-  background-color: $color-background;
-  color: $color-foreground;
-  display: flex;
-  filter: drop-shadow($color-shadow 0 7px 4px);
-  flex-direction: row;
-  height: 4em;
-  padding: 0 1rem;
+  background-color: $navigation-bg;
+  color: $navigation-bg;
+  filter: $navigation-shadow;
+  height: $navigation-height;
+  padding: $navigation-padding;
+  width: 100%;
+
+  @media only screen and (max-width: $sm) {
+    height: fit-content;
+
+    .flex-row {
+      flex-direction: column;
+    }
+  }
 
   &-link, &-link:active, &-link:visited {
-    color: lighten($color-foreground, 40%);
+    color: $navigation-link-color;
+    padding: $navigation-link-padding;
     text-decoration: none;
-    // ABS added per spacing on existing site
-    padding: 0 2rem;
 
     &:hover {
-      color: $color-foreground;
+      color: darken($navigation-link-color, 50%);
     }
   }
 
   img {
     height: 2em;
     width: auto;
-  }
-
-  @media (min-width: $xs) {
-    width: 99vw;
-  }
-
-  @media (min-width: $sm) {
-    width: 98vw;
-  }
-
-  @media (min-width: $md) {
-    width: 98vw;
-  }
-
-  @media (min-width: $lg) {
-    width: $md;
-  }
-
-  @media (min-width: $xl) {
-    width: $lg;
-  }
-
-  @media (min-width: $xxl) {
-    width: $xl;
   }
 }
 

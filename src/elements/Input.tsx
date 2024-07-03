@@ -22,10 +22,13 @@ export function Checkbox({children, handler, checked = false, error, name, ...pr
   return (
     <Flex align='center' row>
       <input {...props}
+        aria-label={name}
         className={error ? 'error' : undefined}
         checked={on}
+        id={name}
         name={name}
         onChange={handleChange}
+        role='checkbox'
         type='checkbox' />
       {children}
     </Flex>
@@ -33,6 +36,7 @@ export function Checkbox({children, handler, checked = false, error, name, ...pr
 }
 
 export interface InputProps {
+  autocomplete?: string
   error?: boolean
   handler: (name: string, value: string) => void
   name: string
@@ -40,17 +44,29 @@ export interface InputProps {
   value?: string
 }
 
-export function Input({error, handler, name, type = 'text', value, ...props}: InputProps) {
+export function Input({
+    autocomplete = 'on',
+    error,
+    handler,
+    name,
+    type = 'text',
+    value,
+    ...props
+  }: InputProps) {
   function handleChange(ev: ChangeEvent<HTMLInputElement>) {
     handler(name, ev.target.value)
   }
 
   return (
     <input {...props}
+      aria-label={name}
+      autoComplete={autocomplete}
       className={error ? 'error' : undefined}
+      id={name}
       name={name}
       onChange={handleChange}
       onInput={handleChange}
+      role='textbox'
       type={type}
       value={value} />
   )
@@ -63,7 +79,10 @@ export interface OptionProps {
 
 export function Option({children, value, ...props}: OptionProps) {
   return (
-    <option {...props} value={value}>
+    <option {...props}
+      aria-label={value}
+      role='option'
+      value={value}>
       {children}
     </option>
   )
@@ -85,9 +104,12 @@ export function Radio({children, error, handler, name, value, ...props}: RadioPr
   return (
     <Flex align='center' row>
       <input {...props}
+        aria-label={name}
         className={error ? 'error' : undefined}
+        id={name}
         name={name}
         onChange={handleChange}
+        role='radio'
         type='radio'
         value={value} />
       {children}
@@ -110,11 +132,14 @@ export function Select({children, error, handler, name, value, ...props}: Select
 
   return (
     <select {...props}
+      aria-label={name}
       className={error ? 'error' : undefined}
       defaultValue={value}
+      id={name}
       name={name}
       onChange={handleChange}
-      onInput={handleChange}>
+      onInput={handleChange}
+      role='listbox'>
       {children}
     </select>
   )
@@ -134,8 +159,11 @@ export function Textarea({children, error, handler, name, ...props}: TextareaPro
 
   return (
     <textarea {...props}
+      aria-label={name}
       className={error ? 'error' : undefined}
-      onChange={handleChange}>
+      id={name}
+      onChange={handleChange}
+      role='textbox'>
       {children}
     </textarea>
   )

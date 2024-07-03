@@ -26,7 +26,7 @@ export default function Table({card, cols, header = 'row', rows, footer, ...prop
       <thead>
         <tr>
           {cols.map(col => (
-            <th key={col.name}>{col.label}</th>
+            <th key={col.name} scope='col'>{col.label}</th>
           ))}
         </tr>
       </thead>

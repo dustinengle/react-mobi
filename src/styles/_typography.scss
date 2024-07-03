@@ -51,6 +51,7 @@ h {
 }
 
 .danger {
+  background-color: $color-danger-fg;
   color: $color-danger;
 }
 
@@ -77,6 +78,7 @@ h {
 }
 
 .info {
+  background-color: $color-info-fg;
   color: $color-info;
 }
 
@@ -102,6 +104,7 @@ h {
 }
 
 .success {
+  background-color: $color-success-fg;
   color: $color-success;
 }
 
@@ -119,5 +122,6 @@ h {
 }
 
 .warning {
+  background-color: $color-warning-fg;
   color: $color-warning;
 }

@@ -1,6 +1,21 @@
 
 import { ReactNode } from 'react'
 
-export default function Body() {
-  return null
+export interface BodyProps {
+  children: ReactNode
+  margin?: number | string
+  padding?: number | string
+}
+
+export default function Body({children, margin, padding, ...props}: BodyProps) {
+  const style = {
+    margin,
+    padding,
+  }
+
+  return (
+    <div {...props} className='body' style={style}>
+      {children}
+    </div>
+  )
 }

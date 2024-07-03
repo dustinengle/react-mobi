@@ -4,6 +4,7 @@ export type Align = 'center' | 'end' | 'start' | 'stretch'
 export type Context = 'danger' | 'info' | 'success' | 'warning'
 
 export interface Field {
+  autocomplete?: string
   error?: string
   label: string
   input: 'checkbox'

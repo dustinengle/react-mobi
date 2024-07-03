@@ -1,6 +1,14 @@
 
 import { ReactNode } from 'react'
 
-export default function Header() {
-  return null
+export interface HeaderProps {
+  children: ReactNode
+}
+
+export default function Header({children, ...props}: HeaderProps) {
+  return (
+    <div {...props} className='header'>
+      {children}
+    </div>
+  )
 }

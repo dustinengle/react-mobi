@@ -162,6 +162,12 @@ table, .table {
   &-header {
     border: $stepper-header-border;
     padding: 1rem;
+
+    .flex-row {
+      @media only screen and (max-width: $sm) {
+        flex-direction: column;
+      }
+    }
   }
 
   &-step {
@@ -174,6 +180,8 @@ table, .table {
       margin: 0;
       max-height: $stepper-count-size * 1.5;
       max-width: $stepper-count-size * 1.5;
+      min-height: $stepper-count-size * 1.5;
+      min-width: $stepper-count-size * 1.5;
       padding: 0;
       width: $stepper-count-size * 1.5;
 
