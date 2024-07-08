@@ -14,9 +14,12 @@ export interface ModalProps {
 
 export default function Modal({children, callback, no, open, yes, ...props}: ModalProps) {
   return (
-    <>
+    <div aria-haspopup='dialog'>
       <div className={`modal modal-${open ? 'open' : 'close'}`} />
-      <div {...props} className={`modal-body modal-body-${open ? 'open' : 'close'}`}>
+      <div {...props}
+        aria-modal='true'
+        className={`modal-body modal-body-${open ? 'open' : 'close'}`}
+        role='dialog'>
         {children}
         <div className='modal-actions'>
           <Flex align='center' justify='evenly' row>
@@ -25,6 +28,6 @@ export default function Modal({children, callback, no, open, yes, ...props}: Mod
           </Flex>
         </div>
       </div>
-    </>
+    </div>
   )
 }

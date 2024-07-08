@@ -17,7 +17,11 @@ export default function Tooltip({children, context, message, position = 'cover',
 
   return (
     <div {...props} className={classes}>
-      <div className='message'>{message}</div>
+      <div
+        className='message'
+        role='tooltip'>
+        {message}
+      </div>
       <span style={style}>{children}</span>
     </div>
   )

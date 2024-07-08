@@ -1,5 +1,6 @@
 
 import { ChangeEvent, ReactNode, useState } from 'react'
+import random from '@/utils/random'
 
 import Flex from '@/layouts/Flex'
 
@@ -8,10 +9,19 @@ export interface CheckboxProps {
   children: ReactNode
   error?: boolean
   handler: (name: string, value: string) => void
+  id?: string
   name: string
 }
 
-export function Checkbox({children, handler, checked = false, error, name, ...props}: CheckboxProps) {
+export function Checkbox({
+    children,
+    handler,
+    checked = false,
+    error,
+    id,
+    name,
+    ...props
+  }: CheckboxProps) {
   const [on, setOn] = useState<boolean>(checked)
 
   function handleChange(ev: ChangeEvent<HTMLInputElement>) {
@@ -22,10 +32,11 @@ export function Checkbox({children, handler, checked = false, error, name, ...pr
   return (
     <Flex align='center' row>
       <input {...props}
+        aria-checked={on}
         aria-label={name}
         className={error ? 'error' : undefined}
         checked={on}
-        id={name}
+        id={id || random()}
         name={name}
         onChange={handleChange}
         role='checkbox'
@@ -37,8 +48,10 @@ export function Checkbox({children, handler, checked = false, error, name, ...pr
 
 export interface InputProps {
   autocomplete?: string
+  disabled?: boolean
   error?: boolean
   handler: (name: string, value: string) => void
+  id?: string
   name: string
   type?: string
   value?: string
@@ -46,8 +59,10 @@ export interface InputProps {
 
 export function Input({
     autocomplete = 'on',
+    disabled = false,
     error,
     handler,
+    id,
     name,
     type = 'text',
     value,
@@ -59,10 +74,12 @@ export function Input({
 
   return (
     <input {...props}
+      aria-disabled={disabled}
       aria-label={name}
       autoComplete={autocomplete}
       className={error ? 'error' : undefined}
-      id={name}
+      disabled={disabled}
+      id={id || random()}
       name={name}
       onChange={handleChange}
       onInput={handleChange}
@@ -92,11 +109,12 @@ export interface RadioProps {
   children: ReactNode
   error?: boolean
   handler: (name: string, value: string) => void
+  id?: string
   name: string
   value: string
 }
 
-export function Radio({children, error, handler, name, value, ...props}: RadioProps) {
+export function Radio({children, error, handler, id, name, value, ...props}: RadioProps) {
   function handleChange(ev: ChangeEvent<HTMLInputElement>) {
     handler(name, ev.target.value)
   }
@@ -106,7 +124,7 @@ export function Radio({children, error, handler, name, value, ...props}: RadioPr
       <input {...props}
         aria-label={name}
         className={error ? 'error' : undefined}
-        id={name}
+        id={id || random()}
         name={name}
         onChange={handleChange}
         role='radio'
@@ -121,11 +139,12 @@ export interface SelectProps {
   children: ReactNode
   error?: boolean
   handler: (name: string, value: string) => void
+  id?: string
   name: string
   value?: string
 }
 
-export function Select({children, error, handler, name, value, ...props}: SelectProps) {
+export function Select({children, error, handler, id, name, value, ...props}: SelectProps) {
   function handleChange(ev: ChangeEvent<HTMLSelectElement>) {
     handler(name, ev.target.value)
   }
@@ -135,7 +154,7 @@ export function Select({children, error, handler, name, value, ...props}: Select
       aria-label={name}
       className={error ? 'error' : undefined}
       defaultValue={value}
-      id={name}
+      id={id || random()}
       name={name}
       onChange={handleChange}
       onInput={handleChange}
@@ -149,10 +168,11 @@ export interface TextareaProps {
   children?: ReactNode
   error?: boolean
   handler: (name: string, value: string) => void
+  id?: string
   name: string
 }
 
-export function Textarea({children, error, handler, name, ...props}: TextareaProps) {
+export function Textarea({children, error, handler, id, name, ...props}: TextareaProps) {
   function handleChange(ev: ChangeEvent<HTMLTextAreaElement>) {
     handler(name, ev.target.value)
   }
@@ -160,8 +180,9 @@ export function Textarea({children, error, handler, name, ...props}: TextareaPro
   return (
     <textarea {...props}
       aria-label={name}
+      aria-multiline='true'
       className={error ? 'error' : undefined}
-      id={name}
+      id={id || random()}
       onChange={handleChange}
       role='textbox'>
       {children}

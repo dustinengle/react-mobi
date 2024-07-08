@@ -15,7 +15,11 @@ export default function Link({children, href, open = false, ...props}: LinkProps
   const target = open ? '_blank' : '_self'
 
   return (
-    <a {...props} className='link' href={href} target={target}>
+    <a {...props}
+      className='link'
+      href={href}
+      role='link'
+      target={target}>
       {children} {open && <Icon name='open' size='sm' />}
     </a>
   )

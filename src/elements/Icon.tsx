@@ -55,91 +55,96 @@ export default function Icon({ name, src, size = 'md', ...props }: IconProps) {
 
   if (src) {
     return (
-      <img {...props} alt={name || src} className={classes} src={src} />
+      <img {...props}
+        aria-label={name || src}
+        alt={name || src}
+        className={classes}
+        role='figure'
+        src={src} />
     )
   }
 
   switch (name) {
     case 'alert':
-      return (<FaBell className={classes} />)
+      return (<FaBell className={classes} role='figure' />)
     case 'attach':
-      return (<FaPaperclip className={classes} />)
+      return (<FaPaperclip className={classes} role='figure' />)
     case 'award':
-      return (<FaAward className={classes} />)
+      return (<FaAward className={classes} role='figure' />)
     case 'calendar':
-      return (<FaCalendar className={classes} />)
+      return (<FaCalendar className={classes} role='figure' />)
     case 'caret-down':
-      return (<FaChevronDown className={classes} />)
+      return (<FaChevronDown className={classes} role='figure' />)
     case 'caret-up':
-      return (<FaChevronUp className={classes} />)
+      return (<FaChevronUp className={classes} role='figure' />)
     case 'cash':
-      return (<FaMoneyBill className={classes} />)
+      return (<FaMoneyBill className={classes} role='figure' />)
     case 'cc-amex':
-      return (<FaCcAmex className={classes} />)
+      return (<FaCcAmex className={classes} role='figure' />)
     case 'cc-discover':
-      return (<FaCcDiscover className={classes} />)
+      return (<FaCcDiscover className={classes} role='figure' />)
     case 'cc-mastercard':
-      return (<FaCcMastercard className={classes} />)
+      return (<FaCcMastercard className={classes} role='figure' />)
     case 'cc-visa':
-      return (<FaCcVisa className={classes} />)
+      return (<FaCcVisa className={classes} role='figure' />)
     case 'check':
-      return (<FaMoneyCheck className={classes} />)
+      return (<FaMoneyCheck className={classes} role='figure' />)
     case 'close':
-      return (<FaXmark className={classes} />)
+      return (<FaXmark className={classes} role='figure' />)
     case 'comment':
-      return (<FaComment className={classes} />)
+      return (<FaComment className={classes} role='figure' />)
     case 'danger':
-      return (<FaCircleXmark className={classes} />)
+      return (<FaCircleXmark className={classes} role='figure' />)
     case 'delete':
-      return (<FaTrash className={classes} />)
+      return (<FaTrash className={classes} role='figure' />)
     case 'edit':
-      return (<FaPen className={classes} />)
+      return (<FaPen className={classes} role='figure' />)
     case 'email':
-      return (<FaEnvelope className={classes} />)
+      return (<FaEnvelope className={classes} role='figure' />)
     case 'folder':
-      return (<FaFolder className={classes} />)
+      return (<FaFolder className={classes} role='figure' />)
     case 'hide':
-      return (<FaEyeSlash className={classes} />)
+      return (<FaEyeSlash className={classes} role='figure' />)
     case 'info':
-      return (<FaCircleInfo className={classes} />)
+      return (<FaCircleInfo className={classes} role='figure' />)
     case 'lock':
-      return (<FaLock className={classes} />)
+      return (<FaLock className={classes} role='figure' />)
     case 'map':
-      return (<FaMap className={classes} />)
+      return (<FaMap className={classes} role='figure' />)
     case 'message':
-      return (<FaMessage className={classes} />)
+      return (<FaMessage className={classes} role='figure' />)
     case 'minus':
-      return (<FaMinus className={classes} />)
+      return (<FaMinus className={classes} role='figure' />)
     case 'next':
-      return (<FaChevronRight className={classes} />)
+      return (<FaChevronRight className={classes} role='figure' />)
     case 'open':
-      return (<FaUpRightFromSquare className={classes} />)
+      return (<FaUpRightFromSquare className={classes} role='figure' />)
     case 'plus':
-      return (<FaPlus className={classes} />)
+      return (<FaPlus className={classes} role='figure' />)
     case 'prev':
-      return (<FaChevronLeft className={classes} />)
+      return (<FaChevronLeft className={classes} role='figure' />)
     case 'profile':
-      return (<FaIdCard className={classes} />)
+      return (<FaIdCard className={classes} role='figure' />)
     case 'restricted':
-      return (<FaBan className={classes} />)
+      return (<FaBan className={classes} role='figure' />)
     case 'save':
-      return (<FaFloppyDisk className={classes} />)
+      return (<FaFloppyDisk className={classes} role='figure' />)
     case 'settings':
-      return (<FaGear className={classes} />)
+      return (<FaGear className={classes} role='figure' />)
     case 'star':
-      return (<FaStar className={classes} />)
+      return (<FaStar className={classes} role='figure' />)
     case 'success':
-      return (<FaCircleCheck className={classes} />)
+      return (<FaCircleCheck className={classes} role='figure' />)
     case 'tag':
-      return (<FaTag className={classes} />)
+      return (<FaTag className={classes} role='figure' />)
     case 'unlock':
-      return (<FaUnlock className={classes} />)
+      return (<FaUnlock className={classes} role='figure' />)
     case 'user':
-      return (<FaUser className={classes} />)
+      return (<FaUser className={classes} role='figure' />)
     case 'view':
-      return (<FaEye className={classes} />)
+      return (<FaEye className={classes} role='figure' />)
     case 'warning':
-      return (<FaCircleExclamation className={classes} />)
+      return (<FaCircleExclamation className={classes} role='figure' />)
     default:
       return null
   }

@@ -14,20 +14,26 @@ table, .table {
   border-collapse: collapse;
   border-spacing: 0;
 
+  @media only screen and (max-width: $sm) {
+    width: 90vw;
+  }
+
   &.header {
     &-column {
-      thead tr th:first-child {
+      tbody tr th {
         background-color: $table-background;
-      }
-
-      tbody tr td:first-child {
-        background-color: $table-background;
+        font-weight: bold;
+        padding: calc($table-padding * 2);
+        text-align: right;
       }
     }
 
     &-row {
       thead tr th {
         background-color: $table-background;
+        font-weight: bold;
+        padding: calc($table-padding * 2);
+        text-align: center;
       }
     }
   }
@@ -49,12 +55,6 @@ table, .table {
     tr td {
       border-radius: 0 0 $table-border-radius $table-border-radius;
     }
-  }
-
-  th {
-    font-weight: bold;
-    padding: calc($table-padding * 2);
-    text-align: center;
   }
 
   &-card {

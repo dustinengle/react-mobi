@@ -13,7 +13,7 @@ export default function Badge({ children, count, context = 'default' }: BadgePro
 
   return (
     <div className={classes}>
-      <div className='count'>{count}</div>
+      <div className='count' role='status'>{count}</div>
       {children}
     </div>
   )

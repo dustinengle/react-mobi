@@ -16,9 +16,14 @@ export default function Notification({children, callback, context, ...props}: No
   if (callback) classes += ' notification-closable'
 
   return (
-    <div {...props} className={classes}>
+    <div {...props}
+      className={classes}
+      role='alert'>
       {callback &&
-        <div className='notification-close' onClick={callback}>
+        <div
+          aria-label='Close'
+          className='notification-close'
+          onClick={callback}>
           <Icon name='close' size='sm' />
         </div>
       }

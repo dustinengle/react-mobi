@@ -196,6 +196,13 @@ function App() {
 
   return (
     <Body padding='1rem'>
+      <ul>
+        <li><Link href="#Elements">Elements</Link></li>
+        <li><Link href="#Components">Components</Link></li>
+        <li><Link href="#Containers">Containers</Link></li>
+        <li><Link href="#Layouts">Layouts</Link></li>
+      </ul>
+
       <H1>Elements</H1>
 
       <Flex align='center'>
@@ -370,7 +377,7 @@ function App() {
           </Flex>
           <Flex align='center'>
             <H4>Cover</H4>
-            <Image role='cover' src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
+            <Image caption='This image contains a caption' role='cover' src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
           </Flex>
           <Flex align='center'>
             <H4>Fill</H4>
@@ -523,7 +530,7 @@ function App() {
           </Flex>
           <Flex align='center'>
             <H4>Custom Style</H4>
-            <Text style={{color: 'orange'}}>Aliquam vitae neque at urna convallis molestie.</Text>
+            <Text style={{color: '#996500'}}>Aliquam vitae neque at urna convallis molestie.</Text>
           </Flex>
           <Flex align='center'>
             <H4>Context</H4>

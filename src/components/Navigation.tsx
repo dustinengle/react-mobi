@@ -11,10 +11,13 @@ export interface NavigationProps {
 
 export function Navigation({children, logo, ...props}: NavigationProps) {
   return (
-    <div {...props} className='navigation'>
+    <div {...props}
+      aria-label='Main'
+      className='navigation'
+      role='navigation'>
       <Flex align='center' justify='between' row>
         <Flex align='center' row>
-          <Image src={logo} />
+          <Image alt='Logo' src={logo} />
         </Flex>
         <Flex align='center' full justify='evenly' row>
           {children}

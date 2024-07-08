@@ -22,7 +22,10 @@ export default function Grid({children, cols, gap, justify, rows, ...props}: Gri
   }
 
   return (
-    <div {...props} className={classes} style={style}>
+    <div {...props}
+      className={classes}
+      role='grid'
+      style={style}>
       {children}
     </div>
   )
@@ -43,7 +46,9 @@ export function GridArea({children, colEnd, colStart, rowEnd, rowStart, ...props
   }
 
   return (
-    <div {...props} style={style}>
+    <div {...props}
+      role='gridcell'
+      style={style}>
       {children}
     </div>
   )

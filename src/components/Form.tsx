@@ -67,15 +67,22 @@ export default function Form({ fields, handler }: FormProps) {
   }
 
   return (
-    <form onReset={handleReset} onSubmit={handleSubmit}>
+    <form
+      aria-label='Form'
+      onReset={handleReset}
+      onSubmit={handleSubmit}
+      role='form'>
       <Flex gap='1rem'>
         {fields.map(field => {
           return (
             <Flex key={field.name}>
               {field.input === 'checkbox' &&
                 <Checkbox
+                  aria-errormessage={`error-${field.name}`}
+                  aria-required={field.required}
                   error={errors[field.name]}
                   handler={handleChange}
+                  id={field.name}
                   name={field.name}>
                   <Label field={field} />
                 </Checkbox>
@@ -84,9 +91,13 @@ export default function Form({ fields, handler }: FormProps) {
                 <>
                   <Label field={field} />
                   <Input
+                    aria-errormessage={`error-${field.name}`}
+                    aria-invalid={!!errors[field.name]}
+                    aria-required={field.required}
                     autocomplete={field.autocomplete}
                     error={errors[field.name]}
                     handler={handleChange}
+                    id={field.name}
                     name={field.name}
                     type={field.input}
                     value={field.value as string} />
@@ -94,8 +105,10 @@ export default function Form({ fields, handler }: FormProps) {
               }
               {field.input === 'radio' &&
                 <Radio
+                  aria-required={field.required}
                   error={errors[field.name]}
                   handler={handleChange}
+                  id={field.name}
                   name={field.name}
                   value={field.value as string}>
                   <Label field={field} />
@@ -105,8 +118,11 @@ export default function Form({ fields, handler }: FormProps) {
                 <>
                 <Label field={field} />
                   <Select
+                    aria-errormessage={`error-${field.name}`}
+                    aria-required={field.required}
                     error={errors[field.name]}
                     handler={handleChange}
+                    id={field.name}
                     name={field.name}
                     value={''}>
                     {getOptions(field)}
@@ -117,15 +133,21 @@ export default function Form({ fields, handler }: FormProps) {
                 <>
                 <Label field={field} />
                   <Textarea
+                    aria-errormessage={`error-${field.name}`}
+                    aria-invalid={!!errors[field.name]}
+                    aria-required={field.required}
                     error={errors[field.name]}
                     handler={handleChange}
+                    id={field.name}
                     name={field.name}>
                     {field.label}
                   </Textarea>
                 </>
               }
               {errors[field.name] &&
-                <Text context='danger'>{field.error}</Text>
+                <div id={`error-${field.name}`}>
+                  <Text context='danger'>{field.error}</Text>
+                </div>
               }
             </Flex>
           )

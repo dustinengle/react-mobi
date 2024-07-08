@@ -14,7 +14,10 @@ export default function Body({children, margin, padding, ...props}: BodyProps) {
   }
 
   return (
-    <div {...props} className='body' style={style}>
+    <div {...props}
+      className='body'
+      role='main'
+      style={style}>
       {children}
     </div>
   )

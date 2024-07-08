@@ -25,23 +25,33 @@ export function Carousel({children, ...props}: CarouselProps) {
     <div {...props} className='carousel'>
       <Flex align='center'>
         <Flex align='center' justify='between' row>
-          <div className='carousel-nav' onClick={handlePrev}>
+          <div
+            className='carousel-nav'
+            onClick={handlePrev}
+            role='button'>
             <Icon name='prev' />
           </div>
-          <Flex align='center' justify='center'>
+          <Flex
+            aria-controls='carousel-controls'
+            align='center'
+            justify='center'>
             {activeChild}
           </Flex>
-          <div className='carousel-nav' onClick={handleNext}>
+          <div
+            className='carousel-nav'
+            onClick={handleNext}
+            role='button'>
             <Icon name='next' />
           </div>
         </Flex>
-        <div className='carousel-discs'>
+        <div id='carousel-controls' className='carousel-discs'>
           <Flex align='center' justify='center' row>
             {children.map((_, idx) => (
               <div
                 className={`carousel-disc ${index === idx ? 'active' : ''}`}
                 key={idx}
-                onClick={() => setIndex(idx)} />
+                onClick={() => setIndex(idx)}
+                role='button' />
             ))}
           </Flex>
         </div>

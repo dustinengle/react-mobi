@@ -22,6 +22,12 @@
 }
 
 .image {
+  &-caption {
+    font-size: $image-caption-font-size;
+    font-style: $image-caption-font-style;
+    text-align: center;
+  }
+
   &-contain {
     object-fit: contain;
   }

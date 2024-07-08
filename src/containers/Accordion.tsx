@@ -40,11 +40,15 @@ export function AccordionItem({
   const classes = `accordion-item accordion-item-${open ? 'open' : 'close'}`
 
   return (
-    <div {...props} className={classes}>
-      <div className='accordion-item-title' onClick={handleClick}>
+    <div {...props}
+      aria-expanded={open}
+      className={classes}>
+      <div className='accordion-item-title'>
         <Flex align='center' justify='between' row>
           <div>{title}</div>
-          <Icon name={open ? iconOpen : iconClose} size='sm' />
+          <div onClick={handleClick} role='button'>
+            <Icon name={open ? iconOpen : iconClose} size='sm' />
+          </div>
         </Flex>
       </div>
       <div className='accordion-item-body'>{children}</div>

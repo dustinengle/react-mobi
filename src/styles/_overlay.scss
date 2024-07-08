@@ -115,7 +115,8 @@
     z-index: 1;
 
     @media only screen and (max-width: $sm) {
-      width: 40vw;
+      max-width: 50vw;
+      width: fit-content;
     }
   }
 

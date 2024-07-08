@@ -37,12 +37,17 @@ export function Stepper({
   for (let i = 0; i < children.length; i++) {
     const child = children[i]
     steps.push(
-      <div className='stepper-step' key={i}>
+      <div
+        aria-current={i === index ? 'step' : false}
+        className='stepper-step'
+        key={i}>
         <Flex align='center' gap='1rem' justify='center' row>
           <Flex align='center' gap={0} justify='center' row>
             <div className={`stepper-step-count ${index >= i ? 'active' : ''}`}>
               <Flex align='center' justify='center'>
-                {i + 1}
+                <span aria-label={`Step ${i + 1}`}>
+                  {i + 1}
+                </span>
               </Flex>
             </div>
             {child.props.title &&

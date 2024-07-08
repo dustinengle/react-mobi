@@ -12,7 +12,10 @@ export default function Hero({children, image, position = 'left', ...props}: Her
   const classes = `hero hero-${position}`
 
   return (
-    <div {...props} className={classes} style={{backgroundImage: `url(${image})`}}>
+    <div {...props}
+      className={classes}
+      role='banner'
+      style={{backgroundImage: `url(${image})`}}>
       <div className='info'>
         {children}
       </div>
