@@ -1,4 +1,5 @@
 
+import { Icons } from '@/commons/types'
 import { ReactNode, useState } from 'react'
 
 import Flex from '@/layouts/Flex'
@@ -18,10 +19,18 @@ export function Accordion({children, ...props}: AccordionProps) {
 
 export interface AccordionItemProps {
   children: ReactNode
+  iconClose?: Icons
+  iconOpen?: Icons
   title: string
 }
 
-export function AccordionItem({children, title, ...props}: AccordionItemProps) {
+export function AccordionItem({
+    children,
+    iconClose = 'caret-down',
+    iconOpen = 'caret-up',
+    title,
+    ...props
+  }: AccordionItemProps) {
   const [open, setOpen] = useState<boolean>(false)
 
   function handleClick() {
@@ -35,7 +44,7 @@ export function AccordionItem({children, title, ...props}: AccordionItemProps) {
       <div className='accordion-item-title' onClick={handleClick}>
         <Flex align='center' justify='between' row>
           <div>{title}</div>
-          <Icon name={open ? 'caret-up' : 'caret-down'} size='sm' />
+          <Icon name={open ? iconOpen : iconClose} size='sm' />
         </Flex>
       </div>
       <div className='accordion-item-body'>{children}</div>

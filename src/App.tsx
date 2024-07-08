@@ -200,7 +200,7 @@ function App() {
 
       <Flex align='center'>
         <H2>Badges</H2>
-        <Flex gap='3rem' justify='between' row wrap>
+        <Flex gap='3rem' justify='center' row wrap>
           <Badge count={123}>
             <Button callback={callbackTest} label='Click me!' role='secondary' />
           </Badge>
@@ -231,40 +231,78 @@ function App() {
 
       <Flex align='center'>
         <H2>Dividers</H2>
-        <Flex justify='evenly' row wrap>
-            <div style={{ width: '10rem' }}>
-              <Divider direction='horizontal' />
-            </div>
-            <div style={{ height: '5rem' }}>
-              <Divider direction='vertical' />
-            </div>
+        <Flex align='center' justify='center' row wrap>
+          <Flex align='center' justify='center'>
+            <H3>Solid w/ Dots (default)</H3>
+            <Flex justify='evenly' row wrap>
+                <div style={{width: '10rem'}}>
+                  <Divider direction='horizontal' />
+                </div>
+                <div style={{ height: '5rem' }}>
+                  <Divider direction='vertical' />
+                </div>
+            </Flex>
+          </Flex>
+          <Flex align='center' justify='center'>
+            <H3>Solid</H3>
+            <Flex justify='evenly' row wrap>
+                <div style={{width: '10rem'}}>
+                  <Divider direction='horizontal' dots={false} />
+                </div>
+                <div style={{ height: '5rem' }}>
+                  <Divider direction='vertical' dots={false} />
+                </div>
+            </Flex>
+          </Flex>
+          <Flex align='center' justify='center'>
+            <H3>Dashed w/ Dots</H3>
+            <Flex justify='evenly' row wrap>
+                <div style={{width: '10rem'}}>
+                  <Divider direction='horizontal' line='dashed' />
+                </div>
+                <div style={{ height: '5rem' }}>
+                  <Divider direction='vertical' line='dashed' />
+                </div>
+            </Flex>
+          </Flex>
+          <Flex align='center' justify='center'>
+            <H3>Dashed</H3>
+            <Flex justify='evenly' row wrap>
+                <div style={{width: '10rem'}}>
+                  <Divider direction='horizontal' dots={false} line='dashed' />
+                </div>
+                <div style={{ height: '5rem' }}>
+                  <Divider direction='vertical' dots={false} line='dashed' />
+                </div>
+            </Flex>
+          </Flex>
         </Flex>
       </Flex>
 
       <Flex align='center'>
         <H2>Fonts</H2>
-        <Flex justify='evenly' row wrap>
+        <Flex align='start' justify='center' row wrap>
           <Flex align='center'>
             <H4>Body</H4>
-            <p className='font-body'>
+            <p className='font-body' style={{width: '10rem'}}>
               Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
             </p>
           </Flex>
           <Flex align='center'>
             <H4>Legal</H4>
-            <p className='font-legal'>
+            <p className='font-legal' style={{width: '10rem'}}>
               Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
             </p>
           </Flex>
           <Flex align='center'>
             <H4>Number</H4>
-            <p className='font-number'>
+            <p className='font-number' style={{width: '10rem'}}>
               Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
             </p>
           </Flex>
           <Flex align='center'>
             <H4>Title</H4>
-            <p className='font-title'>
+            <p className='font-title' style={{width: '10rem'}}>
               Vestibulum vel ipsum euismod, feugiat metus a, efficitur enim. Aliquam ut euismod neque.
             </p>
           </Flex>
@@ -612,8 +650,8 @@ function App() {
       <Flex align='center'>
         <H2>Notifications</H2>
         <Flex align='center' justify='center'>
-          <Notification context='danger'>There was something wrong.</Notification>
-          <Notification context='info'>This is for your information.</Notification>
+          <Notification callback={callbackTest} context='danger'>There was something wrong.</Notification>
+          <Notification callback={callbackTest} context='info'>This is for your information.</Notification>
           <Notification context='success'>Whatever you did worked!</Notification>
           <Notification context='warning'>Next time this might not work.</Notification>
         </Flex>
@@ -662,7 +700,7 @@ function App() {
           <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>
             Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
           </AccordionItem>
-          <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>
+          <AccordionItem iconClose='plus' iconOpen='minus' title='Customize the icons'>
             Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
           </AccordionItem>
           <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>

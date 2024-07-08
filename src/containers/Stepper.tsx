@@ -39,7 +39,7 @@ export function Stepper({
       <div className='stepper-step' key={i}>
         <Flex align='center' gap='1rem' justify='center' row>
           <Flex align='center' gap={0} justify='center' row>
-            <div className={`stepper-step-count ${index === i ? 'active' : ''}`}>
+            <div className={`stepper-step-count ${index >= i ? 'active' : ''}`}>
               <Flex align='center' justify='center'>
                 {i + 1}
               </Flex>

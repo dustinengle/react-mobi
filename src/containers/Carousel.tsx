@@ -35,14 +35,16 @@ export function Carousel({children, ...props}: CarouselProps) {
             <Icon name='next' />
           </div>
         </Flex>
-        <Flex align='center' justify='center' row>
-          {children.map((_, idx) => (
-            <div
-              className={`carousel-disc ${index === idx ? 'active' : ''}`}
-              key={idx}
-              onClick={() => setIndex(idx)} />
-          ))}
-        </Flex>
+        <div className='carousel-discs'>
+          <Flex align='center' justify='center' row>
+            {children.map((_, idx) => (
+              <div
+                className={`carousel-disc ${index === idx ? 'active' : ''}`}
+                key={idx}
+                onClick={() => setIndex(idx)} />
+            ))}
+          </Flex>
+        </div>
       </Flex>
     </div>
   )

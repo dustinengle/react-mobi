@@ -1,12 +1,12 @@
 
 ol, ul {
   & ::marker {
-    font-size: 1.25em;
+    font-size: $list-font-size;
     font-weight: bold;
   }
 
   li {
-    font-size: 1.25em;
+    font-size: $list-font-size;
   }
 }
 
@@ -41,7 +41,7 @@ table, .table {
   }
 
   td {
-    padding: 0.25rem;
+    padding: $table-padding;
     text-align: center;
   }
 
@@ -53,7 +53,7 @@ table, .table {
 
   th {
     font-weight: bold;
-    padding: 0.5rem;
+    padding: calc($table-padding * 2);
     text-align: center;
   }
 
@@ -115,6 +115,7 @@ table, .table {
 
     &-title {
       cursor: pointer;
+      font-size: $accordion-title-font-size;
       font-weight: $accordion-title-weight;
       padding: $accordion-title-padding;
     }
@@ -122,20 +123,28 @@ table, .table {
 }
 
 .carousel {
-  &-disc {
-    background-color: transparent;
-    border: $carousel-disc-border;
-    border-radius: 50%;
-    color: $carousel-disc-color;
-    cursor: pointer;
-    height: $carousel-disc-size;
-    max-height: $carousel-disc-size;
-    max-width: $carousel-disc-size;
-    width: $carousel-disc-size;
+  $self: &;
 
-    &.active {
-      background-color: $carousel-disc-color;
-      border-color: $carousel-disc-color;
+  &-discs {
+    .flex-row {
+      gap: $carousel-discs-gap;
+    }
+
+    #{$self}-disc {
+      background-color: transparent;
+      border: $carousel-disc-border;
+      border-radius: $carousel-disc-radius;
+      color: $carousel-disc-color;
+      cursor: pointer;
+      height: $carousel-disc-size;
+      max-height: $carousel-disc-size;
+      max-width: $carousel-disc-size;
+      width: $carousel-disc-size;
+
+      &.active {
+        background-color: $carousel-disc-color;
+        border-color: $carousel-disc-color;
+      }
     }
   }
 
@@ -152,16 +161,16 @@ table, .table {
 
 .stepper {
   &-body {
-    padding: 1rem;
+    padding: $stepper-body-padding;
   }
 
   &-footer {
-    padding: 0 2rem;
+    padding: 0 calc($stepper-body-padding * 2);
   }
 
   &-header {
     border: $stepper-header-border;
-    padding: 1rem;
+    padding: $stepper-body-padding;
 
     .flex-row {
       @media only screen and (max-width: $sm) {
@@ -173,7 +182,7 @@ table, .table {
   &-step {
     &-count {
       background-color: $stepper-count-bg;
-      border-radius: 50%;
+      border-radius: $stepper-count-radius;
       color: $stepper-count-fg;
       font-size: $stepper-count-size;
       height: $stepper-count-size * 1.5;

@@ -1,23 +1,23 @@
 
 .icon {
   &-sm {
-    height: 1em;
-    width: 1em;
+    height: $icon-sm;
+    width: $icon-sm;
   }
 
   &-md {
-    height: 2em;
-    width: 2em;
+    height: $icon-md;
+    width: $icon-md;
   }
 
   &-lg {
-    height: 3em;
-    width: 3em;
+    height: $icon-lg;
+    width: $icon-lg;
   }
 
   &-xl {
-    height: 4em;
-    width: 4em;
+    height: $icon-xl;
+    width: $icon-xl;
   }
 }
 

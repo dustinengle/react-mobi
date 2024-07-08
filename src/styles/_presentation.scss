@@ -10,23 +10,24 @@
   .info {
     background-color: $color-background;
     border: $card-border;
-    border-radius: $card-radius;
+    border-radius: $hero-info-radius;
     color: $color-foreground;
     font-size: $hero-font-size;
-    opacity: 0.75;
+    opacity: $hero-info-opacity;
     overflow: hidden;
-    padding: 1rem;
+    padding: $hero-info-padding;
     position: absolute;
 
     @media only screen and (max-width: $sm) {
       font-size: $hero-font-size * 0.75;
-      padding: 0.5rem;
+      padding: calc($hero-info-padding * 0.5);
     }
 
     button, .button {
       width: fit-content;
 
       @media only screen and (max-width: $sm) {
+        font-size: $hero-font-size * 0.75;
         padding: calc($button-padding * 0.25);
       }
     }
@@ -52,7 +53,7 @@
 
   &-left {
     .info {
-      border-radius: 0 $card-radius $card-radius 0;
+      border-radius: 0 $hero-info-radius $hero-info-radius 0;
       top: 50%;
       transform: translateY(-50%);
       width: 50%;
@@ -61,7 +62,7 @@
 
   &-right {
     .info {
-      border-radius: $card-radius 0 0 $card-radius;
+      border-radius: $hero-info-radius 0 0 $hero-info-radius;
       right: 0;
       top: 50%;
       transform: translateY(-50%);
@@ -80,11 +81,29 @@
 }
 
 .notification {
-  padding: 1rem;
+  filter: $notification-shadow;
+  font-size: $notification-font-size;
+  padding: $notification-padding;
+  position: relative;
+
+  @media only screen and (max-width: $sm) {
+    width: 90vw;
+  }
 
   &-danger {
     background-color: $color-danger;
     color: $color-danger-fg;
+  }
+
+  &-closable {
+    padding-right: calc($notification-padding * 2);
+  }
+
+  &-close {
+    cursor: pointer;
+    position: absolute;
+    right:  calc($notification-padding * 0.5);
+    top: calc($notification-padding * 0.5);
   }
 
   &-info {

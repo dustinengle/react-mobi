@@ -1,7 +1,7 @@
 
 .background {
   height: 100%;
-  padding: 1rem;
+  padding: $background-padding;
 
   &-danger {
     background-color: $color-danger;

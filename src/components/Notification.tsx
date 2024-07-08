@@ -6,15 +6,22 @@ import Flex from '@/layouts/Flex'
 import Icon from '@/elements/Icon'
 
 export interface NotificationProps {
+  callback?: () => void
   children: ReactNode
   context: Context
 }
 
-export default function Notification({children, context, ...props}: NotificationProps) {
-  const classes = `notification notification-${context}`
+export default function Notification({children, callback, context, ...props}: NotificationProps) {
+  let classes = `notification notification-${context}`
+  if (callback) classes += ' notification-closable'
 
   return (
     <div {...props} className={classes}>
+      {callback &&
+        <div className='notification-close' onClick={callback}>
+          <Icon name='close' size='sm' />
+        </div>
+      }
       <Flex align='center' row>
         <Icon name={context} /> {children}
       </Flex>

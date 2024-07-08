@@ -12,33 +12,33 @@ h {
   }
 
   &1 {
-    font-size: 2rem;
-    margin: 0.65rem 0;
+    font-size: $h1-font-size;
+    margin: $h6-font-size 0;
   }
 
   &2 {
-    font-size: 1.5rem;
-    margin: 0.75rem 0;
+    font-size: $h2-font-size;
+    margin: $h5-font-size 0;
   }
 
   &3 {
-    font-size: 1.15rem;
-    margin: 0.85rem 0;
+    font-size: $h3-font-size;
+    margin: $h4-font-size 0;
   }
 
   &4 {
-    font-size: 1rem;
-    margin: 1rem 0;
+    font-size: $h4-font-size;
+    margin: $h3-font-size 0;
   }
 
   &5 {
-    font-size: 0.85rem;
-    margin: 1.5rem 0;
+    font-size: $h5-font-size;
+    margin: $h2-font-size 0;
   }
 
   &6 {
-    font-size: 0.75rem;
-    margin: 1.75rem 0;
+    font-size: $h6-font-size;
+    margin: $h1-font-size 0;
   }
 }
 
@@ -74,7 +74,7 @@ h {
 }
 
 .highlight {
-  padding: 0.25rem;
+  padding: $highlight-padding;
 }
 
 .info {
@@ -99,7 +99,7 @@ h {
 }
 
 .subscript {
-  font-size: 0.65em;
+  font-size: $font-subscript-size;
   vertical-align: sub;
 }
 
@@ -109,7 +109,7 @@ h {
 }
 
 .superscript {
-  font-size: 0.65em;
+  font-size: $font-superscript-size;
   vertical-align: super;
 }
 

@@ -60,17 +60,15 @@ body, #root {
 }
 
 .divider {
-  .dot {
+  $self: &;
+
+  &-dot {
     background-color: $divider-color;
     border-radius: 50%;
-    min-height: 0.75rem;
-    min-width: 0.75rem;
-    height: 0.75rem;
-    width: 0.75rem;
-  }
-
-  .line {
-    background-color: $divider-color;
+    min-height: $divider-dot-size;
+    min-width: $divider-dot-size;
+    height: $divider-dot-size;
+    width: $divider-dot-size;
   }
 
   &-horizontal {
@@ -79,9 +77,17 @@ body, #root {
     flex-direction: row;
     width: 100%;
 
-    .line {
-      height: $divider-width;
+    #{$self}-dashed {
+      border-top: $divider-width dashed $divider-color;
+    }
+
+    #{$self}-line {
+      height: 0;
       width: 100%;
+    }
+
+    #{$self}-solid {
+      border-top: $divider-width solid $divider-color;
     }
   }
 
@@ -91,9 +97,17 @@ body, #root {
     flex-direction: column;
     height: 100%;
 
-    .line {
+    #{$self}-dashed {
+      border-left: $divider-width dashed $divider-color;
+    }
+
+    #{$self}-line {
       height: 100%;
-      width: $divider-width;
+      width: 0;
+    }
+
+    #{$self}-solid {
+      border-left: $divider-width solid $divider-color;
     }
   }
 }

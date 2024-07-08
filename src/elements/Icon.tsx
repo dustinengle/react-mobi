@@ -14,6 +14,7 @@ import {
   FaCcMastercard,
   FaCcVisa,
   FaMoneyCheck,
+  FaXmark,
   FaComment,
   FaCircleXmark,
   FaTrash,
@@ -83,6 +84,8 @@ export default function Icon({ name, src, size = 'md', ...props }: IconProps) {
       return (<FaCcVisa className={classes} />)
     case 'check':
       return (<FaMoneyCheck className={classes} />)
+    case 'close':
+      return (<FaXmark className={classes} />)
     case 'comment':
       return (<FaComment className={classes} />)
     case 'danger':
