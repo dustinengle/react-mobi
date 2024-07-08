@@ -25,6 +25,11 @@ $color-secondary-fg: $color-white !default;
 $color-tertiary: rgb(246, 232, 255) !default;
 $color-tertiary-fg: $color-black !default;
 
+/* Border */
+$border-color: darken($color-background, 60%) !default;
+$border-size: 1px !default;
+$border-style: solid !default;
+
 /* Size */
 $xs: 396px !default;
 $sm: 576px !default;
@@ -63,7 +68,7 @@ $card-radius: 25px !default;
 $card-shadow: 0 0.25rem 0.75rem 0.5rem darken($color-background, 10%) !default;
 
 /* Carousel */
-$carousel-disc-border: 2px solid darken($color-background, 20%) !default;
+$carousel-disc-border: $border-size $border-style $border-color !default;
 $carousel-disc-color: $color-primary !default;
 $carousel-disc-radius: 50% !default;
 $carousel-disc-size: 0.75rem !default;
@@ -117,7 +122,7 @@ $icon-xl: 4rem !default;
 /* Input */
 $input-accent: $color-background !default;
 $input-bg: $color-background !default;
-$input-border: 1px solid darken($color-background, 60%) !default;
+$input-border: $border-size $border-style $border-color !default;
 $input-border-radius: 0.25rem !default;
 $input-carrot: url('/assets/carrot.png') !default;
 $input-fg: lighten($color-foreground, 20%) !default;
@@ -173,8 +178,7 @@ $stepper-count-bg: darken($color-background, 60%) !default;
 $stepper-count-fg: $color-background !default;
 $stepper-count-radius: 50% !default;
 $stepper-count-size: 1.25rem !default;
-$stepper-header-border: 1px solid darken($color-background, 10%) !default;
-$stepper-separator: 1px dashed darken($color-background, 20%) !default;
+$stepper-header-border: $border-size $border-style $border-color !default;
 $stepper-title-color: $color-foreground !default;
 $stepper-title-size: 1rem !default;
 $stepper-title-weight: 600 !default;
@@ -183,7 +187,7 @@ $stepper-title-weight: 600 !default;
 $table-header-background: $color-primary !default;
 $table-header-color: $color-white !default;
 $table-background: darken($color-background, 10%) !default;
-$table-border: 1px solid darken($table-background, 10%) !default;
+$table-border: $border-size $border-style $border-color !default;
 $table-border-radius: 1rem !default;
 $table-padding: 0.25rem !default;
 

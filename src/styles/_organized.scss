@@ -200,14 +200,6 @@ table, .table {
       }
     }
 
-    &-separator {
-      border: $stepper-separator;
-      height: 1px;
-      margin: 0.25rem;
-      padding: 0;
-      width: 2rem;
-    }
-
     &-title {
       color: $stepper-title-color;
       font-size: $stepper-title-size;
