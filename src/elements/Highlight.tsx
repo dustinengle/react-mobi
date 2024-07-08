@@ -1,6 +1,8 @@
 
 import { ReactNode } from 'react'
 
+import Text from '@/elements/Text'
+
 export interface HighlightProps {
   bg?: string
   children: ReactNode
@@ -9,8 +11,8 @@ export interface HighlightProps {
 
 export default function Highlight({ children, bg = 'yellow', fg = 'black' }: HighlightProps) {
   return (
-    <span className='highlight' style={{ backgroundColor: bg, color: fg }}>
+    <Text style={{ backgroundColor: bg, color: fg }}>
       {children}
-    </span>
+    </Text>
   )
 }

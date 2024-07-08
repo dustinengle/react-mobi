@@ -2,6 +2,7 @@
 import { ReactElement, ReactNode, useState } from 'react'
 
 import Button from '@/elements/Button'
+import Divider from '@/elements/Divider'
 import Flex from '@/layouts/Flex'
 
 export interface StepperProps {
@@ -44,14 +45,16 @@ export function Stepper({
                 {i + 1}
               </Flex>
             </div>
-            {child.props.title && <div className='stepper-step-title'>{child.props.title}</div>}
+            {child.props.title &&
+              <div className='stepper-step-title'>{child.props.title}</div>
+            }
           </Flex>
         </Flex>
       </div>
     )
 
     if (i < children.length - 1) {
-      steps.push(<div className='stepper-step-separator' key={i + 10} />)
+      steps.push(<Divider key={i + 10} dots={false} line='dashed' />)
     }
   }
 

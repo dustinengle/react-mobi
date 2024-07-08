@@ -73,10 +73,6 @@ h {
   }
 }
 
-.highlight {
-  padding: $highlight-padding;
-}
-
 .info {
   background-color: $color-info-fg;
   color: $color-info;
@@ -111,6 +107,10 @@ h {
 .superscript {
   font-size: $font-superscript-size;
   vertical-align: super;
+}
+
+.text {
+  padding: $text-padding;
 }
 
 .underline {

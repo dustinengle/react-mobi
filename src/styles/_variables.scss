@@ -110,9 +110,6 @@ $hero-info-opacity: 0.75 !default;
 $hero-info-padding: 1rem !default;
 $hero-info-radius: $card-radius !default;
 
-/* Highlight */
-$highlight-padding: 0.25rem !default;
-
 /* Icon */
 $icon-sm: 1rem !default;
 $icon-md: 2rem !default;
@@ -190,6 +187,9 @@ $table-background: darken($color-background, 10%) !default;
 $table-border: $border-size $border-style $border-color !default;
 $table-border-radius: 1rem !default;
 $table-padding: 0.25rem !default;
+
+/* Text */
+$text-padding: 0.25rem !default;
 
 /* Tooltip */
 $tooltip-padding: 0.25em 0.5em !default;

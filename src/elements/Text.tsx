@@ -19,7 +19,7 @@ export interface TextProps {
 }
 
 export default function Text({children, context, style, ...props}: TextProps) {
-  let classNames = []
+  let classNames = ['text']
   if (context) classNames.push(context)
   for (const [name, active] of Object.entries(props)) {
     if (active) classNames.push(name)
