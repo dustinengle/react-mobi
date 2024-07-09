@@ -89,10 +89,21 @@ table, .table {
   &-item {
     $self: &;
 
+    &-body {
+      box-sizing: border-box;
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+      transition: $accordion-transition;
+
+      &-content {
+        padding: $accordion-body-padding;
+      }
+    }
+
     &-close {
       #{$self}-body {
-        height: 0;
-        padding: 0;
+        max-height: 0;
         visibility: hidden;
       }
 
@@ -103,8 +114,7 @@ table, .table {
 
     &-open {
       #{$self}-body {
-        height: fit-content;
-        padding: $accordion-body-padding;
+        max-height: 100vh;
         visibility: visible;
       }
 
@@ -124,6 +134,10 @@ table, .table {
 
 .carousel {
   $self: &;
+
+  &-container {
+    overflow: hidden;
+  }
 
   &-discs {
     .flex-row {
@@ -149,8 +163,27 @@ table, .table {
   }
 
   &-item {
+    max-height: 0;
     margin: 0;
     padding: 0;
+    visibility: hidden;
+
+    &.active {
+      max-height: fit-content;
+      transform: translateX(0);
+      transition: $carousel-transition;
+      visibility: visible;
+    }
+
+    &.next {
+      transform: translateX(100%);
+      transition: $carousel-transition;
+    }
+
+    &.prev {
+      transform: translateX(-100%);
+      transition: $carousel-transition;
+    }
   }
 
   &-nav {

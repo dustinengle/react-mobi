@@ -76,22 +76,41 @@ export default function Form({fields, handler, highlight = 'none', label = 'Form
       role='form'>
       <Flex gap='1rem'>
         {fields.map(field => {
+          const errorLabel = errors[field.name]
+            ? (
+                <div className='input-error' id={`error-${field.name}`}>
+                  <Text context='danger'>{field.error}</Text>
+                </div>
+              )
+            : null
+          const inputLabel = (
+            <div className='input-label'>
+              <Label
+                error={errors[field.name]}
+                field={field}
+                highlight={!['checkbox'].includes(field.input) ? highlight : undefined} />
+            </div>
+          )
+
           return (
-            <Flex key={field.name}>
+            <div className='input' key={field.name}>
               {field.input === 'checkbox' &&
-                <Checkbox
-                  aria-errormessage={`error-${field.name}`}
-                  aria-required={field.required}
-                  error={errors[field.name]}
-                  handler={handleChange}
-                  id={field.name}
-                  name={field.name}>
-                  <Label field={field} />
-                </Checkbox>
+                <>
+                  <Checkbox
+                    aria-errormessage={`error-${field.name}`}
+                    aria-required={field.required}
+                    error={errors[field.name]}
+                    handler={handleChange}
+                    id={field.name}
+                    name={field.name}>
+                    {inputLabel}
+                  </Checkbox>
+                  {errorLabel}
+                </>
               }
               {['date', 'email', 'file', 'number', 'password', 'tel', 'text'].includes(field.input) &&
                 <>
-                  <Label field={field} highlight={highlight} />
+                  {inputLabel}
                   <Input
                     aria-errormessage={`error-${field.name}`}
                     aria-invalid={!!errors[field.name]}
@@ -103,22 +122,26 @@ export default function Form({fields, handler, highlight = 'none', label = 'Form
                     name={field.name}
                     type={field.input}
                     value={field.value as string} />
+                  {errorLabel}
                 </>
               }
               {field.input === 'radio' &&
-                <Radio
-                  aria-required={field.required}
-                  error={errors[field.name]}
-                  handler={handleChange}
-                  id={field.name}
-                  name={field.name}
-                  value={field.value as string}>
-                  <Label field={field} />
-                </Radio>
+                <>
+                  <Radio
+                    aria-required={field.required}
+                    error={errors[field.name]}
+                    handler={handleChange}
+                    id={field.name}
+                    name={field.name}
+                    value={field.value as string}>
+                    {inputLabel}
+                  </Radio>
+                  {errorLabel}
+                </>
               }
               {field.input === 'select' &&
                 <>
-                <Label field={field} />
+                  {inputLabel}
                   <Select
                     aria-errormessage={`error-${field.name}`}
                     aria-required={field.required}
@@ -129,11 +152,12 @@ export default function Form({fields, handler, highlight = 'none', label = 'Form
                     value={''}>
                     {getOptions(field)}
                   </Select>
+                  {errorLabel}
                 </>
               }
               {field.input === 'textarea' &&
                 <>
-                  <Label field={field} highlight={highlight} />
+                  {inputLabel}
                   <Textarea
                     aria-errormessage={`error-${field.name}`}
                     aria-invalid={!!errors[field.name]}
@@ -141,17 +165,12 @@ export default function Form({fields, handler, highlight = 'none', label = 'Form
                     error={errors[field.name]}
                     handler={handleChange}
                     id={field.name}
-                    name={field.name}>
-                    {field.label}
-                  </Textarea>
+                    name={field.name}
+                    value={field.value as string} />
+                  {errorLabel}
                 </>
               }
-              {errors[field.name] &&
-                <div id={`error-${field.name}`}>
-                  <Text context='danger'>{field.error}</Text>
-                </div>
-              }
-            </Flex>
+            </div>
           )
         })}
         <Flex align='center' justify='around' row>

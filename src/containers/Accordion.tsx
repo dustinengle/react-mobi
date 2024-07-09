@@ -46,12 +46,16 @@ export function AccordionItem({
       <div className='accordion-item-title'>
         <Flex align='center' justify='between' row>
           <div>{title}</div>
-          <div onClick={handleClick} role='button'>
+          <div onClick={handleClick} role='link'>
             <Icon name={open ? iconOpen : iconClose} size='sm' />
           </div>
         </Flex>
       </div>
-      <div className='accordion-item-body'>{children}</div>
+      <div className='accordion-item-body'>
+        <div className='accordion-item-body-content'>
+          {children}
+        </div>
+      </div>
     </div>
   )
 }

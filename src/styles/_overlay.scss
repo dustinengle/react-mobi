@@ -75,6 +75,7 @@
     max-width: $modal-body-max-width;
     padding: $modal-body-padding;
     transform: translate(-50%, -50%);
+    transition: $modal-transition;
     z-index: 5;
 
     @media only screen and (max-width: $sm) {
@@ -83,10 +84,12 @@
     }
 
     &-close {
+      opacity: 0;
       visibility: hidden;
     }
 
     &-open {
+      opacity: 1;
       visibility: visible;
     }
   }
@@ -107,9 +110,11 @@
     border-radius: $tooltip-radius;
     color: $color-background;
     filter: $tooltip-shadow;
+    opacity: 0;
     padding: $tooltip-padding;
     position: absolute;
     text-align: center;
+    transition: $tooltip-transition;
     visibility: hidden;
     width: $tooltip-width;
     z-index: 1;
@@ -123,6 +128,7 @@
   /* Visible */
 
   &:hover .message {
+    opacity: 1;
     visibility: visible;
   }
 

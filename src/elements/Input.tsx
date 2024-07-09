@@ -165,14 +165,14 @@ export function Select({children, error, handler, id, name, value, ...props}: Se
 }
 
 export interface TextareaProps {
-  children?: ReactNode
   error?: boolean
   handler: (name: string, value: string) => void
   id?: string
   name: string
+  value?: string
 }
 
-export function Textarea({children, error, handler, id, name, ...props}: TextareaProps) {
+export function Textarea({error, handler, id, name, value, ...props}: TextareaProps) {
   function handleChange(ev: ChangeEvent<HTMLTextAreaElement>) {
     handler(name, ev.target.value)
   }
@@ -184,8 +184,7 @@ export function Textarea({children, error, handler, id, name, ...props}: Textare
       className={error ? 'error' : undefined}
       id={id || random()}
       onChange={handleChange}
-      role='textbox'>
-      {children}
-    </textarea>
+      role='textbox'
+      value={value} />
   )
 }

@@ -134,6 +134,7 @@ function App() {
       required: true,
     },
     {
+      error: 'A two-factor authentication method must be selected.',
       label: '2FA Method',
       input: 'select',
       name: '2fa',
@@ -726,7 +727,42 @@ function App() {
             Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
           </AccordionItem>
           <AccordionItem iconClose='plus' iconOpen='minus' title='Customize the icons'>
-            Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
+            <p>
+              Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
+            </p>
+            <p>
+              Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
+            </p>
+            <p>
+              Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
+            </p>
+            <p>
+              Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
+            </p>
+            <p>
+              Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
+            </p>
+            <p>
+              Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
+            </p>
+            <p>
+              Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
+            </p>
+            <p>
+              Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
+            </p>
+            <p>
+              Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
+            </p>
+            <p>
+              Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
+            </p>
+            <p>
+              Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
+            </p>
+            <p>
+              Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
+            </p>
           </AccordionItem>
           <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>
             Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.

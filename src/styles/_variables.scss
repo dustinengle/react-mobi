@@ -47,6 +47,7 @@ $accordion-title-color-open: $color-primary !default;
 $accordion-title-font-size: 1.25rem !default;
 $accordion-title-padding: 0.5rem !default;
 $accordion-title-weight: 600 !default;
+$accordion-transition: all 0.5s ease-in-out;
 
 /* Background */
 $background-padding: 1rem !default;
@@ -74,6 +75,7 @@ $carousel-disc-radius: 50% !default;
 $carousel-disc-size: 0.75rem !default;
 $carousel-discs-gap: 0.5rem !default;
 $carousel-nav-color: $color-primary !default;
+$carousel-transition: all 0.5s ease-in-out;
 
 /* Divider */
 $divider-color: $color-primary !default;
@@ -126,9 +128,12 @@ $input-bg: $color-background !default;
 $input-border: $border-size $border-style $border-color !default;
 $input-border-radius: 0.25rem !default;
 $input-carrot: url('/assets/carrot.png') !default;
+$input-error-font-size: 0.75rem !default;
+$input-error-padding: 0.25rem 0 0 0 !default;
 $input-fg: lighten($color-foreground, 20%) !default;
 $input-font-family: $font-family-body !default;
 $input-font-size: 1rem !default;
+$input-label-padding: 1rem 0 0 0 !default;
 $input-max-width: 20rem !default;
 $input-min-width: 8rem !default;
 $input-outline: 0 !default;
@@ -157,6 +162,7 @@ $modal-body-padding: 1rem !default;
 $modal-body-shadow: drop-shadow($color-shadow 0 7px 4px) !default;
 $modal-overlay-color: darken($color-background, 50%) !default;
 $modal-overlay-opacity: 0.75 !default;
+$modal-transition: all 0.5s ease-in-out;
 
 /* Navigation */
 $navigation-bg: $color-background !default;
@@ -201,4 +207,5 @@ $text-padding: 0.25rem !default;
 $tooltip-padding: 0.25em 0.5em !default;
 $tooltip-radius: 0.5em !default;
 $tooltip-shadow: drop-shadow($color-shadow 0 7px 4px) !default;
+$tooltip-transition: all 0.3s ease-in-out;
 $tooltip-width: 10vw !default;

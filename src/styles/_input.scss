@@ -16,7 +16,7 @@ input, option, select, textarea {
     border-color: $color-primary;
   }
 
-  .error {
+  &.error {
     border-color: $color-danger;
   }
 }
@@ -37,7 +37,7 @@ input {
 label {
   font-size: $label-font-size;
 
-  .error {
+  &.error {
     color: $color-danger;
   }
 
@@ -54,5 +54,20 @@ select {
 
   .error {
     border-color: $color-danger;
+  }
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  &-error {
+    font-size: $input-error-font-size;
+    margin: $input-error-padding;
+  }
+
+  &-label {
+    margin-top: $input-label-padding;
   }
 }

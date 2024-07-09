@@ -1,25 +1,24 @@
 
-import { ReactNode, useState } from 'react'
+import { ReactElement, ReactNode, useState } from 'react'
 
 import Flex from '@/layouts/Flex'
 import Icon from '@/elements/Icon'
 
 export interface CarouselProps {
-  children: Array<ReactNode>
+  children: Array<ReactElement<CarouselItemProps>>
 }
 
 export function Carousel({children, ...props}: CarouselProps) {
   const [index, setIndex] = useState<number>(0)
+  const total = children.length - 1
 
   function handleNext() {
-    setIndex(index >= children.length - 1 ? 0 : index + 1)
+    setIndex(index >= total ? 0 : index + 1)
   }
 
   function handlePrev() {
-    setIndex(index === 0 ? children.length - 1 : index - 1)
+    setIndex(index === 0 ? total : index - 1)
   }
-
-  const activeChild = children[index]
 
   return (
     <div {...props} className='carousel'>
@@ -28,19 +27,32 @@ export function Carousel({children, ...props}: CarouselProps) {
           <div
             className='carousel-nav'
             onClick={handlePrev}
-            role='button'>
+            role='link'>
             <Icon name='prev' />
           </div>
           <Flex
             aria-controls='carousel-controls'
             align='center'
             justify='center'>
-            {activeChild}
+            <div className='carousel-container'>
+              {children.map((child, idx) => {
+                return (
+                  <CarouselItem
+                    active={index}
+                    index={idx}
+                    key={idx}
+                    next={index >= total ? 0 : index + 1}
+                    prev={index <= 0 ? total : index - 1}>
+                    {child.props.children}
+                  </CarouselItem>
+                )
+              })}
+            </div>
           </Flex>
           <div
             className='carousel-nav'
             onClick={handleNext}
-            role='button'>
+            role='link'>
             <Icon name='next' />
           </div>
         </Flex>
@@ -51,7 +63,7 @@ export function Carousel({children, ...props}: CarouselProps) {
                 className={`carousel-disc ${index === idx ? 'active' : ''}`}
                 key={idx}
                 onClick={() => setIndex(idx)}
-                role='button' />
+                role='link' />
             ))}
           </Flex>
         </div>
@@ -61,12 +73,28 @@ export function Carousel({children, ...props}: CarouselProps) {
 }
 
 export interface CarouselItemProps {
+  active?: number
   children: ReactNode
+  index?: number
+  next?: number
+  prev?: number
 }
 
-export function CarouselItem({children, ...props}: CarouselItemProps) {
+export function CarouselItem({
+    children,
+    active = 0,
+    index = 0,
+    next = 0,
+    prev = 0,
+    ...props
+  }: CarouselItemProps) {
+  let classes = 'carousel-item'
+  if (index === active) classes += ' active'
+  if (index === next) classes += ' next'
+  if (index === prev) classes += ' prev'
+
   return (
-    <div {...props} className='carousel-item'>
+    <div {...props} className={classes}>
       {children}
     </div>
   )
