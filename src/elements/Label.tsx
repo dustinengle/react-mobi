@@ -5,14 +5,29 @@ import Text from '@/elements/Text'
 
 export interface LabelProps {
   field: Field
-  symbol?: string
+  highlight?: 'none' | 'optional' | 'required'
+  optional?: string
+  required?: string
 }
 
-export default function Label({field, symbol = '*', ...props}: LabelProps) {
+export default function Label({
+    field,
+    highlight = 'none',
+    optional = '(optional)',
+    required = '(required)',
+    ...props
+  }: LabelProps) {
   return (
-    <label aria-label={field.label} htmlFor={field.name}>
+    <label {...props}
+      aria-label={field.label}
+      htmlFor={field.name}>
       {field.label}
-      {field.required && <Text context='danger'>{symbol}</Text>}
+      {highlight === 'optional' && !field.required &&
+        <Text italic>{optional}</Text>
+      }
+      {highlight === 'required' && field.required &&
+        <Text italic>{required}</Text>
+      }
     </label>
   )
 }

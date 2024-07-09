@@ -40,6 +40,11 @@ label {
   .error {
     color: $color-danger;
   }
+
+  .text {
+    color: $label-highlight-color;
+    font-size: $label-highlight-font-size;
+  }
 }
 
 select {

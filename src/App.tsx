@@ -144,6 +144,11 @@ function App() {
       required: true,
     },
     {
+      label: 'Notes',
+      input: 'textarea',
+      name: 'notes',
+    },
+    {
       label: 'Subscribe to newsletter',
       input: 'checkbox',
       name: 'newsletter',
@@ -581,7 +586,20 @@ function App() {
       <H1>Components</H1>
       <Flex align='center'>
         <H2>Forms</H2>
-        <Form fields={fields} handler={handleSubmit} />
+        <Flex align='center' justify='center' row wrap>
+          <Flex align='center' justify='center'>
+            <H3>Highlight None</H3>
+            <Form fields={fields} handler={handleSubmit} />
+          </Flex>
+          <Flex align='center' justify='center'>
+            <H3>Highlight Optional</H3>
+            <Form fields={fields} handler={handleSubmit} highlight='optional' />
+          </Flex>
+          <Flex align='center' justify='center'>
+            <H3>Highlight Required</H3>
+            <Form fields={fields} handler={handleSubmit} highlight='required' />
+          </Flex>
+        </Flex>
       </Flex>
 
       <Flex align='center'>

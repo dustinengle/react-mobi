@@ -138,6 +138,8 @@ $input-size: 1.25rem !default;
 
 /* Label */
 $label-font-size: 1.25rem !default;
+$label-highlight-color: lighten($color-foreground, 50%) !default;
+$label-highlight-font-size: 1rem !default;
 
 /* Link */
 $link-color: $color-primary !default;

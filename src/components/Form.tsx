@@ -11,9 +11,11 @@ import Text from '@/elements/Text'
 export interface FormProps {
   fields: Array<Field>
   handler: (data: FormData) => void
+  highlight?: 'none' | 'optional' | 'required'
+  label?: string
 }
 
-export default function Form({ fields, handler }: FormProps) {
+export default function Form({fields, handler, highlight = 'none', label = 'Form'}: FormProps) {
   const [data, setData] = useState<Record<string, string>>({})
   const [errors, setErrors] = useState<Record<string, boolean>>({})
 
@@ -68,7 +70,7 @@ export default function Form({ fields, handler }: FormProps) {
 
   return (
     <form
-      aria-label='Form'
+      aria-label={label}
       onReset={handleReset}
       onSubmit={handleSubmit}
       role='form'>
@@ -89,7 +91,7 @@ export default function Form({ fields, handler }: FormProps) {
               }
               {['date', 'email', 'file', 'number', 'password', 'tel', 'text'].includes(field.input) &&
                 <>
-                  <Label field={field} />
+                  <Label field={field} highlight={highlight} />
                   <Input
                     aria-errormessage={`error-${field.name}`}
                     aria-invalid={!!errors[field.name]}
@@ -131,7 +133,7 @@ export default function Form({ fields, handler }: FormProps) {
               }
               {field.input === 'textarea' &&
                 <>
-                <Label field={field} />
+                  <Label field={field} highlight={highlight} />
                   <Textarea
                     aria-errormessage={`error-${field.name}`}
                     aria-invalid={!!errors[field.name]}
