@@ -128,7 +128,7 @@ $input-bg: $color-background !default;
 $input-border: $border-size $border-style $border-color !default;
 $input-border-radius: 0.25rem !default;
 $input-carrot: url('/assets/carrot.png') !default;
-$input-error-font-size: 0.75rem !default;
+$input-error-font-size: 1rem !default;
 $input-error-padding: 0.25rem 0 0 0 !default;
 $input-fg: lighten($color-foreground, 20%) !default;
 $input-font-family: $font-family-body !default;
@@ -179,6 +179,11 @@ $notification-font-size: 1rem !default;
 $notification-padding: 1rem !default;
 $notification-shadow: drop-shadow($color-shadow 0 7px 4px) !default;
 
+/* Schumer */
+$schumer-font-family: $font-family-legal;
+$schumer-header-background: darken($color-background, 10%) !default;
+$schumer-header-width: 50% !default;
+
 /* Stepper */
 $stepper-body-padding: 1rem !default;
 $stepper-count-active-bg: $color-secondary !default;
@@ -196,7 +201,7 @@ $stepper-title-weight: 600 !default;
 $table-header-background: $color-primary !default;
 $table-header-color: $color-white !default;
 $table-background: darken($color-background, 10%) !default;
-$table-border: $border-size $border-style $border-color !default;
+$table-border: $border-size $border-style lighten($border-color, 45%) !default;
 $table-border-radius: 1rem !default;
 $table-padding: 0.25rem !default;
 

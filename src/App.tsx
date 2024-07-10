@@ -16,6 +16,7 @@ import Icon from '@/elements/Icon'
 import Image from '@/elements/Image'
 import Link from '@/elements/Link'
 import { List, ListItem } from '@/elements/List'
+import Math from '@/elements/Math'
 import Text from '@/elements/Text'
 import Tooltip from '@/elements/Tooltip'
 
@@ -31,6 +32,7 @@ import { Accordion, AccordionItem } from '@/containers/Accordion'
 import Body from '@/containers/Body'
 import Card from '@/containers/Card'
 import { Carousel, CarouselItem } from '@/containers/Carousel'
+import Schumer from '@/containers/Schumer'
 import { Stepper, StepperItem } from '@/containers/Stepper'
 
 import Flex from '@/layouts/Flex'
@@ -134,7 +136,7 @@ function App() {
       required: true,
     },
     {
-      error: 'A two-factor authentication method must be selected.',
+      error: 'A two-factor authentication required.',
       label: '2FA Method',
       input: 'select',
       name: '2fa',
@@ -815,7 +817,84 @@ function App() {
 
       <Flex align='center'>
         <H2>Schumer</H2>
+        <div style={{width: '67%'}}>
+          <Schumer
+            apr={{
+              formula: <Math formula='$$APR=(\frac{(\frac{\text{Total Fees}}{\text{Avg. Principal Balance}})}{\text{Number Of Billing Cycles}})*\text{Billing Cycles Per Year}*100$$' />,
+              rate: '83.60% - 405.00%',
+              subTitle: 'on Mobiloans Credit Advanced',
+              summary: 'This APR will vary based on the amount of the line of credit and the maximum number of billing cycles available for payment. Below are examples of some of our credit amounts with their respective APR.',
+              title: 'Annual Percentage Rate',
+            }}
+            aprItems={[
+              {
+                amount: 500,
+                apr: 405,
+                cycles: 25,
+                fees: 1012.50,
+                rewards: 141.75,
+              },
+              {
+                amount: 1000,
+                apr: 367.12,
+                cycles: 28,
+                fees: 2047,
+                rewards: 128.49,
+              },
+              {
+                amount: 2500,
+                apr: 238.86,
+                cycles: 60,
+                fees: 7005.05,
+                rewards: 83.60,
+              },
+            ]}
+            chargeItems={[
 
+            ]}
+            feeItems={[
+              {
+                amount: 20,
+                max: 500,
+                rate: 3.5,
+              },
+              {
+                amount: 20,
+                max: 1000,
+                min: 500,
+                rate: 2.75,
+              },
+              {
+                amount: 20,
+                max: 1200,
+                min: 1000,
+                rate: 2.25,
+              },
+              {
+                amount: 20,
+                max: 1500,
+                min: 1200,
+                rate: 2,
+              },
+              {
+                amount: 20,
+                max: 1800,
+                min: 1500,
+                rate: 1.65,
+              },
+              {
+                amount: 20,
+                max: 2000,
+                min: 1800,
+                rate: 1.5,
+              },
+              {
+                amount: 20,
+                min: 2000,
+                rate: 1.2,
+              },
+            ]} />
+        </div>
       </Flex>
 
       <Flex align='center'>

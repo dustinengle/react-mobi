@@ -121,3 +121,49 @@
     color: $color-warning-fg;
   }
 }
+
+.schumer {
+  font-family: $schumer-font-family;
+
+  ul li {
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+
+    @media only screen and (max-width: $sm) {
+      width: 90vw;
+    }
+
+    td, th {
+      border: 1px solid gray;
+      font-weight: normal;
+      padding: 0.25rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    tr td:first-child {
+      width: 20%;
+
+      &.header {
+        background-color: $schumer-header-background;
+        font-weight: bold;
+        width: $schumer-header-width;
+      }
+    }
+  }
+
+  .line {
+    margin-bottom: 1rem;
+  }
+
+  .rate {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}

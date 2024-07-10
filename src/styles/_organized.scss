@@ -10,81 +10,6 @@ ol, ul {
   }
 }
 
-table, .table {
-  border-collapse: collapse;
-  border-spacing: 0;
-
-  @media only screen and (max-width: $sm) {
-    width: 90vw;
-  }
-
-  &.header {
-    &-column {
-      tbody tr th {
-        background-color: $table-background;
-        font-weight: bold;
-        padding: calc($table-padding * 2);
-        text-align: right;
-      }
-    }
-
-    &-row {
-      thead tr th {
-        background-color: $table-background;
-        font-weight: bold;
-        padding: calc($table-padding * 2);
-        text-align: center;
-      }
-    }
-  }
-
-  tbody tr:hover {
-    background-color: $table-background;
-  }
-
-  td, th {
-    border: $table-border;
-  }
-
-  td {
-    padding: $table-padding;
-    text-align: center;
-  }
-
-  tfoot {
-    tr td {
-      border-radius: 0 0 $table-border-radius $table-border-radius;
-    }
-  }
-
-  &-card {
-    border-collapse: initial;
-    border-radius: $table-border-radius;
-    box-shadow: $card-shadow;
-
-    tfoot {
-      background-color: $table-header-background;
-      color: $table-header-color;
-    }
-
-    th {
-      background-color: $table-header-background !important;
-      border-left: none;
-      border-right: none;
-      color: $table-header-color;
-      text-align: center;
-
-      &:first-child {
-        border-radius: $table-border-radius 0 0 0;
-      }
-
-      &:last-child {
-        border-radius: 0 $table-border-radius  0 0;
-      }
-    }
-  }
-}
-
 .accordion {
   &-item {
     $self: &;
@@ -240,6 +165,81 @@ table, .table {
       margin: 0;
       min-width: max-content;
       padding: 0 0 0 0.25rem;
+    }
+  }
+}
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  @media only screen and (max-width: $sm) {
+    width: 90vw;
+  }
+
+  &.header {
+    &-column {
+      tbody tr th {
+        background-color: $table-background;
+        font-weight: bold;
+        padding: calc($table-padding * 2);
+        text-align: right;
+      }
+    }
+
+    &-row {
+      thead tr th {
+        background-color: $table-background;
+        font-weight: bold;
+        padding: calc($table-padding * 2);
+        text-align: center;
+      }
+    }
+  }
+
+  tbody tr:hover {
+    background-color: $table-background;
+  }
+
+  td, th {
+    border: $table-border;
+  }
+
+  td {
+    padding: $table-padding;
+    text-align: center;
+  }
+
+  tfoot {
+    tr td {
+      border-radius: 0 0 $table-border-radius $table-border-radius;
+    }
+  }
+
+  &-card {
+    border-collapse: initial;
+    border-radius: $table-border-radius;
+    box-shadow: $card-shadow;
+
+    tfoot {
+      background-color: $table-header-background;
+      color: $table-header-color;
+    }
+
+    th {
+      background-color: $table-header-background !important;
+      border-left: none;
+      border-right: none;
+      color: $table-header-color;
+      text-align: center;
+
+      &:first-child {
+        border-radius: $table-border-radius 0 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 $table-border-radius  0 0;
+      }
     }
   }
 }
