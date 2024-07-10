@@ -180,7 +180,9 @@ $notification-padding: 1rem !default;
 $notification-shadow: drop-shadow($color-shadow 0 7px 4px) !default;
 
 /* Schumer */
-$schumer-font-family: $font-family-legal;
+$schumer-border: $border-size $border-style $border-color !default;
+$schumer-font-family: $font-family-legal !default;
+$schumer-font-size: 1rem !default;
 $schumer-header-background: darken($color-background, 10%) !default;
 $schumer-header-width: 50% !default;
 

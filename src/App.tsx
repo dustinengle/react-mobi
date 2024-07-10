@@ -32,7 +32,7 @@ import { Accordion, AccordionItem } from '@/containers/Accordion'
 import Body from '@/containers/Body'
 import Card from '@/containers/Card'
 import { Carousel, CarouselItem } from '@/containers/Carousel'
-import Schumer from '@/containers/Schumer'
+import Schumer, { APRs, Charges, Fees } from '@/containers/Schumer'
 import { Stepper, StepperItem } from '@/containers/Stepper'
 
 import Flex from '@/layouts/Flex'
@@ -200,6 +200,44 @@ function App() {
     'user',
     'view',
     'warning',
+  ]
+
+  // We use this to duplicate schumer and other tables.
+  const apr = {
+    formula: <Math formula='$$APR=(\frac{(\frac{\text{Total Fees}}{\text{Avg. Principal Balance}})}{\text{Number Of Billing Cycles}})*\text{Billing Cycles Per Year}*100$$' />,
+    max: 4.05,
+    min: .836,
+    subTitle: 'on Mobiloans Credit Advanced',
+    summary: 'This APR will vary based on the amount of the line of credit and the maximum number of billing cycles available for payment. Below are examples of some of our credit amounts with their respective APR.',
+    title: 'Annual Percentage Rate',
+  }
+  const aprItems = [
+    {amount: 500, apr: 4.05, cycles: 25, fees: 1012.50, rewards: 1.4175},
+    {amount: 1000, apr: 3.6712, cycles: 28, fees: 2047, rewards: 1.2849},
+    {amount: 2500, apr: 2.3886, cycles: 60, fees: 7005.05, rewards: .8360},
+  ]
+  const chargeItems = [
+    {charge: 0, max: 10, min: 0},
+    {charge: 15, max: 100, min: 10.01},
+    {charge: 30, max: 200, min: 100.01},
+    {charge: 35, max: 300, min: 200.01},
+    {charge: 45, max: 400, min: 300.01},
+    {charge: 75, max: 500, min: 400.01},
+    {charge: 85, max: 600, min: 500.01},
+    {charge: 95, max: 700, min: 600.01},
+    {charge: 105, max: 900, min: 700.01},
+    {charge: 115, max: 1000, min: 900.01},
+    {charge: 135, max: 1400, min: 1000.01},
+    {charge: 150, max: 2500, min: 1400.01},
+  ]
+  const feeItems = [
+    {amount: 20, max: 500, rate: 3.5},
+    {amount: 20, max: 1000, min: 500, rate: 2.75},
+    {amount: 20, max: 1200, min: 1000, rate: 2.25},
+    {amount: 20, max: 1500, min: 1200, rate: 2},
+    {amount: 20, max: 1800, min: 1500, rate: 1.65},
+    {amount: 20, max: 2000, min: 1800, rate: 1.5},
+    {amount: 20, min: 2000, rate: 1.2},
   ]
 
   return (
@@ -729,40 +767,40 @@ function App() {
             Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
           </AccordionItem>
           <AccordionItem iconClose='plus' iconOpen='minus' title='Customize the icons'>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
             </p>
-            <p>
+            <p style={{marginBottom: '1rem'}}>
               Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
             </p>
           </AccordionItem>
@@ -816,85 +854,22 @@ function App() {
       </Flex>
 
       <Flex align='center'>
-        <H2>Schumer</H2>
-        <div style={{width: '67%'}}>
-          <Schumer
-            apr={{
-              formula: <Math formula='$$APR=(\frac{(\frac{\text{Total Fees}}{\text{Avg. Principal Balance}})}{\text{Number Of Billing Cycles}})*\text{Billing Cycles Per Year}*100$$' />,
-              rate: '83.60% - 405.00%',
-              subTitle: 'on Mobiloans Credit Advanced',
-              summary: 'This APR will vary based on the amount of the line of credit and the maximum number of billing cycles available for payment. Below are examples of some of our credit amounts with their respective APR.',
-              title: 'Annual Percentage Rate',
-            }}
-            aprItems={[
-              {
-                amount: 500,
-                apr: 405,
-                cycles: 25,
-                fees: 1012.50,
-                rewards: 141.75,
-              },
-              {
-                amount: 1000,
-                apr: 367.12,
-                cycles: 28,
-                fees: 2047,
-                rewards: 128.49,
-              },
-              {
-                amount: 2500,
-                apr: 238.86,
-                cycles: 60,
-                fees: 7005.05,
-                rewards: 83.60,
-              },
-            ]}
-            chargeItems={[
-
-            ]}
-            feeItems={[
-              {
-                amount: 20,
-                max: 500,
-                rate: 3.5,
-              },
-              {
-                amount: 20,
-                max: 1000,
-                min: 500,
-                rate: 2.75,
-              },
-              {
-                amount: 20,
-                max: 1200,
-                min: 1000,
-                rate: 2.25,
-              },
-              {
-                amount: 20,
-                max: 1500,
-                min: 1200,
-                rate: 2,
-              },
-              {
-                amount: 20,
-                max: 1800,
-                min: 1500,
-                rate: 1.65,
-              },
-              {
-                amount: 20,
-                max: 2000,
-                min: 1800,
-                rate: 1.5,
-              },
-              {
-                amount: 20,
-                min: 2000,
-                rate: 1.2,
-              },
-            ]} />
-        </div>
+        <Flex align='center' justify='center'>
+          <H2>Schumer</H2>
+          <Schumer apr={apr} aprItems={aprItems} chargeItems={chargeItems} feeItems={feeItems} />
+        </Flex>
+        <Flex align='center' justify='center'>
+          <H3>APRs</H3>
+          <APRs apr={apr} aprItems={aprItems} />
+        </Flex>
+        <Flex align='center' justify='center'>
+          <H3>Charges</H3>
+          <Charges chargeItems={chargeItems} />
+        </Flex>
+        <Flex align='center' justify='center'>
+          <H3>Fees</H3>
+          <Fees feeItems={feeItems} />
+        </Flex>
       </Flex>
 
       <Flex align='center'>

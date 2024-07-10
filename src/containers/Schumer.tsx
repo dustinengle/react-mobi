@@ -4,196 +4,17 @@ import { ReactElement, ReactNode } from 'react'
 import Highlight from '@/elements/Highlight'
 import Math from '@/elements/Math'
 
-export interface ChargeItem {
-  amount: number
-  max?: number
-  min?: number
-  rate: number
-}
+const currency: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
+  currency: 'USD',
+  style: 'currency',
+})
+const percentage: Intl.NumberFormat = new Intl.NumberFormat('en', {
+  maximumFractionDigits: 2,
+  minimumFractionDigits: 2,
+  style: 'percent',
+})
 
-export interface ChargeItemDescriptions {
-  subTitle: string
-  subTitleItems?: Array<string>
-  template: string
-  title: string
-}
-
-export const ChargeItemDescriptionsDefault: ChargeItemDescriptions = {
-  subTitle: 'Transaction Charges',
-  subTitleItems: ['Cash Advance Charge'],
-  template: '[b:{rate}] for each [b:{amount}] of Mobiloans Cash advanced, [b:for draws {min:over} {max:up to}]',
-  title: 'Charges',
-}
-
-export interface ChargesProps {
-  chargeItems: Array<ChargeItem>
-  chargeItemDescriptions?: ChargeItemDescriptions
-}
-
-export function Charges({chargeItems, chargeItemDescriptions = ChargeItemDescriptionsDefault}: ChargesProps) {
-  return (
-    <>
-      <tr>
-        <td colSpan={6}>
-          Charges
-        </td>
-      </tr>
-      <tr>
-        <td className='header' colSpan={3}>
-          Minimum Charge
-          <ul>
-            <li>Fixed Finance Charge</li>
-          </ul>
-        </td>
-        <td colSpan={3}>
-          Each Billing Cycle you will be charged a Fixed Finance Charge of:
-          <table>
-            <thead>
-              <tr>
-                <th style={{width: '50%'}}>
-                  If the principal balance as of the last day of your prior Billing Cycle, excluding the amount of new Mobiloans Cash advances made during that Billing Cycle was
-                </th>
-                <th style={{width: '50%'}}>
-                  …your Fixed Finance Charge will be:
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  $0-$10.00
-                </td>
-                <td>
-                  No charge
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $10.01-$100
-                </td>
-                <td>
-                  $15
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $100.01-$200
-                </td>
-                <td>
-                  $30
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $200.01-$300
-                </td>
-                <td>
-                  $35
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $300.01-$400
-                </td>
-                <td>
-                  $45
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $400.01-$500
-                </td>
-                <td>
-                  $75
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $500.01-$600
-                </td>
-                <td>
-                  $85
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $600.01-$700
-                </td>
-                <td>
-                  $95
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $700.01-$900
-                </td>
-                <td>
-                  $105
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $900.01-$1,000
-                </td>
-                <td>
-                  $115
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $1,000.01-$1,400
-                </td>
-                <td>
-                  $135
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  $1,400.01-$2,500
-                </td>
-                <td>
-                  $150
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </td>
-      </tr>
-    </>
-  )
-}
-
-export interface FeeItem {
-  amount: number
-  max?: number
-  min?: number
-  rate: number
-}
-
-export interface FeeItemDescriptions {
-  subTitle: string
-  subTitleItems?: Array<string>
-  template: string
-  title: string
-}
-
-export const FeeItemDescriptionsDefault: FeeItemDescriptions = {
-  subTitle: 'Transaction Fees',
-  subTitleItems: ['Cash Advance Fee'],
-  template: '[b:{rate}] for each [b:{amount}] of Mobiloans Cash advanced, [b:for draws {min:over} {max:up to}]',
-  title: 'Fees',
-}
-
-export interface FeesProps {
-  feeItems: Array<FeeItem>
-  feeItemDescriptions?: FeeItemDescriptions
-}
-
-function renderer(template: string, data: Record<string, number>): ReactNode {
-  const formatter: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
-    currency: 'USD',
-    style: 'currency',
-  })
+function renderer(template: string, data: Record<string, number>): Array<ReactNode> {
   const rendered: Array<ReactNode> = []
 
   let i: number = 0
@@ -206,7 +27,7 @@ function renderer(template: string, data: Record<string, number>): ReactNode {
     const [key, prefix] = value.split(':')
     if (data[key]) {
       if (prefix) text += `${prefix} `
-      text += formatter.format(data[key])
+      text += currency.format(data[key])
     }
 
     return text
@@ -266,38 +87,161 @@ function renderer(template: string, data: Record<string, number>): ReactNode {
   return rendered
 }
 
-export function Fees({feeItems, feeItemDescriptions = FeeItemDescriptionsDefault}: FeesProps) {
+export interface ChargeItem {
+  charge: number
+  max: number
+  min: number
+}
+
+export interface ChargeItemDescriptions {
+  balance: string
+  charge: string
+  noCharge: string
+  subTitle: string
+  subTitleItems?: Array<string>
+  summary: string
+  title: string
+}
+
+export const ChargeItemDescriptionsDefault: ChargeItemDescriptions = {
+  balance: 'If the principal balance as of the last day of your prior Billing Cycle, excluding the amount of new Mobiloans Cash advances made during that Billing Cycle was',
+  charge: '…your Fixed Finance Charge will be:',
+  noCharge: 'No charge',
+  subTitle: 'Minimum Charge',
+  subTitleItems: ['Fixed Finance Charge'],
+  summary: 'Each Billing Cycle you will be charged a Fixed Finance Charge of:',
+  title: 'Charges',
+}
+
+export interface ChargesProps {
+  chargeItems: Array<ChargeItem>
+  chargeItemDescriptions?: ChargeItemDescriptions
+}
+
+export function Charges({
+    chargeItems,
+    chargeItemDescriptions = ChargeItemDescriptionsDefault,
+    ...props
+  }: ChargesProps) {
   return (
-    <>
-      <tr>
-        <td colSpan={6}>
-          {feeItemDescriptions.title}
-        </td>
-      </tr>
-      <tr>
-        <td className='header' colSpan={3}>
-          {feeItemDescriptions.subTitle}
-          <ul>
-            {feeItemDescriptions.subTitleItems?.map((subTitle, index) => (
-              <li key={`fee-subtitle-${index}`}>{subTitle}</li>
-            ))}
-          </ul>
-        </td>
-        <td colSpan={3}>
-          {feeItems.map((item, index) => (
-            <div className='line' key={`fee-${index}`}>
-              {renderer(feeItemDescriptions.template, {...item})}
-            </div>
-          ))}
-        </td>
-      </tr>
-    </>
+    <div {...props} className='schumer'>
+      <table>
+        <tbody>
+          <tr>
+            <td colSpan={2}>
+              {chargeItemDescriptions.title}
+            </td>
+          </tr>
+          <tr>
+            <td className='half header'>
+              {chargeItemDescriptions.subTitle}
+              <ul>
+                {chargeItemDescriptions.subTitleItems?.map((subTitle, index) => (
+                  <li key={`charge-subtitle-${index}`}>{subTitle}</li>
+                ))}
+              </ul>
+            </td>
+            <td>
+              {chargeItemDescriptions.summary}
+              <table>
+                <thead>
+                  <tr>
+                    <th className='half'>
+                      {chargeItemDescriptions.balance}
+                    </th>
+                    <th className='half'>
+                      {chargeItemDescriptions.charge}
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {chargeItems.map((item, index) => (
+                    <tr key={`charge-${index}`}>
+                      <td>{currency.format(item.min)} - {currency.format(item.max)}</td>
+                      <td>{!item.charge ? chargeItemDescriptions.noCharge : currency.format(item.charge)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+export interface FeeItem {
+  amount: number
+  max?: number
+  min?: number
+  rate: number
+}
+
+export interface FeeItemDescriptions {
+  subTitle: string
+  subTitleItems?: Array<string>
+  template: string
+  title: string
+}
+
+export const FeeItemDescriptionsDefault: FeeItemDescriptions = {
+  subTitle: 'Transaction Fees',
+  subTitleItems: ['Cash Advance Fee'],
+  template: '[b:{rate}] for each [b:{amount}] of Mobiloans Cash advanced, [b:for draws {min:over} {max:up to}]',
+  title: 'Fees',
+}
+
+export interface FeesProps {
+  feeItems: Array<FeeItem>
+  feeItemDescriptions?: FeeItemDescriptions
+}
+
+export function Fees({
+    feeItems,
+    feeItemDescriptions = FeeItemDescriptionsDefault,
+    ...props
+  }: FeesProps) {
+  return (
+    <div {...props} className='schumer'>
+      <table>
+        <tbody>
+          <tr>
+            <td colSpan={2}>
+              {feeItemDescriptions.title}
+            </td>
+          </tr>
+          <tr>
+            <td className='half header'>
+              {feeItemDescriptions.subTitle}
+              <ul>
+                {feeItemDescriptions.subTitleItems?.map((subTitle, index) => (
+                  <li key={`fee-subtitle-${index}`}>{subTitle}</li>
+                ))}
+              </ul>
+            </td>
+            <td>
+              {feeItems.map((item, index) => (
+                <div className='line' key={`fee-${index}`}>
+                  {renderer(feeItemDescriptions.template, {...item}).map((component, idx) => (
+                    <span key={`fee-${index}-item-${idx}`}>
+                      {component}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   )
 }
 
 export interface APR {
   formula: ReactElement<Math>
-  rate: string
+  max: number
+  min: number
   subTitle?: string
   summary: string
   title: string
@@ -325,7 +269,7 @@ export interface APRItemDescription {
   rewardsSummary?: string
 }
 
-export const ItemDescriptionDefaults: APRItemDescription = {
+export const APRItemDescriptionDefaults: APRItemDescription = {
   amount: 'Line of Credit Amount',
   amountExtra: 'with full line drawn',
   apr: 'APR',
@@ -337,6 +281,89 @@ export const ItemDescriptionDefaults: APRItemDescription = {
   rewards: 'Rewards Level - Diamond APR %',
   rewardsExtra: '65 % reduction in Cash Advance Fees and Fixed Finance Charges',
   rewardsSummary: 'Go to <a href="www.mobiloans.com/rewards">www.mobiloans.com/rewards</a> for more information on how to qualify.',
+}
+
+export interface APRsProps {
+  apr: APR
+  aprItems: Array<APRItem>
+  aprItemDescriptions?: APRItemDescription
+}
+
+export function APRs({
+    apr,
+    aprItems,
+    aprItemDescriptions = APRItemDescriptionDefaults,
+    ...props
+  }: APRsProps) {
+  return (
+    <div {...props} className='schumer'>
+      <table>
+      <tbody>
+        <tr>
+          <td className='quarter' colSpan={1} rowSpan={2}>
+            <b>{apr.title}</b><br />
+            {apr.subTitle}
+          </td>
+          <td colSpan={5}>
+            <div className='rate'>
+              <Highlight>{percentage.format(apr.min)} - {percentage.format(apr.max)}</Highlight>
+            </div>
+            <div>
+              <b>{apr.summary}</b>
+            </div>
+            <div>
+              {apr.formula}
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colSpan={5}>
+            <table>
+              <thead>
+                <tr>
+                  <th>
+                    <b>{aprItemDescriptions.amount}</b><br />
+                    ({aprItemDescriptions.amountExtra})
+                  </th>
+                  <th>
+                    <b>{aprItemDescriptions.cycles}</b><br />
+                    ({aprItemDescriptions.cyclesExtra})
+                  </th>
+                  <th>
+                    <b>{aprItemDescriptions.fees}</b><br />
+                    ({aprItemDescriptions.feesExtra})
+                  </th>
+                  <th>
+                    <b>{aprItemDescriptions.apr}</b><br />
+                    ({aprItemDescriptions.aprExtra})
+                  </th>
+                  <th>
+                    <b>{aprItemDescriptions.rewards}</b><br />
+                    ({aprItemDescriptions.rewardsExtra})<br />
+                    {aprItemDescriptions.rewardsSummary &&
+                      <div dangerouslySetInnerHTML={{__html: aprItemDescriptions.rewardsSummary}} />
+                    }
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {aprItems.map((item, index) => (
+                  <tr key={`apr-${index}`}>
+                    <td>{currency.format(item.amount)}</td>
+                    <td>{currency.format(item.cycles)}</td>
+                    <td>{currency.format(item.fees)}</td>
+                    <td>{percentage.format(item.apr)}</td>
+                    <td>{percentage.format(item.rewards)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  )
 }
 
 export interface SchumerProps {
@@ -351,7 +378,7 @@ export interface SchumerProps {
 
 export default function Schumer({
     apr,
-    aprItemDescriptions = ItemDescriptionDefaults,
+    aprItemDescriptions = APRItemDescriptionDefaults,
     aprItems,
     chargeItems,
     chargeItemDescriptions = ChargeItemDescriptionsDefault,
@@ -364,68 +391,20 @@ export default function Schumer({
       <table>
         <tbody>
           <tr>
-            <td colSpan={1} rowSpan={2}>
-              <b>{apr.title}</b><br />
-              {apr.subTitle}
-            </td>
-            <td colSpan={5}>
-              <div className='rate'>
-                <Highlight>{apr.rate}</Highlight>
-              </div>
-              <div>
-                <b>{apr.summary}</b>
-              </div>
-              <div>
-                {apr.formula}
-              </div>
+            <td className='no-padding'>
+              <APRs apr={apr} aprItemDescriptions={aprItemDescriptions} aprItems={aprItems} />
             </td>
           </tr>
           <tr>
-            <td colSpan={5}>
-              <table>
-                <thead>
-                  <tr>
-                    <th>
-                      <b>{aprItemDescriptions.amount}</b><br />
-                      ({aprItemDescriptions.amountExtra})
-                    </th>
-                    <th>
-                      <b>{aprItemDescriptions.cycles}</b><br />
-                      ({aprItemDescriptions.cyclesExtra})
-                    </th>
-                    <th>
-                      <b>{aprItemDescriptions.fees}</b><br />
-                      ({aprItemDescriptions.feesExtra})
-                    </th>
-                    <th>
-                      <b>{aprItemDescriptions.apr}</b><br />
-                      ({aprItemDescriptions.aprExtra})
-                    </th>
-                    <th>
-                      <b>{aprItemDescriptions.rewards}</b><br />
-                      ({aprItemDescriptions.rewardsExtra})<br />
-                      {aprItemDescriptions.rewardsSummary &&
-                        <div dangerouslySetInnerHTML={{__html: aprItemDescriptions.rewardsSummary}} />
-                      }
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {aprItems.map((item, index) => (
-                    <tr key={`apr-${index}`}>
-                      <td>${item.amount.toFixed(2)}</td>
-                      <td>${item.cycles.toFixed(2)}</td>
-                      <td>${item.fees.toFixed(2)}</td>
-                      <td>{item.apr.toFixed(2)}%</td>
-                      <td>{item.rewards.toFixed(2)}%</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <td className='no-padding'>
+              <Charges chargeItemDescriptions={chargeItemDescriptions} chargeItems={chargeItems} />
             </td>
           </tr>
-          <Charges chargeItemDescriptions={chargeItemDescriptions} chargeItems={chargeItems} />
-          <Fees feeItemDescriptions={feeItemDescriptions} feeItems={feeItems} />
+          <tr>
+            <td className='no-padding'>
+              <Fees feeItemDescriptions={feeItemDescriptions} feeItems={feeItems} />
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

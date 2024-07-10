@@ -124,23 +124,84 @@
 
 .schumer {
   font-family: $schumer-font-family;
+  font-size: $schumer-font-size;
 
-  ul li {
-    font-size: 1rem;
-    font-style: italic;
+  @media only screen and (max-width: $xs) {
+    font-size: calc($schumer-font-size * 0.4);
+    width: 90vw;
+  }
+
+  @media only screen and (min-width: $sm) {
+    font-size: calc($schumer-font-size * 0.5);
+    width: 80vw;
+  }
+
+  @media only screen and (min-width: $md) {
+    font-size: calc($schumer-font-size * 0.8);
+    width: 80vw;
+  }
+
+  @media only screen and (min-width: $lg) {
+    font-size: calc($schumer-font-size * 0.9);
+    width: 65vw;
+  }
+
+  @media only screen and (min-width: $xl) {
+    width: 50vw;
+  }
+
+  ul {
+    & ::marker {
+      font-size: $list-font-size;
+      font-weight: bold;
+
+      @media only screen and (max-width: $sm) {
+        font-size: calc($schumer-font-size * 0.4);
+      }
+
+      @media only screen and (min-width: $md) {
+        font-size: calc($schumer-font-size * 0.5);
+      }
+
+      @media only screen and (min-width: $lg) {
+        font-size: calc($schumer-font-size * 0.8);
+      }
+
+      @media only screen and (min-width: $xl) {
+        font-size: calc($schumer-font-size * 0.9);
+      }
+    }
+
+    li {
+      font-size: $schumer-font-size;
+      font-style: italic;
+
+      @media only screen and (max-width: $sm) {
+        font-size: calc($schumer-font-size * 0.4);
+      }
+
+      @media only screen and (min-width: $md) {
+        font-size: calc($schumer-font-size * 0.5);
+      }
+
+      @media only screen and (min-width: $lg) {
+        font-size: calc($schumer-font-size * 0.8);
+      }
+
+      @media only screen and (min-width: $xl) {
+        font-size: calc($schumer-font-size * 0.9);
+      }
+    }
   }
 
   table {
+    border: 1px solid transparent;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
 
-    @media only screen and (max-width: $sm) {
-      width: 90vw;
-    }
-
     td, th {
-      border: 1px solid gray;
+      border: $schumer-border;
       font-weight: normal;
       padding: 0.25rem;
       text-align: left;
@@ -148,18 +209,39 @@
     }
 
     tr td:first-child {
-      width: 20%;
-
       &.header {
         background-color: $schumer-header-background;
         font-weight: bold;
-        width: $schumer-header-width;
       }
+    }
+  }
+
+  .half {
+    width: $schumer-header-width;
+
+    @media only screen and (max-width: $md) {
+      width: fit-content;
     }
   }
 
   .line {
     margin-bottom: 1rem;
+  }
+
+  .no-border {
+    border: none;
+  }
+
+  .no-padding {
+    padding: 0;
+  }
+
+  .quarter {
+    width: 25%;
+
+    @media only screen and (max-width: $md) {
+      width: fit-content;
+    }
   }
 
   .rate {
