@@ -125,40 +125,46 @@ export function Charges({
   }: ChargesProps) {
   return (
     <div {...props} className='schumer'>
-      <table>
+      <table
+        aria-colcount={2}
+        aria-rowcount={2}
+        role='table'>
         <tbody>
-          <tr>
-            <td colSpan={2}>
+          <tr role='row'>
+            <td colSpan={2} role='cell'>
               {chargeItemDescriptions.title}
             </td>
           </tr>
-          <tr>
-            <td className='half header'>
+          <tr role='row'>
+            <th className='half header' role='rowheader' scope='row'>
               {chargeItemDescriptions.subTitle}
               <ul>
                 {chargeItemDescriptions.subTitleItems?.map((subTitle, index) => (
                   <li key={`charge-subtitle-${index}`}>{subTitle}</li>
                 ))}
               </ul>
-            </td>
-            <td>
+            </th>
+            <td role='cell'>
               {chargeItemDescriptions.summary}
-              <table>
+              <table
+                aria-colcount={2}
+                aria-rowcount={chargeItems.length}
+                role='table'>
                 <thead>
-                  <tr>
-                    <th className='half'>
+                  <tr role='row'>
+                    <th className='half' role='columnheader' scope='col'>
                       {chargeItemDescriptions.balance}
                     </th>
-                    <th className='half'>
+                    <th className='half' role='columnheader' scope='col'>
                       {chargeItemDescriptions.charge}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
                   {chargeItems.map((item, index) => (
-                    <tr key={`charge-${index}`}>
-                      <td>{currency.format(item.min)} - {currency.format(item.max)}</td>
-                      <td>{!item.charge ? chargeItemDescriptions.noCharge : currency.format(item.charge)}</td>
+                    <tr key={`charge-${index}`} role='row'>
+                      <td role='cell'>{currency.format(item.min)} - {currency.format(item.max)}</td>
+                      <td role='cell'>{!item.charge ? chargeItemDescriptions.noCharge : currency.format(item.charge)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -204,23 +210,26 @@ export function Fees({
   }: FeesProps) {
   return (
     <div {...props} className='schumer'>
-      <table>
+      <table
+        aria-colcount={2}
+        aria-rowcount={2}
+        role='table'>
         <tbody>
-          <tr>
-            <td colSpan={2}>
+          <tr role='row'>
+            <td colSpan={2} role='row'>
               {feeItemDescriptions.title}
             </td>
           </tr>
-          <tr>
-            <td className='half header'>
+          <tr role='row'>
+            <th className='half header' role='rowheader' scope='row'>
               {feeItemDescriptions.subTitle}
               <ul>
                 {feeItemDescriptions.subTitleItems?.map((subTitle, index) => (
                   <li key={`fee-subtitle-${index}`}>{subTitle}</li>
                 ))}
               </ul>
-            </td>
-            <td>
+            </th>
+            <td role='cell'>
               {feeItems.map((item, index) => (
                 <div className='line' key={`fee-${index}`}>
                   {renderer(feeItemDescriptions.template, {...item}).map((component, idx) => (
@@ -297,14 +306,17 @@ export function APRs({
   }: APRsProps) {
   return (
     <div {...props} className='schumer'>
-      <table>
+      <table
+        aria-colcount={2}
+        aria-rowcount={2}
+        role='table'>
       <tbody>
-        <tr>
-          <td className='quarter' colSpan={1} rowSpan={2}>
+        <tr role='row'>
+          <th className='quarter' colSpan={1} rowSpan={2} role='columnheader' scope='col'>
             <b>{apr.title}</b><br />
             {apr.subTitle}
-          </td>
-          <td colSpan={5}>
+          </th>
+          <td colSpan={5} role='cell'>
             <div className='rate'>
               <Highlight>{percentage.format(apr.min)} - {percentage.format(apr.max)}</Highlight>
             </div>
@@ -316,28 +328,31 @@ export function APRs({
             </div>
           </td>
         </tr>
-        <tr>
-          <td colSpan={5}>
-            <table>
+        <tr role='row'>
+          <td colSpan={5} role='cell'>
+            <table
+              aria-colcount={5}
+              aria-rowcount={aprItems.length}
+              role='table'>
               <thead>
-                <tr>
-                  <th>
+                <tr role='row'>
+                  <th role='columnheader' scope='col'>
                     <b>{aprItemDescriptions.amount}</b><br />
                     ({aprItemDescriptions.amountExtra})
                   </th>
-                  <th>
+                  <th role='columnheader' scope='col'>
                     <b>{aprItemDescriptions.cycles}</b><br />
                     ({aprItemDescriptions.cyclesExtra})
                   </th>
-                  <th>
+                  <th role='columnheader' scope='col'>
                     <b>{aprItemDescriptions.fees}</b><br />
                     ({aprItemDescriptions.feesExtra})
                   </th>
-                  <th>
+                  <th role='columnheader' scope='col'>
                     <b>{aprItemDescriptions.apr}</b><br />
                     ({aprItemDescriptions.aprExtra})
                   </th>
-                  <th>
+                  <th role='columnheader' scope='col'>
                     <b>{aprItemDescriptions.rewards}</b><br />
                     ({aprItemDescriptions.rewardsExtra})<br />
                     {aprItemDescriptions.rewardsSummary &&
@@ -348,12 +363,12 @@ export function APRs({
               </thead>
               <tbody>
                 {aprItems.map((item, index) => (
-                  <tr key={`apr-${index}`}>
-                    <td>{currency.format(item.amount)}</td>
-                    <td>{currency.format(item.cycles)}</td>
-                    <td>{currency.format(item.fees)}</td>
-                    <td>{percentage.format(item.apr)}</td>
-                    <td>{percentage.format(item.rewards)}</td>
+                  <tr key={`apr-${index}`} role='row'>
+                    <td role='cell'>{currency.format(item.amount)}</td>
+                    <td role='cell'>{currency.format(item.cycles)}</td>
+                    <td role='cell'>{currency.format(item.fees)}</td>
+                    <td role='cell'>{percentage.format(item.apr)}</td>
+                    <td role='cell'>{percentage.format(item.rewards)}</td>
                   </tr>
                 ))}
               </tbody>
