@@ -365,7 +365,7 @@ export function APRs({
                 {aprItems.map((item, index) => (
                   <tr key={`apr-${index}`} role='row'>
                     <td role='cell'>{currency.format(item.amount)}</td>
-                    <td role='cell'>{currency.format(item.cycles)}</td>
+                    <td role='cell'>{item.cycles}</td>
                     <td role='cell'>{currency.format(item.fees)}</td>
                     <td role='cell'>{percentage.format(item.apr)}</td>
                     <td role='cell'>{percentage.format(item.rewards)}</td>
