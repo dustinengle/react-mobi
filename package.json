@@ -1,7 +1,6 @@
 {
   "name": "react-mobi",
   "version": "0.1.0",
-  "private": true,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/index.d.ts",
@@ -54,7 +53,7 @@
     "rollup": "^4.18.1",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-sass": "^1.13.1",
+    "rollup-plugin-scss": "^4.0.0",
     "sass": "^1.77.4"
   }
 }
