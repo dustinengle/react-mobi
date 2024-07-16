@@ -18,7 +18,7 @@ export interface TextProps {
   uppercase?: boolean
 }
 
-export default function Text({children, context, style, ...props}: TextProps) {
+export function Text({children, context, style, ...props}: TextProps) {
   let classNames = ['text']
   if (context) classNames.push(context)
   for (const [name, active] of Object.entries(props)) {
