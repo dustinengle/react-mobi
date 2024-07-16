@@ -208,9 +208,9 @@
       vertical-align: top;
     }
 
-    tr td:first-child {
+    tr th:first-child {
       &.header {
-        background-color: $schumer-header-background;
+        // background-color: $schumer-header-background;
         font-weight: bold;
       }
     }

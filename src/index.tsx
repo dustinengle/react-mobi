@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 
 import '@/styles/main.scss'
 
-import App from '@/App'
+import App from '@/pages/App'
 
 import reportWebVitals from '@/reportWebVitals'
 
