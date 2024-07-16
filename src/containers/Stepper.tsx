@@ -1,9 +1,9 @@
 
 import { ReactElement, ReactNode, useState } from 'react'
 
-import Button from '@/elements/Button'
-import Divider from '@/elements/Divider'
-import Flex from '@/layouts/Flex'
+import Button from '../elements/Button'
+import Divider from '../elements/Divider'
+import Flex from '../layouts/Flex'
 
 export interface StepperProps {
   children: ReactElement<StepperItemProps>[]

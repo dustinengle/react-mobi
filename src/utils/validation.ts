@@ -1,5 +1,5 @@
 
-import { isNumber, isString } from '@/utils/checker'
+import { isNumber, isString } from '../utils/checker'
 
 export function validateMax(max: number, value: number | string): boolean {
   if (isNumber(value) && (value as number) <= max) return true

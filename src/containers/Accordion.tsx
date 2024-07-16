@@ -1,9 +1,9 @@
 
-import { Icons } from '@/commons/types'
+import { Icons } from '../commons/types'
 import { ReactNode, useState } from 'react'
 
-import Flex from '@/layouts/Flex'
-import Icon from '@/elements/Icon'
+import Flex from '../layouts/Flex'
+import Icon from '../elements/Icon'
 
 export interface AccordionProps {
   children: ReactNode

@@ -1,5 +1,5 @@
 
-import { Icons } from '@/commons/types'
+import { Icons } from '../commons/types'
 
 import {
   FaBell,

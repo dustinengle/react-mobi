@@ -1,8 +1,8 @@
 
 import { ReactNode } from 'react'
-import { Style } from '@/commons/types'
+import { Style } from '../commons/types'
 
-import Text from '@/elements/Text'
+import Text from '../elements/Text'
 
 export interface HighlightProps {
   bg?: string

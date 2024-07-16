@@ -1,5 +1,5 @@
 
-import { Justify } from '@/commons/types'
+import { Justify } from '../commons/types'
 import { ReactNode } from 'react'
 
 export interface GridProps {

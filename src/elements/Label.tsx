@@ -1,7 +1,7 @@
 
-import { Field } from '@/commons/types'
+import { Field } from '../commons/types'
 
-import Text from '@/elements/Text'
+import Text from '../elements/Text'
 
 export interface LabelProps {
   error?: boolean

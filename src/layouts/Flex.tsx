@@ -1,5 +1,5 @@
 
-import { Align, Justify, Style } from '@/commons/types'
+import { Align, Justify, Style } from '../commons/types'
 import { ReactNode } from 'react'
 
 export interface FlexProps {

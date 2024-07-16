@@ -1,8 +1,8 @@
 
 import { ChangeEvent } from 'react'
 
-import Flex from '@/layouts/Flex'
-import Icon from '@/elements/Icon'
+import Flex from '../layouts/Flex'
+import Icon from '../elements/Icon'
 
 export interface PaginationProps {
   page: number

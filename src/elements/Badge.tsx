@@ -1,5 +1,5 @@
 
-import { Context } from '@/commons/types'
+import { Context } from '../commons/types'
 import { ReactNode } from 'react'
 
 export interface BadgeProps {

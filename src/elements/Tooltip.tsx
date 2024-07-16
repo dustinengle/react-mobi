@@ -1,5 +1,5 @@
 
-import { Context, Position, Style } from '@/commons/types'
+import { Context, Position, Style } from '../commons/types'
 import { ReactNode } from 'react'
 
 export interface TooltipProps {

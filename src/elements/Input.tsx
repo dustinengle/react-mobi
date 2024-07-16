@@ -1,8 +1,8 @@
 
 import { ChangeEvent, ReactNode, useState } from 'react'
-import random from '@/utils/random'
+import random from '../utils/random'
 
-import Flex from '@/layouts/Flex'
+import Flex from '../layouts/Flex'
 
 export interface CheckboxProps {
   checked?: boolean

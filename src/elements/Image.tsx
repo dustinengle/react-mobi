@@ -1,5 +1,5 @@
 
-import { Style } from '@/commons/types'
+import { Style } from '../commons/types'
 
 export interface ImageProps {
   alt?: string

@@ -1,5 +1,5 @@
 
-import { Role } from '@/commons/types'
+import { Role } from '../commons/types'
 
 export interface ButtonProps {
   callback: (...args: any[]) => any

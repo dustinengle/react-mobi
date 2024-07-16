@@ -1,12 +1,12 @@
 
-import { Field, FormData } from '@/commons/types'
+import { Field, FormData } from '../commons/types'
 import { FormEvent, ReactNode, useState } from 'react'
-import { validateMax, validateMin, validateRegEx } from '@/utils/validation'
+import { validateMax, validateMin, validateRegEx } from '../utils/validation'
 
-import { Checkbox, Input, Option, Radio, Select, Textarea } from '@/elements/Input'
-import Flex from '@/layouts/Flex'
-import Label from '@/elements/Label'
-import Text from '@/elements/Text'
+import { Checkbox, Input, Option, Radio, Select, Textarea } from '../elements/Input'
+import Flex from '../layouts/Flex'
+import Label from '../elements/Label'
+import Text from '../elements/Text'
 
 export interface FormProps {
   fields: Array<Field>

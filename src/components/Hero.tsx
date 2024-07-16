@@ -1,5 +1,5 @@
 
-import { Position } from '@/commons/types'
+import { Position } from '../commons/types'
 import { ReactNode } from 'react'
 
 export interface HeroProps {

@@ -1,8 +1,8 @@
 
 import { ReactElement, ReactNode } from 'react'
 
-import Highlight from '@/elements/Highlight'
-import Math from '@/elements/Math'
+import Highlight from '../elements/Highlight'
+import Math from '../elements/Math'
 
 const currency: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
   currency: 'USD',

@@ -1,6 +1,6 @@
 
 import { ReactNode } from 'react'
-import { Style } from '@/commons/types'
+import { Style } from '../commons/types'
 
 export interface CardProps {
   children: ReactNode

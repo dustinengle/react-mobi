@@ -1,9 +1,9 @@
 
-import { Context } from '@/commons/types'
+import { Context } from '../commons/types'
 import { ReactNode } from 'react'
 
-import Flex from '@/layouts/Flex'
-import Icon from '@/elements/Icon'
+import Flex from '../layouts/Flex'
+import Icon from '../elements/Icon'
 
 export interface NotificationProps {
   callback?: () => void

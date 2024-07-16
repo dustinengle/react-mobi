@@ -1,5 +1,5 @@
 
-import { Context, Style } from '@/commons/types'
+import { Context, Style } from '../commons/types'
 import { ReactNode } from 'react'
 
 export interface BackgroundProps {

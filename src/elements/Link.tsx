@@ -1,8 +1,8 @@
 
 import { ReactNode } from 'react'
-import { Style } from '@/commons/types'
+import { Style } from '../commons/types'
 
-import Icon from '@/elements/Icon'
+import Icon from '../elements/Icon'
 
 export interface LinkProps {
   children: ReactNode

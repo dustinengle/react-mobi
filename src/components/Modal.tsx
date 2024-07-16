@@ -1,8 +1,8 @@
 
 import { ReactNode } from 'react'
 
-import Button from '@/elements/Button'
-import Flex from '@/layouts/Flex'
+import Button from '../elements/Button'
+import Flex from '../layouts/Flex'
 
 export interface ModalProps {
   callback: (yes: boolean) => void
