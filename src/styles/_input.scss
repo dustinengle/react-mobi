@@ -49,8 +49,7 @@ label {
 
 select {
   appearance: none;
-  background: $input-carrot no-repeat right 0.75rem center;
-  min-width: $input-min-width;
+  width: 100%;
 
   .error {
     border-color: $color-danger;
@@ -69,5 +68,30 @@ select {
 
   &-label {
     margin-top: $input-label-padding;
+  }
+}
+
+.select {
+  min-width: $input-min-width;
+
+  &::before, &::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    right: 1rem;
+  }
+
+  &::before {
+    border-bottom: $input-select-size solid $input-select-color;
+    border-left: $input-select-size solid transparent;
+    border-right: $input-select-size solid transparent;
+    top: 35%;
+  }
+
+  &::after {
+    border-top: $input-select-size solid $input-select-color;
+    border-left: $input-select-size solid transparent;
+    border-right: $input-select-size solid transparent;
+    top: 45%;
   }
 }

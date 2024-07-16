@@ -150,17 +150,19 @@ export function Select({children, error, handler, id, name, value, ...props}: Se
   }
 
   return (
-    <select {...props}
-      aria-label={name}
-      className={error ? 'error' : undefined}
-      defaultValue={value}
-      id={id || random()}
-      name={name}
-      onChange={handleChange}
-      onInput={handleChange}
-      role='listbox'>
-      {children}
-    </select>
+    <div className='select'>
+      <select {...props}
+        aria-label={name}
+        className={error ? 'error' : undefined}
+        defaultValue={value}
+        id={id || random()}
+        name={name}
+        onChange={handleChange}
+        onInput={handleChange}
+        role='listbox'>
+        {children}
+      </select>
+    </div>
   )
 }
 
