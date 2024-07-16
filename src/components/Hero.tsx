@@ -8,7 +8,7 @@ export interface HeroProps {
   position?: Position
 }
 
-export default function Hero({children, image, position = 'left', ...props}: HeroProps) {
+export function Hero({children, image, position = 'left', ...props}: HeroProps) {
   const classes = `hero hero-${position}`
 
   return (

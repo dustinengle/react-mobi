@@ -50,7 +50,7 @@ export interface IconProps {
   src?: string
 }
 
-export default function Icon({ name, src, size = 'md', ...props }: IconProps) {
+export function Icon({ name, src, size = 'md', ...props }: IconProps) {
   const classes = `icon icon-${size}`
 
   if (src) {

@@ -7,7 +7,7 @@ export interface BodyProps {
   padding?: number | string
 }
 
-export default function Body({children, margin, padding, ...props}: BodyProps) {
+export function Body({children, margin, padding, ...props}: BodyProps) {
   const style = {
     margin,
     padding,

@@ -5,7 +5,7 @@ export interface DividerProps {
   line?: 'dashed' | 'solid'
 }
 
-export default function Divider({direction = 'horizontal', dots = true, line = 'solid', ...props}: DividerProps) {
+export function Divider({direction = 'horizontal', dots = true, line = 'solid', ...props}: DividerProps) {
   return (
     <div {...props}
       className={`divider divider-${direction}`}

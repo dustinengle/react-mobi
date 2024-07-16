@@ -14,7 +14,7 @@ export interface TableProps {
   footer?: ReactNode
 }
 
-export default function Table({card, cols, header = 'row', rows, footer, ...props}: TableProps) {
+export function Table({card, cols, header = 'row', rows, footer, ...props}: TableProps) {
   const classNames = ['table']
   if (card) classNames.push('table-card')
   if (header && header !== 'none') classNames.push(`header-${header}`)

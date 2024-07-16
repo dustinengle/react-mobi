@@ -5,7 +5,7 @@ export interface FooterProps {
   children: ReactNode
 }
 
-export default function Footer({children, ...props}: FooterProps) {
+export function Footer({children, ...props}: FooterProps) {
   return (
     <div {...props}
       aria-label='Footer'

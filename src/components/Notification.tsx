@@ -2,8 +2,8 @@
 import { Context } from '../commons/types'
 import { ReactNode } from 'react'
 
-import Flex from '../layouts/Flex'
-import Icon from '../elements/Icon'
+import { Flex } from '../layouts/Flex'
+import { Icon } from '../elements/Icon'
 
 export interface NotificationProps {
   callback?: () => void
@@ -11,7 +11,7 @@ export interface NotificationProps {
   context: Context
 }
 
-export default function Notification({children, callback, context, ...props}: NotificationProps) {
+export function Notification({children, callback, context, ...props}: NotificationProps) {
   let classes = `notification notification-${context}`
   if (callback) classes += ' notification-closable'
 

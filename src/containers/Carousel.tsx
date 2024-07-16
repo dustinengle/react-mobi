@@ -1,8 +1,8 @@
 
 import { ReactElement, ReactNode, useState } from 'react'
 
-import Flex from '../layouts/Flex'
-import Icon from '../elements/Icon'
+import { Flex } from '../layouts/Flex'
+import { Icon } from '../elements/Icon'
 
 export interface CarouselProps {
   children: Array<ReactElement<CarouselItemProps>>

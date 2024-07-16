@@ -14,7 +14,7 @@ export interface FlexProps {
   wrap?: boolean
 }
 
-function Flex({children, align, column = true, full, gap, justify, row, style, wrap, ...props}: FlexProps) {
+export function Flex({children, align, column = true, full, gap, justify, row, style, wrap, ...props}: FlexProps) {
   const classNames = ['flex']
   if (align) classNames.push(`align-${align}`)
   if (column) classNames.push('flex-column')
@@ -32,5 +32,3 @@ function Flex({children, align, column = true, full, gap, justify, row, style, w
     </div>
   )
 }
-
-export default Flex

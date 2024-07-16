@@ -5,7 +5,7 @@ export interface MathProps {
   formula: string
 }
 
-export default function Math({formula, ...props}: MathProps) {
+export function Math({formula, ...props}: MathProps) {
   useEffect(() => {
     if (typeof(window?.MathJax) !== 'undefined') {
       window.MathJax.typesetClear()

@@ -1,4 +1,4 @@
 
-export default function Animation() {
+export function Animation() {
   return null
 }

@@ -1,8 +1,8 @@
 
 import { ReactNode } from 'react'
 
-import Flex from '../layouts/Flex'
-import Image from '../elements/Image'
+import { Flex } from '../layouts/Flex'
+import { Image } from '../elements/Image'
 
 export interface NavigationProps {
   children: ReactNode

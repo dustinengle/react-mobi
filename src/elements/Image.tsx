@@ -9,7 +9,7 @@ export interface ImageProps {
   style?: Style
 }
 
-export default function Image({alt, caption, role = 'responsive', src, ...props}: ImageProps) {
+export function Image({alt, caption, role = 'responsive', src, ...props}: ImageProps) {
   const classes = `image image-${role}`
 
   return (

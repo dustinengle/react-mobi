@@ -8,7 +8,7 @@ export interface BadgeProps {
   count: number
 }
 
-export default function Badge({ children, count, context = 'default' }: BadgeProps) {
+export function Badge({ children, count, context = 'default' }: BadgeProps) {
   const classes = `badge badge-${context}`
 
   return (

@@ -1,8 +1,8 @@
 
 import { ReactElement, ReactNode } from 'react'
 
-import Highlight from '../elements/Highlight'
-import Math from '../elements/Math'
+import { Highlight } from '../elements/Highlight'
+import { Math } from '../elements/Math'
 
 const currency: Intl.NumberFormat = new Intl.NumberFormat('en-US', {
   currency: 'USD',
@@ -391,7 +391,7 @@ export interface SchumerProps {
   feeItemDescriptions?: FeeItemDescriptions
 }
 
-export default function Schumer({
+export function Schumer({
     apr,
     aprItemDescriptions = APRItemDescriptionDefaults,
     aprItems,

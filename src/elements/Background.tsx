@@ -8,7 +8,7 @@ export interface BackgroundProps {
   style?: Style
 }
 
-export default function Background({children, context = 'info', style, ...props}: BackgroundProps) {
+export function Background({children, context = 'info', style, ...props}: BackgroundProps) {
   const classes = `background background-${context}`
 
   return (

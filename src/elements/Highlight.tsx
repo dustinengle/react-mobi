@@ -2,7 +2,7 @@
 import { ReactNode } from 'react'
 import { Style } from '../commons/types'
 
-import Text from '../elements/Text'
+import { Text } from '../elements/Text'
 
 export interface HighlightProps {
   bg?: string
@@ -11,7 +11,7 @@ export interface HighlightProps {
   style?: Style
 }
 
-export default function Highlight({children, bg = 'yellow', fg = 'black', style}: HighlightProps) {
+export function Highlight({children, bg = 'yellow', fg = 'black', style}: HighlightProps) {
   return (
     <Text style={{...style, backgroundColor: bg, color: fg}}>
       {children}

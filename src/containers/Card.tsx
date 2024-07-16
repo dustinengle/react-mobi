@@ -7,7 +7,7 @@ export interface CardProps {
   style?: Style
 }
 
-export default function Card({children, style, ...props}: CardProps) {
+export function Card({children, style, ...props}: CardProps) {
   return (
     <div {...props} className='card' style={style}>
       {children}

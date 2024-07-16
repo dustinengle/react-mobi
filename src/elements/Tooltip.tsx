@@ -10,7 +10,7 @@ export interface TooltipProps {
   style?: Style
 }
 
-export default function Tooltip({children, context, message, position = 'cover', style, ...props}: TooltipProps) {
+export function Tooltip({children, context, message, position = 'cover', style, ...props}: TooltipProps) {
   const classNames = ['tooltip', position]
   if (context) classNames.push(`tooltip-${context}`)
   const classes = classNames.join(' ')

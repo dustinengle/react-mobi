@@ -4,9 +4,9 @@ import { FormEvent, ReactNode, useState } from 'react'
 import { validateMax, validateMin, validateRegEx } from '../utils/validation'
 
 import { Checkbox, Input, Option, Radio, Select, Textarea } from '../elements/Input'
-import Flex from '../layouts/Flex'
-import Label from '../elements/Label'
-import Text from '../elements/Text'
+import { Flex } from '../layouts/Flex'
+import { Label } from '../elements/Label'
+import { Text } from '../elements/Text'
 
 export interface FormProps {
   fields: Array<Field>
@@ -15,7 +15,7 @@ export interface FormProps {
   label?: string
 }
 
-export default function Form({fields, handler, highlight = 'none', label = 'Form'}: FormProps) {
+export function Form({fields, handler, highlight = 'none', label = 'Form'}: FormProps) {
   const [data, setData] = useState<Record<string, string>>({})
   const [errors, setErrors] = useState<Record<string, boolean>>({})
 

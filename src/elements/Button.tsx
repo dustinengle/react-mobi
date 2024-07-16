@@ -7,7 +7,7 @@ export interface ButtonProps {
   role?: Role | 'default'
 }
 
-export default function Button({ callback, label, role = 'default' }: ButtonProps) {
+export function Button({ callback, label, role = 'default' }: ButtonProps) {
   const classes = `button button-${role}`
 
   return (

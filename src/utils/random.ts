@@ -1,7 +1,7 @@
 
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
-export default function random(length: number = 8): string {
+export function random(length: number = 8): string {
   let result = ''
   for (let i = 0; i < length; i++) {
     result += CHARS.charAt(Math.floor(Math.random() * CHARS.length))

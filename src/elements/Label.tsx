@@ -1,7 +1,7 @@
 
 import { Field } from '../commons/types'
 
-import Text from '../elements/Text'
+import { Text } from '../elements/Text'
 
 export interface LabelProps {
   error?: boolean
@@ -11,7 +11,7 @@ export interface LabelProps {
   required?: string
 }
 
-export default function Label({
+export function Label({
     error = false,
     field,
     highlight = 'none',

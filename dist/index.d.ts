@@ -1,5 +1,5 @@
-import { ReactNode, ReactElement } from 'react';
 import * as react_jsx_runtime from 'react/jsx-runtime';
+import { ReactNode, ReactElement } from 'react';
 
 type Align = 'center' | 'end' | 'start' | 'stretch';
 type Context = 'danger' | 'info' | 'success' | 'warning';
@@ -29,12 +29,14 @@ interface FormProps {
     highlight?: 'none' | 'optional' | 'required';
     label?: string;
 }
+declare function Form({ fields, handler, highlight, label }: FormProps): react_jsx_runtime.JSX.Element;
 
 interface HeroProps {
     children: ReactNode;
     image: string;
     position?: Position;
 }
+declare function Hero({ children, image, position, ...props }: HeroProps): react_jsx_runtime.JSX.Element;
 
 interface ModalProps {
     callback: (yes: boolean) => void;
@@ -43,6 +45,7 @@ interface ModalProps {
     open: boolean;
     yes?: string;
 }
+declare function Modal({ children, callback, no, open, yes, ...props }: ModalProps): react_jsx_runtime.JSX.Element;
 
 interface NavigationProps {
     children: ReactNode;
@@ -60,6 +63,7 @@ interface NotificationProps {
     children: ReactNode;
     context: Context;
 }
+declare function Notification({ children, callback, context, ...props }: NotificationProps): react_jsx_runtime.JSX.Element;
 
 interface PaginationProps {
     page: number;
@@ -71,6 +75,7 @@ interface PaginationProps {
     sizeLabel?: string;
     total: number;
 }
+declare function Pagination({ page, pageHandler, pageLabel, size, sizes, sizeHandler, sizeLabel, total, ...props }: PaginationProps): react_jsx_runtime.JSX.Element;
 
 interface Column {
     label: string;
@@ -83,6 +88,7 @@ interface TableProps {
     rows: Array<Record<string, any>>;
     footer?: ReactNode;
 }
+declare function Table({ card, cols, header, rows, footer, ...props }: TableProps): react_jsx_runtime.JSX.Element;
 
 interface AccordionProps {
     children: ReactNode;
@@ -101,11 +107,13 @@ interface BodyProps {
     margin?: number | string;
     padding?: number | string;
 }
+declare function Body({ children, margin, padding, ...props }: BodyProps): react_jsx_runtime.JSX.Element;
 
 interface CardProps {
     children: ReactNode;
     style?: Style;
 }
+declare function Card({ children, style, ...props }: CardProps): react_jsx_runtime.JSX.Element;
 
 interface CarouselProps {
     children: Array<ReactElement<CarouselItemProps>>;
@@ -123,10 +131,12 @@ declare function CarouselItem({ children, active, index, next, prev, ...props }:
 interface FooterProps {
     children: ReactNode;
 }
+declare function Footer({ children, ...props }: FooterProps): react_jsx_runtime.JSX.Element;
 
 interface HeaderProps {
     children: ReactNode;
 }
+declare function Header({ children, ...props }: HeaderProps): react_jsx_runtime.JSX.Element;
 
 interface ChargeItem {
     charge: number;
@@ -210,6 +220,7 @@ interface SchumerProps {
     feeItems: Array<FeeItem>;
     feeItemDescriptions?: FeeItemDescriptions;
 }
+declare function Schumer({ apr, aprItemDescriptions, aprItems, chargeItems, chargeItemDescriptions, feeItems, feeItemDescriptions, ...props }: SchumerProps): react_jsx_runtime.JSX.Element;
 
 interface StepperProps {
     children: ReactElement<StepperItemProps>[];
@@ -227,29 +238,35 @@ interface StepperItemProps {
 }
 declare function StepperItem({ children, callback, callbackLabel, title, ...props }: StepperItemProps): react_jsx_runtime.JSX.Element;
 
+declare function Animation(): null;
+
 interface BackgroundProps {
     children: ReactNode;
     context?: Context;
     style?: Style;
 }
+declare function Background({ children, context, style, ...props }: BackgroundProps): react_jsx_runtime.JSX.Element;
 
 interface BadgeProps {
     children: ReactNode;
     context?: Context | 'default';
     count: number;
 }
+declare function Badge({ children, count, context }: BadgeProps): react_jsx_runtime.JSX.Element;
 
 interface ButtonProps {
     callback: (...args: any[]) => any;
     label: string;
     role?: Role | 'default';
 }
+declare function Button({ callback, label, role }: ButtonProps): react_jsx_runtime.JSX.Element;
 
 interface DividerProps {
     direction?: 'horizontal' | 'vertical';
     dots?: boolean;
     line?: 'dashed' | 'solid';
 }
+declare function Divider({ direction, dots, line, ...props }: DividerProps): react_jsx_runtime.JSX.Element;
 
 interface HeadingProps {
     children: ReactNode;
@@ -267,12 +284,14 @@ interface HighlightProps {
     fg?: string;
     style?: Style;
 }
+declare function Highlight({ children, bg, fg, style }: HighlightProps): react_jsx_runtime.JSX.Element;
 
 interface IconProps {
     name?: Icons;
     size?: 'sm' | 'md' | 'lg' | 'xl';
     src?: string;
 }
+declare function Icon({ name, src, size, ...props }: IconProps): react_jsx_runtime.JSX.Element | null;
 
 interface ImageProps {
     alt?: string;
@@ -281,6 +300,7 @@ interface ImageProps {
     src: string;
     style?: Style;
 }
+declare function Image({ alt, caption, role, src, ...props }: ImageProps): react_jsx_runtime.JSX.Element;
 
 interface CheckboxProps {
     checked?: boolean;
@@ -341,6 +361,7 @@ interface LabelProps {
     optional?: string;
     required?: string;
 }
+declare function Label({ error, field, highlight, optional, required, ...props }: LabelProps): react_jsx_runtime.JSX.Element;
 
 interface LinkProps {
     children: ReactNode;
@@ -348,6 +369,7 @@ interface LinkProps {
     open?: boolean;
     style?: Style;
 }
+declare function Link({ children, href, open, ...props }: LinkProps): react_jsx_runtime.JSX.Element;
 
 interface ListProps {
     children: ReactNode;
@@ -362,6 +384,7 @@ declare function ListItem({ children, ...props }: ListItemProps): react_jsx_runt
 interface MathProps {
     formula: string;
 }
+declare function Math$1({ formula, ...props }: MathProps): react_jsx_runtime.JSX.Element;
 
 interface TextProps {
     bold?: boolean;
@@ -378,6 +401,7 @@ interface TextProps {
     underline?: boolean;
     uppercase?: boolean;
 }
+declare function Text({ children, context, style, ...props }: TextProps): react_jsx_runtime.JSX.Element;
 
 interface TooltipProps {
     children: ReactNode;
@@ -386,6 +410,7 @@ interface TooltipProps {
     position?: Position;
     style?: Style;
 }
+declare function Tooltip({ children, context, message, position, style, ...props }: TooltipProps): react_jsx_runtime.JSX.Element;
 
 interface FlexProps {
     align?: Align;
@@ -398,6 +423,7 @@ interface FlexProps {
     style?: Style;
     wrap?: boolean;
 }
+declare function Flex({ children, align, column, full, gap, justify, row, style, wrap, ...props }: FlexProps): react_jsx_runtime.JSX.Element;
 
 interface GridProps {
     children: ReactNode;
@@ -406,6 +432,7 @@ interface GridProps {
     justify?: Justify;
     rows?: number;
 }
+declare function Grid({ children, cols, gap, justify, rows, ...props }: GridProps): react_jsx_runtime.JSX.Element;
 interface GridAreaProps {
     children: ReactNode;
     colEnd?: number;
@@ -419,8 +446,10 @@ declare function isBoolean(x: any): boolean;
 declare function isNumber(x: any): boolean;
 declare function isString(x: any): boolean;
 
+declare function random(length?: number): string;
+
 declare function validateMax(max: number, value: number | string): boolean;
 declare function validateMin(min: number, value: number | string): boolean;
 declare function validateRegEx(regex: RegExp, value: number | string): boolean;
 
-export { type APR, type APRItem, type APRItemDescription, APRItemDescriptionDefaults, APRs, type APRsProps, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, type BackgroundProps, type BadgeProps, type BodyProps, type ButtonProps, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type ChargeItem, type ChargeItemDescriptions, ChargeItemDescriptionsDefault, Charges, type ChargesProps, Checkbox, type CheckboxProps, type Column, type Context, type DividerProps, type FeeItem, type FeeItemDescriptions, FeeItemDescriptionsDefault, Fees, type FeesProps, type Field, type FlexProps, type FooterProps, type FormData, type FormProps, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, type HeaderProps, type HeadingProps, type HeroProps, type HighlightProps, type IconProps, type Icons, type ImageProps, Input, type InputProps, type Justify, type LabelProps, type LinkProps, List, ListItem, type ListItemProps, type ListProps, type MathProps, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, type NotificationProps, Option, type OptionProps, type PaginationProps, type Position, Radio, type RadioProps, type Role, type SchumerProps, Select, type SelectProps, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, type TableProps, type TextProps, Textarea, type TextareaProps, type TooltipProps, isBoolean, isNumber, isString, validateMax, validateMin, validateRegEx };
+export { type APR, type APRItem, type APRItemDescription, APRItemDescriptionDefaults, APRs, type APRsProps, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, Animation, Background, type BackgroundProps, Badge, type BadgeProps, Body, type BodyProps, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type ChargeItem, type ChargeItemDescriptions, ChargeItemDescriptionsDefault, Charges, type ChargesProps, Checkbox, type CheckboxProps, type Column, type Context, Divider, type DividerProps, type FeeItem, type FeeItemDescriptions, FeeItemDescriptionsDefault, Fees, type FeesProps, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, type Icons, Image, type ImageProps, Input, type InputProps, type Justify, Label, type LabelProps, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, Math$1 as Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, Pagination, type PaginationProps, type Position, Radio, type RadioProps, type Role, Schumer, type SchumerProps, Select, type SelectProps, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };

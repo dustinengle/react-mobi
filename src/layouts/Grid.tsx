@@ -10,7 +10,7 @@ export interface GridProps {
   rows?: number
 }
 
-export default function Grid({children, cols, gap, justify, rows, ...props}: GridProps) {
+export function Grid({children, cols, gap, justify, rows, ...props}: GridProps) {
   const classNames = ['grid']
   if (justify) classNames.push(`justify-${justify}`)
 

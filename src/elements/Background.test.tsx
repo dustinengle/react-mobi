@@ -1,7 +1,7 @@
 
 import { render, screen } from '@testing-library/react'
 
-import Background from '../elements/Background'
+import { Background } from '../elements/Background'
 
 it('renders with text', () => {
   render(<Background>TEST</Background>)
