@@ -30,6 +30,10 @@
     height: $navigation-logo-size;
     width: auto;
   }
+
+  button {
+    padding: $navigation-button-padding;
+  }
 }
 
 .pagination {

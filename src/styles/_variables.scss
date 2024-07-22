@@ -169,6 +169,7 @@ $modal-transition: all 0.5s ease-in-out;
 
 /* Navigation */
 $navigation-bg: $color-background !default;
+$navigation-button-padding: 0.25rem 1rem !default;
 $navigation-fg: $color-foreground !default;
 $navigation-height: 4rem;
 $navigation-link-color: lighten($color-foreground, 30%) !default;

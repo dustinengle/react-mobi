@@ -710,6 +710,10 @@ function App() {
           <NavigationLink href='/'>Link 2</NavigationLink>
           <NavigationLink href='/'>Link 3</NavigationLink>
           <NavigationLink href='/'>Link 4</NavigationLink>
+          <Flex align='center' row>
+            <Button callback={callbackTest} label='Sign In' />
+            <Button callback={callbackTest} label='Apply Now' role='secondary' />
+          </Flex>
         </Navigation>
       </Flex>
 
@@ -839,7 +843,7 @@ function App() {
             <H3>Item 1</H3>
           </CarouselItem>
           <CarouselItem>
-            <Image src='https://placehold.co/320x240/red/black?text=Two' />
+            <Image src='https://placehold.co/640x480/red/black?text=Two' />
             <H3>Item 2</H3>
           </CarouselItem>
           <CarouselItem>

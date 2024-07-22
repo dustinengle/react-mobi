@@ -1,16 +1,26 @@
 
-import { ReactElement, ReactNode, useState } from 'react'
+import { ReactElement, ReactNode, useEffect, useState } from 'react'
 
 import { Flex } from '../layouts/Flex'
 import { Icon } from '../elements/Icon'
 
 export interface CarouselProps {
+  autoplay?: boolean
   children: Array<ReactElement<CarouselItemProps>>
 }
 
-export function Carousel({children, ...props}: CarouselProps) {
+export function Carousel({children, autoplay = true, ...props}: CarouselProps) {
   const [index, setIndex] = useState<number>(0)
   const total = children.length - 1
+  let timeout: NodeJS.Timeout
+
+  function handleAuto() {
+    if (timeout) clearTimeout(timeout)
+    timeout = setTimeout(() => {
+      handleNext()
+      handleAuto()
+    }, 5000)
+  }
 
   function handleNext() {
     setIndex(index >= total ? 0 : index + 1)
@@ -18,6 +28,10 @@ export function Carousel({children, ...props}: CarouselProps) {
 
   function handlePrev() {
     setIndex(index === 0 ? total : index - 1)
+  }
+
+  if (autoplay) {
+    handleAuto()
   }
 
   return (

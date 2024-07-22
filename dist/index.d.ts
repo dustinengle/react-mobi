@@ -117,9 +117,10 @@ interface CardProps {
 declare function Card({ children, dark, style, ...props }: CardProps): react_jsx_runtime.JSX.Element;
 
 interface CarouselProps {
+    autoplay?: boolean;
     children: Array<ReactElement<CarouselItemProps>>;
 }
-declare function Carousel({ children, ...props }: CarouselProps): react_jsx_runtime.JSX.Element;
+declare function Carousel({ children, autoplay, ...props }: CarouselProps): react_jsx_runtime.JSX.Element;
 interface CarouselItemProps {
     active?: number;
     children: ReactNode;
