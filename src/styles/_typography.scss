@@ -16,7 +16,7 @@ h {
     margin: $h6-font-size 0;
 
     @media only screen and (max-width: $sm) {
-      font-size: calc($h1-font-size * 0.75);
+      font-size: calc($h1-font-size * 0.65);
       margin: calc($h6-font-size * 0.25) 0;
     }
   }
@@ -26,7 +26,7 @@ h {
     margin: $h5-font-size 0;
 
     @media only screen and (max-width: $sm) {
-      font-size: calc($h2-font-size * 0.75);
+      font-size: calc($h2-font-size * 0.65);
       margin: calc($h5-font-size * 0.25) 0;
     }
   }
@@ -36,7 +36,7 @@ h {
     margin: $h4-font-size 0;
 
     @media only screen and (max-width: $sm) {
-      font-size: calc($h3-font-size * 0.75);
+      font-size: calc($h3-font-size * 0.65);
       margin: calc($h4-font-size * 0.25) 0;
     }
   }
@@ -46,7 +46,7 @@ h {
     margin: $h3-font-size 0;
 
     @media only screen and (max-width: $sm) {
-      font-size: calc($h4-font-size * 0.75);
+      font-size: calc($h4-font-size * 0.65);
       margin: calc($h3-font-size * 0.25) 0;
     }
   }
@@ -56,7 +56,7 @@ h {
     margin: $h2-font-size 0;
 
     @media only screen and (max-width: $sm) {
-      font-size: calc($h5-font-size * 0.75);
+      font-size: calc($h5-font-size * 0.65);
       margin: calc($h2-font-size * 0.25) 0;
     }
   }
@@ -66,7 +66,7 @@ h {
     margin: $h1-font-size 0;
 
     @media only screen and (max-width: $sm) {
-      font-size: calc($h6-font-size * 0.75);
+      font-size: calc($h6-font-size * 0.65);
       margin: calc($h1-font-size * 0.25) 0;
     }
   }
