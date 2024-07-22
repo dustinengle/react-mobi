@@ -17,7 +17,9 @@ export function Navigation({children, logo, ...props}: NavigationProps) {
       role='navigation'>
       <Flex align='center' justify='between' row>
         <Flex align='center' row>
-          <Image alt='Logo' src={logo} />
+          <a href='/'>
+            <Image alt='Logo' src={logo} />
+          </a>
         </Flex>
         <Flex align='center' full justify='evenly' row>
           {children}
