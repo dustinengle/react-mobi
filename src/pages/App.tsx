@@ -839,7 +839,7 @@ function App() {
             <H3>Item 1</H3>
           </CarouselItem>
           <CarouselItem>
-            <Image src='https://placehold.co/640x480/red/black?text=Two' />
+            <Image src='https://placehold.co/320x240/red/black?text=Two' />
             <H3>Item 2</H3>
           </CarouselItem>
           <CarouselItem>

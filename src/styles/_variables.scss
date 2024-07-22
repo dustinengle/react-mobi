@@ -66,7 +66,9 @@ $button-radius: 0.375rem !default;
 /* Card */
 $card-border: transparent !default;
 $card-radius: 25px !default;
+$card-filter-dark: drop-shadow(0px 7px 4px rgba(0, 0, 0, 0.25)) !default;
 $card-shadow: 0 0.25rem 0.75rem 0.5rem darken($color-background, 10%) !default;
+$card-shadow-dark: rgba(0, 0, 0, 0.25) 0px -9px 4px !default;
 
 /* Carousel */
 $carousel-disc-border: $border-size $border-style $border-color !default;

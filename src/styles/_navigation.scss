@@ -6,6 +6,7 @@
   height: $navigation-height;
   padding: $navigation-padding;
   width: 100%;
+  z-index: 3;
 
   @media only screen and (max-width: $sm) {
     height: fit-content;

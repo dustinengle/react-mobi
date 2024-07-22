@@ -4,12 +4,16 @@ import { Style } from '../commons/types'
 
 export interface CardProps {
   children: ReactNode
+  dark?: boolean
   style?: Style
 }
 
-export function Card({children, style, ...props}: CardProps) {
+export function Card({children, dark = false, style, ...props}: CardProps) {
+  let classes = 'card'
+  if (dark) classes += ' dark-shadow'
+
   return (
-    <div {...props} className='card' style={style}>
+    <div {...props} className={classes} style={style}>
       {children}
     </div>
   )

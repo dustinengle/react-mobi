@@ -111,9 +111,10 @@ declare function Body({ children, margin, padding, ...props }: BodyProps): react
 
 interface CardProps {
     children: ReactNode;
+    dark?: boolean;
     style?: Style;
 }
-declare function Card({ children, style, ...props }: CardProps): react_jsx_runtime.JSX.Element;
+declare function Card({ children, dark, style, ...props }: CardProps): react_jsx_runtime.JSX.Element;
 
 interface CarouselProps {
     children: Array<ReactElement<CarouselItemProps>>;
