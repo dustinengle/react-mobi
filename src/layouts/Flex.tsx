@@ -4,6 +4,7 @@ import { ReactNode } from 'react'
 
 export interface FlexProps {
   align?: Align
+  autoWrap?: boolean
   children: ReactNode
   column?: boolean
   full?: boolean
@@ -14,9 +15,22 @@ export interface FlexProps {
   wrap?: boolean
 }
 
-export function Flex({children, align, column = true, full, gap, justify, row, style, wrap, ...props}: FlexProps) {
+export function Flex({
+    children,
+    align,
+    autoWrap = false,
+    column = true,
+    full,
+    gap,
+    justify,
+    row,
+    style,
+    wrap,
+    ...props
+  }: FlexProps) {
   const classNames = ['flex']
   if (align) classNames.push(`align-${align}`)
+  if (autoWrap) classNames.push('autowrap')
   if (column) classNames.push('flex-column')
   if (full) classNames.push('flex-full')
   if (justify) classNames.push(`justify-${justify}`)

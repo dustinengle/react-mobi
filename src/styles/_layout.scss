@@ -29,6 +29,12 @@ body, #root {
   }
 }
 
+.autowrap {
+  @media only screen and (max-width: $sm) {
+    flex-direction: column;
+  }
+}
+
 .body {
   height: 100%;
   margin: 0 auto;

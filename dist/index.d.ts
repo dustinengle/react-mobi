@@ -416,6 +416,7 @@ declare function Tooltip({ children, context, message, position, style, ...props
 
 interface FlexProps {
     align?: Align;
+    autoWrap?: boolean;
     children: ReactNode;
     column?: boolean;
     full?: boolean;
@@ -425,7 +426,7 @@ interface FlexProps {
     style?: Style;
     wrap?: boolean;
 }
-declare function Flex({ children, align, column, full, gap, justify, row, style, wrap, ...props }: FlexProps): react_jsx_runtime.JSX.Element;
+declare function Flex({ children, align, autoWrap, column, full, gap, justify, row, style, wrap, ...props }: FlexProps): react_jsx_runtime.JSX.Element;
 
 interface GridProps {
     children: ReactNode;
