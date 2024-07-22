@@ -31,7 +31,7 @@ body, #root {
 
 .autowrap {
   @media only screen and (max-width: $sm) {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 }
 
