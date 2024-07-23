@@ -7,20 +7,12 @@ import { Icon } from '../elements/Icon'
 export interface CarouselProps {
   autoplay?: boolean
   children: Array<ReactElement<CarouselItemProps>>
+  interval?: number
 }
 
-export function Carousel({children, autoplay = true, ...props}: CarouselProps) {
+export function Carousel({children, autoplay = true, interval = 5000, ...props}: CarouselProps) {
   const [index, setIndex] = useState<number>(0)
   const total = children.length - 1
-  let timeout: NodeJS.Timeout
-
-  function handleAuto() {
-    if (timeout) clearTimeout(timeout)
-    timeout = setTimeout(() => {
-      handleNext()
-      handleAuto()
-    }, 5000)
-  }
 
   function handleNext() {
     setIndex(index >= total ? 0 : index + 1)
@@ -30,9 +22,17 @@ export function Carousel({children, autoplay = true, ...props}: CarouselProps) {
     setIndex(index === 0 ? total : index - 1)
   }
 
-  if (autoplay) {
-    handleAuto()
-  }
+  useEffect(() => {
+    if (autoplay) {
+      let timer = setTimeout(() => {
+        setIndex(index >= total ? 0 : index + 1)
+      }, interval)
+
+      return () => {
+        clearTimeout(timer)
+      }
+    }
+  }, [index])
 
   return (
     <div {...props} className='carousel'>

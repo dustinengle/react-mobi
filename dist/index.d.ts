@@ -17,7 +17,7 @@ interface Field {
     value?: boolean | number | string;
 }
 type FormData = Record<string, boolean | number | string>;
-type Icons = 'alert' | 'attach' | 'award' | 'calendar' | 'caret-down' | 'caret-up' | 'cash' | 'cc-amex' | 'cc-discover' | 'cc-mastercard' | 'cc-visa' | 'check' | 'close' | 'comment' | 'danger' | 'delete' | 'edit' | 'email' | 'folder' | 'hide' | 'info' | 'lock' | 'map' | 'message' | 'minus' | 'next' | 'open' | 'plus' | 'prev' | 'profile' | 'restricted' | 'save' | 'settings' | 'star' | 'success' | 'tag' | 'unlock' | 'user' | 'view' | 'warning';
+type Icons = 'alert' | 'attach' | 'award' | 'calendar' | 'caret-down' | 'caret-up' | 'cash' | 'cc-amex' | 'cc-discover' | 'cc-mastercard' | 'cc-visa' | 'check' | 'close' | 'comment' | 'danger' | 'delete' | 'edit' | 'email' | 'folder' | 'hide' | 'info' | 'lock' | 'map' | 'message' | 'minus' | 'next' | 'open' | 'plus' | 'prev' | 'print' | 'profile' | 'restricted' | 'save' | 'settings' | 'star' | 'success' | 'tag' | 'unlock' | 'user' | 'view' | 'warning';
 type Justify = 'around' | 'between' | 'center' | 'end' | 'evenly' | 'start';
 type Position = 'cover' | 'bottom' | 'left' | 'right' | 'top';
 type Role = 'primary' | 'secondary' | 'tertiary';
@@ -119,8 +119,9 @@ declare function Card({ children, dark, style, ...props }: CardProps): react_jsx
 interface CarouselProps {
     autoplay?: boolean;
     children: Array<ReactElement<CarouselItemProps>>;
+    interval?: number;
 }
-declare function Carousel({ children, autoplay, ...props }: CarouselProps): react_jsx_runtime.JSX.Element;
+declare function Carousel({ children, autoplay, interval, ...props }: CarouselProps): react_jsx_runtime.JSX.Element;
 interface CarouselItemProps {
     active?: number;
     children: ReactNode;

@@ -31,6 +31,7 @@ import {
   FaUpRightFromSquare,
   FaPlus,
   FaChevronLeft,
+  FaPrint,
   FaIdCard,
   FaBan,
   FaFloppyDisk,
@@ -123,6 +124,8 @@ export function Icon({ name, src, size = 'md', ...props }: IconProps) {
       return (<FaPlus className={classes} role='figure' />)
     case 'prev':
       return (<FaChevronLeft className={classes} role='figure' />)
+    case 'print':
+      return (<FaPrint className={classes} role='figure' />)
     case 'profile':
       return (<FaIdCard className={classes} role='figure' />)
     case 'restricted':
