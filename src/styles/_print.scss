@@ -1,0 +1,40 @@
+
+@media print {
+  * {
+    overflow: visible !important;
+  }
+
+  div,
+  table {
+    max-width: 8in !important;
+  }
+
+  // Hide
+  .button,
+  .footer,
+  .navigation {
+    display: none;
+  }
+
+  .body {
+    overflow: auto;
+  }
+
+  .card {
+    border: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    height: 20000px !important;
+  }
+
+  div,
+  .card,
+  .padding {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .text {
+    font-size: 12pt;
+  }
+}
