@@ -189,6 +189,7 @@ function App() {
     'open',
     'plus',
     'prev',
+    'print',
     'profile',
     'restricted',
     'save',
@@ -261,7 +262,7 @@ function App() {
             <Icon name='alert' size='lg' />
           </Badge>
           <Badge context='info' count={123}>
-            <Button callback={callbackTest} label='Click me!' />
+            <Button callback={callbackTest} icon='print' label='Click me!' />
           </Badge>
           <Badge context='success' count={123}>
             <Button callback={callbackTest} label='Click me!' role='tertiary' />
@@ -275,9 +276,9 @@ function App() {
       <Flex align='center'>
         <H2>Buttons</H2>
         <Flex justify='evenly' row wrap>
-            <Button callback={callbackTest} label='Click me!' />
+            <Button callback={callbackTest} icon='plus' label='Click me!' />
             <Button callback={callbackTest} label='Click me!' role='primary' />
-            <Button callback={callbackTest} label='Click me!' role='secondary' />
+            <Button callback={callbackTest} icon='delete' label='Click me!' role='secondary' />
             <Button callback={callbackTest} label='Click me!' role='tertiary' />
         </Flex>
       </Flex>

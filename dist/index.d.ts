@@ -259,10 +259,11 @@ declare function Badge({ children, count, context }: BadgeProps): react_jsx_runt
 
 interface ButtonProps {
     callback: (...args: any[]) => any;
+    icon?: string;
     label: string;
     role?: Role | 'default';
 }
-declare function Button({ callback, label, role }: ButtonProps): react_jsx_runtime.JSX.Element;
+declare function Button({ callback, icon, label, role }: ButtonProps): react_jsx_runtime.JSX.Element;
 
 interface DividerProps {
     direction?: 'horizontal' | 'vertical';
