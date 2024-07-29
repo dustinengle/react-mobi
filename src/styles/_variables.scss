@@ -135,7 +135,7 @@ $input-fg: lighten($color-foreground, 20%) !default;
 $input-font-family: $font-family-body !default;
 $input-font-size: 1rem !default;
 $input-label-padding: 1rem 0 0 0 !default;
-$input-max-width: 20rem !default;
+$input-max-width: 100% !default;
 $input-min-width: 8rem !default;
 $input-outline: 0 !default;
 $input-padding: 0.75rem !default;
