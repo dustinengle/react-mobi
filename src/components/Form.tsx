@@ -11,11 +11,22 @@ import { Text } from '../elements/Text'
 export interface FormProps {
   fields: Array<Field>
   handler: (data: FormData) => void
+  hideActions?: boolean
   highlight?: 'none' | 'optional' | 'required'
   label?: string
+  resetLabel?: string
+  submitLabel?: string
 }
 
-export function Form({fields, handler, highlight = 'none', label = 'Form'}: FormProps) {
+export function Form({
+    fields,
+    handler,
+    hideActions = false,
+    highlight = 'none',
+    label = 'Form',
+    resetLabel = 'Reset',
+    submitLabel = 'Submit'
+  }: FormProps) {
   const [data, setData] = useState<Record<string, string>>({})
   const [errors, setErrors] = useState<Record<string, boolean>>({})
 
@@ -36,6 +47,8 @@ export function Form({fields, handler, highlight = 'none', label = 'Form'}: Form
     setData(data)
 
     validate()
+
+    if (hideActions) handler(data as FormData)
   }
 
   function handleReset() {
@@ -174,15 +187,21 @@ export function Form({fields, handler, highlight = 'none', label = 'Form'}: Form
           )
         })}
         <Flex align='center' justify='around' row>
-          <input
-            aria-label='submit'
-            className='button button-primary'
-            disabled={!canSubmit()}
-            type='submit' />
-          <input
-            aria-label='reset'
-            className='button button-default'
-            type='reset' />
+          {!hideActions &&
+            <input
+              aria-label='submit'
+              className='button button-primary'
+              disabled={!canSubmit()}
+              type='submit'
+              value={submitLabel} />
+          }
+          {!hideActions &&
+            <input
+              aria-label='reset'
+              className='button button-default'
+              type='reset'
+              value={resetLabel} />
+          }
         </Flex>
       </Flex>
     </form>

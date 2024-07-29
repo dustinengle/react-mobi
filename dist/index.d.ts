@@ -26,10 +26,13 @@ type Style = Record<string, number | string>;
 interface FormProps {
     fields: Array<Field>;
     handler: (data: FormData) => void;
+    hideActions?: boolean;
     highlight?: 'none' | 'optional' | 'required';
     label?: string;
+    resetLabel?: string;
+    submitLabel?: string;
 }
-declare function Form({ fields, handler, highlight, label }: FormProps): react_jsx_runtime.JSX.Element;
+declare function Form({ fields, handler, hideActions, highlight, label, resetLabel, submitLabel }: FormProps): react_jsx_runtime.JSX.Element;
 
 interface HeroProps {
     children: ReactNode;
