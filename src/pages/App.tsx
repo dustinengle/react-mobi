@@ -32,6 +32,7 @@ import { Accordion, AccordionItem } from '../containers/Accordion'
 import { Body } from '../containers/Body'
 import { Card } from '../containers/Card'
 import { Carousel, CarouselItem } from '../containers/Carousel'
+import { Code } from '../containers/Code'
 import { APRs, Charges, Fees, Schumer } from '../containers/Schumer'
 import { Stepper, StepperItem } from '../containers/Stepper'
 
@@ -856,6 +857,30 @@ function App() {
             <H3>Item 4</H3>
           </CarouselItem>
         </Carousel>
+      </Flex>
+
+      <Flex align='center'>
+        <H2>Code</H2>
+        <Flex row wrap>
+          <Flex align='center'>
+            <H3>JavaScript</H3>
+            <Code language='javascript' source={`
+              console.log('hello world!')
+            `} />
+          </Flex>
+          <Flex align='center'>
+            <H3>Go</H3>
+            <Code language='go' source={`
+              package main
+
+              import "fmt"
+
+              func main() {
+                fmt.Println("Hello World!")
+              }
+            `} />
+          </Flex>
+        </Flex>
       </Flex>
 
       <Flex align='center'>
