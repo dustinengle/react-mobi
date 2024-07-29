@@ -174,8 +174,8 @@ $navigation-fg: $color-foreground !default;
 $navigation-height: 4rem;
 $navigation-link-color: lighten($color-foreground, 30%) !default;
 $navigation-link-padding: 0 2rem !default;
-$navigation-logo-size: 2rem !default;
-$navigation-padding: 1rem !default;
+$navigation-logo-size: 2.75rem !default;
+$navigation-padding: 1rem 1rem !default;
 $navigation-shadow: drop-shadow($color-shadow 0 7px 4px) !default;
 
 /* Notification */
