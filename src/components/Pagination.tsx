@@ -48,7 +48,7 @@ export function Pagination({
 
   return (
     <div {...props} className='pagination'>
-      <Flex align='center' justify='between' row>
+      <Flex between row>
         <div className='prev' onClick={handlePrev}>
           <Icon name={Icons.prev} sm />
         </div>

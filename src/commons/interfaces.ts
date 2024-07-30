@@ -6,12 +6,29 @@ export interface Alignments {
   stretch?: boolean
 }
 
+export interface Arrangements {
+  ordered?: boolean
+  unordered?: boolean
+}
+
+export interface Behaviors {
+  contain?: boolean
+  cover?: boolean
+  fill?: boolean
+  responsive?: boolean
+}
+
 export interface Contexts {
   danger?: boolean
   default?: boolean
   info?: boolean
   success?: boolean
   warning?: boolean
+}
+
+export interface Directions {
+  horizontal?: boolean
+  vertical?: boolean
 }
 
 export interface Justifications {
@@ -22,6 +39,11 @@ export interface Justifications {
   evenly?: boolean
   start?: boolean
   stretch?: boolean
+}
+
+export interface Lines {
+  dashed?: boolean
+  solid?: boolean
 }
 
 export interface Positions {

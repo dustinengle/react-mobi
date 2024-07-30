@@ -1,8 +1,85 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import { ReactNode, ReactElement } from 'react';
 
+interface Alignments {
+    center?: boolean;
+    end?: boolean;
+    start?: boolean;
+    stretch?: boolean;
+}
+interface Arrangements {
+    ordered?: boolean;
+    unordered?: boolean;
+}
+interface Behaviors {
+    contain?: boolean;
+    cover?: boolean;
+    fill?: boolean;
+    responsive?: boolean;
+}
+interface Contexts {
+    danger?: boolean;
+    default?: boolean;
+    info?: boolean;
+    success?: boolean;
+    warning?: boolean;
+}
+interface Directions {
+    horizontal?: boolean;
+    vertical?: boolean;
+}
+interface Justifications {
+    around?: boolean;
+    between?: boolean;
+    center?: boolean;
+    end?: boolean;
+    evenly?: boolean;
+    start?: boolean;
+    stretch?: boolean;
+}
+interface Lines {
+    dashed?: boolean;
+    solid?: boolean;
+}
+interface Positions {
+    cover?: boolean;
+    bottom?: boolean;
+    left?: boolean;
+    right?: boolean;
+    top?: boolean;
+}
+interface Roles {
+    primary?: boolean;
+    secondary?: boolean;
+    tertiary?: boolean;
+}
+interface Sizes {
+    sm?: boolean;
+    md?: boolean;
+    lg?: boolean;
+    xl?: boolean;
+}
+interface Styles {
+    bold?: boolean;
+    capitalize?: boolean;
+    italic?: boolean;
+    legal?: boolean;
+    lower?: boolean;
+    strike?: boolean;
+    sub?: boolean;
+    super?: boolean;
+    underline?: boolean;
+    upper?: boolean;
+}
+
 type Align = 'center' | 'end' | 'start' | 'stretch';
 type Context = 'danger' | 'info' | 'success' | 'warning';
+type FormData = Record<string, boolean | number | string>;
+type Justify = 'around' | 'between' | 'center' | 'end' | 'evenly' | 'start';
+type Position = 'cover' | 'bottom' | 'left' | 'right' | 'top';
+type Role = 'primary' | 'secondary' | 'tertiary';
+type Style = Record<string, number | string>;
+
 interface Field {
     autocomplete?: string;
     error?: string;
@@ -16,13 +93,6 @@ interface Field {
     required?: boolean;
     value?: boolean | number | string;
 }
-type FormData = Record<string, boolean | number | string>;
-type Icons = 'alert' | 'attach' | 'award' | 'calendar' | 'caret-down' | 'caret-up' | 'cash' | 'cc-amex' | 'cc-discover' | 'cc-mastercard' | 'cc-visa' | 'check' | 'close' | 'comment' | 'danger' | 'delete' | 'edit' | 'email' | 'folder' | 'hide' | 'info' | 'lock' | 'map' | 'message' | 'minus' | 'next' | 'open' | 'plus' | 'prev' | 'print' | 'profile' | 'restricted' | 'save' | 'settings' | 'star' | 'success' | 'tag' | 'unlock' | 'user' | 'view' | 'warning';
-type Justify = 'around' | 'between' | 'center' | 'end' | 'evenly' | 'start';
-type Position = 'cover' | 'bottom' | 'left' | 'right' | 'top';
-type Role = 'primary' | 'secondary' | 'tertiary';
-type Style = Record<string, number | string>;
-
 interface FormProps {
     fields: Array<Field>;
     handler: (data: FormData) => void;
@@ -34,12 +104,11 @@ interface FormProps {
 }
 declare function Form({ fields, handler, hideActions, highlight, label, resetLabel, submitLabel }: FormProps): react_jsx_runtime.JSX.Element;
 
-interface HeroProps {
+interface HeroProps extends Positions {
     children: ReactNode;
     image: string;
-    position?: Position;
 }
-declare function Hero({ children, image, position, ...props }: HeroProps): react_jsx_runtime.JSX.Element;
+declare function Hero({ children, image, ...props }: HeroProps): react_jsx_runtime.JSX.Element;
 
 interface ModalProps {
     callback: (yes: boolean) => void;
@@ -61,12 +130,11 @@ interface NavigationLinkProps {
 }
 declare function NavigationLink({ children, href, ...props }: NavigationLinkProps): react_jsx_runtime.JSX.Element;
 
-interface NotificationProps {
+interface NotificationProps extends Contexts {
     callback?: () => void;
     children: ReactNode;
-    context: Context;
 }
-declare function Notification({ children, callback, context, ...props }: NotificationProps): react_jsx_runtime.JSX.Element;
+declare function Notification({ children, callback, ...props }: NotificationProps): react_jsx_runtime.JSX.Element;
 
 interface PaginationProps {
     page: number;
@@ -92,6 +160,57 @@ interface TableProps {
     footer?: ReactNode;
 }
 declare function Table({ card, cols, header, rows, footer, ...props }: TableProps): react_jsx_runtime.JSX.Element;
+
+declare enum Icons {
+    alert = "alert",
+    attach = "attach",
+    award = "award",
+    calendar = "calendar",
+    caret_down = "caret_down",
+    caret_up = "caret_up",
+    cash = "cash",
+    cc_amex = "cc_amex",
+    cc_discover = "cc_discover",
+    cc_mastercard = "cc_mastercard",
+    cc_visa = "cc_visa",
+    check = "check",
+    close = "close",
+    comment = "comment",
+    danger = "danger",
+    delete = "delete",
+    edit = "edit",
+    email = "email",
+    folder = "folder",
+    hide = "hide",
+    info = "info",
+    lock = "lock",
+    map = "map",
+    message = "message",
+    minus = "minus",
+    next = "next",
+    open = "open",
+    plus = "plus",
+    prev = "prev",
+    print = "print",
+    profile = "profile",
+    restricted = "restricted",
+    save = "save",
+    settings = "settings",
+    star = "star",
+    success = "success",
+    tag = "tag",
+    unlock = "unlock",
+    user = "user",
+    view = "view",
+    warning = "warning"
+}
+interface IconProps extends Sizes {
+    color?: string;
+    name?: Icons;
+    src?: string;
+    title?: string;
+}
+declare function Icon({ color, name, src, title, ...props }: IconProps): react_jsx_runtime.JSX.Element | null;
 
 interface AccordionProps {
     children: ReactNode;
@@ -253,27 +372,23 @@ interface BackgroundProps {
 }
 declare function Background({ children, context, style, ...props }: BackgroundProps): react_jsx_runtime.JSX.Element;
 
-interface BadgeProps {
+interface BadgeProps extends Contexts {
     children: ReactNode;
-    context?: Context | 'default';
     count: number;
 }
-declare function Badge({ children, count, context }: BadgeProps): react_jsx_runtime.JSX.Element;
+declare function Badge({ children, count, ...props }: BadgeProps): react_jsx_runtime.JSX.Element;
 
-interface ButtonProps {
+interface ButtonProps extends Roles {
     callback: (...args: any[]) => any;
-    icon?: string;
+    icon?: Icons;
     label: string;
-    role?: Role | 'default';
 }
-declare function Button({ callback, icon, label, role }: ButtonProps): react_jsx_runtime.JSX.Element;
+declare function Button({ callback, icon, label, ...props }: ButtonProps): react_jsx_runtime.JSX.Element;
 
-interface DividerProps {
-    direction?: 'horizontal' | 'vertical';
+interface DividerProps extends Directions, Lines {
     dots?: boolean;
-    line?: 'dashed' | 'solid';
 }
-declare function Divider({ direction, dots, line, ...props }: DividerProps): react_jsx_runtime.JSX.Element;
+declare function Divider({ dots, ...props }: DividerProps): react_jsx_runtime.JSX.Element;
 
 interface HeadingProps {
     children: ReactNode;
@@ -293,21 +408,13 @@ interface HighlightProps {
 }
 declare function Highlight({ children, bg, fg, style }: HighlightProps): react_jsx_runtime.JSX.Element;
 
-interface IconProps {
-    name?: Icons;
-    size?: 'sm' | 'md' | 'lg' | 'xl';
-    src?: string;
-}
-declare function Icon({ name, src, size, ...props }: IconProps): react_jsx_runtime.JSX.Element | null;
-
-interface ImageProps {
+interface ImageProps extends Behaviors {
     alt?: string;
     caption?: string;
-    role?: 'contain' | 'cover' | 'fill' | 'responsive';
     src: string;
     style?: Style;
 }
-declare function Image({ alt, caption, role, src, ...props }: ImageProps): react_jsx_runtime.JSX.Element;
+declare function Image({ alt, caption, src, ...props }: ImageProps): react_jsx_runtime.JSX.Element;
 
 interface CheckboxProps {
     checked?: boolean;
@@ -378,14 +485,13 @@ interface LinkProps {
 }
 declare function Link({ children, href, open, ...props }: LinkProps): react_jsx_runtime.JSX.Element;
 
-interface ListProps {
+interface ListProps extends Arrangements {
     children: ReactNode;
-    role?: 'ordered' | 'unordered';
 }
 interface ListItemProps {
     children: ReactNode;
 }
-declare function List({ children, role, ...props }: ListProps): react_jsx_runtime.JSX.Element;
+declare function List({ children, ...props }: ListProps): react_jsx_runtime.JSX.Element | null;
 declare function ListItem({ children, ...props }: ListItemProps): react_jsx_runtime.JSX.Element;
 
 interface MathProps {
@@ -393,54 +499,38 @@ interface MathProps {
 }
 declare function Math$1({ formula, ...props }: MathProps): react_jsx_runtime.JSX.Element;
 
-interface TextProps {
-    bold?: boolean;
-    capitalize?: boolean;
+interface TextProps extends Contexts, Styles {
     children: ReactNode;
-    context?: Context;
-    italic?: boolean;
-    legal?: boolean;
-    lowercase?: boolean;
-    strikethrough?: boolean;
     style?: Style;
-    subscript?: boolean;
-    superscript?: boolean;
-    underline?: boolean;
-    uppercase?: boolean;
 }
-declare function Text({ children, context, style, ...props }: TextProps): react_jsx_runtime.JSX.Element;
+declare function Text({ children, style, ...props }: TextProps): react_jsx_runtime.JSX.Element;
 
-interface TooltipProps {
+interface TooltipProps extends Contexts, Positions {
     children: ReactNode;
-    context?: Context;
     message: string;
-    position?: Position;
     style?: Style;
 }
-declare function Tooltip({ children, context, message, position, style, ...props }: TooltipProps): react_jsx_runtime.JSX.Element;
+declare function Tooltip({ children, message, style, ...props }: TooltipProps): react_jsx_runtime.JSX.Element;
 
-interface FlexProps {
-    align?: Align;
+interface FlexProps extends Alignments, Justifications {
     autoWrap?: boolean;
     children: ReactNode;
     column?: boolean;
     full?: boolean;
     gap?: number | string;
-    justify?: Justify;
     row?: boolean;
     style?: Style;
     wrap?: boolean;
 }
-declare function Flex({ children, align, autoWrap, column, full, gap, justify, row, style, wrap, ...props }: FlexProps): react_jsx_runtime.JSX.Element;
+declare function Flex({ children, autoWrap, column, full, gap, row, style, wrap, ...props }: FlexProps): react_jsx_runtime.JSX.Element;
 
 interface GridProps {
     children: ReactNode;
     cols: number;
     gap?: number | string;
-    justify?: Justify;
     rows?: number;
 }
-declare function Grid({ children, cols, gap, justify, rows, ...props }: GridProps): react_jsx_runtime.JSX.Element;
+declare function Grid({ children, cols, gap, rows, ...props }: GridProps): react_jsx_runtime.JSX.Element;
 interface GridAreaProps {
     children: ReactNode;
     colEnd?: number;
@@ -454,10 +544,24 @@ declare function isBoolean(x: any): boolean;
 declare function isNumber(x: any): boolean;
 declare function isString(x: any): boolean;
 
+declare class Extractor {
+    static alignments(props: Alignments): Array<string>;
+    static arrangements(props: Arrangements): Array<string>;
+    static behaviors(props: Behaviors): Array<string>;
+    static contexts(props: Contexts): Array<string>;
+    static directions(props: Directions): Array<string>;
+    static justifications(props: Justifications): Array<string>;
+    static lines(props: Lines): Array<string>;
+    static positions(props: Positions): Array<string>;
+    static roles(props: Roles): Array<string>;
+    static sizes(props: Sizes): Array<string>;
+    static styles(props: Styles): Array<string>;
+}
+
 declare function random(length?: number): string;
 
 declare function validateMax(max: number, value: number | string): boolean;
 declare function validateMin(min: number, value: number | string): boolean;
 declare function validateRegEx(regex: RegExp, value: number | string): boolean;
 
-export { type APR, type APRItem, type APRItemDescription, APRItemDescriptionDefaults, APRs, type APRsProps, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, Animation, Background, type BackgroundProps, Badge, type BadgeProps, Body, type BodyProps, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type ChargeItem, type ChargeItemDescriptions, ChargeItemDescriptionsDefault, Charges, type ChargesProps, Checkbox, type CheckboxProps, type Column, type Context, Divider, type DividerProps, type FeeItem, type FeeItemDescriptions, FeeItemDescriptionsDefault, Fees, type FeesProps, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, type Icons, Image, type ImageProps, Input, type InputProps, type Justify, Label, type LabelProps, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, Math$1 as Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, Pagination, type PaginationProps, type Position, Radio, type RadioProps, type Role, Schumer, type SchumerProps, Select, type SelectProps, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };
+export { type APR, type APRItem, type APRItemDescription, APRItemDescriptionDefaults, APRs, type APRsProps, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, type Alignments, Animation, type Arrangements, Background, type BackgroundProps, Badge, type BadgeProps, type Behaviors, Body, type BodyProps, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type ChargeItem, type ChargeItemDescriptions, ChargeItemDescriptionsDefault, Charges, type ChargesProps, Checkbox, type CheckboxProps, type Column, type Context, type Contexts, type Directions, Divider, type DividerProps, Extractor, type FeeItem, type FeeItemDescriptions, FeeItemDescriptionsDefault, Fees, type FeesProps, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, Icons, Image, type ImageProps, Input, type InputProps, type Justifications, type Justify, Label, type LabelProps, type Lines, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, Math$1 as Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, Pagination, type PaginationProps, type Position, type Positions, Radio, type RadioProps, type Role, type Roles, Schumer, type SchumerProps, Select, type SelectProps, type Sizes, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, type Styles, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };

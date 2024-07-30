@@ -1,5 +1,5 @@
 
-import { Extractor } from '../utils/extractor'
+import { Extractor } from '../utils'
 import { IconType } from 'react-icons'
 import { Sizes } from '../commons'
 
@@ -150,9 +150,11 @@ export function Icon({
     ...props
   }: IconProps) {
   const label = name as unknown as string
-  const size = Extractor.size(props)
 
-  const classes = `icon icon-${size}`
+  const classes = [
+    'icon',
+    ...Extractor.sizes(props),
+  ].join(' ')
 
   if (src) {
     return (
@@ -166,6 +168,7 @@ export function Icon({
   }
 
   if (!IconMap[name as Icons]) return null
+
   const C: IconType = IconMap[name as Icons]
   return (
     <C

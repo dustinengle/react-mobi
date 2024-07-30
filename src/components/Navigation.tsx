@@ -15,13 +15,13 @@ export function Navigation({children, logo, ...props}: NavigationProps) {
       aria-label='Main'
       className='navigation'
       role='navigation'>
-      <Flex align='center' justify='between' row>
-        <Flex align='center' row>
+      <Flex between row>
+        <Flex row>
           <a href='/'>
             <Image alt='Logo' src={logo} />
           </a>
         </Flex>
-        <Flex align='center' full justify='between' row>
+        <Flex between full row>
           {children}
         </Flex>
       </Flex>

@@ -1,16 +1,19 @@
 
-import { Style } from '../commons/types'
+import { Behaviors, Style } from '../commons'
+import { Extractor } from '../utils'
 
-export interface ImageProps {
+export interface ImageProps extends Behaviors {
   alt?: string
   caption?: string
-  role?: 'contain' | 'cover' | 'fill' | 'responsive'
   src: string
   style?: Style
 }
 
-export function Image({alt, caption, role = 'responsive', src, ...props}: ImageProps) {
-  const classes = `image image-${role}`
+export function Image({alt, caption, src, ...props}: ImageProps) {
+  const classes = [
+    'image',
+    ...Extractor.behaviors(props),
+  ].join(' ')
 
   return (
     <div {...props}

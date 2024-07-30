@@ -1,15 +1,14 @@
 
-import { Align, Justify, Style } from '../commons/types'
+import { Alignments, Justifications, Style } from '../commons'
+import { Extractor } from '../utils'
 import { ReactNode } from 'react'
 
-export interface FlexProps {
-  align?: Align
+export interface FlexProps extends Alignments, Justifications {
   autoWrap?: boolean
   children: ReactNode
   column?: boolean
   full?: boolean
   gap?: number | string
-  justify?: Justify
   row?: boolean
   style?: Style
   wrap?: boolean
@@ -17,23 +16,23 @@ export interface FlexProps {
 
 export function Flex({
     children,
-    align,
     autoWrap = false,
     column = true,
     full,
     gap,
-    justify,
     row,
     style,
     wrap,
     ...props
   }: FlexProps) {
-  const classNames = ['flex']
-  if (align) classNames.push(`align-${align}`)
+  const classNames = [
+    'flex',
+    ...Extractor.alignments(props),
+    ...Extractor.justifications(props),
+  ]
   if (autoWrap) classNames.push('autowrap')
   if (column) classNames.push('flex-column')
   if (full) classNames.push('flex-full')
-  if (justify) classNames.push(`justify-${justify}`)
   if (row) classNames.push('flex-row')
   if (wrap) classNames.push('flex-wrap')
 

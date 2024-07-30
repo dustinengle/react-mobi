@@ -35,7 +35,7 @@
 
   $parent: &;
 
-  &-bottom {
+  &.bottom {
     #{$parent}-info {
       border-radius: 0;
       bottom: 0;
@@ -45,7 +45,7 @@
     }
   }
 
-  &-cover {
+  &.cover {
     #{$parent}-info {
       left: 50%;
       top: 50%;
@@ -53,7 +53,7 @@
     }
   }
 
-  &-left {
+  &.left {
     #{$parent}-info {
       border-radius: 0 $hero-info-radius $hero-info-radius 0;
       top: 50%;
@@ -62,7 +62,7 @@
     }
   }
 
-  &-right {
+  &.right {
     #{$parent}-info {
       border-radius: $hero-info-radius 0 0 $hero-info-radius;
       right: 0;
@@ -72,7 +72,7 @@
     }
   }
 
-  &-top {
+  &.top {
     #{$parent}-info {
       border-radius: 0;
       top: 0;

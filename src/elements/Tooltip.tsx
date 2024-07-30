@@ -1,24 +1,26 @@
 
-import { Context, Position, Style } from '../commons/types'
+import { Contexts, Positions, Style } from '../commons'
+import { Extractor } from '../utils'
 import { ReactNode } from 'react'
 
-export interface TooltipProps {
+export interface TooltipProps extends Contexts, Positions {
   children: ReactNode
-  context?: Context
   message: string
-  position?: Position
   style?: Style
 }
 
-export function Tooltip({children, context, message, position = 'cover', style, ...props}: TooltipProps) {
-  const classNames = ['tooltip', position]
-  if (context) classNames.push(`tooltip-${context}`)
-  const classes = classNames.join(' ')
-
+export function Tooltip({children, message, style, ...props}: TooltipProps) {
   return (
-    <div {...props} className={classes}>
+    <div {...props}
+      className={[
+          'tooltip',
+          ...Extractor.positions(props),
+        ].join(' ')}>
       <div
-        className='message'
+        className={[
+          'message',
+          ...Extractor.contexts(props),
+        ].join(' ')}
         role='tooltip'>
         {message}
       </div>

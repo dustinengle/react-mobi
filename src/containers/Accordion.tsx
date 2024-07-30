@@ -43,7 +43,7 @@ export function AccordionItem({
       aria-expanded={open}
       className={classes}>
       <div className='accordion-item-title' onClick={handleClick}>
-        <Flex align='center' justify='between' row>
+        <Flex between row>
           <div>{title}</div>
           <div role='link'>
             <Icon name={open ? iconOpen : iconClose} sm />

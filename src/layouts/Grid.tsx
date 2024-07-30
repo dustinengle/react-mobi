@@ -1,20 +1,14 @@
 
-import { Justify } from '../commons/types'
 import { ReactNode } from 'react'
 
 export interface GridProps {
   children: ReactNode
   cols: number
   gap?: number | string
-  justify?: Justify
   rows?: number
 }
 
-export function Grid({children, cols, gap, justify, rows, ...props}: GridProps) {
-  const classNames = ['grid']
-  if (justify) classNames.push(`justify-${justify}`)
-
-  const classes = classNames.join(' ')
+export function Grid({children, cols, gap, rows, ...props}: GridProps) {
   const style = {
     gap,
     gridTemplateColumns: `repeat(${cols}, 1fr)`,
@@ -23,7 +17,7 @@ export function Grid({children, cols, gap, justify, rows, ...props}: GridProps) 
 
   return (
     <div {...props}
-      className={classes}
+      className='grid'
       role='grid'
       style={style}>
       {children}

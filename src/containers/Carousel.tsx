@@ -36,18 +36,15 @@ export function Carousel({children, autoplay = true, interval = 5000, ...props}:
 
   return (
     <div {...props} className='carousel'>
-      <Flex align='center'>
-        <Flex align='center' justify='between' row>
+      <Flex>
+        <Flex between row>
           <div
             className='carousel-nav'
             onClick={handlePrev}
             role='link'>
             <Icon name={Icons.prev} />
           </div>
-          <Flex
-            aria-controls='carousel-controls'
-            align='center'
-            justify='center'>
+          <Flex aria-controls='carousel-controls'>
             <div className='carousel-container'>
               {children.map((child, idx) => {
                 return (
@@ -71,7 +68,7 @@ export function Carousel({children, autoplay = true, interval = 5000, ...props}:
           </div>
         </Flex>
         <div id='carousel-controls' className='carousel-discs'>
-          <Flex align='center' justify='center' row>
+          <Flex row>
             {children.map((_, idx) => (
               <div
                 className={`carousel-disc ${index === idx ? 'active' : ''}`}

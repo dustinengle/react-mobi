@@ -1,31 +1,19 @@
 
-import { Context, Style } from '../commons/types'
+import { Contexts, Style, Styles } from '../commons'
 import { ReactNode } from 'react'
+import { Extractor } from '../utils'
 
-export interface TextProps {
-  bold?: boolean
-  capitalize?: boolean
+export interface TextProps extends Contexts, Styles {
   children: ReactNode
-  context?: Context
-  italic?: boolean
-  legal?: boolean
-  lowercase?: boolean
-  strikethrough?: boolean
   style?: Style
-  subscript?: boolean
-  superscript?: boolean
-  underline?: boolean
-  uppercase?: boolean
 }
 
-export function Text({children, context, style, ...props}: TextProps) {
-  let classNames = ['text']
-  if (context) classNames.push(context)
-  for (const [name, active] of Object.entries(props)) {
-    if (active) classNames.push(name)
-  }
-
-  const classes = classNames.join(' ')
+export function Text({children, style, ...props}: TextProps) {
+  const classes = [
+    'text',
+    ...Extractor.contexts(props),
+    ...Extractor.styles(props),
+  ].join(' ')
 
   return (
     <span className={classes} style={style}>

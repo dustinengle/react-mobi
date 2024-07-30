@@ -1,6 +1,6 @@
 
 import { ReactNode } from 'react'
-import { Style } from '../commons/types'
+import { Style } from '../commons'
 
 import { Text } from '../elements/Text'
 

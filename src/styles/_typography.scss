@@ -105,20 +105,20 @@ h {
   font-family: $font-family-legal;
 }
 
-.lowercase {
+.lower {
   text-transform: lowercase;
 }
 
-.strikethrough {
+.strike {
   text-decoration: line-through;
 }
 
-.subscript {
+.sub {
   font-size: $font-subscript-size;
   vertical-align: sub;
 }
 
-.superscript {
+.super {
   font-size: $font-superscript-size;
   vertical-align: super;
 }
@@ -131,6 +131,6 @@ h {
   text-decoration: underline;
 }
 
-.uppercase {
+.upper {
   text-transform: uppercase;
 }

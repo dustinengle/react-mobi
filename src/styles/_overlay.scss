@@ -9,41 +9,6 @@
     transform: translate(50%, -50%);
     z-index: 1;
   }
-
-  &-danger {
-    .count {
-      background-color: $color-danger;
-      color: $color-danger-fg;
-    }
-  }
-
-  &-default {
-    .count {
-      background-color: $color-black;
-      color: $color-white;
-    }
-  }
-
-  &-info {
-    .count {
-      background-color: $color-info;
-      color: $color-info-fg;
-    }
-  }
-
-  &-success {
-    .count {
-      background-color: $color-success;
-      color: $color-success-fg;
-    }
-  }
-
-  &-warning {
-    .count {
-      background-color: $color-warning;
-      color: $color-warning-fg;
-    }
-  }
 }
 
 .modal {
@@ -106,9 +71,7 @@
   position: relative;
 
   .message {
-    background-color: $color-foreground;
     border-radius: $tooltip-radius;
-    color: $color-background;
     filter: $tooltip-shadow;
     opacity: 0;
     padding: $tooltip-padding;
@@ -159,27 +122,5 @@
     bottom: 105%;
     left: 50%;
     transform: translateX(-50%);
-  }
-
-  /* Color */
-
-  &-danger .message {
-    background-color: $color-danger;
-    color: $color-danger-fg;
-  }
-
-  &-info .message {
-    background-color: $color-info;
-    color: $color-info-fg;
-  }
-
-  &-success .message {
-    background-color: $color-success;
-    color: $color-success-fg;
-  }
-
-  &-warning .message {
-    background-color: $color-warning;
-    color: $color-warning-fg;
   }
 }

@@ -77,13 +77,13 @@ body, #root {
     width: $divider-dot-size;
   }
 
-  &-horizontal {
+  &.horizontal {
     align-items: center;
     display: flex;
     flex-direction: row;
     width: 100%;
 
-    #{$self}-dashed {
+    .dashed {
       border-top: $divider-width dashed $divider-color;
     }
 
@@ -92,18 +92,18 @@ body, #root {
       width: 100%;
     }
 
-    #{$self}-solid {
+    .solid {
       border-top: $divider-width solid $divider-color;
     }
   }
 
-  &-vertical {
+  &.vertical {
     align-items: center;
     display: flex;
     flex-direction: column;
     height: 100%;
 
-    #{$self}-dashed {
+    .dashed {
       border-left: $divider-width dashed $divider-color;
     }
 
@@ -112,7 +112,7 @@ body, #root {
       width: 0;
     }
 
-    #{$self}-solid {
+    .solid {
       border-left: $divider-width solid $divider-color;
     }
   }

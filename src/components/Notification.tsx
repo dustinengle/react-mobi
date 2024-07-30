@@ -1,24 +1,24 @@
 
-import { Context } from '../commons/types'
+import { Contexts } from '../commons'
+import { Extractor } from '../utils'
 import { ReactNode } from 'react'
 
 import { Flex } from '../layouts/Flex'
 import { Icon, Icons } from '../elements/Icon'
 
-export interface NotificationProps {
+export interface NotificationProps extends Contexts {
   callback?: () => void
   children: ReactNode
-  context: Context
 }
 
-export function Notification({
-    children,
-    callback,
-    context,
-    ...props
-  }: NotificationProps) {
-  let classes = `notification ${context}`
-  if (callback) classes += ' notification-closable'
+export function Notification({children, callback, ...props}: NotificationProps) {
+  const classes = [
+    'notification',
+    callback ? 'notification-closable' : '',
+    ...Extractor.contexts(props),
+  ].join(' ')
+
+  const context = Extractor.contexts(props)[0]
 
   return (
     <div {...props}
@@ -32,8 +32,8 @@ export function Notification({
           <Icon name={Icons.close} sm />
         </div>
       }
-      <Flex align='center' row>
-        <Icon name={Icons[context]} /> {children}
+      <Flex row>
+        <Icon name={context as Icons} /> {children}
       </Flex>
     </div>
   )

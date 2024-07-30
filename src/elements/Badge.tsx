@@ -1,15 +1,18 @@
 
-import { Context } from '../commons/types'
+import { Contexts } from '../commons'
+import { Extractor } from '../utils'
 import { ReactNode } from 'react'
 
-export interface BadgeProps {
+export interface BadgeProps extends Contexts {
   children: ReactNode
-  context?: Context | 'default'
   count: number
 }
 
-export function Badge({children, count, context = 'default'}: BadgeProps) {
-  const classes = `count ${context}`
+export function Badge({children, count, ...props}: BadgeProps) {
+  const classes = [
+    'count',
+    ...Extractor.contexts(props),
+  ].join(' ')
 
   return (
     <div className='badge'>

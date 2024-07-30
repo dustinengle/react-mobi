@@ -1,5 +1,5 @@
 
-import { Extractor } from '../utils/extractor'
+import { Extractor } from '../utils'
 import { Roles } from '../commons/interfaces'
 
 import { Flex } from '../layouts/Flex'
@@ -17,16 +17,17 @@ export function Button({
     label,
     ...props
   }: ButtonProps) {
-  const role = Extractor.role(props)
-
-  const classes = `button ${role}`
+  const classes = [
+    'button',
+    ...Extractor.roles(props),
+  ].join(' ')
 
   return (
     <button
       className={classes}
       onClick={callback}
       role='button'>
-      <Flex align='center' justify='center' row>
+      <Flex row>
         {icon && <Icon name={icon} sm />}
         {label}
       </Flex>

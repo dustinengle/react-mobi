@@ -1,21 +1,21 @@
 
 .icon {
-  &-sm {
+  &.sm {
     height: $icon-sm;
     width: $icon-sm;
   }
 
-  &-md {
+  &.md {
     height: $icon-md;
     width: $icon-md;
   }
 
-  &-lg {
+  &.lg {
     height: $icon-lg;
     width: $icon-lg;
   }
 
-  &-xl {
+  &.xl {
     height: $icon-xl;
     width: $icon-xl;
   }
@@ -28,19 +28,19 @@
     text-align: center;
   }
 
-  &-contain {
+  &.contain {
     object-fit: contain;
   }
 
-  &-cover {
+  &.cover {
     object-fit: cover;
   }
 
-  &-fill {
+  &.fill {
     object-fit: fill;
   }
 
-  &-responsive {
+  &.responsive {
     height: auto;
     width: auto;
   }

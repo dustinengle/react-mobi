@@ -41,10 +41,10 @@ export function Stepper({
         aria-current={i === index ? 'step' : false}
         className='stepper-step'
         key={i}>
-        <Flex align='center' gap='1rem' justify='center' row>
-          <Flex align='center' gap={0} justify='center' row>
+        <Flex gap='1rem' row>
+          <Flex gap={0} row>
             <div className={`stepper-step-count ${index >= i ? 'active' : ''}`}>
-              <Flex align='center' justify='center'>
+              <Flex>
                 <span aria-label={`Step ${i + 1}`}>
                   {i + 1}
                 </span>
@@ -59,7 +59,7 @@ export function Stepper({
     )
 
     if (i < children.length - 1) {
-      steps.push(<Divider key={i + 10} dots={false} line='dashed' />)
+      steps.push(<Divider key={i + 10} dots={false} dashed />)
     }
   }
 
@@ -87,7 +87,7 @@ export function Stepper({
   return (
     <div {...props} className='stepper'>
       <div className='stepper-header'>
-        <Flex align='center' justify='evenly' row>
+        <Flex evenly row>
           {steps}
         </Flex>
       </div>
@@ -95,7 +95,7 @@ export function Stepper({
         {activeChild}
       </div>
       <div className='stepper-footer'>
-        <Flex align='center' justify='between' row>
+        <Flex between row>
           {prev}
           {next}
         </Flex>

@@ -1,5 +1,5 @@
 
-import { FormData } from '../commons/types'
+import { FormData } from '../commons'
 import { FormEvent, ReactNode, useState } from 'react'
 import { validateMax, validateMin, validateRegEx } from '../utils/validation'
 
@@ -111,12 +111,12 @@ export function Form({
       onReset={handleReset}
       onSubmit={handleSubmit}
       role='form'>
-      <Flex gap='1rem'>
+      <Flex gap='1rem' start>
         {fields.map(field => {
           const errorLabel = errors[field.name]
             ? (
                 <div className='input-error' id={`error-${field.name}`}>
-                  <Text context='danger'>{field.error}</Text>
+                  <Text danger>{field.error}</Text>
                 </div>
               )
             : null
@@ -210,7 +210,7 @@ export function Form({
             </div>
           )
         })}
-        <Flex align='center' justify='around' row>
+        <Flex around row>
           {!hideActions &&
             <input
               aria-label='submit'

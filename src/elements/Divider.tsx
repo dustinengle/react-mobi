@@ -1,17 +1,24 @@
 
-export interface DividerProps {
-  direction?: 'horizontal' | 'vertical'
+import { Directions, Lines } from '../commons'
+import { Extractor } from '../utils'
+
+export interface DividerProps extends Directions, Lines {
   dots?: boolean
-  line?: 'dashed' | 'solid'
 }
 
-export function Divider({direction = 'horizontal', dots = true, line = 'solid', ...props}: DividerProps) {
+export function Divider({dots = true, ...props}: DividerProps) {
   return (
     <div {...props}
-      className={`divider divider-${direction}`}
+      className={[
+        'divider',
+        ...Extractor.directions(props),
+      ].join(' ')}
       role='separator'>
       {dots && <div className='divider-dot' />}
-      <div className={`divider-line divider-${line}`} />
+      <div className={[
+        'divider-line',
+        ...Extractor.lines(props),
+      ].join(' ')} />
       {dots && <div className='divider-dot' />}
     </div>
   )

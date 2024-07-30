@@ -30,7 +30,7 @@ export function Checkbox({
   }
 
   return (
-    <Flex align='center' row>
+    <Flex row>
       <input {...props}
         aria-checked={on}
         aria-label={name}
@@ -120,7 +120,7 @@ export function Radio({children, error, handler, id, name, value, ...props}: Rad
   }
 
   return (
-    <Flex align='center' row>
+    <Flex row>
       <input {...props}
         aria-label={name}
         className={error ? 'error' : undefined}

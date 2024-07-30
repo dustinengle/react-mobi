@@ -22,7 +22,7 @@ export function Modal({children, callback, no, open, yes, ...props}: ModalProps)
         role='dialog'>
         {children}
         <div className='modal-actions'>
-          <Flex align='center' justify='evenly' row>
+          <Flex evenly row>
             {yes && <Button callback={() => callback(true)} label={yes} primary />}
             {no && <Button callback={() => callback(false)} label={no} />}
           </Flex>
