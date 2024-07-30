@@ -7,7 +7,7 @@
   position: absolute;
   width: 100%;
 
-  .info {
+  &-info {
     background-color: $color-background;
     border: $card-border;
     border-radius: $hero-info-radius;
@@ -33,8 +33,10 @@
     }
   }
 
+  $parent: &;
+
   &-bottom {
-    .info {
+    #{$parent}-info {
       border-radius: 0;
       bottom: 0;
       top: unset;
@@ -44,7 +46,7 @@
   }
 
   &-cover {
-    .info {
+    #{$parent}-info {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
@@ -52,7 +54,7 @@
   }
 
   &-left {
-    .info {
+    #{$parent}-info {
       border-radius: 0 $hero-info-radius $hero-info-radius 0;
       top: 50%;
       transform: translateY(-50%);
@@ -61,7 +63,7 @@
   }
 
   &-right {
-    .info {
+    #{$parent}-info {
       border-radius: $hero-info-radius 0 0 $hero-info-radius;
       right: 0;
       top: 50%;
@@ -71,7 +73,7 @@
   }
 
   &-top {
-    .info {
+    #{$parent}-info {
       border-radius: 0;
       top: 0;
       transform: none;

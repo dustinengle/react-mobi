@@ -1,5 +1,5 @@
 
-import { Field } from '../commons/types'
+import { Field } from '../components/Form'
 
 import { Text } from '../elements/Text'
 

@@ -1,12 +1,12 @@
 
-import { Icons, Role } from '../commons/types'
+import { Role } from '../commons/types'
 
 import { Flex } from '../layouts/Flex'
-import { Icon } from './Icon'
+import { Icon, Icons } from './Icon'
 
 export interface ButtonProps {
   callback: (...args: any[]) => any
-  icon?: string
+  icon?: Icons
   label: string
   role?: Role | 'default'
 }
@@ -15,9 +15,9 @@ export function Button({
     callback,
     icon,
     label,
-    role = 'default'
+    role
   }: ButtonProps) {
-  const classes = `button button-${role}`
+  const classes = `button ${role}`
 
   return (
     <button
@@ -25,7 +25,7 @@ export function Button({
       onClick={callback}
       role='button'>
       <Flex align='center' justify='center' row>
-        {icon && <Icon name={icon as Icons} size='sm' />}
+        {icon && <Icon name={icon as Icons} sm />}
         {label}
       </Flex>
     </button>

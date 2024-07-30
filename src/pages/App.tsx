@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 // We import this type in order to cast a string to it, this is only for demonstration
 // purposes and won't be needed in the future.
-import { Field, FormData, Icons } from '../commons/types'
+import { FormData } from '../commons/types'
 
 import { Background } from '../elements/Background'
 import { Badge } from '../elements/Badge'
@@ -12,7 +12,7 @@ import { Checkbox, Input, Option, Radio, Select, Textarea } from '../elements/In
 import { Divider } from '../elements/Divider'
 import { H1, H2, H3, H4, H5, H6 } from '../elements/Heading'
 import { Highlight } from '../elements/Highlight'
-import { Icon } from '../elements/Icon'
+import { Icon, Icons } from '../elements/Icon'
 import { Image } from '../elements/Image'
 import { Link } from '../elements/Link'
 import { List, ListItem } from '../elements/List'
@@ -20,7 +20,7 @@ import { Math } from '../elements/Math'
 import { Text } from '../elements/Text'
 import { Tooltip } from '../elements/Tooltip'
 
-import { Form } from '../components/Form'
+import { Field, Form } from '../components/Form'
 import { Hero } from '../components/Hero'
 import { Modal } from '../components/Modal'
 import { Navigation, NavigationLink } from '../components/Navigation'
@@ -159,51 +159,6 @@ function App() {
     },
   ]
 
-  // We will use this list to show all of the currently supported icons, this is only for
-  // demonstration purposes.
-  const icons = [
-    'alert',
-    'attach',
-    'award',
-    'calendar',
-    'caret-down',
-    'caret-up',
-    'cash',
-    'cc-amex',
-    'cc-discover',
-    'cc-mastercard',
-    'cc-visa',
-    'check',
-    'comment',
-    'danger',
-    'delete',
-    'edit',
-    'email',
-    'folder',
-    'hide',
-    'info',
-    'lock',
-    'map',
-    'message',
-    'minus',
-    'next',
-    'open',
-    'plus',
-    'prev',
-    'print',
-    'profile',
-    'restricted',
-    'save',
-    'settings',
-    'star',
-    'success',
-    'tag',
-    'unlock',
-    'user',
-    'view',
-    'warning',
-  ]
-
   // We use this to duplicate schumer and other tables.
   const apr = {
     formula: <Math formula='$$APR=(\frac{(\frac{\text{Total Fees}}{\text{Avg. Principal Balance}})}{\text{Number Of Billing Cycles}})*\text{Billing Cycles Per Year}*100$$' />,
@@ -245,46 +200,143 @@ function App() {
   return (
     <Body padding='1rem'>
       <ul>
-        <li><Link href="#Elements">Elements</Link></li>
+      <li><Link href="#Constants">Constants</Link></li>
+      <li><Link href="#Elements">Elements</Link></li>
         <li><Link href="#Components">Components</Link></li>
         <li><Link href="#Containers">Containers</Link></li>
         <li><Link href="#Layouts">Layouts</Link></li>
       </ul>
 
-      <H1>Elements</H1>
+      <H1>Constants</H1>
 
       <Flex align='center'>
+        <H2>Context</H2>
+        <List>
+          <ListItem>danger - highlight that something wrong has happened</ListItem>
+          <ListItem>info - provide informative feedback to the user</ListItem>
+          <ListItem>success - let the user know an action was successful</ListItem>
+          <ListItem>warning - provide cautionary information to the user</ListItem>
+        </List>
+      </Flex>
+
+    <Flex align='center'>
+      <H2>Direction</H2>
+      <List>
+        <ListItem>horizontal - extended on the X-axis or width</ListItem>
+        <ListItem>vertical - extended on Y-axis or height</ListItem>
+      </List>
+    </Flex>
+
+      <Flex align='center'>
+        <H2>Line</H2>
+        <List>
+          <ListItem>dashed - show breaks in a continuous line</ListItem>
+          <ListItem>solid - no breaks in a continuous line</ListItem>
+        </List>
+      </Flex>
+
+      <Flex align='center' style={{marginBottom: '5rem'}}>
+        <H2>Role</H2>
+        <List>
+          <ListItem>primary - should be the primary anticipated action for the user</ListItem>
+          <ListItem>secondary - outline an alternative action for the user</ListItem>
+          <ListItem>tertiary - provide an uncommon action to the user</ListItem>
+        </List>
+      </Flex>
+
+      <H1>Elements</H1>
+
+      <Flex align='center' style={{marginBottom: '5rem'}}>
         <H2>Badges</H2>
         <Flex gap='3rem' justify='center' row wrap>
           <Badge count={123}>
             <Button callback={callbackTest} label='Click me!' role='secondary' />
           </Badge>
           <Badge context='danger' count={123}>
-            <Icon name='alert' size='lg' />
+            <Icon name={Icons.alert} lg />
           </Badge>
           <Badge context='info' count={123}>
-            <Button callback={callbackTest} icon='print' label='Click me!' />
+            <Button callback={callbackTest} icon={Icons.print} label='Click me!' />
           </Badge>
           <Badge context='success' count={123}>
             <Button callback={callbackTest} label='Click me!' role='tertiary' />
           </Badge>
           <Badge context='warning' count={123}>
-            <Icon name='calendar' size='xl' />
+            <Icon name={Icons.calendar} xl />
           </Badge>
         </Flex>
-      </Flex>
+        <Flex align='stretch' row>
+          <Flex style={{width: '30vw'}}>
+            <H3>Parameters</H3>
+            <List>
+              <ListItem>
+                <Text bold>children</Text> - The node that the badge will be added to.
+              </ListItem>
+              <ListItem>
+                <Text bold>context</Text><Text italic>(optional)</Text> - The context to apply to the badge.
+              </ListItem>
+              <ListItem>
+                <Text bold>count</Text> - The number to display in the badge.
+              </ListItem>
+            </List>
+            <Text italic>Note: almost everything can be wrapped by the badge.</Text>
+          </Flex>
+          <Flex style={{width: '40vw'}}>
+            <H3>Example Code</H3>
+            <Code source={`
+              import { Badge, Button } from 'react-mobi'
 
-      <Flex align='center'>
-        <H2>Buttons</H2>
-        <Flex justify='evenly' row wrap>
-            <Button callback={callbackTest} icon='plus' label='Click me!' />
-            <Button callback={callbackTest} label='Click me!' role='primary' />
-            <Button callback={callbackTest} icon='delete' label='Click me!' role='secondary' />
-            <Button callback={callbackTest} label='Click me!' role='tertiary' />
+              <Badge count={12}>
+                <Button label='Inbox' />
+              </Badge>
+            `} />
+          </Flex>
         </Flex>
       </Flex>
 
-      <Flex align='center'>
+      <Flex align='center' style={{marginBottom: '5rem'}}>
+        <H2>Buttons</H2>
+        <Flex justify='evenly' row wrap>
+            <Button callback={callbackTest} icon={Icons.plus} label='Click me!' />
+            <Button callback={callbackTest} label='Click me!' role='primary' />
+            <Button callback={callbackTest} icon={Icons.minus} label='Click me!' role='secondary' />
+            <Button callback={callbackTest} label='Click me!' role='tertiary' />
+        </Flex>
+        <Flex align='stretch' row>
+          <Flex style={{width: '30vw'}}>
+            <H3>Parameters</H3>
+            <List>
+              <ListItem>
+                <Text bold>callback</Text> - The handle to be called on click of the button.
+              </ListItem>
+              <ListItem>
+                <Text bold>icon</Text><Text italic>(optional)</Text> - The built-in icon to be added to the button.
+              </ListItem>
+              <ListItem>
+                <Text bold>label</Text> - The text to show for the button.
+              </ListItem>
+              <ListItem>
+                <Text bold>role</Text><Text italic>(optional)</Text> - To apply role styling to the button.  Default none.
+              </ListItem>
+            </List>
+            <Text italic>Note: use consistency with the roles for the entire app.</Text>
+          </Flex>
+          <Flex style={{width: '40vw'}}>
+            <H3>Example Code</H3>
+            <Code source={`
+              import { Button } from 'react-mobi'
+
+              function handleCallback() {
+                alert('You clicked me!')
+              }
+
+              <Button callback={handleCallback} label='Click to test' role='secondary' />
+            `} />
+          </Flex>
+        </Flex>
+      </Flex>
+
+      <Flex align='center' style={{marginBottom: '5rem'}}>
         <H2>Dividers</H2>
         <Flex align='center' justify='center' row wrap>
           <Flex align='center' justify='center'>
@@ -332,9 +384,34 @@ function App() {
             </Flex>
           </Flex>
         </Flex>
+        <Flex align='stretch' row>
+          <Flex style={{width: '30vw'}}>
+            <H3>Parameters</H3>
+            <List>
+              <ListItem>
+                <Text bold>direction</Text><Text italic>(optional)</Text> - The direction of the divider. Default horizontal.
+              </ListItem>
+              <ListItem>
+                <Text bold>dots</Text><Text italic>(optional)</Text> - Should the endpoints (aka dots) be shown.  Default true.
+              </ListItem>
+              <ListItem>
+                <Text bold>line</Text><Text italic>(optional)</Text> - The line type of the divider. Default solid.
+              </ListItem>
+            </List>
+            <Text italic>Note: if you want to control the width then wrap the divider with a sized div.</Text>
+          </Flex>
+          <Flex style={{width: '40vw'}}>
+            <H3>Example Code</H3>
+            <Code source={`
+              import { Divider } from 'react-mobi'
+
+              <Divider />
+            `} />
+          </Flex>
+        </Flex>
       </Flex>
 
-      <Flex align='center'>
+      <Flex align='center' style={{marginBottom: '5rem'}}>
         <H2>Fonts</H2>
         <Flex align='start' justify='center' row wrap>
           <Flex align='center'>
@@ -364,7 +441,7 @@ function App() {
         </Flex>
       </Flex>
 
-      <Flex align='center'>
+      <Flex align='center' style={{marginBottom: '5rem'}}>
         <H2>Headings</H2>
         <Flex justify='evenly' row wrap>
             <H1>Heading 1</H1>
@@ -374,9 +451,28 @@ function App() {
             <H5>Heading 5</H5>
             <H6>Heading 6</H6>
         </Flex>
+        <Flex align='stretch' row>
+          <Flex style={{width: '30vw'}}>
+            <H3>Parameters</H3>
+            <List>
+              <ListItem>
+                <Text bold>children</Text> - Should be a compatible react or html node.
+              </ListItem>
+            </List>
+            <Text italic>Note: headings automatically provide the ability to link by hashtag, i.e. #</Text>
+          </Flex>
+          <Flex style={{width: '40vw'}}>
+            <H3>Example Code</H3>
+            <Code source={`
+              import { H1 } from 'react-mobi'
+
+              <H1>Some Title</H1>
+            `} />
+          </Flex>
+        </Flex>
       </Flex>
 
-      <Flex align='center'>
+      <Flex align='center' style={{marginBottom: '5rem'}}>
         <H2>Highlights</H2>
         <Flex justify='evenly' row wrap>
             <p>
@@ -392,23 +488,59 @@ function App() {
               tincidunt <Highlight bg='cyan' fg='purple'>lectus 10-20%</Highlight>, nec tempor elit massa eget metus.
             </p>
         </Flex>
+        <Flex align='stretch' row>
+          <Flex style={{width: '30vw'}}>
+            <H3>Parameters</H3>
+            <List>
+              <ListItem>
+                <Text bold>bg</Text><Text italic>(optional)</Text> - Provide a background color to use for the highlighting of text.
+              </ListItem>
+              <ListItem>
+                <Text bold>children</Text> - Should be a compatible react or html node to highlight.
+              </ListItem>
+              <ListItem>
+                <Text bold>fg</Text><Text italic>(optional)</Text> - Provide a foreground/text color to use for the highlighting of text.
+              </ListItem>
+              <ListItem>
+                <Text bold>style</Text><Text italic>(optional)</Text> - Provide an optional style object to apply.
+              </ListItem>
+            </List>
+            <Text italic>Note: the `bg` and `fg` colors will overwrite any colors provided by `style`.</Text>
+          </Flex>
+          <Flex style={{width: '40vw'}}>
+            <H3>Example Code</H3>
+            <Code source={`
+              import { Highlight } from 'react-mobi'
+
+              <Highlight bg='cyan' fg='purple'>lectus 10-20%</Highlight>
+            `} />
+          </Flex>
+        </Flex>
       </Flex>
 
       <Flex align='center'>
         <H2>Icons</H2>
         <Flex align='center' row justify='center' wrap>
-          {icons.map((icon, index) => {
-            // We do this small hack in order to showcase the different sizes, this is
-            // for demonstration purposes only.
-            var size
-            if (index % 4 === 0) size = 'xl' as const
-            else if (index % 3 === 0) size = 'lg' as const
-            else if (index % 2 === 0) size = 'md' as const
-            else size = 'sm' as const
+          {Object.values(Icons).map((icon, index) => {
+            // We do this small hack in order to showcase the different colors & sizes, this is for demonstration purposes only.
+            const props: Record<string, boolean | string> = {}
+            if (index % 4 === 0) {
+              props['color'] = 'red'
+              props['xl'] = true
+            } else if (index % 3 === 0) {
+              props['color'] = 'green'
+              props['lg'] = true
+            } else if (index % 2 === 0) {
+              props['color'] = 'blue'
+              props['md'] = true
+            } else {
+              props['color'] = 'black'
+              props['sm'] = true
+            }
 
             return (
               <Flex align='center' justify='center' key={index} style={{flexBasis: '4rem'}}>
-                <Icon name={icon as Icons} size={size} />
+                <Icon {...props} name={icon as Icons} />
                 <div>{icon}</div>
               </Flex>
             )
@@ -772,7 +904,7 @@ function App() {
           <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>
             Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
           </AccordionItem>
-          <AccordionItem iconClose='plus' iconOpen='minus' title='Customize the icons'>
+          <AccordionItem iconClose={Icons.plus} iconOpen={Icons.minus} title='Customize the icons'>
             <p style={{marginBottom: '1rem'}}>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
             </p>
@@ -827,7 +959,7 @@ function App() {
               <Flex gap={0} justify='center'>
                 <H2>Step 1</H2>
                 <Text>Do something</Text>
-                <center><Icon name='lock' size='xl' /></center>
+                <center><Icon name={Icons.lock} xl /></center>
               </Flex>
             </Background>
             <Flex align='center' full justify='center' style={{flex: '2', padding: '1rem'}}>

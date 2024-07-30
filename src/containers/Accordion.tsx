@@ -1,9 +1,8 @@
 
-import { Icons } from '../commons/types'
 import { ReactNode, useState } from 'react'
 
 import { Flex } from '../layouts/Flex'
-import { Icon } from '../elements/Icon'
+import { Icon, Icons } from '../elements/Icon'
 
 export interface AccordionProps {
   children: ReactNode
@@ -26,8 +25,8 @@ export interface AccordionItemProps {
 
 export function AccordionItem({
     children,
-    iconClose = 'caret-down',
-    iconOpen = 'caret-up',
+    iconClose = Icons.caret_down,
+    iconOpen = Icons.caret_up,
     title,
     ...props
   }: AccordionItemProps) {
@@ -47,7 +46,7 @@ export function AccordionItem({
         <Flex align='center' justify='between' row>
           <div>{title}</div>
           <div role='link'>
-            <Icon name={open ? iconOpen : iconClose} size='sm' />
+            <Icon name={open ? iconOpen : iconClose} sm />
           </div>
         </Flex>
       </div>

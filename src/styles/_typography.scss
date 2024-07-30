@@ -1,6 +1,5 @@
 
 html, body {
-  color: $color-foreground;
   font-family: $font-family-body;
   font-optical-sizing: auto;
   font-size: $font-size;
@@ -80,11 +79,6 @@ h {
   text-transform: capitalize;
 }
 
-.danger {
-  background-color: $color-danger-fg;
-  color: $color-danger;
-}
-
 .font {
   &-body {
     font-family: $font-family-body;
@@ -101,11 +95,6 @@ h {
   &-title {
     font-family: $font-family-title;
   }
-}
-
-.info {
-  background-color: $color-info-fg;
-  color: $color-info;
 }
 
 .italic {
@@ -129,11 +118,6 @@ h {
   vertical-align: sub;
 }
 
-.success {
-  background-color: $color-success-fg;
-  color: $color-success;
-}
-
 .superscript {
   font-size: $font-superscript-size;
   vertical-align: super;
@@ -149,9 +133,4 @@ h {
 
 .uppercase {
   text-transform: uppercase;
-}
-
-.warning {
-  background-color: $color-warning-fg;
-  color: $color-warning;
 }

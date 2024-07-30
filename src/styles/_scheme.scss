@@ -1,0 +1,53 @@
+
+// mixins
+@mixin color-scheme($bg, $fg) {
+  background-color: $bg;
+  color: $fg;
+
+  &:hover {
+    background-color: darken($bg, $color-hover-darken);
+  }
+}
+
+// Base
+
+html, body {
+  background-color: $color-background;
+  color: $color-foreground;
+}
+
+// Context
+
+.danger {
+  @include color-scheme($color-danger, $color-danger-fg);
+}
+
+.default {
+  @include color-scheme($color-background, $color-foreground);
+}
+
+.info {
+  @include color-scheme($color-info, $color-info-fg);
+}
+
+.success {
+  @include color-scheme($color-success, $color-success-fg);
+}
+
+.warning {
+  @include color-scheme($color-warning, $color-warning-fg);
+}
+
+// Role
+
+.primary {
+  @include color-scheme($color-primary, $color-primary-fg);
+}
+
+.secondary {
+  @include color-scheme($color-secondary, $color-secondary-fg);
+}
+
+.tertiary {
+  @include color-scheme($color-tertiary, $color-tertiary-fg);
+}

@@ -2,7 +2,7 @@
 import { ReactNode } from 'react'
 import { Style } from '../commons/types'
 
-import { Icon } from '../elements/Icon'
+import { Icon, Icons } from '../elements/Icon'
 
 export interface LinkProps {
   children: ReactNode
@@ -20,7 +20,7 @@ export function Link({children, href, open = false, ...props}: LinkProps) {
       href={href}
       role='link'
       target={target}>
-      {children} {open && <Icon name='open' size='sm' />}
+      {children} {open && <Icon name={Icons.open} sm />}
     </a>
   )
 }

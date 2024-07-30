@@ -1,8 +1,7 @@
 
-import { ChangeEvent } from 'react'
-
 import { Flex } from '../layouts/Flex'
-import { Icon } from '../elements/Icon'
+import { Icon, Icons } from '../elements/Icon'
+import { Option, Select } from '../elements'
 
 export interface PaginationProps {
   page: number
@@ -35,39 +34,43 @@ export function Pagination({
     if (page < pages[pages.length - 1]) pageHandler(page + 1)
   }
 
-  function handlePage(ev: ChangeEvent<HTMLSelectElement>) {
-    pageHandler(Number(ev.target.value))
+  function handlePage(_: string, value: string) {
+    pageHandler(Number(value))
   }
 
   function handlePrev() {
     if (page > 0) pageHandler(page - 1)
   }
 
-  function handleSize(ev: ChangeEvent<HTMLSelectElement>) {
-    if (sizeHandler) sizeHandler(Number(ev.target.value))
+  function handleSize(_: string, value: string) {
+    if (sizeHandler) sizeHandler(Number(value))
   }
 
   return (
     <div {...props} className='pagination'>
       <Flex align='center' justify='between' row>
         <div className='prev' onClick={handlePrev}>
-          <Icon name='prev' size='sm' />
+          <Icon name={Icons.prev} sm />
         </div>
         <div className='label'>
           {pageLabel}:
         </div>
-        <select className='pages' onChange={handlePage} value={page}>
-          {pages.map(n => (<option key={n} value={n}>{n + 1}</option>))}
-        </select>
+        <div className='pages'>
+          <Select handler={handlePage} name='page' value={`${page}`}>
+            {pages.map(n => (<Option key={n} value={`${n}`}>{n + 1}</Option>))}
+          </Select>
+        </div>
         <div className='next' onClick={handleNext}>
-          <Icon name='next' size='sm' />
+          <Icon name={Icons.next} sm />
         </div>
         <div className='label'>
           {sizeLabel}:
         </div>
-        <select className='sizes' onChange={handleSize}>
-          {sizes.map(n => (<option key={n} value={n}>{n}</option>))}
-        </select>
+        <div className='sizes'>
+          <Select handler={handleSize} name='size' value={`${size}`}>
+            {sizes.map(n => (<Option key={n} value={`${n}`}>{n}</Option>))}
+          </Select>
+        </div>
       </Flex>
     </div>
   )

@@ -3,7 +3,7 @@ import { Context } from '../commons/types'
 import { ReactNode } from 'react'
 
 import { Flex } from '../layouts/Flex'
-import { Icon } from '../elements/Icon'
+import { Icon, Icons } from '../elements/Icon'
 
 export interface NotificationProps {
   callback?: () => void
@@ -11,8 +11,13 @@ export interface NotificationProps {
   context: Context
 }
 
-export function Notification({children, callback, context, ...props}: NotificationProps) {
-  let classes = `notification notification-${context}`
+export function Notification({
+    children,
+    callback,
+    context,
+    ...props
+  }: NotificationProps) {
+  let classes = `notification ${context}`
   if (callback) classes += ' notification-closable'
 
   return (
@@ -24,11 +29,11 @@ export function Notification({children, callback, context, ...props}: Notificati
           aria-label='Close'
           className='notification-close'
           onClick={callback}>
-          <Icon name='close' size='sm' />
+          <Icon name={Icons.close} sm />
         </div>
       }
       <Flex align='center' row>
-        <Icon name={context} /> {children}
+        <Icon name={Icons[context]} /> {children}
       </Flex>
     </div>
   )

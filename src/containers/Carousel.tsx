@@ -2,7 +2,7 @@
 import { ReactElement, ReactNode, useEffect, useState } from 'react'
 
 import { Flex } from '../layouts/Flex'
-import { Icon } from '../elements/Icon'
+import { Icon, Icons } from '../elements/Icon'
 
 export interface CarouselProps {
   autoplay?: boolean
@@ -42,7 +42,7 @@ export function Carousel({children, autoplay = true, interval = 5000, ...props}:
             className='carousel-nav'
             onClick={handlePrev}
             role='link'>
-            <Icon name='prev' />
+            <Icon name={Icons.prev} />
           </div>
           <Flex
             aria-controls='carousel-controls'
@@ -67,7 +67,7 @@ export function Carousel({children, autoplay = true, interval = 5000, ...props}:
             className='carousel-nav'
             onClick={handleNext}
             role='link'>
-            <Icon name='next' />
+            <Icon name={Icons.next} />
           </div>
         </Flex>
         <div id='carousel-controls' className='carousel-discs'>

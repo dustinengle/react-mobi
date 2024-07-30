@@ -1,5 +1,5 @@
 
-import { Field, FormData } from '../commons/types'
+import { FormData } from '../commons/types'
 import { FormEvent, ReactNode, useState } from 'react'
 import { validateMax, validateMin, validateRegEx } from '../utils/validation'
 
@@ -7,6 +7,30 @@ import { Checkbox, Input, Option, Radio, Select, Textarea } from '../elements/In
 import { Flex } from '../layouts/Flex'
 import { Label } from '../elements/Label'
 import { Text } from '../elements/Text'
+
+export interface Field {
+  autocomplete?: string
+  error?: string
+  label: string
+  input: 'checkbox'
+    | 'date'
+    | 'email'
+    | 'file'
+    | 'number'
+    | 'password'
+    | 'radio'
+    | 'select'
+    | 'tel'
+    | 'text'
+    | 'textarea'
+  max?: number
+  min?: number
+  name: string
+  options?: Record<string, string>
+  regex?: RegExp
+  required?: boolean
+  value?: boolean | number | string
+}
 
 export interface FormProps {
   fields: Array<Field>
@@ -190,7 +214,7 @@ export function Form({
           {!hideActions &&
             <input
               aria-label='submit'
-              className='button button-primary'
+              className='button primary'
               disabled={!canSubmit()}
               type='submit'
               value={submitLabel} />
@@ -198,7 +222,7 @@ export function Form({
           {!hideActions &&
             <input
               aria-label='reset'
-              className='button button-default'
+              className='button default'
               type='reset'
               value={resetLabel} />
           }
