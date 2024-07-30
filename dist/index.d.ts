@@ -35,7 +35,6 @@ interface Justifications {
     end?: boolean;
     evenly?: boolean;
     start?: boolean;
-    stretch?: boolean;
 }
 interface Lines {
     dashed?: boolean;

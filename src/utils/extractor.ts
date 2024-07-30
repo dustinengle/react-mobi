@@ -80,7 +80,6 @@ export class Extractor {
     if (props.end) keys.push('end')
     if (props.evenly) keys.push('evenly')
     if (props.start) keys.push('start')
-    if (props.stretch) keys.push('stretch')
 
     if (!keys.length) keys.push('center')
     return keys.map(k => `justify-${k}`)

@@ -38,7 +38,6 @@ export interface Justifications {
   end?: boolean
   evenly?: boolean
   start?: boolean
-  stretch?: boolean
 }
 
 export interface Lines {
