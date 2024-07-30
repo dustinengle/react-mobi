@@ -125,6 +125,10 @@ h {
 
 .text {
   padding: $text-padding;
+
+  &.default {
+    background-color: transparent;
+  }
 }
 
 .underline {

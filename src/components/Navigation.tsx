@@ -16,11 +16,9 @@ export function Navigation({children, logo, ...props}: NavigationProps) {
       className='navigation'
       role='navigation'>
       <Flex between row>
-        <Flex row>
-          <a href='/'>
-            <Image alt='Logo' src={logo} />
-          </a>
-        </Flex>
+        <a className='logo' href='/'>
+          <Image alt='Logo' src={logo} />
+        </a>
         <Flex between full row>
           {children}
         </Flex>

@@ -628,7 +628,7 @@ function App() {
         <H3>Left</H3>
         <div style={{height: '30vh', width: '80vw'}}>
           <Hero image='/images/test.jpg' left>
-            <Flex>
+            <Flex start>
               <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
               <Button callback={callbackTest} label='Tortor ornare!' primary />
             </Flex>
