@@ -1,4 +1,5 @@
 
+import { Extractor } from '../utils/extractor'
 import { IconType } from 'react-icons'
 import { Sizes } from '../commons'
 
@@ -141,14 +142,6 @@ export interface IconProps extends Sizes {
   title?: string
 }
 
-function getSize(props: Sizes) {
-  if (props.sm) return 'sm'
-  else if (props.md) return 'md'
-  else if (props.lg) return 'lg'
-  else if (props.xl) return 'xl'
-  else return 'md'
-}
-
 export function Icon({
     color,
     name,
@@ -157,8 +150,9 @@ export function Icon({
     ...props
   }: IconProps) {
   const label = name as unknown as string
-  const size = getSize(props)
-  let classes = `icon icon-${size}`
+  const size = Extractor.size(props)
+
+  const classes = `icon icon-${size}`
 
   if (src) {
     return (

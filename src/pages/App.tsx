@@ -250,7 +250,7 @@ function App() {
         <H2>Badges</H2>
         <Flex gap='3rem' justify='center' row wrap>
           <Badge count={123}>
-            <Button callback={callbackTest} label='Click me!' role='secondary' />
+            <Button callback={callbackTest} label='Click me!' secondary />
           </Badge>
           <Badge context='danger' count={123}>
             <Icon name={Icons.alert} lg />
@@ -259,7 +259,7 @@ function App() {
             <Button callback={callbackTest} icon={Icons.print} label='Click me!' />
           </Badge>
           <Badge context='success' count={123}>
-            <Button callback={callbackTest} label='Click me!' role='tertiary' />
+            <Button callback={callbackTest} label='Click me!' tertiary />
           </Badge>
           <Badge context='warning' count={123}>
             <Icon name={Icons.calendar} xl />
@@ -298,9 +298,9 @@ function App() {
         <H2>Buttons</H2>
         <Flex justify='evenly' row wrap>
             <Button callback={callbackTest} icon={Icons.plus} label='Click me!' />
-            <Button callback={callbackTest} label='Click me!' role='primary' />
-            <Button callback={callbackTest} icon={Icons.minus} label='Click me!' role='secondary' />
-            <Button callback={callbackTest} label='Click me!' role='tertiary' />
+            <Button callback={callbackTest} label='Click me!' primary />
+            <Button callback={callbackTest} icon={Icons.minus} label='Click me!' secondary />
+            <Button callback={callbackTest} label='Click me!' tertiary />
         </Flex>
         <Flex align='stretch' row>
           <Flex style={{width: '30vw'}}>
@@ -330,7 +330,7 @@ function App() {
                 alert('You clicked me!')
               }
 
-              <Button callback={handleCallback} label='Click to test' role='secondary' />
+              <Button callback={handleCallback} label='Click to test' secondary />
             `} />
           </Flex>
         </Flex>
@@ -800,7 +800,7 @@ function App() {
           <Hero image='/images/test.jpg'>
             <Flex>
               <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
-              <Button callback={callbackTest} label='Tortor ornare!' role='primary' />
+              <Button callback={callbackTest} label='Tortor ornare!' primary />
             </Flex>
           </Hero>
         </div>
@@ -809,7 +809,7 @@ function App() {
           <Hero image='/images/test.jpg' position='right'>
             <Flex align='end'>
               <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
-              <Button callback={callbackTest} label='Tortor ornare!' role='primary' />
+              <Button callback={callbackTest} label='Tortor ornare!' primary />
             </Flex>
           </Hero>
         </div>
@@ -829,11 +829,11 @@ function App() {
           <Modal callback={handleResponse} open={openConfirm} yes='Confirm'>
             Nullam sapien nisi, dictum at nibh quis, ornare laoreet ex. Aliquam commodo tincidunt venenatis. Integer ac sem nisl.
           </Modal>
-          <Button callback={() => setOpenConfirm(true)} label='Open confirmation modal' role='secondary' />
+          <Button callback={() => setOpenConfirm(true)} label='Open confirmation modal' secondary />
           <Modal callback={handleResponse} no='Deny' open={openYesNo} yes='Accept'>
             Nullam sapien nisi, dictum at nibh quis, ornare laoreet ex. Aliquam commodo tincidunt venenatis. Integer ac sem nisl.
           </Modal>
-          <Button callback={() => setOpenYesNo(true)} label='Open yes/no modal' role='tertiary' />
+          <Button callback={() => setOpenYesNo(true)} label='Open yes/no modal' tertiary />
         </Flex>
       </Flex>
 
@@ -846,7 +846,7 @@ function App() {
           <NavigationLink href='/'>Link 4</NavigationLink>
           <Flex align='center' row>
             <Button callback={callbackTest} label='Sign In' />
-            <Button callback={callbackTest} label='Apply Now' role='secondary' />
+            <Button callback={callbackTest} label='Apply Now' secondary />
           </Flex>
         </Navigation>
       </Flex>

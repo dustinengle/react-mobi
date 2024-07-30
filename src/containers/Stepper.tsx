@@ -73,11 +73,11 @@ export function Stepper({
           }
         }}
         label={activeChild.props.callbackLabel || nextLabel}
-        role='secondary' />
+        secondary />
     : <Button
         callback={handleFinish}
         label={finishLabel}
-        role='primary' />
+        primary />
   const prev: ReactNode = index > 0
     ? <Button
         callback={() => handleCallback(-1)}
