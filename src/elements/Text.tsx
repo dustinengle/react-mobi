@@ -1,9 +1,9 @@
 
-import { Contexts, Style, Styles } from '../commons'
+import { Contexts, Roles, Style, Styles } from '../commons'
 import { ReactNode } from 'react'
 import { Extractor } from '../utils'
 
-export interface TextProps extends Contexts, Styles {
+export interface TextProps extends Contexts, Roles, Styles {
   children: ReactNode
   style?: Style
 }
@@ -12,6 +12,7 @@ export function Text({children, style, ...props}: TextProps) {
   const classes = [
     'text',
     ...Extractor.contexts(props),
+    ...Extractor.roles(props),
     ...Extractor.styles(props),
   ].join(' ')
 

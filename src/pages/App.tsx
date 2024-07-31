@@ -551,6 +551,12 @@ function App() {
             <Text success>Success - Aliquam vitae neque at urna convallis molestie.</Text>
             <Text warning>Warning - Aliquam vitae neque at urna convallis molestie.</Text>
           </Flex>
+          <Flex>
+            <H4>Role</H4>
+            <Text primary>Primary - Aliquam vitae neque at urna convallis molestie.</Text>
+            <Text secondary>Secondary - Aliquam vitae neque at urna convallis molestie.</Text>
+            <Text tertiary>Tertiary - Aliquam vitae neque at urna convallis molestie.</Text>
+          </Flex>
         </Flex>
       </Flex>
 

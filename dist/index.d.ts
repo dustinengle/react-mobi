@@ -498,7 +498,7 @@ interface MathProps {
 }
 declare function Math$1({ formula, ...props }: MathProps): react_jsx_runtime.JSX.Element;
 
-interface TextProps extends Contexts, Styles {
+interface TextProps extends Contexts, Roles, Styles {
     children: ReactNode;
     style?: Style;
 }

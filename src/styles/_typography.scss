@@ -129,6 +129,21 @@ h {
   &.default {
     background-color: transparent;
   }
+
+  &.primary {
+    background-color: $color-primary-fg;
+    color: $color-primary;
+  }
+
+  &.secondary {
+    background-color: $color-secondary-fg;
+    color: $color-secondary;
+  }
+
+  &.tertiary {
+    background-color: $color-tertiary-fg;
+    color: $color-tertiary;
+  }
 }
 
 .underline {
