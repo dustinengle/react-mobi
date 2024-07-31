@@ -787,11 +787,13 @@ function App() {
         </Card>
         <Card>
           <Flex stretch full row>
-            <Background style={{flex: '1'}}>
-              <Flex gap={0}>
+            <Background tertiary>
+              <Flex gap={0} start>
                 <H2>Step 1</H2>
                 <Text>Do something</Text>
-                <center><Icon name={Icons.lock} xl /></center>
+                <Flex center full>
+                  <Icon name={Icons.lock} xl />
+                </Flex>
               </Flex>
             </Background>
             <Flex full style={{flex: '2', padding: '1rem'}}>

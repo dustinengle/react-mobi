@@ -364,12 +364,11 @@ declare function StepperItem({ children, callback, callbackLabel, title, ...prop
 
 declare function Animation(): null;
 
-interface BackgroundProps {
+interface BackgroundProps extends Roles {
     children: ReactNode;
-    context?: Context;
     style?: Style;
 }
-declare function Background({ children, context, style, ...props }: BackgroundProps): react_jsx_runtime.JSX.Element;
+declare function Background({ children, style, ...props }: BackgroundProps): react_jsx_runtime.JSX.Element;
 
 interface BadgeProps extends Contexts {
     children: ReactNode;

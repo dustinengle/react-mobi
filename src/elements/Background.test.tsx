@@ -8,26 +8,20 @@ it('renders with text', () => {
   expect(screen.getByText('TEST')).toBeInTheDocument()
 })
 
-it('renders with danger context', () => {
-  render(<Background context='danger'>TEST</Background>)
+it('renders with primary role', () => {
+  render(<Background primary>TEST</Background>)
   expect(screen.getByText('TEST')).toHaveClass('background')
-  expect(screen.getByText('TEST')).toHaveClass('background-danger')
+  expect(screen.getByText('TEST')).toHaveClass('primary')
 })
 
-it('renders with info (default) context', () => {
-  render(<Background>TEST</Background>)
+it('renders with secondary role', () => {
+  render(<Background secondary>TEST</Background>)
   expect(screen.getByText('TEST')).toHaveClass('background')
-  expect(screen.getByText('TEST')).toHaveClass('background-info')
+  expect(screen.getByText('TEST')).toHaveClass('secondary')
 })
 
-it('renders with success context', () => {
-  render(<Background context='success'>TEST</Background>)
+it('renders with tertiary role', () => {
+  render(<Background tertiary>TEST</Background>)
   expect(screen.getByText('TEST')).toHaveClass('background')
-  expect(screen.getByText('TEST')).toHaveClass('background-success')
-})
-
-it('renders with warning context', () => {
-  render(<Background context='warning'>TEST</Background>)
-  expect(screen.getByText('TEST')).toHaveClass('background')
-  expect(screen.getByText('TEST')).toHaveClass('background-warning')
+  expect(screen.getByText('TEST')).toHaveClass('tertiary')
 })
