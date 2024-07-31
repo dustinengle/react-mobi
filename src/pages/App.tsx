@@ -29,10 +29,11 @@ import { Pagination } from '../components/Pagination'
 import { Column, Table } from '../components/Table'
 
 import { Accordion, AccordionItem } from '../containers/Accordion'
+import { APRs, Charges, Fees, Schumer } from '../containers/Schumer'
 import { Body } from '../containers/Body'
 import { Card } from '../containers/Card'
 import { Carousel, CarouselItem } from '../containers/Carousel'
-import { APRs, Charges, Fees, Schumer } from '../containers/Schumer'
+import { Footer } from '../containers/Footer'
 import { Stepper, StepperItem } from '../containers/Stepper'
 
 import { Flex } from '../layouts/Flex'
@@ -1014,6 +1015,13 @@ function App() {
             </Grid>
           </Flex>
         </Flex>
+      </Flex>
+
+      <Flex>
+        <H2>Footer</H2>
+        <Footer>
+          Some text here in the footer.
+        </Footer>
       </Flex>
     </Body>
   )
