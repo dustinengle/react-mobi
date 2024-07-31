@@ -8,6 +8,14 @@ a, .link {
     color: $link-color-hover;
   }
 
+  &.button {
+    text-decoration: none;
+
+    &:active, &:hover {
+      color: $color-primary-fg;
+    }
+  }
+
   .icon {
     display: inline-block;
     height: 0.85rem;

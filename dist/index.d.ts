@@ -477,12 +477,13 @@ interface LabelProps {
 declare function Label({ error, field, highlight, optional, required, ...props }: LabelProps): react_jsx_runtime.JSX.Element;
 
 interface LinkProps {
+    button?: boolean;
     children: ReactNode;
     href: string;
     open?: boolean;
     style?: Style;
 }
-declare function Link({ children, href, open, ...props }: LinkProps): react_jsx_runtime.JSX.Element;
+declare function Link({ button, children, href, open, ...props }: LinkProps): react_jsx_runtime.JSX.Element;
 
 interface ListProps extends Arrangements {
     children: ReactNode;

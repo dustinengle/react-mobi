@@ -459,6 +459,7 @@ function App() {
         <H2>Links</H2>
         <Flex evenly row wrap>
           <Link href='/'>Default Link</Link>
+          <Link button href='/'>Button Link</Link>
           <Link href='/' open>New Window Link</Link>
           <Link href='/' style={{color: 'black', backgroundColor: 'red'}}>Custom Style</Link>
           <Link href='/' open style={{color: 'green', backgroundColor: 'yellow'}}>Custom Style New Window</Link>
