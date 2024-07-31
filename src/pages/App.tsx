@@ -257,10 +257,21 @@ function App() {
             <H3>Solid</H3>
             <Flex evenly row wrap>
               <div style={{width: '10rem'}}>
-                <Divider horizontal dots={false} />
+                <Divider dots={false} horizontal />
               </div>
               <div style={{height: '5rem'}}>
-                <Divider vertical dots={false} />
+                <Divider dots={false} vertical />
+              </div>
+            </Flex>
+          </Flex>
+          <Flex>
+            <H3>Solid w/ Color</H3>
+            <Flex evenly row wrap>
+              <div style={{width: '10rem'}}>
+                <Divider color='gray' dots={false} horizontal />
+              </div>
+              <div style={{height: '5rem'}}>
+                <Divider color='gray' dots={false} vertical />
               </div>
             </Flex>
           </Flex>
@@ -268,10 +279,10 @@ function App() {
             <H3>Dashed w/ Dots</H3>
             <Flex evenly row wrap>
               <div style={{width: '10rem'}}>
-                <Divider horizontal dashed />
+                <Divider dashed horizontal />
               </div>
               <div style={{height: '5rem'}}>
-                <Divider vertical dashed />
+                <Divider dashed vertical />
               </div>
             </Flex>
           </Flex>
@@ -279,10 +290,10 @@ function App() {
             <H3>Dashed</H3>
             <Flex evenly row wrap>
               <div style={{width: '10rem'}}>
-                <Divider horizontal dots={false} dashed />
+                <Divider dashed dots={false} horizontal />
               </div>
               <div style={{height: '5rem'}}>
-                <Divider vertical dots={false} dashed />
+                <Divider dashed dots={false} vertical />
               </div>
             </Flex>
           </Flex>

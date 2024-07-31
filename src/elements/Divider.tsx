@@ -1,12 +1,16 @@
 
-import { Directions, Lines } from '../commons'
+import { Directions, Lines, Style } from '../commons'
 import { Extractor } from '../utils'
 
 export interface DividerProps extends Directions, Lines {
+  color?: string
   dots?: boolean
 }
 
-export function Divider({dots = true, ...props}: DividerProps) {
+export function Divider({color, dots = true, ...props}: DividerProps) {
+  const style: Style = {}
+  if (color) style.borderColor = color
+
   return (
     <div {...props}
       className={[
@@ -18,7 +22,7 @@ export function Divider({dots = true, ...props}: DividerProps) {
       <div className={[
         'divider-line',
         ...Extractor.lines(props),
-      ].join(' ')} />
+      ].join(' ')} style={style} />
       {dots && <div className='divider-dot' />}
     </div>
   )

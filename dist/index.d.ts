@@ -384,9 +384,10 @@ interface ButtonProps extends Roles {
 declare function Button({ callback, icon, label, ...props }: ButtonProps): react_jsx_runtime.JSX.Element;
 
 interface DividerProps extends Directions, Lines {
+    color?: string;
     dots?: boolean;
 }
-declare function Divider({ dots, ...props }: DividerProps): react_jsx_runtime.JSX.Element;
+declare function Divider({ color, dots, ...props }: DividerProps): react_jsx_runtime.JSX.Element;
 
 interface HeadingProps {
     children: ReactNode;
