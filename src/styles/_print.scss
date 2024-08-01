@@ -7,6 +7,12 @@
   div,
   table {
     max-width: 8in !important;
+
+    td, th, tr {
+      background: none;
+      border: 3px solid $color-foreground;
+      color: $color-foreground;
+    }
   }
 
   // Hide
@@ -24,7 +30,7 @@
     border: none !important;
     box-shadow: none !important;
     filter: none !important;
-    height: 20000px !important;
+    height: max-content !important;
   }
 
   div,
