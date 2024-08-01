@@ -805,7 +805,7 @@ function App() {
         <Card>
           <Flex stretch full row>
             <Background tertiary>
-              <Flex gap={0} start>
+              <Flex start>
                 <H2>Step 1</H2>
                 <Text>Do something</Text>
                 <Flex center full>

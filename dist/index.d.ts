@@ -491,7 +491,7 @@ interface ListProps extends Arrangements {
 interface ListItemProps {
     children: ReactNode;
 }
-declare function List({ children, ...props }: ListProps): react_jsx_runtime.JSX.Element | null;
+declare function List({ children, ...props }: ListProps): react_jsx_runtime.JSX.Element;
 declare function ListItem({ children, ...props }: ListItemProps): react_jsx_runtime.JSX.Element;
 
 interface MathProps {

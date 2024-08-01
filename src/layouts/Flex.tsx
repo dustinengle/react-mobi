@@ -19,7 +19,7 @@ export function Flex({
     autoWrap = false,
     column = true,
     full,
-    gap,
+    gap = 0,
     row,
     style,
     wrap,

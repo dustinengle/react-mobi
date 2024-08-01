@@ -12,8 +12,7 @@ export interface ListItemProps {
 
 export function List({children, ...props}: ListProps) {
   if (props.ordered) return (<ol {...props} role='list'>{children}</ol>)
-  else if (props.unordered) return (<ul {...props} role='list'>{children}</ul>)
-  else return null
+  else return (<ul {...props} role='list'>{children}</ul>)
 }
 
 export function ListItem({children, ...props}: ListItemProps) {

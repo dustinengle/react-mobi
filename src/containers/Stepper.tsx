@@ -42,7 +42,7 @@ export function Stepper({
         className='stepper-step'
         key={i}>
         <Flex gap='1rem' row>
-          <Flex gap={0} row>
+          <Flex row>
             <div className={`stepper-step-count ${index >= i ? 'active' : ''}`}>
               <Flex>
                 <span aria-label={`Step ${i + 1}`}>
