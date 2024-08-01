@@ -126,23 +126,39 @@ h {
 .text {
   padding: $text-padding;
 
+  &.danger {
+    color: $color-danger !important;
+  }
+
   &.default {
     background-color: transparent;
   }
 
+  &.info {
+    color: $color-info !important;
+  }
+
+  &.success {
+    color: $color-success !important;
+  }
+
+  &.warning {
+    color: $color-warning !important;
+  }
+
   &.primary {
-    background-color: $color-primary-fg;
-    color: $color-primary;
+    // background-color: $color-primary-fg !important;
+    color: $color-primary !important;
   }
 
   &.secondary {
-    background-color: $color-secondary-fg;
-    color: $color-secondary;
+    // background-color: $color-secondary-fg !important;
+    color: $color-secondary !important;
   }
 
   &.tertiary {
-    background-color: $color-tertiary-fg;
-    color: $color-tertiary;
+    // background-color: $color-tertiary-fg !important;
+    color: $color-tertiary !important;
   }
 }
 

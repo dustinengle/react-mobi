@@ -30,7 +30,7 @@ export function Checkbox({
   }
 
   return (
-    <Flex row>
+    <Flex gap='1rem' row>
       <input {...props}
         aria-checked={on}
         aria-label={name}
@@ -120,7 +120,7 @@ export function Radio({children, error, handler, id, name, value, ...props}: Rad
   }
 
   return (
-    <Flex row>
+    <Flex gap='1rem' row>
       <input {...props}
         aria-label={name}
         className={error ? 'error' : undefined}
