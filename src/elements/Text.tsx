@@ -12,11 +12,12 @@ import { Extractor } from '../utils'
 
 export interface TextProps extends Alignments, Contexts, Roles, Spacings, Styles {
   children: ReactNode
+  color?: string
   size?: number | string
   style?: Style
 }
 
-export function Text({children, size, style, ...props}: TextProps) {
+export function Text({children, color, size, style, ...props}: TextProps) {
   const classes = [
     'text',
     ...Extractor.alignments(props),
@@ -27,6 +28,7 @@ export function Text({children, size, style, ...props}: TextProps) {
 
   const {margin, padding} = props
   const styles = {
+    color,
     fontSize: size,
     margin,
     padding,

@@ -251,7 +251,7 @@ interface BodyProps {
 }
 declare function Body({ children, margin, padding, ...props }: BodyProps): react_jsx_runtime.JSX.Element;
 
-interface CardProps {
+interface CardProps extends Dimensions {
     children: ReactNode;
     dark?: boolean;
     style?: Style;
@@ -522,10 +522,11 @@ declare function Math$1({ formula, ...props }: MathProps): react_jsx_runtime.JSX
 
 interface TextProps extends Alignments, Contexts, Roles, Spacings, Styles {
     children: ReactNode;
+    color?: string;
     size?: number | string;
     style?: Style;
 }
-declare function Text({ children, size, style, ...props }: TextProps): react_jsx_runtime.JSX.Element;
+declare function Text({ children, color, size, style, ...props }: TextProps): react_jsx_runtime.JSX.Element;
 
 interface TooltipProps extends Contexts, Locations {
     children: ReactNode;
