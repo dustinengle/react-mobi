@@ -1,80 +1,17 @@
 
-export interface Alignments {
-  center?: boolean
-  end?: boolean
-  start?: boolean
-  stretch?: boolean
-}
-
-export interface Arrangements {
-  ordered?: boolean
-  unordered?: boolean
-}
-
-export interface Behaviors {
-  contain?: boolean
-  cover?: boolean
-  fill?: boolean
-  responsive?: boolean
-}
-
-export interface Contexts {
-  danger?: boolean
-  default?: boolean
-  info?: boolean
-  success?: boolean
-  warning?: boolean
-}
-
-export interface Directions {
-  horizontal?: boolean
-  vertical?: boolean
-}
-
-export interface Justifications {
-  around?: boolean
-  between?: boolean
-  center?: boolean
-  end?: boolean
-  evenly?: boolean
-  start?: boolean
-}
-
-export interface Lines {
-  dashed?: boolean
-  solid?: boolean
+export interface Dimensions {
+  height?: number | string
+  width?: number | string
 }
 
 export interface Positions {
-  cover?: boolean
-  bottom?: boolean
-  left?: boolean
-  right?: boolean
-  top?: boolean
+  bottom?: number | string
+  left?: number | string
+  right?: number | string
+  top?: number | string
 }
 
-export interface Roles {
-  primary?: boolean
-  secondary?: boolean
-  tertiary?: boolean
-}
-
-export interface Sizes {
-  sm?: boolean
-  md?: boolean
-  lg?: boolean
-  xl?: boolean
-}
-
-export interface Styles {
-  bold?: boolean
-  capitalize?: boolean
-  italic?: boolean
-  legal?: boolean
-  lower?: boolean
-  strike?: boolean
-  sub?: boolean
-  super?: boolean
-  underline?: boolean
-  upper?: boolean
+export interface Spacings {
+  margin?: number | string
+  padding?: number | string
 }

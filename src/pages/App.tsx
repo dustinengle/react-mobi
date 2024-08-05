@@ -208,7 +208,7 @@ function App() {
 
       <H1>Elements</H1>
 
-      <Flex style={{marginBottom: '5rem'}}>
+      <Flex margin='0 0 5rem 0'>
         <H2>Badges</H2>
         <Flex gap='3rem' row wrap>
           <Badge count={123}>
@@ -229,9 +229,9 @@ function App() {
         </Flex>
       </Flex>
 
-      <Flex style={{marginBottom: '5rem'}}>
+      <Flex margin='0 0 5rem 0'>
         <H2>Buttons</H2>
-        <Flex evenly row wrap>
+        <Flex gap='1rem' evenly row wrap>
             <Button callback={callbackTest} icon={Icons.plus} label='Click me!' />
             <Button callback={callbackTest} label='Click me!' primary />
             <Button callback={callbackTest} icon={Icons.minus} label='Click me!' secondary />
@@ -239,70 +239,50 @@ function App() {
         </Flex>
       </Flex>
 
-      <Flex style={{marginBottom: '5rem'}}>
+      <Flex margin='0 0 5rem 0'>
         <H2>Dividers</H2>
-        <Flex row wrap>
+        <Flex gap='1rem' row wrap>
           <Flex>
             <H3>Solid w/ Dots (default)</H3>
             <Flex evenly row wrap>
-              <div style={{width: '10rem'}}>
-                <Divider horizontal />
-              </div>
-              <div style={{height: '5rem'}}>
-                <Divider vertical />
-              </div>
+              <Divider horizontal width='10rem' />
+              <Divider height='5rem' vertical />
             </Flex>
           </Flex>
           <Flex>
             <H3>Solid</H3>
             <Flex evenly row wrap>
-              <div style={{width: '10rem'}}>
-                <Divider dots={false} horizontal />
-              </div>
-              <div style={{height: '5rem'}}>
-                <Divider dots={false} vertical />
-              </div>
+              <Divider dots={false} horizontal width='10rem' />
+              <Divider dots={false} height='5rem' vertical />
             </Flex>
           </Flex>
           <Flex>
             <H3>Solid w/ Color</H3>
             <Flex evenly row wrap>
-              <div style={{width: '10rem'}}>
-                <Divider color='gray' dots={false} horizontal />
-              </div>
-              <div style={{height: '5rem'}}>
-                <Divider color='gray' dots={false} vertical />
-              </div>
+              <Divider color='gray' dots={false} horizontal width='10rem' />
+              <Divider color='gray' dots={false} height='5rem' vertical />
             </Flex>
           </Flex>
           <Flex>
             <H3>Dashed w/ Dots</H3>
             <Flex evenly row wrap>
-              <div style={{width: '10rem'}}>
-                <Divider dashed horizontal />
-              </div>
-              <div style={{height: '5rem'}}>
-                <Divider dashed vertical />
-              </div>
+              <Divider dashed horizontal width='10rem' />
+              <Divider dashed height='5rem' vertical />
             </Flex>
           </Flex>
           <Flex>
             <H3>Dashed</H3>
             <Flex evenly row wrap>
-              <div style={{width: '10rem'}}>
-                <Divider dashed dots={false} horizontal />
-              </div>
-              <div style={{height: '5rem'}}>
-                <Divider dashed dots={false} vertical />
-              </div>
+              <Divider dashed dots={false} horizontal width='10rem' />
+              <Divider dashed dots={false} height='5rem' vertical />
             </Flex>
           </Flex>
         </Flex>
       </Flex>
 
-      <Flex style={{marginBottom: '5rem'}}>
+      <Flex margin='0 0 5rem 0'>
         <H2>Fonts</H2>
-        <Flex row start wrap>
+        <Flex gap='1rem' row start wrap>
           <Flex>
             <H4>Body</H4>
             <p className='font-body' style={{width: '10rem'}}>
@@ -330,9 +310,9 @@ function App() {
         </Flex>
       </Flex>
 
-      <Flex style={{marginBottom: '5rem'}}>
+      <Flex margin='0 0 5rem 0'>
         <H2>Headings</H2>
-        <Flex evenly row wrap>
+        <Flex evenly gap='1rem' row wrap>
             <H1>Heading 1</H1>
             <H2>Heading 2</H2>
             <H3>Heading 3</H3>
@@ -342,9 +322,9 @@ function App() {
         </Flex>
       </Flex>
 
-      <Flex style={{marginBottom: '5rem'}}>
+      <Flex margin='0 0 5rem 0'>
         <H2>Highlights</H2>
-        <Flex evenly row wrap>
+        <Flex evenly gap='1rem' row wrap>
             <p>
               Etiam finibus, velit eu convallis aliquet, mauris justo
               tincidunt <Highlight>lectus 10-20%</Highlight>, nec tempor elit massa eget metus.
@@ -362,7 +342,7 @@ function App() {
 
       <Flex>
         <H2>Icons</H2>
-        <Flex row wrap>
+        <Flex gap='1rem' row wrap>
           {Object.values(Icons).map((icon, index) => {
             // We do this small hack in order to showcase the different colors & sizes, this is for demonstration purposes only.
             const props: Record<string, boolean | string> = {}
@@ -395,19 +375,19 @@ function App() {
         <Flex evenly row wrap>
           <Flex>
             <H4>Contain</H4>
-            <Image contain src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
+            <Image contain height='10rem' src='/images/test.jpg' width='20rem' />
           </Flex>
           <Flex>
             <H4>Cover</H4>
-            <Image caption='This image contains a caption' cover src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
+            <Image caption='This image contains a caption' cover height='10rem' src='/images/test.jpg' width='20rem' />
           </Flex>
           <Flex>
             <H4>Fill</H4>
-            <Image fill src='/images/test.jpg' style={{height: '10rem', width: '20rem'}} />
+            <Image fill height='10rem' src='/images/test.jpg' width='20rem' />
           </Flex>
           <Flex>
             <H4>Responsive</H4>
-            <Image src='/images/test.jpg' style={{width: '20rem'}} />
+            <Image src='/images/test.jpg' width='20rem' />
           </Flex>
         </Flex>
       </Flex>
@@ -568,6 +548,13 @@ function App() {
             <Text secondary>Secondary - Aliquam vitae neque at urna convallis molestie.</Text>
             <Text tertiary>Tertiary - Aliquam vitae neque at urna convallis molestie.</Text>
           </Flex>
+          <Flex>
+            <H4>Alignment</H4>
+            <Text center style={{width: '30rem'}}>Center - Aliquam vitae neque at urna convallis molestie.</Text>
+            <Text left style={{width: '30rem'}}>Left - Aliquam vitae neque at urna convallis molestie.</Text>
+            <Text justify style={{width: '30rem'}}>Justify - Aliquam vitae neque at urna convallis molestie.</Text>
+            <Text right style={{width: '30rem'}}>Right - Aliquam vitae neque at urna convallis molestie.</Text>
+          </Flex>
         </Flex>
       </Flex>
 
@@ -608,9 +595,10 @@ function App() {
       </Flex>
 
       <H1>Components</H1>
+
       <Flex>
         <H2>Forms</H2>
-        <Flex row wrap>
+        <Flex gap='1rem' row wrap>
           <Flex>
             <H3>Highlight None</H3>
             <Form fields={fields} handler={handleSubmit} />
@@ -629,52 +617,52 @@ function App() {
       <Flex>
         <H2>Heros</H2>
         <H3>Bottom</H3>
-        <div style={{height: '30vh', width: '80vw'}}>
+        <Flex height='30vh' width='80vw'>
           <Hero image='/images/test.jpg' bottom>
             <Flex>
               <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
             </Flex>
           </Hero>
-        </div>
+        </Flex>
         <H3>Cover</H3>
-        <div style={{height: '30vh', width: '80vw'}}>
+        <Flex height='30vh' width='80vw'>
           <Hero image='/images/test.jpg' cover>
             <Flex>
               <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
             </Flex>
           </Hero>
-        </div>
+        </Flex>
         <H3>Left</H3>
-        <div style={{height: '30vh', width: '80vw'}}>
+        <Flex height='30vh' width='80vw'>
           <Hero image='/images/test.jpg' left>
             <Flex start>
               <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
               <Button callback={callbackTest} label='Tortor ornare!' primary />
             </Flex>
           </Hero>
-        </div>
+        </Flex>
         <H3>Right</H3>
-        <div style={{height: '30vh', width: '80vw'}}>
+        <Flex height='30vh' width='80vw'>
           <Hero image='/images/test.jpg' right>
             <Flex end>
               <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
               <Button callback={callbackTest} label='Tortor ornare!' primary />
             </Flex>
           </Hero>
-        </div>
+        </Flex>
         <H3>Top</H3>
-        <div style={{height: '30vh', width: '80vw'}}>
+        <Flex height='30vh' width='80vw'>
           <Hero image='/images/test.jpg' top>
             <Flex>
               <p>Donec viverra leo augue, sed semper enim ornare in. Pellentesque sit amet arcu tortor. Proin venenatis quam nec rhoncus porta.</p>
             </Flex>
           </Hero>
-        </div>
+        </Flex>
       </Flex>
 
       <Flex>
         <H2>Modals</H2>
-        <Flex row>
+        <Flex gap='1rem' row>
           <Modal callback={handleResponse} open={openConfirm} yes='Confirm'>
             Nullam sapien nisi, dictum at nibh quis, ornare laoreet ex. Aliquam commodo tincidunt venenatis. Integer ac sem nisl.
           </Modal>
@@ -702,7 +690,7 @@ function App() {
 
       <Flex>
         <H2>Notifications</H2>
-        <Flex>
+        <Flex gap='1rem'>
           <Notification callback={callbackTest} danger>There was something wrong.</Notification>
           <Notification callback={callbackTest} info>This is for your information.</Notification>
           <Notification success>Whatever you did worked!</Notification>
@@ -722,7 +710,7 @@ function App() {
 
       <Flex>
         <H2>Table</H2>
-        <Flex row wrap>
+        <Flex gap='1rem' row wrap>
           <Flex>
             <H3>Default w/ Header Row</H3>
             <Table cols={cols} rows={rows} />
@@ -754,42 +742,42 @@ function App() {
             Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
           </AccordionItem>
           <AccordionItem iconClose={Icons.plus} iconOpen={Icons.minus} title='Customize the icons'>
-            <p style={{marginBottom: '1rem'}}>
+            <Text margin='0 0 1rem 0'>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Duis nec accumsan sapien. Sed eu magna sed dolor molestie molestie vel vitae est. Nunc sit amet nulla a eros aliquam ultricies vitae accumsan libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer viverra nisi vitae dui pretium, eget euismod leo ullamcorper. Aenean venenatis dignissim velit, in vulputate mi semper ac. Aliquam pulvinar eget diam id elementum. Duis dapibus, turpis at fermentum lacinia, ipsum nibh gravida urna, eu eleifend nisl sapien non leo. Vestibulum ullamcorper risus sapien, ac ornare ipsum feugiat vitae. Quisque eu nisi justo. Nullam tempus est non justo commodo euismod sed condimentum risus. In at molestie arcu, a euismod orci. Donec aliquet in sapien eu luctus.
-            </p>
-            <p style={{marginBottom: '1rem'}}>
+            </Text>
+            <Text margin='0 0 1rem 0'>
               Integer turpis orci, elementum a bibendum eu, pellentesque ac orci. Nulla facilisi. Pellentesque mattis ipsum magna, nec vestibulum ligula gravida non. Sed tempor massa a laoreet vulputate. Aliquam mollis vestibulum leo vitae vehicula. Vivamus at lectus ex. Nunc malesuada leo sed nisi luctus scelerisque. Proin vel ipsum tristique, laoreet leo nec, rhoncus mauris. Nam quis ex mi. Nunc mollis ligula et vulputate convallis. Phasellus eget lacinia dui, sit amet viverra elit. Pellentesque accumsan suscipit rhoncus.
-            </p>
+            </Text>
           </AccordionItem>
           <AccordionItem title='Donec cursus arcu sed nisl ullamcorper egestas.'>
             Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie.
@@ -797,7 +785,7 @@ function App() {
         </Accordion>
       </Flex>
 
-      <Flex>
+      <Flex gap='1rem'>
         <H2>Cards</H2>
         <Card style={{padding: '1rem'}}>
           Sed eu tempor massa. Pellentesque vel mauris efficitur, feugiat massa sit amet, commodo erat. Integer tristique, mauris non luctus elementum, lectus urna faucibus urna, vel convallis sapien dui vitae nibh.
@@ -813,7 +801,7 @@ function App() {
                 </Flex>
               </Flex>
             </Background>
-            <Flex full style={{flex: '2', padding: '1rem'}}>
+            <Flex full padding='1rem' style={{flex: '2'}}>
               Integer tristique, mauris non luctus elementum, lectus urna faucibus urna, vel convallis sapien dui vitae nibh.
             </Flex>
           </Flex>
@@ -891,7 +879,7 @@ function App() {
           <Flex row wrap>
             <Flex>
               <H4>Align</H4>
-              <Flex between row wrap>
+              <Flex between gap='1rem' row wrap>
                 <Flex start style={flexDemoStyle}>
                   <Text style={flexDemoCellStyle}>Start</Text>
                 </Flex>
@@ -908,7 +896,7 @@ function App() {
             </Flex>
             <Flex>
               <H4>Justify</H4>
-              <Flex between row wrap>
+              <Flex between gap='1rem' row wrap>
                 <Flex start style={flexDemoStyle}>
                   <Text style={flexDemoCellStyle}>Start</Text>
                 </Flex>
@@ -918,7 +906,7 @@ function App() {
                 <Flex end style={flexDemoStyle}>
                   <Text style={flexDemoCellStyle}>End</Text>
                 </Flex>
-                <Flex end style={flexDemoStyle}>
+                <Flex around style={flexDemoStyle}>
                   <Text style={flexDemoCellStyle}>Around</Text>
                   <Text style={flexDemoCellStyle}>Around</Text>
                   <Text style={flexDemoCellStyle}>Around</Text>
@@ -942,7 +930,7 @@ function App() {
           <Flex row wrap>
             <Flex>
               <H4>Align</H4>
-              <Flex between row wrap>
+              <Flex between gap='1rem' row wrap>
                 <Flex row start style={flexDemoStyle}>
                   <Text style={flexDemoCellStyle}>Start</Text>
                 </Flex>
@@ -959,7 +947,7 @@ function App() {
             </Flex>
             <Flex>
               <H4>Justify</H4>
-              <Flex between row wrap>
+              <Flex between gap='1rem' row wrap>
                 <Flex row start style={flexDemoStyle}>
                   <Text style={flexDemoCellStyle}>Start</Text>
                 </Flex>
@@ -969,7 +957,7 @@ function App() {
                 <Flex end row style={flexDemoStyle}>
                   <Text style={flexDemoCellStyle}>End</Text>
                 </Flex>
-                <Flex end row style={{...flexDemoStyle, width: '16rem'}}>
+                <Flex around row style={{...flexDemoStyle, width: '16rem'}}>
                   <Text style={flexDemoCellStyle}>Around</Text>
                   <Text style={flexDemoCellStyle}>Around</Text>
                   <Text style={flexDemoCellStyle}>Around</Text>

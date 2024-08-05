@@ -13,19 +13,20 @@ body, #root {
 
 .align {
   &-center {
-    align-items: center;
+    text-align: center;
   }
 
-  &-end {
-    align-items: flex-end;
+  &-justify {
+    text-align: justify;
+    text-justify: inter-word;
   }
 
-  &-start {
-    align-items: flex-start;
+  &-left {
+    text-align: left;
   }
 
-  &-stretch {
-    align-items: stretch;
+  &-right {
+    text-align: right;
   }
 }
 
@@ -169,5 +170,23 @@ body, #root {
 
   &-start {
     justify-content: flex-start;
+  }
+}
+
+.orient {
+  &-center {
+    align-items: center;
+  }
+
+  &-end {
+    align-items: flex-end;
+  }
+
+  &-start {
+    align-items: flex-start;
+  }
+
+  &-stretch {
+    align-items: stretch;
   }
 }

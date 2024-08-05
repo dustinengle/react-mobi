@@ -3,9 +3,9 @@ import { ReactNode, ReactElement } from 'react';
 
 interface Alignments {
     center?: boolean;
-    end?: boolean;
-    start?: boolean;
-    stretch?: boolean;
+    justify?: boolean;
+    left?: boolean;
+    right?: boolean;
 }
 interface Arrangements {
     ordered?: boolean;
@@ -40,12 +40,18 @@ interface Lines {
     dashed?: boolean;
     solid?: boolean;
 }
-interface Positions {
+interface Locations {
     cover?: boolean;
     bottom?: boolean;
     left?: boolean;
     right?: boolean;
     top?: boolean;
+}
+interface Orientations {
+    center?: boolean;
+    end?: boolean;
+    start?: boolean;
+    stretch?: boolean;
 }
 interface Roles {
     primary?: boolean;
@@ -69,6 +75,21 @@ interface Styles {
     super?: boolean;
     underline?: boolean;
     upper?: boolean;
+}
+
+interface Dimensions {
+    height?: number | string;
+    width?: number | string;
+}
+interface Positions {
+    bottom?: number | string;
+    left?: number | string;
+    right?: number | string;
+    top?: number | string;
+}
+interface Spacings {
+    margin?: number | string;
+    padding?: number | string;
 }
 
 type Align = 'center' | 'end' | 'start' | 'stretch';
@@ -103,7 +124,7 @@ interface FormProps {
 }
 declare function Form({ fields, handler, hideActions, highlight, label, resetLabel, submitLabel }: FormProps): react_jsx_runtime.JSX.Element;
 
-interface HeroProps extends Positions {
+interface HeroProps extends Locations {
     children: ReactNode;
     image: string;
 }
@@ -383,7 +404,7 @@ interface ButtonProps extends Roles {
 }
 declare function Button({ callback, icon, label, ...props }: ButtonProps): react_jsx_runtime.JSX.Element;
 
-interface DividerProps extends Directions, Lines {
+interface DividerProps extends Dimensions, Directions, Lines {
     color?: string;
     dots?: boolean;
 }
@@ -407,13 +428,13 @@ interface HighlightProps {
 }
 declare function Highlight({ children, bg, fg, style }: HighlightProps): react_jsx_runtime.JSX.Element;
 
-interface ImageProps extends Behaviors {
+interface ImageProps extends Behaviors, Dimensions {
     alt?: string;
     caption?: string;
     src: string;
     style?: Style;
 }
-declare function Image({ alt, caption, src, ...props }: ImageProps): react_jsx_runtime.JSX.Element;
+declare function Image({ alt, caption, src, style, ...props }: ImageProps): react_jsx_runtime.JSX.Element;
 
 interface CheckboxProps {
     checked?: boolean;
@@ -499,20 +520,21 @@ interface MathProps {
 }
 declare function Math$1({ formula, ...props }: MathProps): react_jsx_runtime.JSX.Element;
 
-interface TextProps extends Contexts, Roles, Styles {
+interface TextProps extends Alignments, Contexts, Roles, Spacings, Styles {
     children: ReactNode;
+    size?: number | string;
     style?: Style;
 }
-declare function Text({ children, style, ...props }: TextProps): react_jsx_runtime.JSX.Element;
+declare function Text({ children, size, style, ...props }: TextProps): react_jsx_runtime.JSX.Element;
 
-interface TooltipProps extends Contexts, Positions {
+interface TooltipProps extends Contexts, Locations {
     children: ReactNode;
     message: string;
     style?: Style;
 }
 declare function Tooltip({ children, message, style, ...props }: TooltipProps): react_jsx_runtime.JSX.Element;
 
-interface FlexProps extends Alignments, Justifications {
+interface FlexProps extends Dimensions, Justifications, Orientations, Spacings {
     autoWrap?: boolean;
     children: ReactNode;
     column?: boolean;
@@ -552,7 +574,8 @@ declare class Extractor {
     static directions(props: Directions): Array<string>;
     static justifications(props: Justifications): Array<string>;
     static lines(props: Lines): Array<string>;
-    static positions(props: Positions): Array<string>;
+    static locations(props: Locations): Array<string>;
+    static orientations(props: Orientations): Array<string>;
     static roles(props: Roles): Array<string>;
     static sizes(props: Sizes): Array<string>;
     static styles(props: Styles): Array<string>;
@@ -564,4 +587,4 @@ declare function validateMax(max: number, value: number | string): boolean;
 declare function validateMin(min: number, value: number | string): boolean;
 declare function validateRegEx(regex: RegExp, value: number | string): boolean;
 
-export { type APR, type APRItem, type APRItemDescription, APRItemDescriptionDefaults, APRs, type APRsProps, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, type Alignments, Animation, type Arrangements, Background, type BackgroundProps, Badge, type BadgeProps, type Behaviors, Body, type BodyProps, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type ChargeItem, type ChargeItemDescriptions, ChargeItemDescriptionsDefault, Charges, type ChargesProps, Checkbox, type CheckboxProps, type Column, type Context, type Contexts, type Directions, Divider, type DividerProps, Extractor, type FeeItem, type FeeItemDescriptions, FeeItemDescriptionsDefault, Fees, type FeesProps, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, Icons, Image, type ImageProps, Input, type InputProps, type Justifications, type Justify, Label, type LabelProps, type Lines, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, Math$1 as Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, Pagination, type PaginationProps, type Position, type Positions, Radio, type RadioProps, type Role, type Roles, Schumer, type SchumerProps, Select, type SelectProps, type Sizes, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, type Styles, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };
+export { type APR, type APRItem, type APRItemDescription, APRItemDescriptionDefaults, APRs, type APRsProps, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, type Alignments, Animation, type Arrangements, Background, type BackgroundProps, Badge, type BadgeProps, type Behaviors, Body, type BodyProps, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type ChargeItem, type ChargeItemDescriptions, ChargeItemDescriptionsDefault, Charges, type ChargesProps, Checkbox, type CheckboxProps, type Column, type Context, type Contexts, type Dimensions, type Directions, Divider, type DividerProps, Extractor, type FeeItem, type FeeItemDescriptions, FeeItemDescriptionsDefault, Fees, type FeesProps, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, Icons, Image, type ImageProps, Input, type InputProps, type Justifications, type Justify, Label, type LabelProps, type Lines, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, type Locations, Math$1 as Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, type Orientations, Pagination, type PaginationProps, type Position, type Positions, Radio, type RadioProps, type Role, type Roles, Schumer, type SchumerProps, Select, type SelectProps, type Sizes, type Spacings, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, type Styles, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };

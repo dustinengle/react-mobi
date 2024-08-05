@@ -1,9 +1,9 @@
 
 import { Extractor } from '../utils'
-import { Positions } from '../commons'
+import { Locations } from '../commons'
 import { ReactNode } from 'react'
 
-export interface HeroProps extends Positions {
+export interface HeroProps extends Locations {
   children: ReactNode
   image: string
 }
@@ -11,7 +11,7 @@ export interface HeroProps extends Positions {
 export function Hero({children, image = 'left', ...props}: HeroProps) {
   const classes = [
     'hero',
-    ...Extractor.positions(props),
+    ...Extractor.locations(props),
   ].join(' ')
 
   return (

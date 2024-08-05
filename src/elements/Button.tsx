@@ -1,6 +1,6 @@
 
 import { Extractor } from '../utils'
-import { Roles } from '../commons/interfaces'
+import { Roles } from '../commons'
 
 import { Flex } from '../layouts/Flex'
 import { Icon, Icons } from './Icon'
@@ -27,7 +27,7 @@ export function Button({
       className={classes}
       onClick={callback}
       role='button'>
-      <Flex row>
+      <Flex gap='0.5rem' row>
         {icon && <Icon name={icon} sm />}
         {label}
       </Flex>

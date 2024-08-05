@@ -1,9 +1,15 @@
 
-import { Alignments, Justifications, Style } from '../commons'
+import {
+  Dimensions,
+  Justifications,
+  Orientations,
+  Spacings,
+  Style,
+} from '../commons'
 import { Extractor } from '../utils'
 import { ReactNode } from 'react'
 
-export interface FlexProps extends Alignments, Justifications {
+export interface FlexProps extends Dimensions, Justifications, Orientations, Spacings {
   autoWrap?: boolean
   children: ReactNode
   column?: boolean
@@ -27,7 +33,7 @@ export function Flex({
   }: FlexProps) {
   const classNames = [
     'flex',
-    ...Extractor.alignments(props),
+    ...Extractor.orientations(props),
     ...Extractor.justifications(props),
   ]
   if (autoWrap) classNames.push('autowrap')
@@ -38,7 +44,16 @@ export function Flex({
 
   const classes = classNames.join(' ')
 
-  const styles = gap ? {gap, ...style} : style
+  const {height, width} = props
+  const {margin, padding} = props
+  const styles = {
+    gap,
+    height,
+    margin,
+    padding,
+    width,
+    ...style,
+  }
 
   return (
     <div {...props} className={classes} style={styles}>

@@ -7,7 +7,8 @@ import {
   Directions,
   Justifications,
   Lines,
-  Positions,
+  Locations,
+  Orientations,
   Roles,
   Sizes,
   Styles,
@@ -18,11 +19,11 @@ export class Extractor {
     const keys: Array<string> = []
 
     if (props.center) keys.push('center')
-    if (props.end) keys.push('end')
-    if (props.start) keys.push('start')
-    if (props.stretch) keys.push('stretch')
+    if (props.justify) keys.push('justify')
+    if (props.left) keys.push('left')
+    if (props.right) keys.push('right')
 
-    if (!keys.length) keys.push('center')
+    if (!keys.length) keys.push('left')
     return keys.map(k => `align-${k}`)
   }
 
@@ -95,7 +96,7 @@ export class Extractor {
     return keys
   }
 
-  static positions(props: Positions): Array<string> {
+  static locations(props: Locations): Array<string> {
     const keys: Array<string> = []
 
     if (props.cover) keys.push('cover')
@@ -106,6 +107,18 @@ export class Extractor {
 
     if (!keys.length) keys.push('cover')
     return keys
+  }
+
+  static orientations(props: Orientations): Array<string> {
+    const keys: Array<string> = []
+
+    if (props.center) keys.push('center')
+    if (props.end) keys.push('end')
+    if (props.start) keys.push('start')
+    if (props.stretch) keys.push('stretch')
+
+    if (!keys.length) keys.push('center')
+    return keys.map(k => `orient-${k}`)
   }
 
   static roles(props: Roles): Array<string> {

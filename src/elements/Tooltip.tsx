@@ -1,9 +1,9 @@
 
-import { Contexts, Positions, Style } from '../commons'
+import { Contexts, Locations, Style } from '../commons'
 import { Extractor } from '../utils'
 import { ReactNode } from 'react'
 
-export interface TooltipProps extends Contexts, Positions {
+export interface TooltipProps extends Contexts, Locations {
   children: ReactNode
   message: string
   style?: Style
@@ -14,7 +14,7 @@ export function Tooltip({children, message, style, ...props}: TooltipProps) {
     <div {...props}
       className={[
           'tooltip',
-          ...Extractor.positions(props),
+          ...Extractor.locations(props),
         ].join(' ')}>
       <div
         className={[
