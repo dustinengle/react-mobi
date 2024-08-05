@@ -19,7 +19,7 @@ export function Flex({
     autoWrap = false,
     column = true,
     full,
-    gap = 0,
+    gap,
     row,
     style,
     wrap,
@@ -37,7 +37,8 @@ export function Flex({
   if (wrap) classNames.push('flex-wrap')
 
   const classes = classNames.join(' ')
-  const styles = {gap, ...style}
+
+  const styles = gap ? {gap, ...style} : style
 
   return (
     <div {...props} className={classes} style={styles}>
