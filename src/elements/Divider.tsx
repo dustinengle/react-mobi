@@ -1,16 +1,19 @@
 
-import { Dimensions, Directions, Lines } from '../commons'
+import { Dimensions, Directions, Lines, Spacings } from '../commons'
 import { Extractor } from '../utils'
 
-export interface DividerProps extends Dimensions, Directions, Lines {
+export interface DividerProps extends Dimensions, Directions, Lines, Spacings {
   color?: string
   dots?: boolean
 }
 
 export function Divider({color, dots = true, ...props}: DividerProps) {
   const {height, width} = props
+  const {margin, padding} = props
   const styles = {
     height,
+    margin,
+    padding,
     width,
   }
 

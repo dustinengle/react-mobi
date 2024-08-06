@@ -404,7 +404,7 @@ interface ButtonProps extends Roles {
 }
 declare function Button({ callback, icon, label, ...props }: ButtonProps): react_jsx_runtime.JSX.Element;
 
-interface DividerProps extends Dimensions, Directions, Lines {
+interface DividerProps extends Dimensions, Directions, Lines, Spacings {
     color?: string;
     dots?: boolean;
 }
