@@ -11,8 +11,6 @@ ol, ul {
 }
 
 .accordion {
-  max-width: 90vw;
-
   &-item {
     $self: &;
 

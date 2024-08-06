@@ -1,23 +1,23 @@
 
 .icon {
   &.sm {
-    height: $icon-sm;
-    width: $icon-sm;
+    min-height: $icon-sm;
+    min-width: $icon-sm;
   }
 
   &.md {
-    height: $icon-md;
-    width: $icon-md;
+    min-height: $icon-md;
+    min-width: $icon-md;
   }
 
   &.lg {
-    height: $icon-lg;
-    width: $icon-lg;
+    min-height: $icon-lg;
+    min-width: $icon-lg;
   }
 
   &.xl {
-    height: $icon-xl;
-    width: $icon-xl;
+    min-height: $icon-xl;
+    min-width: $icon-xl;
   }
 }
 
