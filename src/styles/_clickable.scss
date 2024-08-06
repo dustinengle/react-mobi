@@ -30,6 +30,7 @@ a, .link {
   font-size: $button-font-size;
   margin: $button-margin;
   padding: calc($button-padding * 0.35) $button-padding;
+  text-align: center;
 
   @media only screen and (max-width: $sm) {
     padding: calc($button-padding * 0.25) calc($button-padding * 0.5);
