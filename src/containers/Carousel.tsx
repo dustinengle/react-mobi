@@ -36,7 +36,7 @@ export function Carousel({children, autoplay = true, interval = 5000, ...props}:
 
   return (
     <div {...props} className='carousel'>
-      <Flex>
+      <Flex gap='1rem'>
         <Flex between row>
           <div
             className='carousel-nav'
