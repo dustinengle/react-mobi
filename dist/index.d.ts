@@ -278,7 +278,7 @@ interface FooterProps {
 }
 declare function Footer({ children, ...props }: FooterProps): react_jsx_runtime.JSX.Element;
 
-interface HeaderProps extends Alignments {
+interface HeaderProps {
     children: ReactNode;
 }
 declare function Header({ children, ...props }: HeaderProps): react_jsx_runtime.JSX.Element;
@@ -410,7 +410,7 @@ interface DividerProps extends Dimensions, Directions, Lines, Spacings {
 }
 declare function Divider({ color, dots, ...props }: DividerProps): react_jsx_runtime.JSX.Element;
 
-interface HeadingProps {
+interface HeadingProps extends Alignments {
     children: ReactNode;
 }
 declare function H1({ children, ...props }: HeadingProps): react_jsx_runtime.JSX.Element;
