@@ -23,7 +23,7 @@ export function Card({children, dark = false, style, ...props}: CardProps) {
   }
 
   return (
-    <div {...props} className={classes} style={styles}>
+    <div className={classes} style={styles}>
       {children}
     </div>
   )

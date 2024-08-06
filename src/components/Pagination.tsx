@@ -47,7 +47,7 @@ export function Pagination({
   }
 
   return (
-    <div {...props} className='pagination'>
+    <div className='pagination'>
       <Flex between gap='1rem' row>
         <div className='prev' onClick={handlePrev}>
           <Icon name={Icons.prev} sm />

@@ -158,7 +158,7 @@ export function Icon({
 
   if (src) {
     return (
-      <img {...props}
+      <img
         aria-label={label || src}
         alt={label || src}
         className={classes}

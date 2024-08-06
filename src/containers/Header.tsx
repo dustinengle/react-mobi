@@ -7,7 +7,7 @@ export interface HeaderProps {
 
 export function Header({children, ...props}: HeaderProps) {
   return (
-    <div {...props} className='header'>
+    <div className='header'>
       {children}
     </div>
   )

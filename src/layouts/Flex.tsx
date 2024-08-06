@@ -56,7 +56,7 @@ export function Flex({
   }
 
   return (
-    <div {...props} className={classes} style={styles}>
+    <div className={classes} style={styles}>
       {children}
     </div>
   )

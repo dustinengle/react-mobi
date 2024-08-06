@@ -11,7 +11,7 @@ export interface TooltipProps extends Contexts, Locations {
 
 export function Tooltip({children, message, style, ...props}: TooltipProps) {
   return (
-    <div {...props}
+    <div
       className={[
           'tooltip',
           ...Extractor.locations(props),

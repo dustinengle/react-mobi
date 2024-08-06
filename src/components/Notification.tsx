@@ -21,7 +21,7 @@ export function Notification({children, callback, ...props}: NotificationProps) 
   const context = Extractor.contexts(props)[0]
 
   return (
-    <div {...props}
+    <div
       className={classes}
       role='alert'>
       {callback &&

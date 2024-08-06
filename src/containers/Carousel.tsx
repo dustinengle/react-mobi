@@ -35,7 +35,7 @@ export function Carousel({children, autoplay = true, interval = 5000, ...props}:
   }, [index])
 
   return (
-    <div {...props} className='carousel'>
+    <div className='carousel'>
       <Flex gap='1rem'>
         <Flex between row>
           <div
@@ -105,7 +105,7 @@ export function CarouselItem({
   if (index === prev) classes += ' prev'
 
   return (
-    <div {...props} className={classes}>
+    <div className={classes}>
       {children}
     </div>
   )

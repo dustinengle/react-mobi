@@ -16,7 +16,7 @@ export function Modal({children, callback, no, open, yes, ...props}: ModalProps)
   return (
     <div aria-haspopup='dialog'>
       <div className={`modal modal-${open ? 'open' : 'close'}`} />
-      <div {...props}
+      <div
         aria-modal='true'
         className={`modal-body modal-body-${open ? 'open' : 'close'}`}
         role='dialog'>

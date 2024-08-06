@@ -16,7 +16,7 @@ export function Grid({children, cols, gap, rows, ...props}: GridProps) {
   }
 
   return (
-    <div {...props}
+    <div
       className='grid'
       role='grid'
       style={style}>
@@ -40,7 +40,7 @@ export function GridArea({children, colEnd, colStart, rowEnd, rowStart, ...props
   }
 
   return (
-    <div {...props}
+    <div
       role='gridcell'
       style={style}>
       {children}

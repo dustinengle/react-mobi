@@ -22,7 +22,7 @@ export function Table({card, cols, header = 'row', rows, footer, ...props}: Tabl
   const classes = classNames.join(' ')
 
   return (
-    <table {...props}
+    <table
       aria-colcount={cols.length}
       aria-rowcount={rows.length}
       className={classes}

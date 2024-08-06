@@ -18,7 +18,7 @@ export function Divider({color, dots = true, ...props}: DividerProps) {
   }
 
   return (
-    <div {...props}
+    <div
       className={[
         'divider',
         ...Extractor.directions(props),

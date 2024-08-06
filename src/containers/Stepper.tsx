@@ -85,7 +85,7 @@ export function Stepper({
     : <div />
 
   return (
-    <div {...props} className='stepper'>
+    <div className='stepper'>
       <div className='stepper-header'>
         <Flex evenly gap='1rem' row>
           {steps}
@@ -119,7 +119,7 @@ export function StepperItem({
     ...props
   }: StepperItemProps) {
   return (
-    <div {...props} className='stepper-item'>
+    <div className='stepper-item'>
       {children}
     </div>
   )

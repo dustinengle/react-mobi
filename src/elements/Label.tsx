@@ -22,7 +22,7 @@ export function Label({
   const classes = error ? 'error' : undefined
 
   return (
-    <label {...props}
+    <label
       aria-label={field.label}
       className={classes}
       htmlFor={field.name}>

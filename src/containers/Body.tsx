@@ -14,7 +14,7 @@ export function Body({children, margin, padding, ...props}: BodyProps) {
   }
 
   return (
-    <div {...props}
+    <div
       className='body'
       role='main'
       style={style}>

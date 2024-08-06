@@ -31,7 +31,7 @@ export function Checkbox({
 
   return (
     <Flex gap='1rem' row>
-      <input {...props}
+      <input
         aria-checked={on}
         aria-label={name}
         className={error ? 'error' : undefined}
@@ -73,7 +73,7 @@ export function Input({
   }
 
   return (
-    <input {...props}
+    <input
       aria-disabled={disabled}
       aria-label={name}
       autoComplete={autocomplete}
@@ -96,7 +96,7 @@ export interface OptionProps {
 
 export function Option({children, value, ...props}: OptionProps) {
   return (
-    <option {...props}
+    <option
       aria-label={value}
       role='option'
       value={value}>
@@ -121,7 +121,7 @@ export function Radio({children, error, handler, id, name, value, ...props}: Rad
 
   return (
     <Flex gap='1rem' row>
-      <input {...props}
+      <input
         aria-label={name}
         className={error ? 'error' : undefined}
         id={id || random()}
@@ -151,7 +151,7 @@ export function Select({children, error, handler, id, name, value, ...props}: Se
 
   return (
     <div className='select'>
-      <select {...props}
+      <select
         aria-label={name}
         className={error ? 'error' : undefined}
         defaultValue={value}
@@ -180,7 +180,7 @@ export function Textarea({error, handler, id, name, value, ...props}: TextareaPr
   }
 
   return (
-    <textarea {...props}
+    <textarea
       aria-label={name}
       aria-multiline='true'
       className={error ? 'error' : undefined}

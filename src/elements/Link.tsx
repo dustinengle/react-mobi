@@ -18,7 +18,7 @@ export function Link({button, children, href, open = false, ...props}: LinkProps
   const target = open ? '_blank' : '_self'
 
   return (
-    <a {...props}
+    <a
       className={classes}
       href={href}
       role='link'

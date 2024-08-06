@@ -15,7 +15,7 @@ export function Hero({children, image = 'left', ...props}: HeroProps) {
   ].join(' ')
 
   return (
-    <div {...props}
+    <div
       className={classes}
       role='banner'
       style={{backgroundImage: `url(${image})`}}>

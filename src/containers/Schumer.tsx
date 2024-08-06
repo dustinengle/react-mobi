@@ -124,7 +124,7 @@ export function Charges({
     ...props
   }: ChargesProps) {
   return (
-    <div {...props} className='schumer'>
+    <div className='schumer'>
       <table
         aria-colcount={2}
         aria-rowcount={2}
@@ -209,7 +209,7 @@ export function Fees({
     ...props
   }: FeesProps) {
   return (
-    <div {...props} className='schumer'>
+    <div className='schumer'>
       <table
         aria-colcount={2}
         aria-rowcount={2}
@@ -305,7 +305,7 @@ export function APRs({
     ...props
   }: APRsProps) {
   return (
-    <div {...props} className='schumer'>
+    <div className='schumer'>
       <table
         aria-colcount={2}
         aria-rowcount={2}
@@ -402,7 +402,7 @@ export function Schumer({
     ...props
   }: SchumerProps) {
   return (
-    <div {...props} className='schumer'>
+    <div className='schumer'>
       <table>
         <tbody>
           <tr>

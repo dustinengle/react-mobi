@@ -10,7 +10,7 @@ export interface AccordionProps {
 
 export function Accordion({children, ...props}: AccordionProps) {
   return (
-    <div {...props} className='accordion'>
+    <div className='accordion'>
       {children}
     </div>
   )
@@ -39,7 +39,7 @@ export function AccordionItem({
   const classes = `accordion-item accordion-item-${open ? 'open' : 'close'}`
 
   return (
-    <div {...props}
+    <div
       aria-expanded={open}
       className={classes}>
       <div className='accordion-item-title' onClick={handleClick}>

@@ -7,7 +7,7 @@ export interface FooterProps {
 
 export function Footer({children, ...props}: FooterProps) {
   return (
-    <div {...props}
+    <div
       aria-label='Footer'
       className='footer'
       role='contentinfo'>

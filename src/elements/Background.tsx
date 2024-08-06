@@ -15,7 +15,7 @@ export function Background({children, style, ...props}: BackgroundProps) {
   ].join(' ')
 
   return (
-    <div {...props} className={classes} style={style}>
+    <div className={classes} style={style}>
       {children}
     </div>
   )

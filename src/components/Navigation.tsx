@@ -11,7 +11,7 @@ export interface NavigationProps {
 
 export function Navigation({children, logo, ...props}: NavigationProps) {
   return (
-    <div {...props}
+    <div
       aria-label='Main'
       className='navigation'
       role='navigation'>
@@ -34,7 +34,7 @@ export interface NavigationLinkProps {
 
 export function NavigationLink({children, href, ...props}: NavigationLinkProps) {
   return (
-    <a {...props} className='navigation-link' href={href}>
+    <a className='navigation-link' href={href}>
       {children}
     </a>
   )
