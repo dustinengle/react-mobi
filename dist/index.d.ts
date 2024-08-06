@@ -251,7 +251,7 @@ interface BodyProps {
 }
 declare function Body({ children, margin, padding, ...props }: BodyProps): react_jsx_runtime.JSX.Element;
 
-interface CardProps extends Dimensions {
+interface CardProps extends Dimensions, Spacings {
     children: ReactNode;
     dark?: boolean;
     style?: Style;
@@ -520,7 +520,7 @@ interface MathProps {
 }
 declare function Math$1({ formula, ...props }: MathProps): react_jsx_runtime.JSX.Element;
 
-interface TextProps extends Alignments, Contexts, Roles, Spacings, Styles {
+interface TextProps extends Alignments, Contexts, Dimensions, Roles, Spacings, Styles {
     children: ReactNode;
     color?: string;
     size?: number | string;

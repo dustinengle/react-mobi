@@ -1,8 +1,8 @@
 
-import { Dimensions, Style } from '../commons'
+import { Dimensions, Spacings, Style } from '../commons'
 import { ReactNode } from 'react'
 
-export interface CardProps extends Dimensions {
+export interface CardProps extends Dimensions, Spacings {
   children: ReactNode
   dark?: boolean
   style?: Style
@@ -13,8 +13,11 @@ export function Card({children, dark = false, style, ...props}: CardProps) {
   if (dark) classes += ' dark-shadow'
 
   const {height, width} = props
+  const {margin, padding} = props
   const styles = {
     height,
+    margin,
+    padding,
     width,
     ...style,
   }
