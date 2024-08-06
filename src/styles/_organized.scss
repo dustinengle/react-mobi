@@ -11,6 +11,8 @@ ol, ul {
 }
 
 .accordion {
+  width: 100%;
+
   &-item {
     $self: &;
 
