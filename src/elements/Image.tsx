@@ -23,11 +23,12 @@ export function Image({alt, caption, src, style, ...props}: ImageProps) {
   }
 
   return (
-    <div {...props}
+    <div
       aria-label={alt || caption}
       aria-labelledby={caption ? src : undefined}
-      role='figure'>
-      <img {...props}
+      role='figure'
+      style={styles}>
+      <img
         alt={alt || caption || src}
         className={classes}
         src={src}
