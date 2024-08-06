@@ -1,8 +1,8 @@
 
-import { Behaviors, Dimensions, Style } from '../commons'
+import { Behaviors, Dimensions, Spacings, Style } from '../commons'
 import { Extractor } from '../utils'
 
-export interface ImageProps extends Behaviors, Dimensions {
+export interface ImageProps extends Behaviors, Dimensions, Spacings {
   alt?: string
   caption?: string
   src: string
@@ -16,8 +16,11 @@ export function Image({alt, caption, src, style, ...props}: ImageProps) {
   ].join(' ')
 
   const {height, width} = props
+  const {margin, padding} = props
   const styles = {
     height,
+    margin,
+    padding,
     width,
     ...style,
   }

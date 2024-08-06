@@ -428,7 +428,7 @@ interface HighlightProps {
 }
 declare function Highlight({ children, bg, fg, style }: HighlightProps): react_jsx_runtime.JSX.Element;
 
-interface ImageProps extends Behaviors, Dimensions {
+interface ImageProps extends Behaviors, Dimensions, Spacings {
     alt?: string;
     caption?: string;
     src: string;
