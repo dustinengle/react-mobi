@@ -11,6 +11,8 @@ ol, ul {
 }
 
 .accordion {
+  max-width: 90vw;
+
   &-item {
     $self: &;
 
@@ -19,6 +21,7 @@ ol, ul {
       margin: 0;
       overflow: hidden;
       padding: 0;
+      transform-origin: top;
       transition: $accordion-transition;
 
       &-content {
@@ -28,7 +31,8 @@ ol, ul {
 
     &-close {
       #{$self}-body {
-        max-height: 0;
+        height: 0;
+        transform: scaleY(0);
         visibility: hidden;
       }
 
@@ -39,7 +43,8 @@ ol, ul {
 
     &-open {
       #{$self}-body {
-        max-height: 100vh;
+        height: max-content;
+        transform: scaleY(1);
         visibility: visible;
       }
 
