@@ -52,7 +52,7 @@ $accordion-title-weight: 600 !default;
 $accordion-transition: all 0.5s ease-in-out;
 
 /* Background */
-$background-padding: 1rem !default;
+$background-padding: 0 !default;
 
 /* Badge */
 $badge-padding: 0.25rem 0.5rem !default;
@@ -216,7 +216,7 @@ $table-border-radius: 1rem !default;
 $table-padding: 0.25rem !default;
 
 /* Text */
-$text-padding: 0.25rem !default;
+$text-padding: 0.25rem 0 !default;
 
 /* Tooltip */
 $tooltip-padding: 0.25em 0.5em !default;
