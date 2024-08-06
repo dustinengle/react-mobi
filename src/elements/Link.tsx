@@ -19,6 +19,7 @@ export function Link({button, children, href, open = false, ...props}: LinkProps
 
   return (
     <a
+      {...props}
       className={classes}
       href={href}
       role='link'

@@ -364,7 +364,7 @@ function App() {
 
               return (
                 <Flex key={index} style={{flexBasis: '4rem'}}>
-                  <Icon name={icon as Icons} />
+                  <Icon {...props} name={icon as Icons} />
                   <div>{icon}</div>
                 </Flex>
               )
@@ -451,7 +451,7 @@ function App() {
 
         <Flex>
           <H2>Links</H2>
-          <Flex evenly row wrap>
+          <Flex evenly gap='2rem' row wrap>
             <Link href='/'>Default Link</Link>
             <Link button href='/'>Button Link</Link>
             <Link href='/' open>New Window Link</Link>
