@@ -794,10 +794,42 @@ function App() {
           </Card>
           <Card>
             <Flex stretch full row>
-              <Background tertiary>
-                <Flex start>
+              <Background primary>
+                <Flex start margin='2rem'>
                   <H2>Step 1</H2>
-                  <Text>Do something</Text>
+                  <Text tertiary>Do something</Text>
+                  <Flex center full>
+                    <Icon name={Icons.lock} xl />
+                  </Flex>
+                </Flex>
+              </Background>
+              <Flex full padding='1rem' style={{flex: '2'}}>
+                Integer tristique, mauris non luctus elementum, lectus urna faucibus urna, vel convallis sapien dui vitae nibh.
+              </Flex>
+            </Flex>
+          </Card>
+          <Card>
+            <Flex stretch full row>
+              <Background secondary>
+                <Flex start margin='2rem'>
+                  <H2>Step 2</H2>
+                  <Text tertiary>Do something</Text>
+                  <Flex center full>
+                    <Icon name={Icons.lock} xl />
+                  </Flex>
+                </Flex>
+              </Background>
+              <Flex full padding='1rem' style={{flex: '2'}}>
+                Integer tristique, mauris non luctus elementum, lectus urna faucibus urna, vel convallis sapien dui vitae nibh.
+              </Flex>
+            </Flex>
+          </Card>
+          <Card>
+            <Flex stretch full row>
+              <Background tertiary>
+                <Flex start margin='2rem'>
+                  <H2>Step 3</H2>
+                  <Text primary>Do something</Text>
                   <Flex center full>
                     <Icon name={Icons.lock} xl />
                   </Flex>

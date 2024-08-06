@@ -3,6 +3,18 @@
   flex: 1;
   height: 100%;
   padding: $background-padding;
+
+  &.primary:hover {
+    background-color: $color-primary !important;
+  }
+
+  &.secondary:hover {
+    background-color: $color-secondary !important;
+  }
+
+  &.tertiary:hover {
+    background-color: $color-tertiary !important;
+  }
 }
 
 .card {
