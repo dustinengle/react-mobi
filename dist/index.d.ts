@@ -278,7 +278,7 @@ interface FooterProps {
 }
 declare function Footer({ children, ...props }: FooterProps): react_jsx_runtime.JSX.Element;
 
-interface HeaderProps {
+interface HeaderProps extends Alignments {
     children: ReactNode;
 }
 declare function Header({ children, ...props }: HeaderProps): react_jsx_runtime.JSX.Element;
