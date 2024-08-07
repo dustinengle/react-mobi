@@ -29,6 +29,7 @@ export class Fetcher {
     }
 
     const response: Response = await fetch(`${this.host}${route}`, init)
+    console.log(response)
     if (!response.ok) return Promise.reject(new Error(`${response.status} ${response.statusText}`))
     return await response.json()
   }
