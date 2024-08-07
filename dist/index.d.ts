@@ -77,9 +77,42 @@ interface Styles {
     upper?: boolean;
 }
 
+interface Amount {
+    max: number;
+    min?: number;
+    payment?: number;
+    percentage?: number;
+}
+interface APR {
+    breakdowns: Array<Breakdown>;
+    formula: string;
+    max: number;
+    min: number;
+    subTitle: string;
+    summary: string;
+    title: string;
+}
+interface Breakdown {
+    amount: number;
+    apr: number;
+    cycles: number;
+    fees: number;
+    rewards: number;
+}
+interface Charge {
+    amount: number;
+    max: number;
+    min: number;
+}
 interface Dimensions {
     height?: number | string;
     width?: number | string;
+}
+interface Fee {
+    amount: number;
+    max?: number;
+    min?: number;
+    rate: number;
 }
 interface Positions {
     bottom?: number | string;
@@ -283,60 +316,23 @@ interface HeaderProps {
 }
 declare function Header({ children, ...props }: HeaderProps): react_jsx_runtime.JSX.Element;
 
-interface ChargeItem {
-    charge: number;
-    max: number;
-    min: number;
+interface AmountsProps {
+    amounts: Array<Amount>;
+    charges: Array<Charge>;
+    meta?: AmountsMetaProps;
 }
-interface ChargeItemDescriptions {
-    balance: string;
+interface AmountsMetaProps {
+    amount: string;
     charge: string;
-    noCharge: string;
-    subTitle: string;
-    subTitleItems?: Array<string>;
-    summary: string;
     title: string;
+    upTo: string;
 }
-declare const ChargeItemDescriptionsDefault: ChargeItemDescriptions;
-interface ChargesProps {
-    chargeItems: Array<ChargeItem>;
-    chargeItemDescriptions?: ChargeItemDescriptions;
+declare function AmountsTable({ amounts, charges, meta, }: AmountsProps): react_jsx_runtime.JSX.Element;
+interface APRsProps {
+    apr: APR;
+    meta?: APRsMetaProps;
 }
-declare function Charges({ chargeItems, chargeItemDescriptions, ...props }: ChargesProps): react_jsx_runtime.JSX.Element;
-interface FeeItem {
-    amount: number;
-    max?: number;
-    min?: number;
-    rate: number;
-}
-interface FeeItemDescriptions {
-    subTitle: string;
-    subTitleItems?: Array<string>;
-    template: string;
-    title: string;
-}
-declare const FeeItemDescriptionsDefault: FeeItemDescriptions;
-interface FeesProps {
-    feeItems: Array<FeeItem>;
-    feeItemDescriptions?: FeeItemDescriptions;
-}
-declare function Fees({ feeItems, feeItemDescriptions, ...props }: FeesProps): react_jsx_runtime.JSX.Element;
-interface APR {
-    formula: ReactElement<Math>;
-    max: number;
-    min: number;
-    subTitle?: string;
-    summary: string;
-    title: string;
-}
-interface APRItem {
-    amount: number;
-    apr: number;
-    cycles: number;
-    fees: number;
-    rewards: number;
-}
-interface APRItemDescription {
+interface APRsMetaProps {
     amount: string;
     amountExtra?: string;
     apr: string;
@@ -349,23 +345,41 @@ interface APRItemDescription {
     rewardsExtra?: string;
     rewardsSummary?: string;
 }
-declare const APRItemDescriptionDefaults: APRItemDescription;
-interface APRsProps {
-    apr: APR;
-    aprItems: Array<APRItem>;
-    aprItemDescriptions?: APRItemDescription;
+declare function APRsTable({ apr, meta, ...props }: APRsProps): react_jsx_runtime.JSX.Element;
+interface ChargesProps {
+    charges: Array<Charge>;
+    meta?: ChargesMetaProps;
 }
-declare function APRs({ apr, aprItems, aprItemDescriptions, ...props }: APRsProps): react_jsx_runtime.JSX.Element;
+interface ChargesMetaProps {
+    balance: string;
+    charge: string;
+    noCharge: string;
+    subTitle: string;
+    subTitles?: Array<string>;
+    summary: string;
+    title: string;
+}
+declare function ChargesTable({ charges, meta, }: ChargesProps): react_jsx_runtime.JSX.Element;
+interface FeesProps {
+    fees: Array<Fee>;
+    meta?: FeesMetaProps;
+}
+interface FeesMetaProps {
+    subTitle: string;
+    subTitleItems?: Array<string>;
+    template: string;
+    title: string;
+}
+declare function FeesTable({ fees, meta, }: FeesProps): react_jsx_runtime.JSX.Element;
 interface SchumerProps {
     apr: APR;
-    aprItems: Array<APRItem>;
-    aprItemDescriptions?: APRItemDescription;
-    chargeItems: Array<ChargeItem>;
-    chargeItemDescriptions?: ChargeItemDescriptions;
-    feeItems: Array<FeeItem>;
-    feeItemDescriptions?: FeeItemDescriptions;
+    aprsMeta?: APRsMetaProps;
+    charges: Array<Charge>;
+    chargesMeta?: ChargesMetaProps;
+    fees: Array<Fee>;
+    feesMeta?: FeesMetaProps;
 }
-declare function Schumer({ apr, aprItemDescriptions, aprItems, chargeItems, chargeItemDescriptions, feeItems, feeItemDescriptions, ...props }: SchumerProps): react_jsx_runtime.JSX.Element;
+declare function Schumer({ apr, aprsMeta, charges, chargesMeta, fees, feesMeta, }: SchumerProps): react_jsx_runtime.JSX.Element;
 
 interface StepperProps {
     children: ReactElement<StepperItemProps>[];
@@ -518,7 +532,7 @@ declare function ListItem({ children, ...props }: ListItemProps): react_jsx_runt
 interface MathProps {
     formula: string;
 }
-declare function Math$1({ formula, ...props }: MathProps): react_jsx_runtime.JSX.Element;
+declare function Math({ formula, ...props }: MathProps): react_jsx_runtime.JSX.Element;
 
 interface TextProps extends Alignments, Contexts, Dimensions, Roles, Spacings, Styles {
     children: ReactNode;
@@ -583,10 +597,21 @@ declare class Extractor {
     static styles(props: Styles): Array<string>;
 }
 
+declare class Formatter {
+    static _currency: Intl.NumberFormat;
+    static _percentage: Intl.NumberFormat;
+    static currency(n: number): string;
+    static percentage(n: number): string;
+}
+
 declare function random(length?: number): string;
+
+declare class Renderer {
+    static render(template: string, data: Record<string, number>): Array<ReactNode>;
+}
 
 declare function validateMax(max: number, value: number | string): boolean;
 declare function validateMin(min: number, value: number | string): boolean;
 declare function validateRegEx(regex: RegExp, value: number | string): boolean;
 
-export { type APR, type APRItem, type APRItemDescription, APRItemDescriptionDefaults, APRs, type APRsProps, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, type Alignments, Animation, type Arrangements, Background, type BackgroundProps, Badge, type BadgeProps, type Behaviors, Body, type BodyProps, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type ChargeItem, type ChargeItemDescriptions, ChargeItemDescriptionsDefault, Charges, type ChargesProps, Checkbox, type CheckboxProps, type Column, type Context, type Contexts, type Dimensions, type Directions, Divider, type DividerProps, Extractor, type FeeItem, type FeeItemDescriptions, FeeItemDescriptionsDefault, Fees, type FeesProps, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, Icons, Image, type ImageProps, Input, type InputProps, type Justifications, type Justify, Label, type LabelProps, type Lines, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, type Locations, Math$1 as Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, type Orientations, Pagination, type PaginationProps, type Position, type Positions, Radio, type RadioProps, type Role, type Roles, Schumer, type SchumerProps, Select, type SelectProps, type Sizes, type Spacings, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, type Styles, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };
+export { type APR, type APRsMetaProps, type APRsProps, APRsTable, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, type Alignments, type Amount, type AmountsMetaProps, type AmountsProps, AmountsTable, Animation, type Arrangements, Background, type BackgroundProps, Badge, type BadgeProps, type Behaviors, Body, type BodyProps, type Breakdown, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type Charge, type ChargesMetaProps, type ChargesProps, ChargesTable, Checkbox, type CheckboxProps, type Column, type Context, type Contexts, type Dimensions, type Directions, Divider, type DividerProps, Extractor, type Fee, type FeesMetaProps, type FeesProps, FeesTable, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Formatter, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, Icons, Image, type ImageProps, Input, type InputProps, type Justifications, type Justify, Label, type LabelProps, type Lines, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, type Locations, Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, type Orientations, Pagination, type PaginationProps, type Position, type Positions, Radio, type RadioProps, Renderer, type Role, type Roles, Schumer, type SchumerProps, Select, type SelectProps, type Sizes, type Spacings, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, type Styles, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };

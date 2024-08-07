@@ -29,7 +29,7 @@ import { Pagination } from '../components/Pagination'
 import { Column, Table } from '../components/Table'
 
 import { Accordion, AccordionItem } from '../containers/Accordion'
-import { APRs, Charges, Fees, Schumer } from '../containers/Schumer'
+import { AmountsTable, APRsTable, ChargesTable, FeesTable, Schumer } from '../containers/Schumer'
 import { Body } from '../containers/Body'
 import { Card } from '../containers/Card'
 import { Carousel, CarouselItem } from '../containers/Carousel'
@@ -160,34 +160,46 @@ function App() {
   ]
 
   // We use this to duplicate schumer and other tables.
+  const amounts = [
+    {max: 400, payment: 16, },
+    {max: 899.99, min: 400.01, percentage: .040000},
+    {max: 999.99, min: 900, percentage: .038467},
+    {max: 1099.99, min: 1000, percentage: .035710},
+    {max: 1199.99, min: 1100, percentage: .026316},
+    {max: 1299.99, min: 1200, percentage: .025000},
+    {max: 1399.99, min: 1300, percentage: .023808},
+    {max: 1499.99, min: 1400, percentage: .022222},
+    {max: 1999.99, min: 1500, percentage: .020000},
+    {max: 2500, min: 2000, percentage: .016667},
+  ]
   const apr = {
-    formula: <Math formula='$$APR=(\frac{(\frac{\text{Total Fees}}{\text{Avg. Principal Balance}})}{\text{Number Of Billing Cycles}})*\text{Billing Cycles Per Year}*100$$' />,
+    breakdowns: [
+      {amount: 500, apr: 4.05, cycles: 25, fees: 1012.50, rewards: 1.4175},
+      {amount: 1000, apr: 3.6712, cycles: 28, fees: 2047, rewards: 1.2849},
+      {amount: 2500, apr: 2.3886, cycles: 60, fees: 7005.05, rewards: .8360},
+    ],
+    formula: '$$APR=(\\frac{(\\frac{\\text{Total Fees}}{\\text{Avg. Principal Balance}})}{\\text{Number Of Billing Cycles}})*\\text{Billing Cycles Per Year}*100$$',
     max: 4.05,
     min: .836,
     subTitle: 'on Mobiloans Credit Advanced',
     summary: 'This APR will vary based on the amount of the line of credit and the maximum number of billing cycles available for payment. Below are examples of some of our credit amounts with their respective APR.',
     title: 'Annual Percentage Rate',
   }
-  const aprItems = [
-    {amount: 500, apr: 4.05, cycles: 25, fees: 1012.50, rewards: 1.4175},
-    {amount: 1000, apr: 3.6712, cycles: 28, fees: 2047, rewards: 1.2849},
-    {amount: 2500, apr: 2.3886, cycles: 60, fees: 7005.05, rewards: .8360},
+  const charges = [
+    {amount: 0, max: 10, min: 0},
+    {amount: 15, max: 100, min: 10.01},
+    {amount: 30, max: 200, min: 100.01},
+    {amount: 35, max: 300, min: 200.01},
+    {amount: 45, max: 400, min: 300.01},
+    {amount: 75, max: 500, min: 400.01},
+    {amount: 85, max: 600, min: 500.01},
+    {amount: 95, max: 700, min: 600.01},
+    {amount: 105, max: 900, min: 700.01},
+    {amount: 115, max: 1000, min: 900.01},
+    {amount: 135, max: 1400, min: 1000.01},
+    {amount: 150, max: 2500, min: 1400.01},
   ]
-  const chargeItems = [
-    {charge: 0, max: 10, min: 0},
-    {charge: 15, max: 100, min: 10.01},
-    {charge: 30, max: 200, min: 100.01},
-    {charge: 35, max: 300, min: 200.01},
-    {charge: 45, max: 400, min: 300.01},
-    {charge: 75, max: 500, min: 400.01},
-    {charge: 85, max: 600, min: 500.01},
-    {charge: 95, max: 700, min: 600.01},
-    {charge: 105, max: 900, min: 700.01},
-    {charge: 115, max: 1000, min: 900.01},
-    {charge: 135, max: 1400, min: 1000.01},
-    {charge: 150, max: 2500, min: 1400.01},
-  ]
-  const feeItems = [
+  const fees = [
     {amount: 20, max: 500, rate: 3.5},
     {amount: 20, max: 1000, min: 500, rate: 2.75},
     {amount: 20, max: 1200, min: 1000, rate: 2.25},
@@ -867,19 +879,23 @@ function App() {
         <Flex>
           <Flex>
             <H2>Schumer</H2>
-            <Schumer apr={apr} aprItems={aprItems} chargeItems={chargeItems} feeItems={feeItems} />
+            <Schumer apr={apr} charges={charges} fees={fees} />
+          </Flex>
+          <Flex>
+            <H3>Amounts</H3>
+            <AmountsTable amounts={amounts} charges={charges} />
           </Flex>
           <Flex>
             <H3>APRs</H3>
-            <APRs apr={apr} aprItems={aprItems} />
+            <APRsTable apr={apr} />
           </Flex>
           <Flex>
             <H3>Charges</H3>
-            <Charges chargeItems={chargeItems} />
+            <ChargesTable charges={charges} />
           </Flex>
           <Flex>
             <H3>Fees</H3>
-            <Fees feeItems={feeItems} />
+            <FeesTable fees={fees} />
           </Flex>
         </Flex>
 
