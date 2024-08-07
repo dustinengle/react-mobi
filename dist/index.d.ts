@@ -88,9 +88,6 @@ interface APR {
     formula: string;
     max: number;
     min: number;
-    subTitle: string;
-    summary: string;
-    title: string;
 }
 interface Breakdown {
     amount: number;
@@ -344,6 +341,9 @@ interface APRsMetaProps {
     rewards: string;
     rewardsExtra?: string;
     rewardsSummary?: string;
+    subTitle: string;
+    summary: string;
+    title: string;
 }
 declare function APRsTable({ apr, meta, ...props }: APRsProps): react_jsx_runtime.JSX.Element;
 interface ChargesProps {

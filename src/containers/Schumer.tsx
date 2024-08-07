@@ -94,6 +94,9 @@ export interface APRsMetaProps {
   rewards: string
   rewardsExtra?: string
   rewardsSummary?: string
+  subTitle: string
+  summary: string
+  title: string
 }
 
 export function APRsTable({
@@ -110,6 +113,9 @@ export function APRsTable({
       rewards: 'Rewards Level - Diamond APR %',
       rewardsExtra: '65 % reduction in Cash Advance Fees and Fixed Finance Charges',
       rewardsSummary: 'Go to <a href="www.mobiloans.com/rewards">www.mobiloans.com/rewards</a> for more information on how to qualify.',
+      subTitle: 'on Mobiloans Credit Advanced',
+      summary: 'This APR will vary based on the amount of the line of credit and the maximum number of billing cycles available for payment. Below are examples of some of our credit amounts with their respective APR.',
+      title: 'Annual Percentage Rate',
     },
     ...props
   }: APRsProps) {
@@ -122,15 +128,15 @@ export function APRsTable({
       <tbody>
         <tr role='row'>
           <th className='quarter' colSpan={1} rowSpan={2} role='columnheader' scope='col'>
-            <b>{apr.title}</b><br />
-            {apr.subTitle}
+            <b>{meta.title}</b><br />
+            {meta.subTitle}
           </th>
           <td colSpan={5} role='cell'>
             <div className='rate'>
               <Highlight>{Formatter.percentage(apr.min)} - {Formatter.percentage(apr.max)}</Highlight>
             </div>
             <div>
-              <b>{apr.summary}</b>
+              <b>{meta.summary}</b>
             </div>
             <div>
               <Math formula={apr.formula} />

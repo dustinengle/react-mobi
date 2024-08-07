@@ -11,9 +11,6 @@ export interface APR {
   formula: string
   max: number
   min: number
-  subTitle: string
-  summary: string
-  title: string
 }
 
 export interface Breakdown {

@@ -181,9 +181,6 @@ function App() {
     formula: '$$APR=(\\frac{(\\frac{\\text{Total Fees}}{\\text{Avg. Principal Balance}})}{\\text{Number Of Billing Cycles}})*\\text{Billing Cycles Per Year}*100$$',
     max: 4.05,
     min: .836,
-    subTitle: 'on Mobiloans Credit Advanced',
-    summary: 'This APR will vary based on the amount of the line of credit and the maximum number of billing cycles available for payment. Below are examples of some of our credit amounts with their respective APR.',
-    title: 'Annual Percentage Rate',
   }
   const charges = [
     {amount: 0, max: 10, min: 0},
