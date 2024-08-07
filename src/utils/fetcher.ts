@@ -1,10 +1,12 @@
 
 export class Fetcher {
   private host: string
+  private mode: RequestMode
   private token?: string
 
-  constructor(host: string = 'https://www.mobiloans.com') {
+  constructor(host: string = 'https://www.mobiloans.com', mode: RequestMode = 'cors') {
     this.host = host
+    this.mode = mode
   }
 
   private headers(): Headers {
@@ -20,7 +22,13 @@ export class Fetcher {
     //  https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects
     if (body && body instanceof FormData) headers.delete('Content-Type')
 
-    const response: Response = await fetch(`${this.host}${route}`, {headers, method})
+    const init: RequestInit = {
+      headers,
+      method,
+      mode: this.mode,
+    }
+
+    const response: Response = await fetch(`${this.host}${route}`, init)
     if (!response.ok) Promise.reject(new Error(`${response.status} ${response.statusText}`))
     return await response.json()
   }

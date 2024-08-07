@@ -599,8 +599,9 @@ declare class Extractor {
 
 declare class Fetcher {
     private host;
+    private mode;
     private token?;
-    constructor(host?: string);
+    constructor(host?: string, mode?: RequestMode);
     private headers;
     private request;
     auth(token: string): void;
