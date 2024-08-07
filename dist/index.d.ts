@@ -597,6 +597,20 @@ declare class Extractor {
     static styles(props: Styles): Array<string>;
 }
 
+declare class Fetcher {
+    private host;
+    private token?;
+    constructor(host?: string);
+    private headers;
+    private request;
+    auth(token: string): void;
+    deauth(): void;
+    del<T>(route: string): Promise<T>;
+    get<T>(route: string): Promise<T>;
+    post<T>(route: string, body?: BodyInit): Promise<T>;
+    put<T>(route: string, body: BodyInit): Promise<T>;
+}
+
 declare class Formatter {
     static _currency: Intl.NumberFormat;
     static _percentage: Intl.NumberFormat;
@@ -614,4 +628,4 @@ declare function validateMax(max: number, value: number | string): boolean;
 declare function validateMin(min: number, value: number | string): boolean;
 declare function validateRegEx(regex: RegExp, value: number | string): boolean;
 
-export { type APR, type APRsMetaProps, type APRsProps, APRsTable, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, type Alignments, type Amount, type AmountsMetaProps, type AmountsProps, AmountsTable, Animation, type Arrangements, Background, type BackgroundProps, Badge, type BadgeProps, type Behaviors, Body, type BodyProps, type Breakdown, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type Charge, type ChargesMetaProps, type ChargesProps, ChargesTable, Checkbox, type CheckboxProps, type Column, type Context, type Contexts, type Dimensions, type Directions, Divider, type DividerProps, Extractor, type Fee, type FeesMetaProps, type FeesProps, FeesTable, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Formatter, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, Icons, Image, type ImageProps, Input, type InputProps, type Justifications, type Justify, Label, type LabelProps, type Lines, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, type Locations, Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, type Orientations, Pagination, type PaginationProps, type Position, type Positions, Radio, type RadioProps, Renderer, type Role, type Roles, Schumer, type SchumerProps, Select, type SelectProps, type Sizes, type Spacings, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, type Styles, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };
+export { type APR, type APRsMetaProps, type APRsProps, APRsTable, Accordion, AccordionItem, type AccordionItemProps, type AccordionProps, type Align, type Alignments, type Amount, type AmountsMetaProps, type AmountsProps, AmountsTable, Animation, type Arrangements, Background, type BackgroundProps, Badge, type BadgeProps, type Behaviors, Body, type BodyProps, type Breakdown, Button, type ButtonProps, Card, type CardProps, Carousel, CarouselItem, type CarouselItemProps, type CarouselProps, type Charge, type ChargesMetaProps, type ChargesProps, ChargesTable, Checkbox, type CheckboxProps, type Column, type Context, type Contexts, type Dimensions, type Directions, Divider, type DividerProps, Extractor, type Fee, type FeesMetaProps, type FeesProps, FeesTable, Fetcher, type Field, Flex, type FlexProps, Footer, type FooterProps, Form, type FormData, type FormProps, Formatter, Grid, GridArea, type GridAreaProps, type GridProps, H1, H2, H3, H4, H5, H6, Header, type HeaderProps, type HeadingProps, Hero, type HeroProps, Highlight, type HighlightProps, Icon, type IconProps, Icons, Image, type ImageProps, Input, type InputProps, type Justifications, type Justify, Label, type LabelProps, type Lines, Link, type LinkProps, List, ListItem, type ListItemProps, type ListProps, type Locations, Math, type MathProps, Modal, type ModalProps, Navigation, NavigationLink, type NavigationLinkProps, type NavigationProps, Notification, type NotificationProps, Option, type OptionProps, type Orientations, Pagination, type PaginationProps, type Position, type Positions, Radio, type RadioProps, Renderer, type Role, type Roles, Schumer, type SchumerProps, Select, type SelectProps, type Sizes, type Spacings, Stepper, StepperItem, type StepperItemProps, type StepperProps, type Style, type Styles, Table, type TableProps, Text, type TextProps, Textarea, type TextareaProps, Tooltip, type TooltipProps, isBoolean, isNumber, isString, random, validateMax, validateMin, validateRegEx };

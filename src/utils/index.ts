@@ -1,6 +1,7 @@
 
 export * from './checker'
 export * from './extractor'
+export * from './fetcher'
 export * from './formatter'
 export * from './random'
 export * from './renderer'
