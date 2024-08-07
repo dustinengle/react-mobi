@@ -20,7 +20,7 @@ export class Fetcher {
     const headers = this.headers()
     // Remove the content type to allow for the web browser to set it.
     //  https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects
-    if (body && body instanceof FormData) headers.delete('Content-Type')
+    if (body && body instanceof FormData) headers.set('Content-Type', 'application/x-www-form-urlencoded')
 
     const init: RequestInit = {
       body,
