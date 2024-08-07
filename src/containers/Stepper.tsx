@@ -65,9 +65,9 @@ export function Stepper({
 
   const next: ReactNode = index < children.length - 1
     ? <Button
-        callback={() => {
+        callback={async () => {
           if (activeChild.props.callback) {
-            handleCallback(activeChild.props.callback() ? 1 : 0)
+            handleCallback(await activeChild.props.callback() ? 1 : 0)
           } else {
             handleCallback(1)
           }
@@ -105,7 +105,7 @@ export function Stepper({
 }
 
 export interface StepperItemProps {
-  callback?: () => boolean
+  callback?: () => Promise<boolean>
   callbackLabel?: string
   children: ReactNode
   title?: string

@@ -50,6 +50,10 @@ function App() {
   }
 
   // We use this simple callback to avoid prop validation errors.
+  async function asyncCallback() {
+    alert('Asynchronous callback fired!')
+    return true
+  }
   function callbackTest() {
     alert('You clicked me!')
   }
@@ -907,7 +911,7 @@ function App() {
               <H3>Step Two</H3>
               Donec cursus arcu sed nisl ullamcorper egestas. Aenean sodales rhoncus lacus. Fusce vulputate tempor nisi, sed volutpat quam blandit at. Suspendisse varius blandit mi sed viverra. Proin congue massa sem, in vehicula nulla lacinia at. Phasellus in sapien bibendum, sodales sapien eget, lacinia orci. Proin molestie auctor ipsum quis molestie. Nulla id est posuere, pretium neque id, bibendum massa. Nulla interdum urna a elit convallis, eu facilisis tellus accumsan. Aliquam sed tempor diam, ut consequat ligula. Pellentesque maximus vehicula justo, ut maximus nisi luctus eu. Fusce rhoncus sed libero ac facilisis. Fusce et dui diam. Quisque venenatis hendrerit sapien sed tincidunt. Sed vel tellus nulla.
             </StepperItem>
-            <StepperItem callback={() => { alert('Step 3 callback'); return true }} callbackLabel='Keep going' title='One more item'>
+            <StepperItem callback={asyncCallback} callbackLabel='Keep going' title='One more item'>
               <H3>Step Three</H3>
               Vestibulum feugiat lacus non sapien gravida congue. Praesent ut lobortis ipsum. Ut congue, nulla at ornare malesuada, ex mi imperdiet diam, eu eleifend lacus libero in ante. Pellentesque mollis, neque eget vestibulum pellentesque, arcu turpis convallis urna, vel sodales libero turpis nec nibh. In id sagittis mauris. Cras blandit justo nec magna accumsan, nec viverra est auctor. Phasellus non malesuada est, nec sagittis velit. Sed rhoncus varius fringilla. Nulla aliquet egestas ornare.
             </StepperItem>

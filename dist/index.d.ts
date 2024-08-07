@@ -390,7 +390,7 @@ interface StepperProps {
 }
 declare function Stepper({ children, finish, finishLabel, nextLabel, prevLabel, ...props }: StepperProps): react_jsx_runtime.JSX.Element;
 interface StepperItemProps {
-    callback?: () => boolean;
+    callback?: () => Promise<boolean>;
     callbackLabel?: string;
     children: ReactNode;
     title?: string;
