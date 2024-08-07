@@ -23,11 +23,12 @@ export class Fetcher {
     if (body && body instanceof FormData) headers.delete('Content-Type')
 
     const init: RequestInit = {
+      body,
       headers,
       method,
       mode: this.mode,
     }
-
+    console.log(method, route, body, init)
     const response: Response = await fetch(`${this.host}${route}`, init)
     console.log(response)
     if (!response.ok) return Promise.reject(new Error(`${response.status} ${response.statusText}`))
