@@ -15,7 +15,7 @@ export function Navigation({children, logo, ...props}: NavigationProps) {
       aria-label='Main'
       className='navigation'
       role='navigation'>
-      <Flex between row>
+      <Flex between gap='1rem' row>
         <a className='logo' href='/'>
           <Image alt='Logo' src={logo} />
         </a>
